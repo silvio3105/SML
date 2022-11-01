@@ -40,7 +40,7 @@ This License shall be included in all functional textual files.
 // ----- MACRO FUNCTIONS
 // MATH FUNCTIONS
 /**
- * @brief Code snippet for mapping value.
+ * @brief Code snippet for scaling value.
  * 
  * @param _in Input value.
  * @param _inMin Input minimum value.
@@ -48,29 +48,29 @@ This License shall be included in all functional textual files.
  * @param _outMin Output minimum value.
  * @param _outMax Output maximum value.
  */
-#define _sSTD_MAP(_in, _inMin, _inMax, _outMin, _outMax) \
+#define _sSTD_SCALE(_in, _inMin, _inMax, _outMin, _outMax) \
 	(_in - _inMin) * (_outMax - _outMin) / (_inMax - _inMin) + _outMin
 
 /**
- * @brief Find lowest value between 2 input values.
+ * @brief Code snippet for finding lowest value between 2 input values.
  * 
  * @param _in1 Input value 1.
  * @param _in2 Input value 2.
  */
-#define _sSTD_MIN2(_in1, _in2, _in3) \
+#define _sSTD_MIN2(_in1, _in2) \
 	(_in1 < _in2) ? _in1 : _in2
 
 /**
- * @brief Find greatest value between 2 input values.
+ * @brief Code snippet for finding greatest value between 2 input values.
  * 
  * @param _in1 Input value 1.
  * @param _in2 Input value 2.
  */
-#define _sSTD_MAX2(_in1, _in2, _in3) \
+#define _sSTD_MAX2(_in1, _in2) \
 	(_in1 > _in2) ? _in1 : _in2
 
 /**
- * @brief Find lowest value between 3 input values.
+ * @brief Code snippet for finding lowest value between 3 input values.
  * 
  * @param _in1 Input value 1.
  * @param _in2 Input value 2.
@@ -80,7 +80,7 @@ This License shall be included in all functional textual files.
 	(_in1 < _in2) ? (_in1 < _in3 ? _in1 : _in3) : (_in2 < _in3 ? _in2 : _in3)
 
 /**
- * @brief Find greatest value between 3 input values.
+ * @brief Code snippet for finding greatest value between 3 input values.
  * 
  * @param _in1 Input value 1.
  * @param _in2 Input value 2.
@@ -141,27 +141,133 @@ This License shall be included in all functional textual files.
 	_value ^= 1 << _bit
 
 
-// ----- STRUCTS
-struct sScanData { /**< sScan result data struct. */
-	char *data;
-	uint16_t len;
-};
-
-
-// ----- CLASSES
-class sScanResult { /**< Class for \ref sScan result. */
-	// PUBLIC STUFF
-	public:
-
-
-	// PRIVATE STUFF
-	private:
-	sScanData data;
-};
+#ifdef __cplusplus
 
 // ----- NAMESPACES
 namespace sStd /**< @brief Namespace for sStd. */
 {
+	// STRUCTS
+
+	struct scanData {
+		sStd::Data<char> output; /**< \c char type output data. */
+		char sepBegin; /**< Begin separator before wanted parameter. */
+		uint8_t sepCntBegin; /**< Number of \c sepBegin before wanted parameter. */
+		char sepEdn; /**< End separator after wanted parameter. */
+		uint8_t sepCntEnd; /**< Number of \c sepEdn after wanted parameter is found. */
+	};
+
+	// CLASSES
+	template<typename T>
+	/**
+	 * @brief Class representing data \c T with \c len
+	 * 
+	 * @warning Maximum data length is 2^16!
+	 */
+	class Data {
+		// PUBLIC STUFF
+		public:
+		// CONSTRUCTORS & DECONSTRUCTORS
+		/**
+		 * @brief Constructor for \c Data object.
+		 * 
+		 * @return No return value.
+		 */
+		Data(void);
+
+		/**
+		 * @brief Deconstructor for \c Data object.
+		 * 
+		 * @return No return value.
+		 */
+		~Data(void);
+
+		// METHODS DECLARATIONS
+		/**
+		 * @brief Get address of the data.
+		 * 
+		 * @return Pointer to data.
+		 */
+		inline T* get(void) const;
+
+		/**
+		 * @brief Set new data.
+		 * 
+		 * @param newData Pointer to new data.
+		 * @param newLen Length of new data.
+		 * @return No return value.
+		 */
+		void set(T* newData, uint16_t newLen);
+
+		/**
+		 * @brief Get length of data.
+		 * 
+		 * @return Data's length.
+		 */
+		inline uint16_t len(void) const;
+
+		// PRIVATE STUFF
+		private:
+		T* dataAddr; /**< Pointer to address where data is stored. */
+		uint16_t length; /**< Length of \ref dataAddr. */
+	};
+
+
+	// MATH FUNCTIONS
+	template<typename T>
+	/**
+	 * @brief Scale input value to desired output value range.
+	 * 
+	 * @param in Input value.
+	 * @param inMin Input minimum value.
+	 * @param inMax Input maximum value.
+	 * @param outMin Output minimum value.
+	 * @param outMax Output maximum value.
+	 * @return \c in value scaled to fit range defined with \c outMin and \c outMax
+	 */
+	T scale(T in, T inMin, T inMax, T outMin, T outMax);
+
+	template<typename T>
+	/**
+	 * @brief Find lowest value between 2 input values.
+	 * 
+	 * @param in1 Input value 1.
+	 * @param in2 Input value 2.
+	 * @return Lowest value between \c in1 and \c in2
+	 */
+	T min2(T in1, T in2);
+
+	template<typename T>
+	/**
+	 * @brief Find greatest value between 2 input values.
+	 * 
+	 * @param in1 Input value 1.
+	 * @param in2 Input value 2.
+	 * @return Greatest value between \c in1 and \c in2
+	 */	
+	T max2(T in1, T in2);
+
+	template<typename T>
+	/**
+	 * @brief Find lowest value between 3 input values.
+	 * 
+	 * @param in1 Input value 1.
+	 * @param in2 Input value 2.
+	 * @param in3 Input value 3.
+	 * @return Lowest value between \c in1 \c in2 and \c in3
+	 */			
+	T min3(T in1, T in2, T in3);
+
+	template<typename T>
+	/**
+	 * @brief Find greatest value between 3 input values.
+	 * 
+	 * @param in1 Input value 1.
+	 * @param in2 Input value 2.
+	 * @param in3 Input value 3.
+	 * @return Greatest value between \c in1 \c in2 and \c in3
+	 */		
+	T max3(T in1, T in2, T in3);	
+
 	// STRING MANIPULATION FUNCTIONS DECLARATIONS
 	/**
 	 * @brief Replace desired character with NULL character.
@@ -175,26 +281,71 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 */
 	char* tok(char* input, char separator);
 
+	/**
+	 * @brief Find length of input C-string.
+	 * 
+	 * @param input Pointer to C-string.
+	 * @param endChar Character that marks end of C-string.
+	 * @return Length of C-string.
+	 * 
+	 * @note By default, parameter \c endChar is set to \c \0 which is standard character for ending C-strings.
+	 */
+	uint16_t len(char* input, char endChar = '\0');
+
 	// STRING SCAN FUNCTIONS DECLARATIONS
 	/**
-	 * @brief Scan C-string and finds start of wanted parameter. 
+	 * @brief Scan C-string for wanted parameter. 
 	 * 
 	 * This function is replacment for scanf function. C-string format must be known to use this function. Function does not modify C-string.
-	 * For example C-string: \c test1,test2,hello,test123 and call \c sScan(string,',',2,output), output.data will be pointing at letter 'h' and output.len will be 5.
-	 * Parameter \c 2 because there are two separators before wanted token. \c output.len is 5 because text \c hello is 5 letters long before new separator is found.
-	 * If next function was called: \c sScan(string,',',3,output), then output.data will point to start of \c test123 text and output.len will be 7 because text is 7 characters long before NULL charater is found(end of C-string).
+	 * Example #1
+	 * C-string \c test1-test2.hello,test123 and call \c sscan(string,'.',0,'\0',0,output) output will be pointing at letter 'h' and length will be 13. Output C-string will be \c hello,test123
+	 * 
+	 * Example #2
+	 * C-string \c test1,test2-test3-test4.test5,test6 and call \c sscan(string,'-',1,',',0,output) output C-string will be \c test4.test5 length will be 11.
+	 * \c 1 because there is 1 \c - before wanted parameter, dash between \c test2 and \c test3
+	 * \c 0 because there is 0 \c , after first separator is found.
+	 * See example code for more info.
 	 * 
 	 * @param input Pointer to first character in C-string.
-	 * @param separator Character used as separator between tokens.
-	 * @param separatorCnt Number of separators before wanted token.
-	 * @param output Reference to scan data output struct. 
-	 * @return SSTD_NOK if no token was found.
-	 * @return SSTD_OK if token was found.
+	 * @param sepBegin Character used as separator before wanted parameter.
+	 * @param sepCntBegin Number of separators before wanted token.
+	 * @param sepEnd Character used as separator after wanted parameter.
+	 * @param sepCntEnd Number of separators after wanted parameter is found.
+	 * @param output Reference to char output data. 
+	 * @return \c SSTD_NOK if no token was found.
+	 * @return \c SSTD_OK if token was found.
 	 * 
+	 * @warning This function works only with \c char types!
 	 * @note C-string has to be NULL terminated.
+	 * @note Function scans from left to right.
 	 */
-	uint8_t scan(char* input, char separator, uint8_t separatorCnt, sScanData& output);
+	uint8_t sscan(char* input, char sepBegin, uint8_t sepCntBegin, sStd::Data<char>& output);
+
+	/**
+	 * @brief Scan C-string for wanted parameters.
+	 * 
+	 * This function works same as \ref uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data<char>& output)
+	 * Only difference is that this function can scan for multiple parameters.
+	 * If output result is \c nullptr then wanted parameter was not found.
+	 * See example code for more info.
+	 * 
+	 * @param input Pointer to first character in C-string.
+	 * @param data Reference to input-output data list.
+	 * @return \c SSTD_NOK if no tokens were found.
+	 * @return \c SSTD_OK if at least one token was found.
+	 * 
+	 * @warning This function works only with \c char types!
+	 * @note \c data list does not have to be sorted since this function depends on \ref uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data<char>& output) and it will start from beginning for every entry in \c data
+	 * @note C-string has to be NULL terminated.
+	 * @note Function scans from left to right.
+	 */
+	uint8_t sscan(char* input, scanData& data);
 };
+
+#pragma message ("Using full sStd.") 
+#else
+#pragma message ("Missing C++ part of sStd.") 
+#endif // __cplusplus
 
 /** @}*/
 

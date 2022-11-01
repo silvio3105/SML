@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scan_0',['scan',['../namespaces_std.html#a26171c6d04f88b4b0de03a746ffe5185',1,'sStd']]]
+  ['data_0',['Data',['../classs_std_1_1_data.html#a02c1eb37dc61b724b0cf76e3749e2dd3',1,'sStd::Data']]]
 ];

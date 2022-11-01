@@ -1,11 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "_dst",
-  1: "s",
+  0: "_dglmost~",
+  1: "ds",
   2: "s",
   3: "s",
-  4: "st",
-  5: "d",
+  4: "dglmst~",
+  5: "os",
   6: "s",
   7: "s"
 };
