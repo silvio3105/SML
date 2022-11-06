@@ -137,7 +137,51 @@ uint16_t sStd::len(char* input, char endChar = '\0')
 
 
 // STRING SCAN FUNCTIONS DEFINITIONS
+uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output)
+{
+	char* start = findToken(input, sepBegin, sepCntBegin);
 
+	// If start of the token was not found
+	if (!start)
+	{
+		// Set data to nullptr and 0 length and return not OK status
+		output.set(nullptr, 0);
+		return SSTD_NOK;
+	}
+	else if (*(start + 1)) // If next character is not \0
+	{
+		// Move start to next character
+		start++;
+		
+		// Set output data to start address and end - start length
+		output.set(start, findToken(start, sepEnd, sepCntEnd) - start);
+		return SSTD_OK;
+	}
+
+	return SSTD_NOK;
+}
+
+
+// STATIC FUNCTION DEFINITIONS
+static char* sStd::findToken(char* input, char sep, char sepCnt)
+{
+	// If character is not \0
+	while (*input) 
+	{
+		// If wanted character is found
+		if (*input == sep)
+		{
+			// If that is wanted separator
+			if (!sepCnt) return input;
+				else sepCnt--;
+		}
+
+		// Move to next character
+		input++;		
+	}
+
+	return input;
+}
 
 
 // ----- FUNCTION DEFINITIONS

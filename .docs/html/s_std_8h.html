@@ -140,6 +140,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ga9367edb6ad1db310451eb08bfc6e1755"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga9367edb6ad1db310451eb08bfc6e1755">SSTD_NOK</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga9367edb6ad1db310451eb08bfc6e1755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negative return code.  <a href="group__s_std.html#ga9367edb6ad1db310451eb08bfc6e1755">More...</a><br /></td></tr>
+<tr class="separator:ga9367edb6ad1db310451eb08bfc6e1755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb36aae88c1a231c5bf190fb972ce3c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6">SSTD_OK</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:gacb36aae88c1a231c5bf190fb972ce3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positive return code.  <a href="group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6">More...</a><br /></td></tr>
+<tr class="separator:gacb36aae88c1a231c5bf190fb972ce3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaa82335f8353b0611de46bf419cbb154"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gaaa82335f8353b0611de46bf419cbb154">_sSTD_SCALE</a>(_in,  _inMin,  _inMax,  _outMin,  _outMax)&#160;&#160;&#160;	(_in - _inMin) * (_outMax - _outMin) / (_inMax - _inMin) + _outMin</td></tr>
 <tr class="memdesc:gaaa82335f8353b0611de46bf419cbb154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for scaling value.  <a href="group__s_std.html#gaaa82335f8353b0611de46bf419cbb154">More...</a><br /></td></tr>
 <tr class="separator:gaaa82335f8353b0611de46bf419cbb154"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,9 +173,9 @@ Macros</h2></td></tr>
 <tr class="memitem:gad0af4030755b6b89d34af92058fce74d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gad0af4030755b6b89d34af92058fce74d">_sSTD_BBIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; _bit)) &gt;&gt; _bit</td></tr>
 <tr class="memdesc:gad0af4030755b6b89d34af92058fce74d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch <code>_bit</code> from <code>_value</code>.  <a href="group__s_std.html#gad0af4030755b6b89d34af92058fce74d">More...</a><br /></td></tr>
 <tr class="separator:gad0af4030755b6b89d34af92058fce74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga45c0413aa2bc03d2753ca3e420caffdb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga45c0413aa2bc03d2753ca3e420caffdb">_sSTD_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; _bit</td></tr>
-<tr class="memdesc:ga45c0413aa2bc03d2753ca3e420caffdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle <code>_bit</code> in <code>_value</code>.  <a href="group__s_std.html#ga45c0413aa2bc03d2753ca3e420caffdb">More...</a><br /></td></tr>
-<tr class="separator:ga45c0413aa2bc03d2753ca3e420caffdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad52068239e1b7442cb060f96b2f5ce7e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gad52068239e1b7442cb060f96b2f5ce7e">_sSTD_BIT_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; _bit</td></tr>
+<tr class="memdesc:gad52068239e1b7442cb060f96b2f5ce7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle <code>_bit</code> in <code>_value</code>.  <a href="group__s_std.html#gad52068239e1b7442cb060f96b2f5ce7e">More...</a><br /></td></tr>
+<tr class="separator:gad52068239e1b7442cb060f96b2f5ce7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -199,9 +205,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ad83f7eaa71193300e047d455bcc878c3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">sStd::len</a> (char *input, char endChar='\0')</td></tr>
 <tr class="memdesc:ad83f7eaa71193300e047d455bcc878c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find length of input C-string.  <a href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">More...</a><br /></td></tr>
 <tr class="separator:ad83f7eaa71193300e047d455bcc878c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad82a1cbb2b72be120ac481befd2535b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#aad82a1cbb2b72be120ac481befd2535b">sStd::sscan</a> (char *input, char sepBegin, uint8_t sepCntBegin, <a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; char &gt; &amp;output)</td></tr>
-<tr class="memdesc:aad82a1cbb2b72be120ac481befd2535b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted parameter.  <a href="namespaces_std.html#aad82a1cbb2b72be120ac481befd2535b">More...</a><br /></td></tr>
-<tr class="separator:aad82a1cbb2b72be120ac481befd2535b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">sStd::sscan</a> (char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, <a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; char &gt; &amp;output)</td></tr>
+<tr class="memdesc:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted parameter.  <a href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">More...</a><br /></td></tr>
+<tr class="separator:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a89364dc2c182651a68242cb10e05f2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a5a89364dc2c182651a68242cb10e05f2">sStd::sscan</a> (char *input, scanData &amp;data)</td></tr>
 <tr class="memdesc:a5a89364dc2c182651a68242cb10e05f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted parameters.  <a href="namespaces_std.html#a5a89364dc2c182651a68242cb10e05f2">More...</a><br /></td></tr>
 <tr class="separator:a5a89364dc2c182651a68242cb10e05f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,7 +226,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8h.html">sStd.h</a></li>
-    <li class="footer">Generated on Tue Nov 1 2022 22:53:01 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sun Nov 6 2022 21:50:39 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

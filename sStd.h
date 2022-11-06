@@ -37,6 +37,12 @@ This License shall be included in all functional textual files.
  * @{
 */
 
+// ----- MACRO DEFINITIONS
+// RETURN CODES
+#define SSTD_NOK			0 /**< @brief Negative return code. */
+#define SSTD_OK				1 /**< @brief Positive return code. */
+
+
 // ----- MACRO FUNCTIONS
 // MATH FUNCTIONS
 /**
@@ -137,7 +143,7 @@ This License shall be included in all functional textual files.
  * @param _value Input value.
  * @param _bit Bit number of \c _value to toggle.
  */
-#define _sSTD_TOGGLE(_value, _bit) \
+#define _sSTD_BIT_TOGGLE(_value, _bit) \
 	_value ^= 1 << _bit
 
 
@@ -303,7 +309,7 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * Example #2
 	 * C-string \c test1,test2-test3-test4.test5,test6 and call \c sscan(string,'-',1,',',0,output) output C-string will be \c test4.test5 length will be 11.
 	 * \c 1 because there is 1 \c - before wanted parameter, dash between \c test2 and \c test3
-	 * \c 0 because there is 0 \c , after first separator is found.
+	 * \c 0 because there is 0 \c , after first separator is found(dash).
 	 * See example code for more info.
 	 * 
 	 * @param input Pointer to first character in C-string.
@@ -319,7 +325,7 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * @note C-string has to be NULL terminated.
 	 * @note Function scans from left to right.
 	 */
-	uint8_t sscan(char* input, char sepBegin, uint8_t sepCntBegin, sStd::Data<char>& output);
+	uint8_t sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output);
 
 	/**
 	 * @brief Scan C-string for wanted parameters.
@@ -332,7 +338,7 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * @param input Pointer to first character in C-string.
 	 * @param data Reference to input-output data list.
 	 * @return \c SSTD_NOK if no tokens were found.
-	 * @return \c SSTD_OK if at least one token was found.
+	 * @return Number of found tokens.
 	 * 
 	 * @warning This function works only with \c char types!
 	 * @note \c data list does not have to be sorted since this function depends on \ref uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data<char>& output) and it will start from beginning for every entry in \c data
@@ -340,6 +346,20 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * @note Function scans from left to right.
 	 */
 	uint8_t sscan(char* input, scanData& data);
+
+
+
+	// STATIC FUNCTIONS
+	/**
+	 * @brief Find separator in C-string.
+	 * 
+	 * @param input Pointer to input C-string.
+	 * @param sep Seperator character.
+	 * @param sepCnt Number of separators before end of token.
+	 * @return \c nullptr if no token was found.
+	 * @return Address of last found separator.
+	 */
+	static char* findToken(char* input, char sep, char sepCnt);
 };
 
 #pragma message ("Using full sStd.") 
