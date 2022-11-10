@@ -4,5 +4,5 @@ var structs_std_1_1scan_data =
     [ "sepBegin", "structs_std_1_1scan_data.html#a56da836a08469771f68818e2c9a46e14", null ],
     [ "sepCntBegin", "structs_std_1_1scan_data.html#a2b4eac73060dc34a411a1f6cae56e880", null ],
     [ "sepCntEnd", "structs_std_1_1scan_data.html#ae3baee4c8165b3bee73d8ce2266045f8", null ],
-    [ "sepEdn", "structs_std_1_1scan_data.html#a9af883149e2048c8e7fa0be2e81ce33a", null ]
+    [ "sepEnd", "structs_std_1_1scan_data.html#a2d32b6458494f298a8ee4547526441fe", null ]
 ];

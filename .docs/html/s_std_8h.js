@@ -1,7 +1,7 @@
 var s_std_8h =
 [
-    [ "sStd::scanData", "structs_std_1_1scan_data.html", "structs_std_1_1scan_data" ],
     [ "sStd::Data< T >", "classs_std_1_1_data.html", "classs_std_1_1_data" ],
+    [ "sStd::scanData", "structs_std_1_1scan_data.html", "structs_std_1_1scan_data" ],
     [ "_sSTD_BBIT", "group__s_std.html#gad0af4030755b6b89d34af92058fce74d", null ],
     [ "_sSTD_BIT", "group__s_std.html#ga7461ca18c1096d1de4f3c361e1617836", null ],
     [ "_sSTD_BIT_CLEAR", "group__s_std.html#ga632ec05c3093a8abaef98db47da65f10", null ],
@@ -21,6 +21,6 @@ var s_std_8h =
     [ "min3", "s_std_8h.html#ae264470ee63b12d7fcb88db5522bdad6", null ],
     [ "scale", "s_std_8h.html#ab80208f2b31ea63d59b190a8eee53db0", null ],
     [ "sscan", "s_std_8h.html#ae8703d678b78d08fdecc2c5b3ef9c7a7", null ],
-    [ "sscan", "s_std_8h.html#a5a89364dc2c182651a68242cb10e05f2", null ],
+    [ "sscan", "s_std_8h.html#adc7ca26bbf269572942843128bf797d2", null ],
     [ "tok", "s_std_8h.html#ad6fd9749309696918cc56bd1bcfdb84b", null ]
 ];

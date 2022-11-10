@@ -1,4 +1,5 @@
 <map id="sStd::Data::set" name="sStd::Data::set">
-<area shape="rect" id="node1" title="Set new data." alt="" coords="145,5,256,31"/>
-<area shape="rect" id="node2" href="$namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7" title="Scan C&#45;string for wanted parameter." alt="" coords="5,5,97,31"/>
+<area shape="rect" id="node1" title="Set new data." alt="" coords="327,13,437,38"/>
+<area shape="rect" id="node2" href="$namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7" title="Scan C&#45;string for wanted token." alt="" coords="187,13,279,38"/>
+<area shape="rect" id="node3" href="$classs_std_1_1_data.html#ae5149bf4add718204db521be85c17a05" title="Deconstructor for Data object." alt="" coords="5,5,139,45"/>
 </map>

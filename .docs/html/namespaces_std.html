@@ -138,11 +138,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad83f7eaa71193300e047d455bcc878c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find length of input C-string.  <a href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">More...</a><br /></td></tr>
 <tr class="separator:ad83f7eaa71193300e047d455bcc878c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">sscan</a> (char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, <a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; char &gt; &amp;output)</td></tr>
-<tr class="memdesc:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted parameter.  <a href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">More...</a><br /></td></tr>
+<tr class="memdesc:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted token.  <a href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">More...</a><br /></td></tr>
 <tr class="separator:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a89364dc2c182651a68242cb10e05f2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a5a89364dc2c182651a68242cb10e05f2">sscan</a> (char *input, <a class="el" href="structs_std_1_1scan_data.html">scanData</a> &amp;data)</td></tr>
-<tr class="memdesc:a5a89364dc2c182651a68242cb10e05f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted parameters.  <a href="namespaces_std.html#a5a89364dc2c182651a68242cb10e05f2">More...</a><br /></td></tr>
-<tr class="separator:a5a89364dc2c182651a68242cb10e05f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc7ca26bbf269572942843128bf797d2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#adc7ca26bbf269572942843128bf797d2">sscan</a> (char *input, <a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a> *data, const uint8_t <a class="el" href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">len</a>)</td></tr>
+<tr class="memdesc:adc7ca26bbf269572942843128bf797d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted tokens.  <a href="namespaces_std.html#adc7ca26bbf269572942843128bf797d2">More...</a><br /></td></tr>
+<tr class="separator:adc7ca26bbf269572942843128bf797d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Namespace for <a class="el" href="namespaces_std.html" title="Namespace for sStd.">sStd</a>. </p>
@@ -186,6 +186,15 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>By default, parameter <code>endChar</code> is set to <code>\0</code> which is standard character for ending C-strings. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00126">126</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaces_std_ad83f7eaa71193300e047d455bcc878c3_icgraph.png" border="0" usemap="#anamespaces_std_ad83f7eaa71193300e047d455bcc878c3_icgraph" alt=""/></div>
+<map name="anamespaces_std_ad83f7eaa71193300e047d455bcc878c3_icgraph" id="anamespaces_std_ad83f7eaa71193300e047d455bcc878c3_icgraph">
+<area shape="rect" title="Find length of input C&#45;string." alt="" coords="187,13,261,38"/>
+<area shape="rect" href="classs_std_1_1_data.html#ae5149bf4add718204db521be85c17a05" title="Deconstructor for Data object." alt="" coords="5,5,139,45"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -474,16 +483,18 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Scan C-string for wanted parameter. </p>
-<p >This function is replacment for scanf function. C-string format must be known to use this function. Function does not modify C-string. Example #1 C-string <code>test1-test2.hello</code>,test123 and call <code>sscan</code>(string,'.',0,'\0',0,output) output will be pointing at letter 'h' and length will be 13. Output C-string will be <code>hello</code>,test123</p>
-<p >Example #2 C-string <code>test1</code>,test2-test3-test4.test5,test6 and call <code>sscan</code>(string,'-',1,',',0,output) output C-string will be <code>test4.test5</code> length will be 11. <code>1</code> because there is 1 <code>-</code> before wanted parameter, dash between <code>test2</code> and <code>test3</code> <code>0</code> because there is 0 <code></code>, after first separator is found(dash). See example code for more info.</p>
+<p>Scan C-string for wanted token. </p>
+<p >This function is replacment for scanf function. C-string format must be known to use this function. Function does not modify C-string. Function returns <code>SSTD_OK</code> and result even if <code>\0</code> is encountered during searching for token's end. Set <code>\0</code> as first separator to indicate that wanted token starts from begining of input C-string.</p>
+<p >Example #1 C-string <code>test1-test2.hello</code>,test123 and call <code>sscan</code>(string,'.',0,'\0',0,output) -&gt; output will be pointing at letter <code>h</code> and length will be 13. Output C-string will be <code>hello</code>,test123</p>
+<p >Example #2 C-string <code>test1</code>,test2-test3-test4.test5,test6 and call <code>sscan</code>(string,'-',1,',',0,output) -&gt; output C-string will be <code>test4.test5</code> length will be 11. <code>1</code> because there is <code>1</code> <code>-</code> before wanted token, dash between <code>test2</code> and <code>test3</code> <code>0</code> because there is <code>0</code> <code></code>, after <code>sepBegin</code> </p>
+<p >Example #3 C-string <code>test1</code>,test2,test3-test4.test5,test6 and call <code>sscan</code>(string,'\0',0,',',1,output) -&gt; output C-string will be <code>test1</code>,test2 length will be 11. <code>\0</code> as begin separator indicates that wanted token starts from begining. In that case, <code>sepCntBegin</code> parameter makes no effect. See example code for more info.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Pointer to first character in C-string. </td></tr>
-    <tr><td class="paramname">sepBegin</td><td>Character used as separator before wanted parameter. </td></tr>
+    <tr><td class="paramname">sepBegin</td><td>Character used as separator before wanted token. </td></tr>
     <tr><td class="paramname">sepCntBegin</td><td>Number of separators before wanted token. </td></tr>
-    <tr><td class="paramname">sepEnd</td><td>Character used as separator after wanted parameter. </td></tr>
-    <tr><td class="paramname">sepCntEnd</td><td>Number of separators after wanted parameter is found. </td></tr>
+    <tr><td class="paramname">sepEnd</td><td>Character used as separator after wanted token. </td></tr>
+    <tr><td class="paramname">sepCntEnd</td><td>Number of separators after wanted token is found. </td></tr>
     <tr><td class="paramname">output</td><td>Reference to char output data. </td></tr>
   </table>
   </dd>
@@ -491,7 +502,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><code>SSTD_NOK</code> if no token was found. </dd>
 <dd>
 <code>SSTD_OK</code> if token was found.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>This function works only with <code>char</code> types! </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd><code>sepCntBegin</code> and <code>sepCntEnd</code> start from 0! </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>C-string has to be NULL terminated. </dd>
 <dd>
 Function scans from left to right. </dd></dl>
@@ -502,15 +513,24 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_cgraph.png" border="0" usemap="#anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_cgraph" alt=""/></div>
 <map name="anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_cgraph" id="anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_cgraph">
-<area shape="rect" title="Scan C&#45;string for wanted parameter." alt="" coords="5,5,97,31"/>
+<area shape="rect" title="Scan C&#45;string for wanted token." alt="" coords="5,5,97,31"/>
 <area shape="rect" href="classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc" title="Set new data." alt="" coords="145,5,256,31"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_icgraph.png" border="0" usemap="#anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_icgraph" alt=""/></div>
+<map name="anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_icgraph" id="anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_icgraph">
+<area shape="rect" title="Scan C&#45;string for wanted token." alt="" coords="187,13,279,38"/>
+<area shape="rect" href="classs_std_1_1_data.html#ae5149bf4add718204db521be85c17a05" title="Deconstructor for Data object." alt="" coords="5,5,139,45"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a5a89364dc2c182651a68242cb10e05f2" name="a5a89364dc2c182651a68242cb10e05f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a89364dc2c182651a68242cb10e05f2">&#9670;&#160;</a></span>sscan() <span class="overload">[2/2]</span></h2>
+<a id="adc7ca26bbf269572942843128bf797d2" name="adc7ca26bbf269572942843128bf797d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc7ca26bbf269572942843128bf797d2">&#9670;&#160;</a></span>sscan() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -524,8 +544,14 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structs_std_1_1scan_data.html">scanData</a> &amp;&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -535,24 +561,26 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Scan C-string for wanted parameters. </p>
-<p >This function works same as uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data&lt;char&gt;&amp; output) Only difference is that this function can scan for multiple parameters. If output result is <code>nullptr</code> then wanted parameter was not found. See example code for more info.</p>
+<p>Scan C-string for wanted tokens. </p>
+<p >This function works same as uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data&lt;char&gt;&amp; output) Only difference is that this function can scan for multiple tokens. If output result is <code>nullptr</code> then wanted token was not found. See example code for more info.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Pointer to first character in C-string. </td></tr>
-    <tr><td class="paramname">data</td><td>Reference to input-output data list. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to input-output data list. </td></tr>
+    <tr><td class="paramname">len</td><td>Length of <code>data</code> </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>SSTD_NOK</code> if no tokens were found. </dd>
 <dd>
 Number of found tokens.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>This function works only with <code>char</code> types! </dd></dl>
 <dl class="section note"><dt>Note</dt><dd><code>data</code> list does not have to be sorted since this function depends on uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data&lt;char&gt;&amp; output) and it will start from beginning for every entry in <code>data</code> </dd>
 <dd>
 C-string has to be NULL terminated. </dd>
 <dd>
 Function scans from left to right. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00177">177</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -605,7 +633,7 @@ Pointer to next token in <code>input</code> C-string. </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaces_std.html">sStd</a></li>
-    <li class="footer">Generated on Sun Nov 6 2022 21:50:39 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Thu Nov 10 2022 23:22:27 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

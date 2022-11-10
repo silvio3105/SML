@@ -126,10 +126,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_data.html">sStd::Data&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing data <code>T</code> with <code>len</code>.  <a href="classs_std_1_1_data.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -206,11 +206,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad83f7eaa71193300e047d455bcc878c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find length of input C-string.  <a href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">More...</a><br /></td></tr>
 <tr class="separator:ad83f7eaa71193300e047d455bcc878c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">sStd::sscan</a> (char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, <a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; char &gt; &amp;output)</td></tr>
-<tr class="memdesc:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted parameter.  <a href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">More...</a><br /></td></tr>
+<tr class="memdesc:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted token.  <a href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">More...</a><br /></td></tr>
 <tr class="separator:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a89364dc2c182651a68242cb10e05f2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a5a89364dc2c182651a68242cb10e05f2">sStd::sscan</a> (char *input, scanData &amp;data)</td></tr>
-<tr class="memdesc:a5a89364dc2c182651a68242cb10e05f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted parameters.  <a href="namespaces_std.html#a5a89364dc2c182651a68242cb10e05f2">More...</a><br /></td></tr>
-<tr class="separator:a5a89364dc2c182651a68242cb10e05f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc7ca26bbf269572942843128bf797d2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#adc7ca26bbf269572942843128bf797d2">sStd::sscan</a> (char *input, <a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a> *data, const uint8_t len)</td></tr>
+<tr class="memdesc:adc7ca26bbf269572942843128bf797d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted tokens.  <a href="namespaces_std.html#adc7ca26bbf269572942843128bf797d2">More...</a><br /></td></tr>
+<tr class="separator:adc7ca26bbf269572942843128bf797d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="namespaces_std.html" title="Namespace for sStd.">sStd</a> header file. </p>
@@ -226,7 +226,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8h.html">sStd.h</a></li>
-    <li class="footer">Generated on Sun Nov 6 2022 21:50:39 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Thu Nov 10 2022 23:22:27 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

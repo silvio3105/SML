@@ -152,16 +152,6 @@ This License shall be included in all functional textual files.
 // ----- NAMESPACES
 namespace sStd /**< @brief Namespace for sStd. */
 {
-	// STRUCTS
-
-	struct scanData {
-		sStd::Data<char> output; /**< \c char type output data. */
-		char sepBegin; /**< Begin separator before wanted parameter. */
-		uint8_t sepCntBegin; /**< Number of \c sepBegin before wanted parameter. */
-		char sepEdn; /**< End separator after wanted parameter. */
-		uint8_t sepCntEnd; /**< Number of \c sepEdn after wanted parameter is found. */
-	};
-
 	// CLASSES
 	template<typename T>
 	/**
@@ -216,6 +206,16 @@ namespace sStd /**< @brief Namespace for sStd. */
 		T* dataAddr; /**< Pointer to address where data is stored. */
 		uint16_t length; /**< Length of \ref dataAddr. */
 	};
+
+
+	// STRUCTS
+	struct scanData {
+		sStd::Data<char> output; /**< \c char type output data. */
+		char sepBegin; /**< Begin separator before wanted parameter. */
+		uint8_t sepCntBegin; /**< Number of \c sepBegin before wanted parameter. */
+		char sepEnd; /**< End separator after wanted parameter. */
+		uint8_t sepCntEnd; /**< Number of \c sepEdn after wanted parameter is found. */
+	};	
 
 
 	// MATH FUNCTIONS
@@ -300,53 +300,59 @@ namespace sStd /**< @brief Namespace for sStd. */
 
 	// STRING SCAN FUNCTIONS DECLARATIONS
 	/**
-	 * @brief Scan C-string for wanted parameter. 
+	 * @brief Scan C-string for wanted token. 
 	 * 
 	 * This function is replacment for scanf function. C-string format must be known to use this function. Function does not modify C-string.
+	 * Function returns \c SSTD_OK and result even if \c \0 is encountered during searching for token's end.
+	 * Set \c \0 as first separator to indicate that wanted token starts from begining of input C-string.
+	 * 
 	 * Example #1
-	 * C-string \c test1-test2.hello,test123 and call \c sscan(string,'.',0,'\0',0,output) output will be pointing at letter 'h' and length will be 13. Output C-string will be \c hello,test123
+	 * C-string \c test1-test2.hello,test123 and call \c sscan(string,'.',0,'\0',0,output) -> output will be pointing at letter \c h and length will be 13. Output C-string will be \c hello,test123
 	 * 
 	 * Example #2
-	 * C-string \c test1,test2-test3-test4.test5,test6 and call \c sscan(string,'-',1,',',0,output) output C-string will be \c test4.test5 length will be 11.
-	 * \c 1 because there is 1 \c - before wanted parameter, dash between \c test2 and \c test3
-	 * \c 0 because there is 0 \c , after first separator is found(dash).
+	 * C-string \c test1,test2-test3-test4.test5,test6 and call \c sscan(string,'-',1,',',0,output) -> output C-string will be \c test4.test5 length will be 11.
+	 * \c 1 because there is \c 1 \c - before wanted token, dash between \c test2 and \c test3
+	 * \c 0 because there is \c 0 \c , after \c sepBegin
+	 * 
+	 * Example #3
+	 * C-string \c test1,test2,test3-test4.test5,test6 and call \c sscan(string,'\0',0,',',1,output) -> output C-string will be \c test1,test2 length will be 11.
+	 * \c \0 as begin separator indicates that wanted token starts from begining. In that case, \c sepCntBegin parameter makes no effect.
 	 * See example code for more info.
 	 * 
 	 * @param input Pointer to first character in C-string.
-	 * @param sepBegin Character used as separator before wanted parameter.
+	 * @param sepBegin Character used as separator before wanted token.
 	 * @param sepCntBegin Number of separators before wanted token.
-	 * @param sepEnd Character used as separator after wanted parameter.
-	 * @param sepCntEnd Number of separators after wanted parameter is found.
+	 * @param sepEnd Character used as separator after wanted token.
+	 * @param sepCntEnd Number of separators after wanted token is found.
 	 * @param output Reference to char output data. 
 	 * @return \c SSTD_NOK if no token was found.
 	 * @return \c SSTD_OK if token was found.
 	 * 
-	 * @warning This function works only with \c char types!
+	 * @warning \c sepCntBegin and \c sepCntEnd start from 0!
 	 * @note C-string has to be NULL terminated.
 	 * @note Function scans from left to right.
 	 */
 	uint8_t sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output);
 
 	/**
-	 * @brief Scan C-string for wanted parameters.
+	 * @brief Scan C-string for wanted tokens.
 	 * 
 	 * This function works same as \ref uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data<char>& output)
-	 * Only difference is that this function can scan for multiple parameters.
-	 * If output result is \c nullptr then wanted parameter was not found.
+	 * Only difference is that this function can scan for multiple tokens.
+	 * If output result is \c nullptr then wanted token was not found.
 	 * See example code for more info.
 	 * 
 	 * @param input Pointer to first character in C-string.
-	 * @param data Reference to input-output data list.
+	 * @param data Pointer to input-output data list.
+	 * @param len Length of \c data
 	 * @return \c SSTD_NOK if no tokens were found.
 	 * @return Number of found tokens.
 	 * 
-	 * @warning This function works only with \c char types!
 	 * @note \c data list does not have to be sorted since this function depends on \ref uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data<char>& output) and it will start from beginning for every entry in \c data
 	 * @note C-string has to be NULL terminated.
 	 * @note Function scans from left to right.
 	 */
-	uint8_t sscan(char* input, scanData& data);
-
+	uint8_t sscan(char* input, sStd::scanData* data, const uint8_t len);
 
 
 	// STATIC FUNCTIONS
@@ -356,10 +362,12 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * @param input Pointer to input C-string.
 	 * @param sep Seperator character.
 	 * @param sepCnt Number of separators before end of token.
+	 * @param retNull Pass \c 1 to return \c nullptr if \c \0 character is found. Pass \c 0 to return address if \c \0 is found.
 	 * @return \c nullptr if no token was found.
 	 * @return Address of last found separator.
+	 * @return \c nullptr if separator was not found.
 	 */
-	static char* findToken(char* input, char sep, char sepCnt);
+	static char* findToken(char* input, char sep, char sepCnt, uint8_t retNull);
 };
 
 #pragma message ("Using full sStd.") 

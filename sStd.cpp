@@ -139,7 +139,19 @@ uint16_t sStd::len(char* input, char endChar = '\0')
 // STRING SCAN FUNCTIONS DEFINITIONS
 uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output)
 {
-	char* start = findToken(input, sepBegin, sepCntBegin);
+	// If first character is NULL
+	if (!*input)
+	{
+		// Set data to nullptr and 0 length and return not OK status
+		output.set(nullptr, 0);
+		return SSTD_NOK;		
+	}
+
+	char* start = nullptr;
+	
+	// Set start to first character if sepBegin param is NULL character
+	if (sepBegin) start = findToken(input, sepBegin, sepCntBegin, 1);
+		else start = input;
 
 	// If start of the token was not found
 	if (!start)
@@ -148,22 +160,38 @@ uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd
 		output.set(nullptr, 0);
 		return SSTD_NOK;
 	}
-	else if (*(start + 1)) // If next character is not \0
+	else if (start[1]) // If next character is not \0
 	{
 		// Move start to next character
 		start++;
 		
 		// Set output data to start address and end - start length
-		output.set(start, findToken(start, sepEnd, sepCntEnd) - start);
+		if (sepBegin) output.set(start, findToken(start, sepEnd, sepCntEnd, 0) - start);
+			else output.set(start - 1, findToken(start, sepEnd, sepCntEnd, 0) - start + 1); // -1 byte for start address abd +1 to include first character
 		return SSTD_OK;
 	}
 
 	return SSTD_NOK;
 }
 
+uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len)
+{
+	uint8_t total = 0;
+
+	// Loop through scan data list
+	for (uint8_t i = 0; i < len; i++)
+	{
+		// Call single sscan function.
+		if (sscan(input, data[i].sepBegin, data[i].sepCntBegin, data[i].sepEnd, data[i].sepCntEnd, data[i].output) == SSTD_OK) total++;
+	}
+
+	return total;
+
+}
+
 
 // STATIC FUNCTION DEFINITIONS
-static char* sStd::findToken(char* input, char sep, char sepCnt)
+static char* sStd::findToken(char* input, char sep, char sepCnt, uint8_t retNull)
 {
 	// If character is not \0
 	while (*input) 
@@ -180,7 +208,9 @@ static char* sStd::findToken(char* input, char sep, char sepCnt)
 		input++;		
 	}
 
-	return input;
+	// Return nullptr if retNull param is not 0, otherwise return address of \c character
+    if (retNull) return nullptr;
+	    else return input;
 }
 
 
