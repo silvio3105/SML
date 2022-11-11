@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "_dglmost~",
+  0: "_cdglmost~",
   1: "ds",
   2: "s",
   3: "s",
-  4: "dglmst~",
+  4: "cdglmst~",
   5: "os",
   6: "s",
   7: "s"

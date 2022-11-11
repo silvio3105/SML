@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['scale_0',['scale',['../namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0',1,'sStd']]],
-  ['set_1',['set',['../classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc',1,'sStd::Data']]],
-  ['sscan_2',['sscan',['../namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7',1,'sStd::sscan(char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data&lt; char &gt; &amp;output)'],['../namespaces_std.html#adc7ca26bbf269572942843128bf797d2',1,'sStd::sscan(char *input, sStd::scanData *data, const uint8_t len)']]]
+  ['max2_0',['max2',['../namespaces_std.html#a95bdd99f51a6cfc083e4971e504435b5',1,'sStd']]],
+  ['max3_1',['max3',['../namespaces_std.html#aeafe84e1ae415e2fecfc94dfd303bc1b',1,'sStd']]],
+  ['min2_2',['min2',['../namespaces_std.html#a75b5f9021817d48e11ff99b4bb3db4eb',1,'sStd']]],
+  ['min3_3',['min3',['../namespaces_std.html#ae264470ee63b12d7fcb88db5522bdad6',1,'sStd']]]
 ];

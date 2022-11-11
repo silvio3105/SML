@@ -123,7 +123,7 @@ char* sStd::tok(char* input, char separator)
 		else return input;
 }
 
-uint16_t sStd::len(char* input, char endChar = '\0')
+uint16_t sStd::len(char* input, char endChar)
 {
 	// Copy string address to local variable
 	char* tmp = input;
@@ -133,6 +133,24 @@ uint16_t sStd::len(char* input, char endChar = '\0')
 
 	// Return length of string.
 	return tmp - input;
+}
+
+uint16_t sStd::count(char* input, char character, char endChar)
+{
+	uint16_t count = 0;
+
+	// If selected character is not equal to end character
+	while (*input != endChar)
+	{
+		// If selected character is equal to wanted character, increas counter
+		if (*input == character) count++;
+
+		// Move to next character	
+		input++;
+	}
+
+	// Return number of character in input C-string
+	return count;
 }
 
 

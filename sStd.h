@@ -298,6 +298,16 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 */
 	uint16_t len(char* input, char endChar = '\0');
 
+	/**
+	 * @brief Count number of \c character in \c input C-string.
+	 * 
+	 * @param input Pointer to C-string.
+	 * @param character Character to count.
+	 * @param endChar Character where function should stop. This parameter is optional.
+	 * @return Number of \c character in \c input
+	 */
+	uint16_t count(char* input, char character, char endChar = '\0');
+
 	// STRING SCAN FUNCTIONS DECLARATIONS
 	/**
 	 * @brief Scan C-string for wanted token. 
@@ -306,17 +316,18 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * Function returns \c SSTD_OK and result even if \c \0 is encountered during searching for token's end.
 	 * Set \c \0 as first separator to indicate that wanted token starts from begining of input C-string.
 	 * 
-	 * Example #1
+	 * Example #1:
 	 * C-string \c test1-test2.hello,test123 and call \c sscan(string,'.',0,'\0',0,output) -> output will be pointing at letter \c h and length will be 13. Output C-string will be \c hello,test123
 	 * 
-	 * Example #2
+	 * Example #2:
 	 * C-string \c test1,test2-test3-test4.test5,test6 and call \c sscan(string,'-',1,',',0,output) -> output C-string will be \c test4.test5 length will be 11.
 	 * \c 1 because there is \c 1 \c - before wanted token, dash between \c test2 and \c test3
 	 * \c 0 because there is \c 0 \c , after \c sepBegin
 	 * 
-	 * Example #3
+	 * Example #3:
 	 * C-string \c test1,test2,test3-test4.test5,test6 and call \c sscan(string,'\0',0,',',1,output) -> output C-string will be \c test1,test2 length will be 11.
 	 * \c \0 as begin separator indicates that wanted token starts from begining. In that case, \c sepCntBegin parameter makes no effect.
+	 * 
 	 * See example code for more info.
 	 * 
 	 * @param input Pointer to first character in C-string.

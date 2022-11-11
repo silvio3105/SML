@@ -137,6 +137,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ad83f7eaa71193300e047d455bcc878c3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">len</a> (char *input, char endChar='\0')</td></tr>
 <tr class="memdesc:ad83f7eaa71193300e047d455bcc878c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find length of input C-string.  <a href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">More...</a><br /></td></tr>
 <tr class="separator:ad83f7eaa71193300e047d455bcc878c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dc88e39bdacbe1564b931c0c47902a2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a7dc88e39bdacbe1564b931c0c47902a2">count</a> (char *input, char character, char endChar='\0')</td></tr>
+<tr class="memdesc:a7dc88e39bdacbe1564b931c0c47902a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count number of <code>character</code> in <code>input</code> C-string.  <a href="namespaces_std.html#a7dc88e39bdacbe1564b931c0c47902a2">More...</a><br /></td></tr>
+<tr class="separator:a7dc88e39bdacbe1564b931c0c47902a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">sscan</a> (char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, <a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; char &gt; &amp;output)</td></tr>
 <tr class="memdesc:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted token.  <a href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">More...</a><br /></td></tr>
 <tr class="separator:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,6 +151,69 @@ Functions</h2></td></tr>
 <div class="textblock"><p >Namespace for <a class="el" href="namespaces_std.html" title="Namespace for sStd.">sStd</a>. </p>
 <p >&lt; </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a7dc88e39bdacbe1564b931c0c47902a2" name="a7dc88e39bdacbe1564b931c0c47902a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dc88e39bdacbe1564b931c0c47902a2">&#9670;&#160;</a></span>count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t sStd::count </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>endChar</em> = <code>'\0'</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Count number of <code>character</code> in <code>input</code> C-string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Pointer to C-string. </td></tr>
+    <tr><td class="paramname">character</td><td>Character to count. </td></tr>
+    <tr><td class="paramname">endChar</td><td>Character where function should stop. This parameter is optional. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of <code>character</code> in <code>input</code> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00138">138</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaces_std_a7dc88e39bdacbe1564b931c0c47902a2_cgraph.png" border="0" usemap="#anamespaces_std_a7dc88e39bdacbe1564b931c0c47902a2_cgraph" alt=""/></div>
+<map name="anamespaces_std_a7dc88e39bdacbe1564b931c0c47902a2_cgraph" id="anamespaces_std_a7dc88e39bdacbe1564b931c0c47902a2_cgraph">
+<area shape="rect" title="Count number of character in input C&#45;string." alt="" coords="5,29,95,55"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaces_std_a7dc88e39bdacbe1564b931c0c47902a2_icgraph.png" border="0" usemap="#anamespaces_std_a7dc88e39bdacbe1564b931c0c47902a2_icgraph" alt=""/></div>
+<map name="anamespaces_std_a7dc88e39bdacbe1564b931c0c47902a2_icgraph" id="anamespaces_std_a7dc88e39bdacbe1564b931c0c47902a2_icgraph">
+<area shape="rect" title="Count number of character in input C&#45;string." alt="" coords="5,29,95,55"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ad83f7eaa71193300e047d455bcc878c3" name="ad83f7eaa71193300e047d455bcc878c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad83f7eaa71193300e047d455bcc878c3">&#9670;&#160;</a></span>len()</h2>
 
@@ -191,8 +257,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaces_std_ad83f7eaa71193300e047d455bcc878c3_icgraph.png" border="0" usemap="#anamespaces_std_ad83f7eaa71193300e047d455bcc878c3_icgraph" alt=""/></div>
 <map name="anamespaces_std_ad83f7eaa71193300e047d455bcc878c3_icgraph" id="anamespaces_std_ad83f7eaa71193300e047d455bcc878c3_icgraph">
-<area shape="rect" title="Find length of input C&#45;string." alt="" coords="187,13,261,38"/>
-<area shape="rect" href="classs_std_1_1_data.html#ae5149bf4add718204db521be85c17a05" title="Deconstructor for Data object." alt="" coords="5,5,139,45"/>
+<area shape="rect" title="Find length of input C&#45;string." alt="" coords="212,5,287,31"/>
+<area shape="rect" href="classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc" title="Set new data." alt="" coords="5,5,164,31"/>
 </map>
 </div>
 
@@ -485,9 +551,10 @@ template&lt;typename T &gt; </div>
 
 <p>Scan C-string for wanted token. </p>
 <p >This function is replacment for scanf function. C-string format must be known to use this function. Function does not modify C-string. Function returns <code>SSTD_OK</code> and result even if <code>\0</code> is encountered during searching for token's end. Set <code>\0</code> as first separator to indicate that wanted token starts from begining of input C-string.</p>
-<p >Example #1 C-string <code>test1-test2.hello</code>,test123 and call <code>sscan</code>(string,'.',0,'\0',0,output) -&gt; output will be pointing at letter <code>h</code> and length will be 13. Output C-string will be <code>hello</code>,test123</p>
-<p >Example #2 C-string <code>test1</code>,test2-test3-test4.test5,test6 and call <code>sscan</code>(string,'-',1,',',0,output) -&gt; output C-string will be <code>test4.test5</code> length will be 11. <code>1</code> because there is <code>1</code> <code>-</code> before wanted token, dash between <code>test2</code> and <code>test3</code> <code>0</code> because there is <code>0</code> <code></code>, after <code>sepBegin</code> </p>
-<p >Example #3 C-string <code>test1</code>,test2,test3-test4.test5,test6 and call <code>sscan</code>(string,'\0',0,',',1,output) -&gt; output C-string will be <code>test1</code>,test2 length will be 11. <code>\0</code> as begin separator indicates that wanted token starts from begining. In that case, <code>sepCntBegin</code> parameter makes no effect. See example code for more info.</p>
+<p >Example #1: C-string <code>test1-test2.hello</code>,test123 and call <code>sscan</code>(string,'.',0,'\0',0,output) -&gt; output will be pointing at letter <code>h</code> and length will be 13. Output C-string will be <code>hello</code>,test123</p>
+<p >Example #2: C-string <code>test1</code>,test2-test3-test4.test5,test6 and call <code>sscan</code>(string,'-',1,',',0,output) -&gt; output C-string will be <code>test4.test5</code> length will be 11. <code>1</code> because there is <code>1</code> <code>-</code> before wanted token, dash between <code>test2</code> and <code>test3</code> <code>0</code> because there is <code>0</code> <code></code>, after <code>sepBegin</code> </p>
+<p >Example #3: C-string <code>test1</code>,test2,test3-test4.test5,test6 and call <code>sscan</code>(string,'\0',0,',',1,output) -&gt; output C-string will be <code>test1</code>,test2 length will be 11. <code>\0</code> as begin separator indicates that wanted token starts from begining. In that case, <code>sepCntBegin</code> parameter makes no effect.</p>
+<p >See example code for more info.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Pointer to first character in C-string. </td></tr>
@@ -507,7 +574,7 @@ template&lt;typename T &gt; </div>
 <dd>
 Function scans from left to right. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00140">140</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00158">158</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -522,8 +589,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_icgraph.png" border="0" usemap="#anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_icgraph" alt=""/></div>
 <map name="anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_icgraph" id="anamespaces_std_ae8703d678b78d08fdecc2c5b3ef9c7a7_icgraph">
-<area shape="rect" title="Scan C&#45;string for wanted token." alt="" coords="187,13,279,38"/>
-<area shape="rect" href="classs_std_1_1_data.html#ae5149bf4add718204db521be85c17a05" title="Deconstructor for Data object." alt="" coords="5,5,139,45"/>
+<area shape="rect" title="Scan C&#45;string for wanted token." alt="" coords="212,5,304,31"/>
+<area shape="rect" href="classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705" title="Get length of data." alt="" coords="5,5,164,31"/>
 </map>
 </div>
 
@@ -580,7 +647,7 @@ C-string has to be NULL terminated. </dd>
 <dd>
 Function scans from left to right. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00177">177</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00195">195</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -633,7 +700,7 @@ Pointer to next token in <code>input</code> C-string. </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaces_std.html">sStd</a></li>
-    <li class="footer">Generated on Thu Nov 10 2022 23:22:27 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Nov 12 2022 00:06:19 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
