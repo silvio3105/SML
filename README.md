@@ -3,7 +3,7 @@
 
 This is my custom library with miscellaneous functions. It is written in C++. All functions are part of sStd namespace.
 
-Library documentation is available at `.docs/html/index.html`
+Library documentation is available at `.docs/html/index.html`.
 Example applications are available at `examples` folder. All examples are made with STM HAL framework.
 
 # License
