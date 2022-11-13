@@ -220,7 +220,7 @@ uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const 
 	for (uint8_t i = 0; i < len; i++)
 	{
 		// Call single sscan function.
-		if (sscan(input, data[i].sepBegin, data[i].sepCntBegin, data[i].sepEnd, data[i].sepCntEnd, data[i].output) == SSTD_OK) total++;
+		if (sscan(input, sorted ? '\0' : data[i].sepBegin, data[i].sepCntBegin, data[i].sepEnd, data[i].sepCntEnd, data[i].output) == SSTD_OK) total++;
 
 		// Calculate new start position if input list is sorted
 		if (sorted) input += data[i].output.len() + 1;

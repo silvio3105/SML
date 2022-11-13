@@ -233,11 +233,11 @@ namespace sStd /**< @brief Namespace for sStd. */
 
 	// STRUCTS
 	struct scanData {
-		sStd::Data<char> output; /**< \c char type output data. */
-		char sepBegin; /**< Begin separator before wanted parameter. */
-		uint8_t sepCntBegin; /**< Number of \c sepBegin before wanted parameter. */
 		char sepEnd; /**< End separator after wanted parameter. */
 		uint8_t sepCntEnd; /**< Number of \c sepEdn after wanted parameter is found. */
+		char sepBegin; /**< Begin separator before wanted parameter. */
+		uint8_t sepCntBegin; /**< Number of \c sepBegin before wanted parameter. */		
+		sStd::Data<char> output; /**< \c char type output data. */
 	};	
 
 
