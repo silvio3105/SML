@@ -153,6 +153,26 @@ uint16_t sStd::count(char* input, char character, char endChar)
 	return count;
 }
 
+uint8_t sStd::cmp(char* input1, char* input2, char endChar)
+{
+	// While both characters are not equal to endChar
+	while (*input1 != endChar)
+	{
+		// If characters are not equal return SSTD_NOK
+		if (*input1 != *input2) return SSTD_NOK;
+		
+		// Move to next character
+		input1++;
+		input2++;
+	}
+
+	// Return SSTD_NOK if strings do not end with same character. This is input C-string length check
+	if (*input1 != *input2) return SSTD_NOK;
+
+	// Return equal status
+	return SSTD_OK;
+}
+
 
 // STRING SCAN FUNCTIONS DEFINITIONS
 uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output)

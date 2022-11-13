@@ -1,4 +1,4 @@
 <map id="sStd::len" name="sStd::len">
-<area shape="rect" id="node1" title="Find length of input C&#45;string." alt="" coords="212,5,287,31"/>
-<area shape="rect" id="node2" href="$classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc" title="Set new data." alt="" coords="5,5,164,31"/>
+<area shape="rect" id="node1" title="Find length of input C&#45;string." alt="" coords="145,5,220,31"/>
+<area shape="rect" id="node2" href="$namespaces_std.html#adc7ca26bbf269572942843128bf797d2" title="Scan C&#45;string for wanted tokens." alt="" coords="5,5,97,31"/>
 </map>

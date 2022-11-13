@@ -308,6 +308,17 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 */
 	uint16_t count(char* input, char character, char endChar = '\0');
 
+	/**
+	 * @brief Compare two C-strings.
+	 * 
+	 * @param input1 Pointer to first C-string.
+	 * @param input2 Pointer to second C-string.
+	 * @param endChar Character where function should stop. This parameter is optional.
+	 * @return \c SSTD_NOK if strings are not equal.
+	 * @return \c SSTD_OK if strings are equal. 
+	 */
+	uint8_t cmp(char* input1, char* input2, char endChar = '\0');
+
 	// STRING SCAN FUNCTIONS DECLARATIONS
 	/**
 	 * @brief Scan C-string for wanted token. 
