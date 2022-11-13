@@ -146,9 +146,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">sscan</a> (char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, <a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; char &gt; &amp;output)</td></tr>
 <tr class="memdesc:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted token.  <a href="namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7">More...</a><br /></td></tr>
 <tr class="separator:ae8703d678b78d08fdecc2c5b3ef9c7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc7ca26bbf269572942843128bf797d2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#adc7ca26bbf269572942843128bf797d2">sscan</a> (char *input, <a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a> *data, const uint8_t <a class="el" href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">len</a>)</td></tr>
-<tr class="memdesc:adc7ca26bbf269572942843128bf797d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted tokens.  <a href="namespaces_std.html#adc7ca26bbf269572942843128bf797d2">More...</a><br /></td></tr>
-<tr class="separator:adc7ca26bbf269572942843128bf797d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e3f427aee93f3549a8747123381f21f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a0e3f427aee93f3549a8747123381f21f">sscan</a> (char *input, <a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a> *data, const uint8_t <a class="el" href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">len</a>, const uint8_t sorted=0)</td></tr>
+<tr class="memdesc:a0e3f427aee93f3549a8747123381f21f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scan C-string for wanted tokens.  <a href="namespaces_std.html#a0e3f427aee93f3549a8747123381f21f">More...</a><br /></td></tr>
+<tr class="separator:a0e3f427aee93f3549a8747123381f21f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Namespace for <a class="el" href="namespaces_std.html" title="Namespace for sStd.">sStd</a>. </p>
@@ -648,8 +648,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="adc7ca26bbf269572942843128bf797d2" name="adc7ca26bbf269572942843128bf797d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc7ca26bbf269572942843128bf797d2">&#9670;&#160;</a></span>sscan() <span class="overload">[2/2]</span></h2>
+<a id="a0e3f427aee93f3549a8747123381f21f" name="a0e3f427aee93f3549a8747123381f21f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e3f427aee93f3549a8747123381f21f">&#9670;&#160;</a></span>sscan() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -670,7 +670,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const uint8_t&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>sorted</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -687,13 +693,13 @@ Here is the caller graph for this function:</div>
     <tr><td class="paramname">input</td><td>Pointer to first character in C-string. </td></tr>
     <tr><td class="paramname">data</td><td>Pointer to input-output data list. </td></tr>
     <tr><td class="paramname">len</td><td>Length of <code>data</code> </td></tr>
+    <tr><td class="paramname">sorted</td><td>Set to <code>1</code> if <code>input</code> list is sorted(from left to right). Function will continue where it ended during scan for previous entry in <code>input</code> list. This parameter is optional. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>SSTD_NOK</code> if no tokens were found. </dd>
-<dd>
-Number of found tokens.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd><code>data</code> list does not have to be sorted since this function depends on uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data&lt;char&gt;&amp; output) and it will start from beginning for every entry in <code>data</code> </dd>
+<dl class="section return"><dt>Returns</dt><dd>Number of found tokens.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If <code>data</code> list is sorted, set param <code>sorted</code> to <code>1</code> to make scanning faster. <br  />
+ </dd>
 <dd>
 C-string has to be NULL terminated. </dd>
 <dd>
@@ -752,7 +758,7 @@ Pointer to next token in <code>input</code> C-string. </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaces_std.html">sStd</a></li>
-    <li class="footer">Generated on Sun Nov 13 2022 13:42:47 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sun Nov 13 2022 13:53:14 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

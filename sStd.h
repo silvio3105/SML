@@ -390,14 +390,14 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * @param input Pointer to first character in C-string.
 	 * @param data Pointer to input-output data list.
 	 * @param len Length of \c data
-	 * @return \c SSTD_NOK if no tokens were found.
+	 * @param sorted Set to \c 1 if \c input list is sorted(from left to right). Function will continue where it ended during scan for previous entry in \c input list. This parameter is optional.
 	 * @return Number of found tokens.
 	 * 
-	 * @note \c data list does not have to be sorted since this function depends on \ref uint8_t sscan(char* input, char separator, uint8_t separatorCnt, sStd::data<char>& output) and it will start from beginning for every entry in \c data
+	 * @note If \c data list is sorted, set param \c sorted to \c 1 to make scanning faster.  
 	 * @note C-string has to be NULL terminated.
 	 * @note Function scans from left to right.
 	 */
-	uint8_t sscan(char* input, sStd::scanData* data, const uint8_t len);
+	uint8_t sscan(char* input, sStd::scanData* data, const uint8_t len, const uint8_t sorted = 0);
 
 
 	// STATIC FUNCTIONS

@@ -212,15 +212,18 @@ uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd
 	return SSTD_NOK;
 }
 
-uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len)
+uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const uint8_t sorted)
 {
 	uint8_t total = 0;
 
-	// Loop through scan data list
+	// Loop through input list
 	for (uint8_t i = 0; i < len; i++)
 	{
 		// Call single sscan function.
 		if (sscan(input, data[i].sepBegin, data[i].sepCntBegin, data[i].sepEnd, data[i].sepCntEnd, data[i].output) == SSTD_OK) total++;
+
+		// Calculate new start position if input list is sorted
+		if (sorted) input += data[i].output.len() + 1;
 	}
 
 	return total;

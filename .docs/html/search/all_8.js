@@ -9,7 +9,7 @@ var searchData=
   ['sepend_6',['sepEnd',['../structs_std_1_1scan_data.html#a2d32b6458494f298a8ee4547526441fe',1,'sStd::scanData']]],
   ['set_7',['set',['../classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc',1,'sStd::Data']]],
   ['simple_20standard_20library_8',['Simple Standard Library',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['sscan_9',['sscan',['../namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7',1,'sStd::sscan(char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data&lt; char &gt; &amp;output)'],['../namespaces_std.html#adc7ca26bbf269572942843128bf797d2',1,'sStd::sscan(char *input, sStd::scanData *data, const uint8_t len)']]],
+  ['sscan_9',['sscan',['../namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7',1,'sStd::sscan(char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data&lt; char &gt; &amp;output)'],['../namespaces_std.html#a0e3f427aee93f3549a8747123381f21f',1,'sStd::sscan(char *input, sStd::scanData *data, const uint8_t len, const uint8_t sorted=0)']]],
   ['sstd_10',['sStd',['../namespaces_std.html',1,'']]],
   ['sstd_11',['SStd',['../group__s_std.html',1,'']]],
   ['sstd_2ecpp_12',['sStd.cpp',['../s_std_8cpp.html',1,'']]],
