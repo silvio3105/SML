@@ -1,4 +1,30 @@
 var searchData=
 [
-  ['tok_0',['tok',['../namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b',1,'sStd']]]
+  ['scale_0',['SCALE',['../group__s_std.html#ga0cbea62f1ce2043dd08108e65ed8de1d',1,'sStd.h']]],
+  ['scale_1',['scale',['../namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0',1,'sStd']]],
+  ['scandata_2',['scanData',['../structs_std_1_1scan_data.html',1,'sStd']]],
+  ['sepbegin_3',['sepBegin',['../structs_std_1_1scan_data.html#a56da836a08469771f68818e2c9a46e14',1,'sStd::scanData']]],
+  ['sepcntbegin_4',['sepCntBegin',['../structs_std_1_1scan_data.html#a2b4eac73060dc34a411a1f6cae56e880',1,'sStd::scanData']]],
+  ['sepcntend_5',['sepCntEnd',['../structs_std_1_1scan_data.html#ae3baee4c8165b3bee73d8ce2266045f8',1,'sStd::scanData']]],
+  ['sepend_6',['sepEnd',['../structs_std_1_1scan_data.html#a2d32b6458494f298a8ee4547526441fe',1,'sStd::scanData']]],
+  ['set_7',['set',['../classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc',1,'sStd::Data']]],
+  ['simple_20standard_20library_8',['Simple Standard Library',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['sscan_9',['sscan',['../namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7',1,'sStd::sscan(char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data&lt; char &gt; &amp;output)'],['../namespaces_std.html#adc7ca26bbf269572942843128bf797d2',1,'sStd::sscan(char *input, sStd::scanData *data, const uint8_t len)']]],
+  ['sstd_10',['sStd',['../namespaces_std.html',1,'']]],
+  ['sstd_11',['SStd',['../group__s_std.html',1,'']]],
+  ['sstd_2ecpp_12',['sStd.cpp',['../s_std_8cpp.html',1,'']]],
+  ['sstd_2eh_13',['sStd.h',['../s_std_8h.html',1,'']]],
+  ['sstd_5farray_14',['SSTD_ARRAY',['../group__s_std.html#ga57ac9834bf5603757493d05511b5f75d',1,'sStd.h']]],
+  ['sstd_5fbbit_15',['SSTD_BBIT',['../group__s_std.html#gab43db495e95faa197bf348c005c5e8d0',1,'sStd.h']]],
+  ['sstd_5fbit_16',['SSTD_BIT',['../group__s_std.html#ga57d12218b209269dda4eee6b9320a66d',1,'sStd.h']]],
+  ['sstd_5fbit_5fclear_17',['SSTD_BIT_CLEAR',['../group__s_std.html#ga96f9e0b433885bb52d50dd2f22cdee98',1,'sStd.h']]],
+  ['sstd_5fbit_5fset_18',['SSTD_BIT_SET',['../group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0',1,'sStd.h']]],
+  ['sstd_5fbit_5ftoggle_19',['SSTD_BIT_TOGGLE',['../group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe',1,'sStd.h']]],
+  ['sstd_5fmax2_20',['SSTD_MAX2',['../group__s_std.html#ga400d741f1f122718c342fea3669325b4',1,'sStd.h']]],
+  ['sstd_5fmax3_21',['SSTD_MAX3',['../group__s_std.html#gaf11a14db5cda0033596cd680392e3586',1,'sStd.h']]],
+  ['sstd_5fmin2_22',['SSTD_MIN2',['../group__s_std.html#ga497f39384bcbcc2dacb84a48b6c084e4',1,'sStd.h']]],
+  ['sstd_5fmin3_23',['SSTD_MIN3',['../group__s_std.html#ga3f1da3a74428488d8f1ba8e5ef293ab1',1,'sStd.h']]],
+  ['sstd_5fnok_24',['SSTD_NOK',['../group__s_std.html#ga9367edb6ad1db310451eb08bfc6e1755',1,'sStd.h']]],
+  ['sstd_5fok_25',['SSTD_OK',['../group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6',1,'sStd.h']]],
+  ['sstd_5fscale_26',['SSTD_SCALE',['../group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1',1,'sStd.h']]]
 ];

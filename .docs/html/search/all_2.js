@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data_0',['Data',['../classs_std_1_1_data.html#a02c1eb37dc61b724b0cf76e3749e2dd3',1,'sStd::Data::Data()'],['../classs_std_1_1_data.html',1,'sStd::Data&lt; T &gt;']]],
-  ['data_3c_20char_20_3e_1',['Data&lt; char &gt;',['../classs_std_1_1_data.html',1,'sStd']]]
+  ['cmp_0',['cmp',['../namespaces_std.html#a9eebaf2e7ec1aed86a4d3ce715e61520',1,'sStd']]],
+  ['count_1',['count',['../namespaces_std.html#a7dc88e39bdacbe1564b931c0c47902a2',1,'sStd']]]
 ];

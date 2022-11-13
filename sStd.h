@@ -24,8 +24,8 @@ THE AUTHOR IS NOT RESPONSIBLE FOR DAMAGE OF ANY KIND OR LIABILITY CAUSED BY USIN
 This License shall be included in all functional textual files.
 */
 
-#ifndef _SSTD_H_
-#define _SSTD_H_
+#ifndef SSTD_H_
+#define SSTD_H_
 
 // ----- INCLUDE FILES
 #include            <stdint.h>
@@ -42,8 +42,31 @@ This License shall be included in all functional textual files.
 #define SSTD_NOK			0 /**< @brief Negative return code. */
 #define SSTD_OK				1 /**< @brief Positive return code. */
 
+// MACRO FUNCTION ALIASES
+#define AL					SSTD_ARRAY /**< @brief Alias for \ref SSTD_ARRAY */
+#define SCALE				SSTD_SCALE /**< @brief Alias for \ref SSTD_SCALE */
+#define MAP					SSTD_SCALE /**< @brief Alias for \ref SSTD_SCALE */
+#define MIN2				SSTD_MIN2 /**< @brief Alias for \ref SSTD_MIN2 */
+#define MIN3				SSTD_MIN3 /**< @brief Alias for \ref SSTD_MIN3 */
+#define MAX2				SSTD_MAX2 /**< @brief Alias for \ref SSTD_MAX2 */
+#define MAX3				SSTD_MAX3 /**< @brief Alias for \ref SSTD_MAX3 */
+#define BSET				SSTD_BIT_SET /**< @brief Alias for \ref SSTD_BIT_SET */
+#define BCLEAR				SSTD_BIT_CLEAR /**< @brief Alias for \ref SSTD_BIT_CLEAR */
+#define BIT					SSTD_BIT /**< @brief Alias for \ref SSTD_BIT */
+#define BBIT				SSTD_BBIT /**< @brief Alias for \ref SSTD_BBIT */
+#define BTOGGLE				SSTD_BIT_TOGGLE /**< @brief Alias for \ref SSTD_BIT_TOGGLE */
+
 
 // ----- MACRO FUNCTIONS
+// MISC FUNCTIONS
+/**
+ * @brief Code snippet for calculating number of members in array.
+ * 
+ * @param _in Input array.
+ */
+#define SSTD_ARRAY(_in) \
+	sizeof(_in) / sizeof(_in[0])
+
 // MATH FUNCTIONS
 /**
  * @brief Code snippet for scaling value.
@@ -54,7 +77,7 @@ This License shall be included in all functional textual files.
  * @param _outMin Output minimum value.
  * @param _outMax Output maximum value.
  */
-#define _sSTD_SCALE(_in, _inMin, _inMax, _outMin, _outMax) \
+#define SSTD_SCALE(_in, _inMin, _inMax, _outMin, _outMax) \
 	(_in - _inMin) * (_outMax - _outMin) / (_inMax - _inMin) + _outMin
 
 /**
@@ -63,7 +86,7 @@ This License shall be included in all functional textual files.
  * @param _in1 Input value 1.
  * @param _in2 Input value 2.
  */
-#define _sSTD_MIN2(_in1, _in2) \
+#define SSTD_MIN2(_in1, _in2) \
 	(_in1 < _in2) ? _in1 : _in2
 
 /**
@@ -72,7 +95,7 @@ This License shall be included in all functional textual files.
  * @param _in1 Input value 1.
  * @param _in2 Input value 2.
  */
-#define _sSTD_MAX2(_in1, _in2) \
+#define SSTD_MAX2(_in1, _in2) \
 	(_in1 > _in2) ? _in1 : _in2
 
 /**
@@ -82,7 +105,7 @@ This License shall be included in all functional textual files.
  * @param _in2 Input value 2.
  * @param _in3 Input value 3.
  */
-#define _sSTD_MIN3(_in1, _in2, _in3) \
+#define SSTD_MIN3(_in1, _in2, _in3) \
 	(_in1 < _in2) ? (_in1 < _in3 ? _in1 : _in3) : (_in2 < _in3 ? _in2 : _in3)
 
 /**
@@ -92,7 +115,7 @@ This License shall be included in all functional textual files.
  * @param _in2 Input value 2.
  * @param _in3 Input value 3.
  */
-#define _sSTD_MAX3(_in1, _in2, _in3) \
+#define SSTD_MAX3(_in1, _in2, _in3) \
 	(_in1 > _in2) ? (_in1 > _in3 ? _in1 : _in3) : (_in2 > _in3 ? _in2 : _in3)
 
 
@@ -103,7 +126,7 @@ This License shall be included in all functional textual files.
  * @param _value Input value.
  * @param _bit Bit number of \c _value to change to 1.
  */
-#define _sSTD_BIT_SET(_value, _bit) \
+#define SSTD_BIT_SET(_value, _bit) \
 	_value |= 1 << _bit
 
 /**
@@ -112,7 +135,7 @@ This License shall be included in all functional textual files.
  * @param _value Input value.
  * @param _bit Bit number of \c _value to change to 0. 
  */
-#define _sSTD_BIT_CLEAR(_value, _bit) \
+#define SSTD_BIT_CLEAR(_value, _bit) \
 	_value &= ~(1 << _bit) 
 
 /**
@@ -123,7 +146,7 @@ This License shall be included in all functional textual files.
  * 
  * @note Function returns \c 0 for \c _bit = 0 or any positive number for \c _bit = 1.
  */
-#define _sSTD_BIT(_value, _bit) \
+#define SSTD_BIT(_value, _bit) \
 	_value & (1 << _bit)
 
 /**
@@ -134,7 +157,7 @@ This License shall be included in all functional textual files.
  * 
  * @note Function returns \c 0 or \c 1.
  */
-#define _sSTD_BBIT(_value, _bit) \
+#define SSTD_BBIT(_value, _bit) \
 	(_value & (1 << _bit)) >> _bit
 
 /**
@@ -143,7 +166,7 @@ This License shall be included in all functional textual files.
  * @param _value Input value.
  * @param _bit Bit number of \c _value to toggle.
  */
-#define _sSTD_BIT_TOGGLE(_value, _bit) \
+#define SSTD_BIT_TOGGLE(_value, _bit) \
 	_value ^= 1 << _bit
 
 
@@ -399,6 +422,6 @@ namespace sStd /**< @brief Namespace for sStd. */
 
 /** @}*/
 
-#endif // _SSTD_H_
+#endif // SSTD_H_
 
 // END WITH NEW LINE
