@@ -75,31 +75,31 @@ inline uint16_t sStd::Data<T>::len(void) const
 template<typename T>
 T scale(T in, T inMin, T inMax, T outMin, T outMax)
 {
-	return _sSTD_SCALE(in, inMin, inMax, outMin, outMax);
+	return SSTD_SCALE(in, inMin, inMax, outMin, outMax);
 }
 
 template<typename T>
 T min2(T in1, T in2)
 {
-	return _sSTD_MIN2(in1, in2);
+	return SSTD_MIN2(in1, in2);
 }
 
 template<typename T>
 T max2(T in1, T in2)
 {
-	return _sSTD_MAX2(in1, in2);
+	return SSTD_MAX2(in1, in2);
 }
 
 template<typename T>
 T min3(T in1, T in2, T in3)
 {
-	return _sSTD_MIN3(in1, in2, in3);
+	return SSTD_MIN3(in1, in2, in3);
 }
 
 template<typename T>
 T max3(T in1, T in2, T in3)
 {
-	return _sSTD_MAX3(in1, in2, in3);
+	return SSTD_MAX3(in1, in2, in3);
 }
 
 
