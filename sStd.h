@@ -340,7 +340,7 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * @return \c SSTD_NOK if strings are not equal.
 	 * @return \c SSTD_OK if strings are equal. 
 	 */
-	uint8_t cmp(char* input1, char* input2, char endChar = '\0');
+	uint8_t cmp(const char* input1, const char* input2, char endChar = '\0');
 
 	// STRING SCAN FUNCTIONS DECLARATIONS
 	/**

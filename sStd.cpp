@@ -153,7 +153,7 @@ uint16_t sStd::count(char* input, char character, char endChar)
 	return count;
 }
 
-uint8_t sStd::cmp(char* input1, char* input2, char endChar)
+uint8_t sStd::cmp(const char* input1, const char* input2, char endChar)
 {
 	// While both characters are not equal to endChar
 	while (*input1 != endChar)

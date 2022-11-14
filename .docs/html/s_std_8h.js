@@ -27,7 +27,7 @@ var s_std_8h =
     [ "SSTD_NOK", "group__s_std.html#ga9367edb6ad1db310451eb08bfc6e1755", null ],
     [ "SSTD_OK", "group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6", null ],
     [ "SSTD_SCALE", "group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1", null ],
-    [ "cmp", "s_std_8h.html#a9eebaf2e7ec1aed86a4d3ce715e61520", null ],
+    [ "cmp", "s_std_8h.html#a55f555bd8a6ab9f8a251e76c3139cda2", null ],
     [ "count", "s_std_8h.html#a7dc88e39bdacbe1564b931c0c47902a2", null ],
     [ "len", "s_std_8h.html#ad83f7eaa71193300e047d455bcc878c3", null ],
     [ "max2", "s_std_8h.html#a95bdd99f51a6cfc083e4971e504435b5", null ],
