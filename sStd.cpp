@@ -107,7 +107,7 @@ T max3(T in1, T in2, T in3)
 char* sStd::tok(char* input, char separator)
 {
 	// Move pointer until separator is found or end of C-string is reached
-	while (*input != '\0' && *input != separator) input++;
+	while (*input && *input != separator) input++;
 
 	// If NULL character is found, return nullptr
 	if (!*input) return nullptr;
