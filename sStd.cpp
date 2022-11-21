@@ -231,6 +231,68 @@ uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const 
 }
 
 
+// RING BUFFER METHOD DEFINITIONS
+template<typename T, uint16_t N>
+sStd::RingBuffer<T, N>::RingBuffer(void)
+{
+	head = 0;
+	tail = 0;
+}
+
+template<typename T, uint16_t N>
+sStd::RingBuffer<T, N>::~RingBuffer(void)
+{
+	head = 0;
+	tail = 0;
+}
+
+
+template<typename T, uint16_t N>
+uint8_t sStd::RingBuffer<T, N>::write(T data)
+{
+	// Write data to head
+	memory[head] = data;
+
+	// Move head pointer
+	head++;
+
+	return SSTD_OK;
+}
+
+template<typename T, uint16_t N>
+uint8_t sStd::RingBuffer<T, N>::write(T* data, uint16_t len)
+{
+	for (uint16_t i = 0; i < len; i++)
+	{
+		// Write data into ring buffer. If return value is NOK, then return NOK status
+		if (write(data[i]) == SSTD_NOK) return SSTD_NOK;
+	}
+	
+	// Return OK status
+	return SSTD_OK;
+}
+
+template<typename T, uint16_t N>
+T sStd::RingBuffer<T, N>::read(void)
+{
+	// Return data from tail
+	return memory[tail++];
+}
+
+template<typename T, uint16_t N>
+uint8_t sStd::RingBuffer<T, N>::read(T* output, uint16_t len)
+{
+	uint16_t i = 0;
+
+	for (; i < len; i++)
+	{
+		output[i] = read();
+	}
+
+	if (i == len - 1) 
+}
+
+
 // STATIC FUNCTION DEFINITIONS
 static char* sStd::findToken(char* input, char sep, char sepCnt, uint8_t retNull)
 {

@@ -230,6 +230,105 @@ namespace sStd /**< @brief Namespace for sStd. */
 		uint16_t length; /**< Length of \ref dataAddr. */
 	};
 
+	template<typename T, uint16_t N>
+	/**
+	 * @brief Ring buffer class.
+	 * 
+	 */	
+	class RingBuffer {
+		// PUBLIC STUFF
+		public:
+		// CONSTRUCTORS & DECONSTRUCTORS
+		/**
+		 * @brief Ring buffer constructor.
+		 * 
+		 * @return No return value.
+		 */
+		RingBuffer(void);
+
+		/**
+		 * @brief Ring buffer deconstructor.
+		 * 
+		 * @return No return value.
+		 */
+		~RingBuffer(void);
+
+		// METHOD DECLARATIONS
+		/**
+		 * @brief Write single \c T type data to ring buffer.
+		 * 
+		 * @param data Data of \c T type.
+		 * @return \c SSTD_NOK if data is not written.
+		 * @return \c SSTD_OK if data is written.
+		 */
+		uint8_t write(T data);
+
+		/**
+		 * @brief Write multiple data to ring buffer.
+		 * 
+		 * @param data Pointer to data of \c T type.
+		 * @param len Length of \c data
+		 * @return \c SSTD_NOK if data is not written.
+		 * @return \c SSTD_OK if data is written.
+		 */
+		uint8_t write(T* data, uint16_t len);
+
+		/**
+		 * @brief Read signle data from ring buffer.
+		 * 
+		 * @return Data of \c T type.
+		 */
+		T read(void);
+
+		/**
+		 * @brief Read multiple data from ring buffer.
+		 * 
+		 * @param output Pointer to array for output data of \c T type. 
+		 * @param len Length of \c output array.
+		 * @return \c SSTD_NOK if no data were read.
+		 * @return \c SSTD_OK if some data were read.
+		 */
+		uint8_t read(T* output, uint16_t len);
+
+		/**
+		 * @brief Flush all data from ring buffer.
+		 * 
+		 * @return No return value.
+		 */
+		void flush(void);
+
+		/**
+		 * @brief Fetch number of used data in ring buffer.
+		 * 
+		 * @return Number of used data.
+		 */
+		uint16_t used(void);
+
+		/**
+		 * @brief Fetch number of free data in ring buffer.
+		 * 
+		 * @return Number of free data.
+		 */
+		uint16_t free(void);
+
+		/**
+		 * @brief Is ring buffer full.
+		 * 
+		 * @return \c SSTD_NOK if ring buffer is not full.
+		 * @return \c SSTD_OK if ring buffer is full.
+		 */
+		uint8_t isFull(void);
+
+
+		// PRIVATE STUFF
+		private:
+		// VARIABLES
+		T memory[N]; /**< @brief Array of \c T type where ring buffer data will be stored. */
+		const uint16_t lenght = N; /**< @brief Length of \ref memory array. */
+		uint16_t head = 0; /**< @brief Head data index. */
+		uint16_t tail = 0; /**< @brief Tail data index. */
+	};
+
 
 	// STRUCTS
 	struct scanData {
