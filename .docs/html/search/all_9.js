@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tok_0',['tok',['../namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b',1,'sStd']]]
+  ['output_0',['output',['../structs_std_1_1scan_data.html#adbfafbd07c840f03ab0c0fde08c62af4',1,'sStd::scanData']]]
 ];

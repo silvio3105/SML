@@ -1,6 +1,7 @@
 var group__s_std =
 [
     [ "sStd", "namespaces_std.html", null ],
+    [ "ABS", "group__s_std.html#ga26e668489fb528456f4bc54ba908d5b4", null ],
     [ "AL", "group__s_std.html#gae56562740b1159ed03061cecec40f609", null ],
     [ "BBIT", "group__s_std.html#gab79d6a1291924e5c9649a5ec4446ee19", null ],
     [ "BCLEAR", "group__s_std.html#gadf562c7d3ae1a5f2def47b0883a0ed11", null ],
@@ -13,6 +14,7 @@ var group__s_std =
     [ "MIN2", "group__s_std.html#ga393053491edc087c17e89d597b6e16f5", null ],
     [ "MIN3", "group__s_std.html#ga6b180e3906c3f1d430106d261bb89139", null ],
     [ "SCALE", "group__s_std.html#ga0cbea62f1ce2043dd08108e65ed8de1d", null ],
+    [ "SSTD_ABS", "group__s_std.html#ga931e4931a07849ea2f0eca622104ae97", null ],
     [ "SSTD_ARRAY", "group__s_std.html#ga57ac9834bf5603757493d05511b5f75d", null ],
     [ "SSTD_BBIT", "group__s_std.html#gab43db495e95faa197bf348c005c5e8d0", null ],
     [ "SSTD_BIT", "group__s_std.html#ga57d12218b209269dda4eee6b9320a66d", null ],

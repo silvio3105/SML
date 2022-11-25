@@ -44,12 +44,15 @@ This License shall be included in all functional textual files.
 
 // MACRO FUNCTION ALIASES
 #define AL					SSTD_ARRAY /**< @brief Alias for \ref SSTD_ARRAY */
+
 #define SCALE				SSTD_SCALE /**< @brief Alias for \ref SSTD_SCALE */
 #define MAP					SSTD_SCALE /**< @brief Alias for \ref SSTD_SCALE */
 #define MIN2				SSTD_MIN2 /**< @brief Alias for \ref SSTD_MIN2 */
 #define MIN3				SSTD_MIN3 /**< @brief Alias for \ref SSTD_MIN3 */
 #define MAX2				SSTD_MAX2 /**< @brief Alias for \ref SSTD_MAX2 */
 #define MAX3				SSTD_MAX3 /**< @brief Alias for \ref SSTD_MAX3 */
+#define ABS					SSTD_ABS /**< @brief Alias for \ref SSTD_ABS */
+
 #define BSET				SSTD_BIT_SET /**< @brief Alias for \ref SSTD_BIT_SET */
 #define BCLEAR				SSTD_BIT_CLEAR /**< @brief Alias for \ref SSTD_BIT_CLEAR */
 #define BIT					SSTD_BIT /**< @brief Alias for \ref SSTD_BIT */
@@ -118,6 +121,14 @@ This License shall be included in all functional textual files.
 #define SSTD_MAX3(_in1, _in2, _in3) \
 	(_in1 > _in2) ? (_in1 > _in3 ? _in1 : _in3) : (_in2 > _in3 ? _in2 : _in3)
 
+/**
+ * @brief Get absolute value from input value.
+ * 
+ * @param _in Input value.
+ */
+#define SSTD_ABS(_in) \
+	if (_in < 0) _in *= -1
+
 
 // BITFIELDS OPERATIONS
 /**
@@ -173,8 +184,15 @@ This License shall be included in all functional textual files.
 #ifdef __cplusplus
 
 // ----- NAMESPACES
-namespace sStd /**< @brief Namespace for sStd. */
+/**
+ * @brief Namespace for sStd.
+ * 
+ */
+namespace sStd
 {
+	// TYPEDEFS
+	typedef uint16_t rbIdx_t; /**< @brief Type for \ref RingBuffer length.  */
+
 	// CLASSES
 	template<typename T>
 	/**
@@ -230,7 +248,7 @@ namespace sStd /**< @brief Namespace for sStd. */
 		uint16_t length; /**< Length of \ref dataAddr. */
 	};
 
-	template<typename T, uint16_t N>
+	template<typename T, rbIdx_t N>
 	/**
 	 * @brief Ring buffer class.
 	 * 
@@ -258,10 +276,9 @@ namespace sStd /**< @brief Namespace for sStd. */
 		 * @brief Write single \c T type data to ring buffer.
 		 * 
 		 * @param data Data of \c T type.
-		 * @return \c SSTD_NOK if data is not written.
-		 * @return \c SSTD_OK if data is written.
+		 * @return No return value.
 		 */
-		uint8_t write(T data);
+		inline void write(T data);
 
 		/**
 		 * @brief Write multiple data to ring buffer.
@@ -271,7 +288,7 @@ namespace sStd /**< @brief Namespace for sStd. */
 		 * @return \c SSTD_NOK if data is not written.
 		 * @return \c SSTD_OK if data is written.
 		 */
-		uint8_t write(T* data, uint16_t len);
+		void write(T* data, rbIdx_t len);
 
 		/**
 		 * @brief Read signle data from ring buffer.
@@ -288,28 +305,28 @@ namespace sStd /**< @brief Namespace for sStd. */
 		 * @return \c SSTD_NOK if no data were read.
 		 * @return \c SSTD_OK if some data were read.
 		 */
-		uint8_t read(T* output, uint16_t len);
+		uint8_t read(T* output, rbIdx_t len);
 
 		/**
 		 * @brief Flush all data from ring buffer.
 		 * 
 		 * @return No return value.
 		 */
-		void flush(void);
+		void flush(void) const;
 
 		/**
 		 * @brief Fetch number of used data in ring buffer.
 		 * 
 		 * @return Number of used data.
 		 */
-		uint16_t used(void);
+		rbIdx_t used(void) const;
 
 		/**
 		 * @brief Fetch number of free data in ring buffer.
 		 * 
 		 * @return Number of free data.
 		 */
-		uint16_t free(void);
+		inline rbIdx_t free(void) const;
 
 		/**
 		 * @brief Is ring buffer full.
@@ -319,14 +336,30 @@ namespace sStd /**< @brief Namespace for sStd. */
 		 */
 		uint8_t isFull(void);
 
+		/**
+		 * @brief Get length of ring buffer.
+		 * 
+		 * @return Length of ring buffer
+		 */
+		inline rbIdx_t len(void) const;
+
+
 
 		// PRIVATE STUFF
 		private:
 		// VARIABLES
 		T memory[N]; /**< @brief Array of \c T type where ring buffer data will be stored. */
-		const uint16_t lenght = N; /**< @brief Length of \ref memory array. */
-		uint16_t head = 0; /**< @brief Head data index. */
-		uint16_t tail = 0; /**< @brief Tail data index. */
+		const rbIdx_t length = N; /**< @brief Length of \ref memory array. */
+		rbIdx_t head = 0; /**< @brief Head data pointer. */
+		rbIdx_t tail = 0; /**< @brief Tail data pointer. */
+
+		// METHOD DECLARATIONS
+		/**
+		 * @brief Write single \c T type data to ring buffer.
+		 * 
+		 * @param data Data of \c T type.
+		 */
+		void writeData(T data);		
 	};
 
 
@@ -394,7 +427,18 @@ namespace sStd /**< @brief Namespace for sStd. */
 	 * @param in3 Input value 3.
 	 * @return Greatest value between \c in1 \c in2 and \c in3
 	 */		
-	T max3(T in1, T in2, T in3);	
+	T max3(T in1, T in2, T in3);
+
+	template<typename T>
+	/**
+	 * @brief Sum all integer digits.
+	 * 
+	 * Example: Number 123456 will result with 21(1 + 2 + 3 + 4 + 5 + 6).
+	 * 
+	 * @param input Input number.
+	 * @return Sum of all digits.
+	 */
+	uint16_t sumDigits(T input);
 
 	// STRING MANIPULATION FUNCTIONS DECLARATIONS
 	/**

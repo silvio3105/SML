@@ -27,6 +27,7 @@ This License shall be included in all functional textual files.
 
 // ----- INCLUDE FILES
 #include            <sStd.h>
+#include 			<string.h>
 
 
 // ----- CLASSES
@@ -100,6 +101,29 @@ template<typename T>
 T max3(T in1, T in2, T in3)
 {
 	return SSTD_MAX3(in1, in2, in3);
+}
+
+template<typename T>
+uint16_t sStd::sumDigits(T input)
+{
+	uint16_t sum = 0;
+
+	// Remove - sign if needed
+	SSTD_ABS(input);
+
+	// Do while input is not zero
+	do
+	{
+		// Increase sum with digit
+		sum += input % 10;
+
+		// Remove digit from input integer
+		input /= 10;
+	}
+	while (input);
+	
+	// Return sum of all digits
+	return sum;
 }
 
 
@@ -232,14 +256,14 @@ uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const 
 
 
 // RING BUFFER METHOD DEFINITIONS
-template<typename T, uint16_t N>
+template<typename T, sStd::rbIdx_t N>
 sStd::RingBuffer<T, N>::RingBuffer(void)
 {
 	head = 0;
 	tail = 0;
 }
 
-template<typename T, uint16_t N>
+template<typename T, sStd::rbIdx_t N>
 sStd::RingBuffer<T, N>::~RingBuffer(void)
 {
 	head = 0;
@@ -247,49 +271,118 @@ sStd::RingBuffer<T, N>::~RingBuffer(void)
 }
 
 
-template<typename T, uint16_t N>
-uint8_t sStd::RingBuffer<T, N>::write(T data)
+template<typename T, sStd::rbIdx_t N>
+inline void sStd::RingBuffer<T, N>::write(T data)
 {
-	// Write data to head
+	writeData(data);
+}
+
+template<typename T, sStd::rbIdx_t N>
+void sStd::RingBuffer<T, N>::write(T* data, sStd::rbIdx_t len)
+{
+	sStd::rbIdx_t tmp = free();
+
+	// If len is more than number of free bytes in ring buffer
+	if (free() > tmp) len = tmp;
+
+	// Write data to ring buffer
+	for (sStd::rbIdx_t i = 0; i < len; i++) write(data[i]);
+}
+
+template<typename T, sStd::rbIdx_t N>
+T sStd::RingBuffer<T, N>::read(void)
+{
+	// Store data in tmp variable
+	T tmp = memory[tail];
+
+	// Move tail pointer
+	tail++;
+
+	// Reset tail pointer
+	if (tail == length) tail = 0; 
+
+	// Return data from ring buffer
+	return tmp;
+}
+
+template<typename T, sStd::rbIdx_t N>
+uint8_t sStd::RingBuffer<T, N>::read(T* output, sStd::rbIdx_t len)
+{
+	sStd::rbIdx_t usedLen = used();
+	sStd::rbIdx_t i = 0;
+
+	// Limit number of data to read
+	if (len > usedLen) len = usedLen;
+
+	// Read data by data from ring buffer
+	for (; i < len; i++) output[i] = read();
+
+	// Return OK status if some data were read
+	if (i) return SSTD_OK;
+		else return SSTD_NOK;
+}
+
+template<typename T, sStd::rbIdx_t N>
+void sStd::RingBuffer<T, N>::flush(void)
+{
+	// Set head and tail
+	head = 0;
+	tail = 0;
+
+	// Set all bytes to \0 (NULL char)
+	memset(memory, '\0', length);
+}
+
+template<typename T, sStd::rbIdx_t N>
+sStd::rbIdx_t sStd::RingBuffer<T, N>::used(void) const
+{
+	// If head and tail point to same data
+    if (head == tail)
+    {
+		// If head and tail do not point to first data, whole ring buffer is used
+        if (head && tail) return length;
+            else return 0;
+    }
+
+	// If head is ahead of tail
+	else if (head > tail) return (head - tail);
+
+	// If tail is ahead of head
+	else return (length - (tail - head));
+}
+
+template<typename T, sStd::rbIdx_t N>
+inline sStd::rbIdx_t sStd::RingBuffer<T, N>::free(void) const
+{
+	// Return number of free data slots in ring buffer
+	return (length - used());
+}
+
+template<typename T, sStd::rbIdx_t N>
+uint8_t sStd::RingBuffer<T, N>::isFull(void) const
+{
+	if (!free()) return SSTD_OK;
+		else return SSTD_NOK;
+}
+
+template<typename T, sStd::rbIdx_t N>
+inline sStd::rbIdx_t sStd::RingBuffer<T, N>::len(void) const
+{
+	return length;
+}
+
+
+template<typename T, sStd::rbIdx_t N>
+void sStd::RingBuffer<T, N>::writeData(T data)
+{
+	// Write data to head pointer
 	memory[head] = data;
 
 	// Move head pointer
 	head++;
-
-	return SSTD_OK;
-}
-
-template<typename T, uint16_t N>
-uint8_t sStd::RingBuffer<T, N>::write(T* data, uint16_t len)
-{
-	for (uint16_t i = 0; i < len; i++)
-	{
-		// Write data into ring buffer. If return value is NOK, then return NOK status
-		if (write(data[i]) == SSTD_NOK) return SSTD_NOK;
-	}
 	
-	// Return OK status
-	return SSTD_OK;
-}
-
-template<typename T, uint16_t N>
-T sStd::RingBuffer<T, N>::read(void)
-{
-	// Return data from tail
-	return memory[tail++];
-}
-
-template<typename T, uint16_t N>
-uint8_t sStd::RingBuffer<T, N>::read(T* output, uint16_t len)
-{
-	uint16_t i = 0;
-
-	for (; i < len; i++)
-	{
-		output[i] = read();
-	}
-
-	if (i == len - 1) 
+    // Reset head pointer
+	if (head == length) head = 0;  
 }
 
 
@@ -316,5 +409,4 @@ static char* sStd::findToken(char* input, char sep, char sepCnt, uint8_t retNull
 	    else return input;
 }
 
-
-// ----- FUNCTION DEFINITIONS
+// END WITH NEW LINE

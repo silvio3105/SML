@@ -1,7 +1,9 @@
 var s_std_8h =
 [
     [ "sStd::Data< T >", "classs_std_1_1_data.html", "classs_std_1_1_data" ],
+    [ "sStd::RingBuffer< T, N >", "classs_std_1_1_ring_buffer.html", "classs_std_1_1_ring_buffer" ],
     [ "sStd::scanData", "structs_std_1_1scan_data.html", "structs_std_1_1scan_data" ],
+    [ "ABS", "group__s_std.html#ga26e668489fb528456f4bc54ba908d5b4", null ],
     [ "AL", "group__s_std.html#gae56562740b1159ed03061cecec40f609", null ],
     [ "BBIT", "group__s_std.html#gab79d6a1291924e5c9649a5ec4446ee19", null ],
     [ "BCLEAR", "group__s_std.html#gadf562c7d3ae1a5f2def47b0883a0ed11", null ],
@@ -14,6 +16,7 @@ var s_std_8h =
     [ "MIN2", "group__s_std.html#ga393053491edc087c17e89d597b6e16f5", null ],
     [ "MIN3", "group__s_std.html#ga6b180e3906c3f1d430106d261bb89139", null ],
     [ "SCALE", "group__s_std.html#ga0cbea62f1ce2043dd08108e65ed8de1d", null ],
+    [ "SSTD_ABS", "group__s_std.html#ga931e4931a07849ea2f0eca622104ae97", null ],
     [ "SSTD_ARRAY", "group__s_std.html#ga57ac9834bf5603757493d05511b5f75d", null ],
     [ "SSTD_BBIT", "group__s_std.html#gab43db495e95faa197bf348c005c5e8d0", null ],
     [ "SSTD_BIT", "group__s_std.html#ga57d12218b209269dda4eee6b9320a66d", null ],
@@ -27,6 +30,7 @@ var s_std_8h =
     [ "SSTD_NOK", "group__s_std.html#ga9367edb6ad1db310451eb08bfc6e1755", null ],
     [ "SSTD_OK", "group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6", null ],
     [ "SSTD_SCALE", "group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1", null ],
+    [ "rbIdx_t", "s_std_8h.html#ad129ee41f5d7de322f67a9e17ec8e395", null ],
     [ "cmp", "s_std_8h.html#a55f555bd8a6ab9f8a251e76c3139cda2", null ],
     [ "count", "s_std_8h.html#a7dc88e39bdacbe1564b931c0c47902a2", null ],
     [ "len", "s_std_8h.html#ad83f7eaa71193300e047d455bcc878c3", null ],
@@ -37,5 +41,6 @@ var s_std_8h =
     [ "scale", "s_std_8h.html#ab80208f2b31ea63d59b190a8eee53db0", null ],
     [ "sscan", "s_std_8h.html#ae8703d678b78d08fdecc2c5b3ef9c7a7", null ],
     [ "sscan", "s_std_8h.html#a0e3f427aee93f3549a8747123381f21f", null ],
+    [ "sumDigits", "s_std_8h.html#ac0614e49737cc39802f63339efab0551", null ],
     [ "tok", "s_std_8h.html#ad6fd9749309696918cc56bd1bcfdb84b", null ]
 ];

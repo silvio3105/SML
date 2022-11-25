@@ -1,7 +1,9 @@
 var namespaces_std =
 [
     [ "Data", "classs_std_1_1_data.html", "classs_std_1_1_data" ],
+    [ "RingBuffer", "classs_std_1_1_ring_buffer.html", "classs_std_1_1_ring_buffer" ],
     [ "scanData", "structs_std_1_1scan_data.html", "structs_std_1_1scan_data" ],
+    [ "rbIdx_t", "namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395", null ],
     [ "cmp", "namespaces_std.html#a55f555bd8a6ab9f8a251e76c3139cda2", null ],
     [ "count", "namespaces_std.html#a7dc88e39bdacbe1564b931c0c47902a2", null ],
     [ "len", "namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3", null ],
@@ -12,5 +14,6 @@ var namespaces_std =
     [ "scale", "namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0", null ],
     [ "sscan", "namespaces_std.html#ae8703d678b78d08fdecc2c5b3ef9c7a7", null ],
     [ "sscan", "namespaces_std.html#a0e3f427aee93f3549a8747123381f21f", null ],
+    [ "sumDigits", "namespaces_std.html#ac0614e49737cc39802f63339efab0551", null ],
     [ "tok", "namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b", null ]
 ];
