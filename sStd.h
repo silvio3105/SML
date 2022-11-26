@@ -185,7 +185,7 @@ This License shall be included in all functional textual files.
 
 // ----- NAMESPACES
 /**
- * @brief Namespace for sStd.
+ * @brief Namespace for Simple Standard Library.
  * 
  */
 namespace sStd
@@ -502,7 +502,7 @@ namespace sStd
 	/**
 	 * @brief Scan C-string for wanted token. 
 	 * 
-	 * This function is replacment for scanf function. C-string format must be known to use this function. Function does not modify C-string.
+	 * This function is replacment for scanf function. C-string format must be known to use this function.
 	 * Function returns \c SSTD_OK and result even if \c \0 is encountered during searching for token's end.
 	 * Set \c \0 as first separator to indicate that wanted token starts from begining of input C-string.
 	 * 
@@ -526,6 +526,7 @@ namespace sStd
 	 * @param sepEnd Character used as separator after wanted token.
 	 * @param sepCntEnd Number of separators after wanted token is found.
 	 * @param output Reference to char output data. 
+	 * @param modify Set to \c 1 to replace found separator with \c \0 char.
 	 * @return \c SSTD_NOK if no token was found.
 	 * @return \c SSTD_OK if token was found.
 	 * 
@@ -533,7 +534,7 @@ namespace sStd
 	 * @note C-string has to be NULL terminated.
 	 * @note Function scans from left to right.
 	 */
-	uint8_t sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output);
+	uint8_t sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output, const uint8_t modify = 0);
 
 	/**
 	 * @brief Scan C-string for wanted tokens.
@@ -547,13 +548,15 @@ namespace sStd
 	 * @param data Pointer to input-output data list.
 	 * @param len Length of \c data
 	 * @param sorted Set to \c 1 if \c input list is sorted(from left to right). Function will continue where it ended during scan for previous entry in \c input list. This parameter is optional.
+	 * @param modify Set to \c 1 to replace found separator with \c \0 char.
 	 * @return Number of found tokens.
 	 * 
+	 * @warning \c modify can be used only when \c data list is \c sorted
 	 * @note If \c data list is sorted, set param \c sorted to \c 1 to make scanning faster.  
 	 * @note C-string has to be NULL terminated.
 	 * @note Function scans from left to right.
 	 */
-	uint8_t sscan(char* input, sStd::scanData* data, const uint8_t len, const uint8_t sorted = 0);
+	uint8_t sscan(char* input, sStd::scanData* data, const uint8_t len, const uint8_t modify = 0, const uint8_t sorted = 0);
 
 
 	// STATIC FUNCTIONS
@@ -563,12 +566,12 @@ namespace sStd
 	 * @param input Pointer to input C-string.
 	 * @param sep Seperator character.
 	 * @param sepCnt Number of separators before end of token.
-	 * @param retNull Pass \c 1 to return \c nullptr if \c \0 character is found. Pass \c 0 to return address if \c \0 is found.
+	 * @param retNull Set to \c 1 to return \c nullptr if \c \0 character is found. Set to \c 0 to return address if \c \0 is found.
 	 * @return \c nullptr if no token was found.
 	 * @return Address of last found separator.
 	 * @return \c nullptr if separator was not found.
 	 */
-	static char* findToken(char* input, char sep, char sepCnt, uint8_t retNull);
+	static char* findToken(char* input, char sep, char sepCnt, const uint8_t retNull);
 };
 
 #pragma message ("Using full sStd.") 

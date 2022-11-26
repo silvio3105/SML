@@ -142,7 +142,7 @@ char* sStd::tok(char* input, char separator)
 	// Move pointer to next character
 	input++;
 
-	// Return nullptr if character is NULL overwise return address of next character
+	// Return nullptr if character is NULL overwise return address of character
 	if (!*input) return nullptr;
 		else return input;
 }
@@ -199,7 +199,7 @@ uint8_t sStd::cmp(const char* input1, const char* input2, char endChar)
 
 
 // STRING SCAN FUNCTIONS DEFINITIONS
-uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output)
+uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output, const uint8_t modify)
 {
 	// If first character is NULL
 	if (!*input)
@@ -230,13 +230,17 @@ uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd
 		// Set output data to start address and end - start length
 		if (sepBegin) output.set(start, findToken(start, sepEnd, sepCntEnd, 0) - start);
 			else output.set(start - 1, findToken(start, sepEnd, sepCntEnd, 0) - start + 1); // -1 byte for start address abd +1 to include first character
+
+		// Replace character with \0 char
+		if (modify) output.get()[output.len()] = '\0';
+
 		return SSTD_OK;
 	}
 
 	return SSTD_NOK;
 }
 
-uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const uint8_t sorted)
+uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const uint8_t modify, const uint8_t sorted)
 {
 	uint8_t total = 0;
 
@@ -244,14 +248,13 @@ uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const 
 	for (uint8_t i = 0; i < len; i++)
 	{
 		// Call single sscan function.
-		if (sscan(input, sorted ? '\0' : data[i].sepBegin, data[i].sepCntBegin, data[i].sepEnd, data[i].sepCntEnd, data[i].output) == SSTD_OK) total++;
+		if (sscan(input, sorted ? '\0' : data[i].sepBegin, data[i].sepCntBegin, data[i].sepEnd, data[i].sepCntEnd, data[i].output, modify) == SSTD_OK) total++;
 
 		// Calculate new start position if input list is sorted
 		if (sorted) input += data[i].output.len() + 1;
 	}
 
 	return total;
-
 }
 
 
