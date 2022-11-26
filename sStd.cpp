@@ -259,63 +259,82 @@ uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const 
 template<typename T, sStd::rbIdx_t N>
 sStd::RingBuffer<T, N>::RingBuffer(void)
 {
+	// Reset head and tail poiner
 	head = 0;
 	tail = 0;
+
+	// Reset new data counter
+	newCnt = 0;
 }
 
 template<typename T, sStd::rbIdx_t N>
 sStd::RingBuffer<T, N>::~RingBuffer(void)
 {
+	// Reset head and tail poiner
 	head = 0;
 	tail = 0;
+
+	// Reset new data counter
+	newCnt = 0;
 }
 
 
 template<typename T, sStd::rbIdx_t N>
-inline void sStd::RingBuffer<T, N>::write(T data)
+inline uint8_t sStd::RingBuffer<T, N>::write(T data)
 {
-	writeData(data);
+	// Write signel data to ring buffer
+	return writeData(data);
 }
 
 template<typename T, sStd::rbIdx_t N>
-void sStd::RingBuffer<T, N>::write(T* data, sStd::rbIdx_t len)
+uint8_t sStd::RingBuffer<T, N>::write(T* data, sStd::rbIdx_t len)
 {
-	sStd::rbIdx_t tmp = free();
+	sStd::rbIdx_t i = 0;
 
-	// If len is more than number of free bytes in ring buffer
-	if (free() > tmp) len = tmp;
+	// Limit number of data to write
+	if (len > free()) len = free();
 
 	// Write data to ring buffer
-	for (sStd::rbIdx_t i = 0; i < len; i++) write(data[i]);
+	for (; i < len; i++) writeData(data[i]);
+
+	// Return OK status if some data were read
+	if (i) return SSTD_OK;
+		else return SSTD_NOK;
 }
 
 template<typename T, sStd::rbIdx_t N>
-T sStd::RingBuffer<T, N>::read(void)
+uint8_t sStd::RingBuffer<T, N>::read(T& output)
 {
+	// If there is no unread data return NOK status
+	if (!used()) return SSTD_NOK;
+
 	// Store data in tmp variable
-	T tmp = memory[tail];
+	output = memory[tail];
 
-	// Move tail pointer
-	tail++;
+	// Update tail pointer
+	increaseTail();
 
-	// Reset tail pointer
-	if (tail == length) tail = 0; 
-
-	// Return data from ring buffer
-	return tmp;
+	// Return OK status
+	return SSTD_OK;
 }
 
 template<typename T, sStd::rbIdx_t N>
 uint8_t sStd::RingBuffer<T, N>::read(T* output, sStd::rbIdx_t len)
 {
-	sStd::rbIdx_t usedLen = used();
 	sStd::rbIdx_t i = 0;
 
 	// Limit number of data to read
-	if (len > usedLen) len = usedLen;
+	if (len > used()) len = used();
 
 	// Read data by data from ring buffer
-	for (; i < len; i++) output[i] = read();
+	for (; i < len; i++)
+	{
+		// Fetch next data
+		output[i] = memory[tail];
+
+		// Update tail pointer
+		increaseTail();
+	}
 
 	// Return OK status if some data were read
 	if (i) return SSTD_OK;
@@ -325,30 +344,22 @@ uint8_t sStd::RingBuffer<T, N>::read(T* output, sStd::rbIdx_t len)
 template<typename T, sStd::rbIdx_t N>
 void sStd::RingBuffer<T, N>::flush(void)
 {
-	// Set head and tail
+	// Reset head and tail
 	head = 0;
 	tail = 0;
+
+	// Reset new data counter
+	newCnt = 0;
 
 	// Set all bytes to \0 (NULL char)
 	memset(memory, '\0', length);
 }
 
 template<typename T, sStd::rbIdx_t N>
-sStd::rbIdx_t sStd::RingBuffer<T, N>::used(void) const
+inline sStd::rbIdx_t sStd::RingBuffer<T, N>::used(void) const
 {
-	// If head and tail point to same data
-    if (head == tail)
-    {
-		// If head and tail do not point to first data, whole ring buffer is used
-        if (head && tail) return length;
-            else return 0;
-    }
-
-	// If head is ahead of tail
-	else if (head > tail) return (head - tail);
-
-	// If tail is ahead of head
-	else return (length - (tail - head));
+	// Return number of used data
+	return newCnt;
 }
 
 template<typename T, sStd::rbIdx_t N>
@@ -361,6 +372,7 @@ inline sStd::rbIdx_t sStd::RingBuffer<T, N>::free(void) const
 template<typename T, sStd::rbIdx_t N>
 uint8_t sStd::RingBuffer<T, N>::isFull(void) const
 {
+	// Return OK status if ring buffer is full
 	if (!free()) return SSTD_OK;
 		else return SSTD_NOK;
 }
@@ -368,21 +380,44 @@ uint8_t sStd::RingBuffer<T, N>::isFull(void) const
 template<typename T, sStd::rbIdx_t N>
 inline sStd::rbIdx_t sStd::RingBuffer<T, N>::len(void) const
 {
+	// Return maximum length of ring buffer
 	return length;
 }
 
 
 template<typename T, sStd::rbIdx_t N>
-void sStd::RingBuffer<T, N>::writeData(T data)
+uint8_t sStd::RingBuffer<T, N>::writeData(T data)
 {
+	// Return NOK status if no free data slots are available
+	if (!free()) return SSTD_NOK;
+
 	// Write data to head pointer
 	memory[head] = data;
 
 	// Move head pointer
 	head++;
+
+	// Increase new data counter
+	newCnt++;
 	
     // Reset head pointer
-	if (head == length) head = 0;  
+	if (head == length) head = 0;
+
+	// Return OK status
+	return SSTD_OK; 
+}
+
+template<typename T, sStd::rbIdx_t N>
+void sStd::RingBuffer<T, N>::increaseTail(void)
+{
+	// Move tail pointer
+	tail++;
+
+	// Decrease new data counter
+	newCnt--;
+
+	// Reset tail pointer
+	if (tail == length) tail = 0; 
 }
 
 
@@ -404,7 +439,7 @@ static char* sStd::findToken(char* input, char sep, char sepCnt, uint8_t retNull
 		input++;		
 	}
 
-	// Return nullptr if retNull param is not 0, otherwise return address of \c character
+	// Return nullptr if retNull param is not 0, otherwise return address of character
     if (retNull) return nullptr;
 	    else return input;
 }

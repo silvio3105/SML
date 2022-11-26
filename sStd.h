@@ -276,9 +276,10 @@ namespace sStd
 		 * @brief Write single \c T type data to ring buffer.
 		 * 
 		 * @param data Data of \c T type.
-		 * @return No return value.
+		 * @return \c SSTD_NOK if data were not written.
+		 * @return \c SSTD_OK if data were written.
 		 */
-		inline void write(T data);
+		inline uint8_t write(T data);
 
 		/**
 		 * @brief Write multiple data to ring buffer.
@@ -288,14 +289,16 @@ namespace sStd
 		 * @return \c SSTD_NOK if data is not written.
 		 * @return \c SSTD_OK if data is written.
 		 */
-		void write(T* data, rbIdx_t len);
+		uint8_t write(T* data, rbIdx_t len);
 
 		/**
 		 * @brief Read signle data from ring buffer.
 		 * 
-		 * @return Data of \c T type.
+		 * @param output Reference for output of \c T type.
+		 * @return \c SSTD_NOK if no data were read.
+		 * @return \c SSTD_OK if data were read.
 		 */
-		T read(void);
+		uint8_t read(T& output);
 
 		/**
 		 * @brief Read multiple data from ring buffer.
@@ -312,14 +315,14 @@ namespace sStd
 		 * 
 		 * @return No return value.
 		 */
-		void flush(void) const;
+		void flush(void);
 
 		/**
 		 * @brief Fetch number of used data in ring buffer.
 		 * 
 		 * @return Number of used data.
 		 */
-		rbIdx_t used(void) const;
+		inline rbIdx_t used(void) const;
 
 		/**
 		 * @brief Fetch number of free data in ring buffer.
@@ -334,7 +337,7 @@ namespace sStd
 		 * @return \c SSTD_NOK if ring buffer is not full.
 		 * @return \c SSTD_OK if ring buffer is full.
 		 */
-		uint8_t isFull(void);
+		uint8_t isFull(void) const;
 
 		/**
 		 * @brief Get length of ring buffer.
@@ -352,14 +355,24 @@ namespace sStd
 		const rbIdx_t length = N; /**< @brief Length of \ref memory array. */
 		rbIdx_t head = 0; /**< @brief Head data pointer. */
 		rbIdx_t tail = 0; /**< @brief Tail data pointer. */
+		rbIdx_t newCnt = 0; /**< @brief New data counter. */
 
 		// METHOD DECLARATIONS
 		/**
 		 * @brief Write single \c T type data to ring buffer.
 		 * 
 		 * @param data Data of \c T type.
+		 * @return \c SSTD_NOK if data were not written.
+		 * @return \c SSTD_OK if data were written.
 		 */
-		void writeData(T data);		
+		uint8_t writeData(T data);
+
+		/**
+		 * @brief Increase tail pointer.
+		 * 
+		 * @return No return value.
+		 */
+		void increaseTail(void);
 	};
 
 
