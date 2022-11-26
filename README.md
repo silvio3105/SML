@@ -2,6 +2,14 @@
 # Simple Standard Library
 
 This is my custom library with miscellaneous functions. It is written in C++. All functions are part of sStd namespace.
+Library contains:
+
+- Bit manipulation functions
+- Math functions
+- String manipulation functions
+- String scan functions
+- Ring buffer
+- Data object
 
 Library documentation is available at `.docs/html/index.html`.
 Example applications are available at `examples` folder. All examples are made with STM HAL framework.
