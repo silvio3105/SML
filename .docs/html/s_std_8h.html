@@ -262,12 +262,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ad6fd9749309696918cc56bd1bcfdb84b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b">sStd::tok</a> (char *input, char separator)</td></tr>
 <tr class="memdesc:ad6fd9749309696918cc56bd1bcfdb84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace desired character with NULL character.  <a href="namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b">More...</a><br /></td></tr>
 <tr class="separator:ad6fd9749309696918cc56bd1bcfdb84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad83f7eaa71193300e047d455bcc878c3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">sStd::len</a> (char *input, char endChar='\0')</td></tr>
-<tr class="memdesc:ad83f7eaa71193300e047d455bcc878c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find length of input C-string.  <a href="namespaces_std.html#ad83f7eaa71193300e047d455bcc878c3">More...</a><br /></td></tr>
-<tr class="separator:ad83f7eaa71193300e047d455bcc878c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dc88e39bdacbe1564b931c0c47902a2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a7dc88e39bdacbe1564b931c0c47902a2">sStd::count</a> (char *input, char character, char endChar='\0')</td></tr>
-<tr class="memdesc:a7dc88e39bdacbe1564b931c0c47902a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count number of <code>character</code> in <code>input</code> C-string.  <a href="namespaces_std.html#a7dc88e39bdacbe1564b931c0c47902a2">More...</a><br /></td></tr>
-<tr class="separator:a7dc88e39bdacbe1564b931c0c47902a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa424e5fd087680908410810c9466acd3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#aa424e5fd087680908410810c9466acd3">sStd::len</a> (const char *input, const char endChar='\0')</td></tr>
+<tr class="memdesc:aa424e5fd087680908410810c9466acd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find length of input C-string.  <a href="namespaces_std.html#aa424e5fd087680908410810c9466acd3">More...</a><br /></td></tr>
+<tr class="separator:aa424e5fd087680908410810c9466acd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac624304e58ff13924de3ec379a040429"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ac624304e58ff13924de3ec379a040429">sStd::count</a> (const char *input, const char character, const char endChar='\0')</td></tr>
+<tr class="memdesc:ac624304e58ff13924de3ec379a040429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count number of <code>character</code> in <code>input</code> C-string.  <a href="namespaces_std.html#ac624304e58ff13924de3ec379a040429">More...</a><br /></td></tr>
+<tr class="separator:ac624304e58ff13924de3ec379a040429"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55f555bd8a6ab9f8a251e76c3139cda2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a55f555bd8a6ab9f8a251e76c3139cda2">sStd::cmp</a> (const char *input1, const char *input2, char endChar='\0')</td></tr>
 <tr class="memdesc:a55f555bd8a6ab9f8a251e76c3139cda2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two C-strings.  <a href="namespaces_std.html#a55f555bd8a6ab9f8a251e76c3139cda2">More...</a><br /></td></tr>
 <tr class="separator:a55f555bd8a6ab9f8a251e76c3139cda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -281,8 +281,6 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="namespaces_std.html" title="Namespace for Simple Standard Library.">sStd</a> header file. </p>
 <dl class="section author"><dt>Author</dt><dd>silvio3105 (www.github.com/silvio3105) </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>v1.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2022-10-29</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022, silvio3105 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
@@ -292,7 +290,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8h.html">sStd.h</a></li>
-    <li class="footer">Generated on Sat Nov 26 2022 21:01:59 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Thu Dec 1 2022 20:13:23 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
