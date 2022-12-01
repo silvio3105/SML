@@ -2,8 +2,6 @@
  * @file sStd.h
  * @author silvio3105 (www.github.com/silvio3105)
  * @brief sStd header file.
- * @version v1.0
- * @date 2022-10-29
  * 
  * @copyright Copyright (c) 2022, silvio3105
  * 
@@ -475,7 +473,7 @@ namespace sStd
 	 * 
 	 * @note By default, parameter \c endChar is set to \c \0 which is standard character for ending C-strings.
 	 */
-	uint16_t len(char* input, char endChar = '\0');
+	uint16_t len(const char* input, const char endChar = '\0');
 
 	/**
 	 * @brief Count number of \c character in \c input C-string.
@@ -485,7 +483,7 @@ namespace sStd
 	 * @param endChar Character where function should stop. This parameter is optional.
 	 * @return Number of \c character in \c input
 	 */
-	uint16_t count(char* input, char character, char endChar = '\0');
+	uint16_t count(const char* input, const char character, const char endChar = '\0');
 
 	/**
 	 * @brief Compare two C-strings.

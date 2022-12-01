@@ -2,8 +2,6 @@
  * @file sStd.cpp
  * @author silvio3105 (www.github.com/silvio3105)
  * @brief sStd source file.
- * @version v1.0
- * @date 2022-10-29
  * 
  * @copyright Copyright (c) 2022, silvio3105
  * 
@@ -147,10 +145,10 @@ char* sStd::tok(char* input, char separator)
 		else return input;
 }
 
-uint16_t sStd::len(char* input, char endChar)
+uint16_t sStd::len(const char* input, const char endChar)
 {
 	// Copy string address to local variable
-	char* tmp = input;
+	const char* tmp = input;
 
 	// Move pointer until endChar is found
 	while (*tmp != endChar) tmp++;
@@ -159,7 +157,7 @@ uint16_t sStd::len(char* input, char endChar)
 	return tmp - input;
 }
 
-uint16_t sStd::count(char* input, char character, char endChar)
+uint16_t sStd::count(const char* input, const char character, const char endChar)
 {
 	uint16_t count = 0;
 
