@@ -189,7 +189,16 @@ This License shall be included in all functional textual files.
 namespace sStd
 {
 	// TYPEDEFS
-	typedef uint16_t rbIdx_t; /**< @brief Type for \ref RingBuffer length.  */
+	typedef uint16_t rbIdx_t; /**< @brief Type for \ref RingBuffer length. */
+
+	/**
+	 * @brief Pointer to external function for sending log strings.
+	 * 
+	 * @param buffer Pointer to buffer to send.
+	 * @param len Length of \c buffer
+	 * @return No return value.
+	 */
+	typedef void (*extHandler)(const uint8_t* buffer, const uint16_t len);
 
 	// CLASSES
 	template<typename T>
@@ -246,11 +255,13 @@ namespace sStd
 		uint16_t length; /**< Length of \ref dataAddr. */
 	};
 
-	template<typename T, rbIdx_t N>
 	/**
 	 * @brief Ring buffer class.
 	 * 
-	 */	
+	 * @tparam T Type of ring buffer data, eg. \c uint32_t
+	 * @tparam N Number of data in ring buffer.
+	 */
+	template<typename T, rbIdx_t N>
 	class RingBuffer {
 		// PUBLIC STUFF
 		public:
@@ -371,6 +382,32 @@ namespace sStd
 		 * @return No return value.
 		 */
 		void increaseTail(void);
+	};
+
+	/**
+	 * @brief Logger class.
+	 * 
+	 * @tparam N Buffer size in bytes.
+	 */
+	template<uint16_t N>
+	class Logger
+	{
+		// PUBLIC STUFF
+		public:
+		// CONSTRUCTOR AND DECONSTRUCTOR DECLARATIONS
+		Logger(sStd::extHandler handler);
+		~Logger(void);
+
+		// METHOD DECLARATIONS
+		void print(const char* str, const uint16_t len);
+		void printf(const char* str, ...);
+		inline uint16_t size(void) const;
+
+		// PRIVATE STUFF
+		private:
+		// VARIABLES
+		char buffer[N] = { '\0' };
+		const sStd::extHandler printHandler = nullptr;
 	};
 
 

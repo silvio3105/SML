@@ -26,6 +26,8 @@ This License shall be included in all functional textual files.
 // ----- INCLUDE FILES
 #include            <sStd.h>
 #include 			<string.h>
+#include			<stdio.h>
+#include			<stdarg.h>
 
 
 // ----- CLASSES
@@ -419,6 +421,50 @@ void sStd::RingBuffer<T, N>::increaseTail(void)
 
 	// Reset tail pointer
 	if (tail == length) tail = 0; 
+}
+
+
+// LOGGER METHOD DEFINITIONS
+template<uint16_t N>
+sStd::Logger<N>::Logger(sStd::extHandler handler)
+{
+	printHandler = handler;
+}
+
+template<uint16_t N>
+sStd::Logger<N>::~Logger(void)
+{
+	buffer[0] = '\0';
+	printHandler = nullptr;
+}
+
+
+template<uint16_t N>
+void sStd::Logger<N>::print(const char* str, const uint16_t len)
+{
+	// Pass C-string to external handler
+	printHandler(str, len);
+}
+
+template<uint16_t N>
+void sStd::Logger<N>::printf(const char* str, ...)
+{
+	uint16_t len;
+
+	// Format input C-string with variable arguments
+	va_list args;
+    va_start(args);	
+	len = vsnprintf(buffer, sizeof(buffer), str, args);
+	va_end(args);
+
+	// Pass formated C-string to external handler
+	printHandler(buffer, len);
+}
+
+template<uint16_t N>
+inline uint16_t sStd::Logger<N>::size(void) const
+{
+	return sizeof(buffer);
 }
 
 
