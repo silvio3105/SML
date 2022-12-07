@@ -30,6 +30,16 @@ This License shall be included in all functional textual files.
 #include			<stdarg.h>
 
 
+// ----- DEFINES
+// LOGGER
+#define LOG_SWITCH_BIT				0
+#define LOG_SWITCH_MASK				0b00000001
+#define LOG_TYPE_BIT				1
+#define LOG_TYPE_MASK				0b00000010
+#define LOG_STATUS_BIT				2
+#define LOG_STATUS_MASK				0b00000100
+
+
 // ----- CLASSES
 // DATA CLASS
 template<typename T>
@@ -426,45 +436,111 @@ void sStd::RingBuffer<T, N>::increaseTail(void)
 
 // LOGGER METHOD DEFINITIONS
 template<uint16_t N>
-sStd::Logger<N>::Logger(sStd::extHandler handler)
+sStd::Logger<N>::Logger(sStd::extHandler handler, const char* fix, sStd::logType_t type, sStd::logStatus_t status)
 {
+	// Set external handler for printing log messages
 	printHandler = handler;
+
+	// Set prefix C-string and its length
+	prefix = fix;
+	prefixLen = sStd::len(fix);
+
+	// Set logger type and status
+	cfg = (type << 1) || status;
 }
 
 template<uint16_t N>
 sStd::Logger<N>::~Logger(void)
 {
+	// Reset logger stuff to default values
 	buffer[0] = '\0';
 	printHandler = nullptr;
+	config = 0;
+	prefix = nullptr;
+	prefixLen = 0;
 }
 
 
 template<uint16_t N>
 void sStd::Logger<N>::print(const char* str, const uint16_t len)
 {
+	// Abort if logger is turned off
+	if (!SSTD_BIT(config, LOG_SWITCH_BIT)) return;
+
+	// Output prefix
+	if (prefixLen) out(prefix, prefixLen);
+
 	// Pass C-string to external handler
-	printHandler(str, len);
+	out(str, len);
 }
 
 template<uint16_t N>
 void sStd::Logger<N>::printf(const char* str, ...)
 {
-	uint16_t len;
+	// Abort if logger is turned off
+	if (!SSTD_BIT(config, LOG_SWITCH_BIT)) return;
+
+	// Wait for semaphore
+	wait();
 
 	// Format input C-string with variable arguments
 	va_list args;
     va_start(args);	
-	len = vsnprintf(buffer, sizeof(buffer), str, args);
+	uint16_t len = vsnprintf(buffer, sizeof(buffer), str, args);
 	va_end(args);
 
+	// Output prefix
+	if (prefixLen) out(prefix, prefixLen);
+
 	// Pass formated C-string to external handler
-	printHandler(buffer, len);
+	out(buffer, len);
 }
 
 template<uint16_t N>
 inline uint16_t sStd::Logger<N>::size(void) const
 {
+	// Return length of logger buffer
 	return sizeof(buffer);
+}
+
+template<uint16_t N>
+inline void sStd::Logger<N>::release(void)
+{
+	// Release logger semaphore
+	SSTD_BIT_CLEAR(config, LOG_STATUS_BIT);
+}
+
+template<uint16_t N>
+void sStd::Logger<N>::out(const char* str, const uint16_t len)
+{
+	// If logger is non blocking type
+	if (SSTD_BIT(config, LOG_TYPE_BIT))
+	{
+		// Wait for semaphore
+		wait();
+
+		// Set status bit
+		SSTD_BIT_SET(config, LOG_STATUS_BIT);
+	}
+
+	// Pass C-string to external output function
+	printHandler(str, len);
+
+	// Terminate C-string
+	buffer[0] = '\0';		
+}
+
+template<uint16_t N>
+void sStd::Logger<N>::wait(void)
+{
+	uint8_t tmp;
+
+	// Wait for external stuff to complete previous C-string
+	do
+	{
+		tmp = SSTD_BIT(config, LOG_STATUS_BIT);
+	}
+	while (tmp);
 }
 
 

@@ -188,9 +188,19 @@ This License shall be included in all functional textual files.
  */
 namespace sStd
 {
+	// ENUMATORS
+	typedef enum logStatus_t : uint8_t {
+		LOG_OFF = 0,
+		LOG_ON = 1
+	};
+
+	typedef enum logType_t : uint8_t {
+		LOG_BLOCKING = 0,
+		LOG_NON_BLOCKING = 1
+	};
+
 	// TYPEDEFS
 	typedef uint16_t rbIdx_t; /**< @brief Type for \ref RingBuffer length. */
-
 	/**
 	 * @brief Pointer to external function for sending log strings.
 	 * 
@@ -395,19 +405,27 @@ namespace sStd
 		// PUBLIC STUFF
 		public:
 		// CONSTRUCTOR AND DECONSTRUCTOR DECLARATIONS
-		Logger(sStd::extHandler handler);
+		Logger(sStd::extHandler handler, const char* fix, sStd::logType_t type = LOG_BLOCKING, sStd::logStatus_t status = LOG_ON);
 		~Logger(void);
 
 		// METHOD DECLARATIONS
 		void print(const char* str, const uint16_t len);
 		void printf(const char* str, ...);
 		inline uint16_t size(void) const;
+		inline void release(void);
 
 		// PRIVATE STUFF
 		private:
 		// VARIABLES
+		uint8_t config = 0;
+		uint8_t prefixLen = 0;
 		char buffer[N] = { '\0' };
+		const char* prefix = nullptr;
 		const sStd::extHandler printHandler = nullptr;
+
+		// METHOD DECLARATIONS
+		void out(const char* str, const uint16_t len);
+		void wait(void);
 	};
 
 
