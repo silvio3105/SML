@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v0.1</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0rc3</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('namespaces_std.html',''); initResizabl
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sStd Namespace Reference<div class="ingroups"><a class="el" href="group__s_std.html">SStd</a></div></div></div>
 </div><!--header-->
@@ -107,6 +108,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_data.html">Data</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing data <code>T</code> with <code>len</code>.  <a href="classs_std_1_1_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_logger.html">Logger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classs_std_1_1_logger.html" title="Logger class.">Logger</a> class.  <a href="classs_std_1_1_logger.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring buffer class.  <a href="classs_std_1_1_ring_buffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,9 +120,24 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ad129ee41f5d7de322f67a9e17ec8e395"><td class="memItemLeft" align="right" valign="top">typedef uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">rbIdx_t</a></td></tr>
-<tr class="memdesc:ad129ee41f5d7de322f67a9e17ec8e395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for <a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a> length. <br  />
-  <a href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">More...</a><br /></td></tr>
+<tr class="memdesc:ad129ee41f5d7de322f67a9e17ec8e395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for <a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a> length.  <a href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">More...</a><br /></td></tr>
 <tr class="separator:ad129ee41f5d7de322f67a9e17ec8e395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a470039998051a67cae65bf80983d6749"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a470039998051a67cae65bf80983d6749">extHandler</a>) (const uint8_t *buffer, const uint16_t <a class="el" href="namespaces_std.html#aa424e5fd087680908410810c9466acd3">len</a>)</td></tr>
+<tr class="memdesc:a470039998051a67cae65bf80983d6749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to external function for sending log strings.  <a href="namespaces_std.html#a470039998051a67cae65bf80983d6749">More...</a><br /></td></tr>
+<tr class="separator:a470039998051a67cae65bf80983d6749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36">logStatus_t</a> : uint8_t { <a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36a2dec0c995bada9c5dc27b76cadd411cc">LOG_OFF</a> = 0
+, <a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36a6c9df478b91dcb250a4ee79d41f462b0">LOG_ON</a> = 1
+ }</td></tr>
+<tr class="memdesc:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumator for logger status.  <a href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36">More...</a><br /></td></tr>
+<tr class="separator:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62d6075213877604df7b8211eee9328"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328">logType_t</a> : uint8_t { <a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328abc3e351fb32b4aa6a8340fa71900d9cf">LOG_BLOCKING</a> = 0
+, <a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328a2a2a9aa7ff6393e69cdd70e8806b10fd">LOG_NON_BLOCKING</a> = 1
+ }</td></tr>
+<tr class="memdesc:ad62d6075213877604df7b8211eee9328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumator for logger type.  <a href="namespaces_std.html#ad62d6075213877604df7b8211eee9328">More...</a><br /></td></tr>
+<tr class="separator:ad62d6075213877604df7b8211eee9328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -168,6 +187,32 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Namespace for Simple Standard Library. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a470039998051a67cae65bf80983d6749" name="a470039998051a67cae65bf80983d6749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a470039998051a67cae65bf80983d6749">&#9670;&#160;</a></span>extHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* sStd::extHandler) (const uint8_t *buffer, const uint16_t <a class="el" href="namespaces_std.html#aa424e5fd087680908410810c9466acd3">len</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to external function for sending log strings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Pointer to buffer to send. </td></tr>
+    <tr><td class="paramname">len</td><td>Length of <code>buffer</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00219">219</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+
+</div>
+</div>
 <a id="ad129ee41f5d7de322f67a9e17ec8e395" name="ad129ee41f5d7de322f67a9e17ec8e395"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad129ee41f5d7de322f67a9e17ec8e395">&#9670;&#160;</a></span>rbIdx_t</h2>
 
@@ -180,10 +225,58 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type for <a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a> length. <br  />
- </p>
+<p>Type for <a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a> length. </p>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00192">192</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00211">211</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a1028afce5b5cfeb70b0d6f4c032e6b36" name="a1028afce5b5cfeb70b0d6f4c032e6b36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1028afce5b5cfeb70b0d6f4c032e6b36">&#9670;&#160;</a></span>logStatus_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36">sStd::logStatus_t</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enumator for logger status. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1028afce5b5cfeb70b0d6f4c032e6b36a2dec0c995bada9c5dc27b76cadd411cc" name="a1028afce5b5cfeb70b0d6f4c032e6b36a2dec0c995bada9c5dc27b76cadd411cc"></a>LOG_OFF&#160;</td><td class="fielddoc"><p ><a class="el" href="classs_std_1_1_logger.html" title="Logger class.">Logger</a> is turned off. Print(f)s will be ignored. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a1028afce5b5cfeb70b0d6f4c032e6b36a6c9df478b91dcb250a4ee79d41f462b0" name="a1028afce5b5cfeb70b0d6f4c032e6b36a6c9df478b91dcb250a4ee79d41f462b0"></a>LOG_ON&#160;</td><td class="fielddoc"><p ><a class="el" href="classs_std_1_1_logger.html" title="Logger class.">Logger</a> is turned on. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00196">196</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+
+</div>
+</div>
+<a id="ad62d6075213877604df7b8211eee9328" name="ad62d6075213877604df7b8211eee9328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad62d6075213877604df7b8211eee9328">&#9670;&#160;</a></span>logType_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328">sStd::logType_t</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enumator for logger type. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad62d6075213877604df7b8211eee9328abc3e351fb32b4aa6a8340fa71900d9cf" name="ad62d6075213877604df7b8211eee9328abc3e351fb32b4aa6a8340fa71900d9cf"></a>LOG_BLOCKING&#160;</td><td class="fielddoc"><p >Blocking logger. Code execution will continue after transfer ends. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad62d6075213877604df7b8211eee9328a2a2a9aa7ff6393e69cdd70e8806b10fd" name="ad62d6075213877604df7b8211eee9328a2a2a9aa7ff6393e69cdd70e8806b10fd"></a>LOG_NON_BLOCKING&#160;</td><td class="fielddoc"><p >Non-blocking logger. Transfer will be done in parallel with main code. New print(f)s will wait for semaphore. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00205">205</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -233,7 +326,7 @@ Functions</h2></td></tr>
 <dd>
 <code>SSTD_OK</code> if strings are equal. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00178">178</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00190">190</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -280,7 +373,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of <code>character</code> in <code>input</code> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00160">160</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00172">172</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -337,16 +430,19 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>Length of C-string.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>By default, parameter <code>endChar</code> is set to <code>\0</code> which is standard character for ending C-strings. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00148">148</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00160">160</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaces_std_aa424e5fd087680908410810c9466acd3_icgraph.png" border="0" usemap="#anamespaces_std_aa424e5fd087680908410810c9466acd3_icgraph" alt=""/></div>
 <map name="anamespaces_std_aa424e5fd087680908410810c9466acd3_icgraph" id="anamespaces_std_aa424e5fd087680908410810c9466acd3_icgraph">
-<area shape="rect" title="Find length of input C&#45;string." alt="" coords="212,55,287,80"/>
-<area shape="rect" href="classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705" title="Get length of data." alt="" coords="5,5,164,31"/>
-<area shape="rect" href="classs_std_1_1_ring_buffer.html#a15a0237ce676c174bb2bb14406fff527" title="Read multiple data from ring buffer." alt="" coords="9,55,160,80"/>
-<area shape="rect" href="classs_std_1_1_ring_buffer.html#ad2e3337580c7d0704ddb9a21ea157041" title="Write multiple data to ring buffer." alt="" coords="8,104,161,129"/>
+<area shape="rect" title="Find length of input C&#45;string." alt="" coords="207,129,281,155"/>
+<area shape="rect" href="classs_std_1_1_logger.html#a1aeb998ecdbee287a07e1d1ed38b3bd7" title="Logger constructor." alt="" coords="11,5,153,31"/>
+<area shape="rect" href="classs_std_1_1_logger.html#a740ab010c371dac3010c10c72e8bac7c" title="Print constant C&#45;string." alt="" coords="17,55,147,80"/>
+<area shape="rect" href="classs_std_1_1_logger.html#af0de1ec72c247ce3aca6ed787a275ee7" title="Format and print string." alt="" coords="15,104,149,129"/>
+<area shape="rect" href="classs_std_1_1_ring_buffer.html#a15a0237ce676c174bb2bb14406fff527" title="Read multiple data from ring buffer." alt="" coords="7,153,157,179"/>
+<area shape="rect" href="namespaces_std.html#ab4894083c00235a46a426a88e71838e3" title="Scan C&#45;string for wanted tokens." alt="" coords="36,203,128,228"/>
+<area shape="rect" href="classs_std_1_1_ring_buffer.html#ad2e3337580c7d0704ddb9a21ea157041" title="Write multiple data to ring buffer." alt="" coords="5,252,159,277"/>
 </map>
 </div>
 
@@ -669,7 +765,7 @@ template&lt;typename T &gt; </div>
 <dd>
 Function scans from left to right. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00200">200</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00212">212</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -685,7 +781,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaces_std_a0353f5360c7ff60d201814ac9cbece74_icgraph.png" border="0" usemap="#anamespaces_std_a0353f5360c7ff60d201814ac9cbece74_icgraph" alt=""/></div>
 <map name="anamespaces_std_a0353f5360c7ff60d201814ac9cbece74_icgraph" id="anamespaces_std_a0353f5360c7ff60d201814ac9cbece74_icgraph">
 <area shape="rect" title="Scan C&#45;string for wanted token." alt="" coords="212,5,304,31"/>
-<area shape="rect" href="classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705" title="Get length of data." alt="" coords="5,5,164,31"/>
+<area shape="rect" href="classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc" title="Set new data." alt="" coords="5,5,164,31"/>
 </map>
 </div>
 
@@ -756,7 +852,16 @@ C-string has to be NULL terminated. </dd>
 <dd>
 Function scans from left to right. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00241">241</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00253">253</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaces_std_ab4894083c00235a46a426a88e71838e3_cgraph.png" border="0" usemap="#anamespaces_std_ab4894083c00235a46a426a88e71838e3_cgraph" alt=""/></div>
+<map name="anamespaces_std_ab4894083c00235a46a426a88e71838e3_cgraph" id="anamespaces_std_ab4894083c00235a46a426a88e71838e3_cgraph">
+<area shape="rect" title="Scan C&#45;string for wanted tokens." alt="" coords="5,5,97,31"/>
+<area shape="rect" href="namespaces_std.html#aa424e5fd087680908410810c9466acd3" title="Find length of input C&#45;string." alt="" coords="145,5,220,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -788,7 +893,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Sum of all digits. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00105">105</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00117">117</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -831,7 +936,7 @@ template&lt;typename T &gt; </div>
 <dd>
 Pointer to next token in <code>input</code> C-string. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00129">129</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00141">141</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -841,7 +946,7 @@ Pointer to next token in <code>input</code> C-string. </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaces_std.html">sStd</a></li>
-    <li class="footer">Generated on Thu Dec 1 2022 20:13:23 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Dec 10 2022 23:01:47 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

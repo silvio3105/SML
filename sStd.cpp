@@ -32,12 +32,12 @@ This License shall be included in all functional textual files.
 
 // ----- DEFINES
 // LOGGER
-#define LOG_SWITCH_BIT				0
-#define LOG_SWITCH_MASK				0b00000001
-#define LOG_TYPE_BIT				1
-#define LOG_TYPE_MASK				0b00000010
-#define LOG_STATUS_BIT				2
-#define LOG_STATUS_MASK				0b00000100
+#define LOG_STATUS_BIT				0 /**< @brief Logger status bit. */
+#define LOG_STATUS_MASK				0b00000001 /**< @brief Logger status mask. */
+#define LOG_TYPE_BIT				1 /**< @brief Logger type bit. */
+#define LOG_TYPE_MASK				0b00000010 /**< @brief Logger type mask. */
+#define LOG_SEMAPHORE_BIT			2 /**< @brief Logger semaphore bit. */
+#define LOG_SEMAPHORE_MASK			0b00000100 /**< @brief Logger semaphore mask. */
 
 
 // ----- CLASSES
@@ -446,7 +446,7 @@ sStd::Logger<N>::Logger(sStd::extHandler handler, const char* fix, sStd::logType
 	prefixLen = sStd::len(fix);
 
 	// Set logger type and status
-	cfg = (type << 1) || status;
+	cfg = (0 << LOG_SEMAPHORE_BIT) | (type << LOG_TYPE_BIT) || (status << LOG_STATUS_BIT);
 }
 
 template<uint16_t N>
@@ -465,9 +465,9 @@ template<uint16_t N>
 void sStd::Logger<N>::print(const char* str, const uint16_t len)
 {
 	// Abort if logger is turned off
-	if (!SSTD_BIT(config, LOG_SWITCH_BIT)) return;
+	if (!SSTD_BIT(config, LOG_STATUS_BIT)) return;
 
-	// Output prefix
+	// Output prefix if exists
 	if (prefixLen) out(prefix, prefixLen);
 
 	// Pass C-string to external handler
@@ -478,7 +478,7 @@ template<uint16_t N>
 void sStd::Logger<N>::printf(const char* str, ...)
 {
 	// Abort if logger is turned off
-	if (!SSTD_BIT(config, LOG_SWITCH_BIT)) return;
+	if (!SSTD_BIT(config, LOG_STATUS_BIT)) return;
 
 	// Wait for semaphore
 	wait();
@@ -507,8 +507,25 @@ template<uint16_t N>
 inline void sStd::Logger<N>::release(void)
 {
 	// Release logger semaphore
-	SSTD_BIT_CLEAR(config, LOG_STATUS_BIT);
+	SSTD_BIT_CLEAR(config, LOG_SEMAPHORE_BIT);
 }
+
+template<uint16_t N>
+sStd::logStatus_t sStd::Logger<N>::status(void) const
+{
+	// Return LOG_ON if status bit is 1(logger is turned on), otherwise return LOG_OFF
+	if (SSTD_BIT(config, LOG_STATUS_BIT)) return sStd::LOG_ON;
+		else return sStd::LOG_OFF; 
+}
+
+template<uint16_t N>
+void sStd::Logger<N>::status(sStd::logStatus_t newStatus)
+{
+	// Set status bit if new status is LOG_ON, otherwise clear status bit
+	if (newStatus == LOG_ON) SSTD_BIT_SET(config, LOG_STATUS_BIT);
+		else SSTD_BIT_CLEAR(config, LOG_STATUS_BIT);
+}
+
 
 template<uint16_t N>
 void sStd::Logger<N>::out(const char* str, const uint16_t len)
@@ -520,14 +537,11 @@ void sStd::Logger<N>::out(const char* str, const uint16_t len)
 		wait();
 
 		// Set status bit
-		SSTD_BIT_SET(config, LOG_STATUS_BIT);
+		SSTD_BIT_SET(config, LOG_SEMAPHORE_BIT);
 	}
 
 	// Pass C-string to external output function
-	printHandler(str, len);
-
-	// Terminate C-string
-	buffer[0] = '\0';		
+	printHandler(str, len);	
 }
 
 template<uint16_t N>
@@ -535,10 +549,10 @@ void sStd::Logger<N>::wait(void)
 {
 	uint8_t tmp;
 
-	// Wait for external stuff to complete previous C-string
+	// Wait for external stuff to release logger's semaphore
 	do
 	{
-		tmp = SSTD_BIT(config, LOG_STATUS_BIT);
+		tmp = SSTD_BIT(config, LOG_SEMAPHORE_BIT);
 	}
 	while (tmp);
 }

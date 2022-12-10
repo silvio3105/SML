@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v0.1</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0rc3</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('s_std_8cpp.html',''); initResizable();
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sStd.cpp File Reference</div></div>
 </div><!--header-->
@@ -101,20 +102,45 @@ $(document).ready(function(){initNavTree('s_std_8cpp.html',''); initResizable();
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="s_std_8h_source.html">sStd.h</a>&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sStd.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="s_std_8cpp__incl.png" border="0" usemap="#as_std_8cpp" alt=""/></div>
 <map name="as_std_8cpp" id="as_std_8cpp">
-<area shape="rect" title="sStd source file." alt="" coords="43,5,118,31"/>
+<area shape="rect" title="sStd source file." alt="" coords="131,5,206,31"/>
 <area shape="rect" href="s_std_8h.html" title="sStd header file." alt="" coords="8,79,68,104"/>
 <area shape="rect" title=" " alt="" coords="92,79,157,104"/>
+<area shape="rect" title=" " alt="" coords="182,79,243,104"/>
+<area shape="rect" title=" " alt="" coords="267,79,337,104"/>
 <area shape="rect" title=" " alt="" coords="5,152,71,177"/>
 </map>
 </div>
 </div>
 <p><a href="s_std_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a811d106cee88046b2a07e6a58381b4ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s_std_8cpp.html#a811d106cee88046b2a07e6a58381b4ed">LOG_STATUS_BIT</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a811d106cee88046b2a07e6a58381b4ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger status bit.  <a href="s_std_8cpp.html#a811d106cee88046b2a07e6a58381b4ed">More...</a><br /></td></tr>
+<tr class="separator:a811d106cee88046b2a07e6a58381b4ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73384fca2b8fb844890e822a5789a993"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s_std_8cpp.html#a73384fca2b8fb844890e822a5789a993">LOG_STATUS_MASK</a>&#160;&#160;&#160;0b00000001</td></tr>
+<tr class="memdesc:a73384fca2b8fb844890e822a5789a993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger status mask.  <a href="s_std_8cpp.html#a73384fca2b8fb844890e822a5789a993">More...</a><br /></td></tr>
+<tr class="separator:a73384fca2b8fb844890e822a5789a993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae10735dbe2a8d8352eea71689928b048"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s_std_8cpp.html#ae10735dbe2a8d8352eea71689928b048">LOG_TYPE_BIT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ae10735dbe2a8d8352eea71689928b048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger type bit.  <a href="s_std_8cpp.html#ae10735dbe2a8d8352eea71689928b048">More...</a><br /></td></tr>
+<tr class="separator:ae10735dbe2a8d8352eea71689928b048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a730b1ba1e923270a17c6f27c1c4df9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s_std_8cpp.html#a7a730b1ba1e923270a17c6f27c1c4df9">LOG_TYPE_MASK</a>&#160;&#160;&#160;0b00000010</td></tr>
+<tr class="memdesc:a7a730b1ba1e923270a17c6f27c1c4df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger type mask.  <a href="s_std_8cpp.html#a7a730b1ba1e923270a17c6f27c1c4df9">More...</a><br /></td></tr>
+<tr class="separator:a7a730b1ba1e923270a17c6f27c1c4df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e66fad5e87eb6466a1939cbbc078cff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s_std_8cpp.html#a9e66fad5e87eb6466a1939cbbc078cff">LOG_SEMAPHORE_BIT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:a9e66fad5e87eb6466a1939cbbc078cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger semaphore bit.  <a href="s_std_8cpp.html#a9e66fad5e87eb6466a1939cbbc078cff">More...</a><br /></td></tr>
+<tr class="separator:a9e66fad5e87eb6466a1939cbbc078cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af709a477764b3f27ab17e93bcffefed8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s_std_8cpp.html#af709a477764b3f27ab17e93bcffefed8">LOG_SEMAPHORE_MASK</a>&#160;&#160;&#160;0b00000100</td></tr>
+<tr class="memdesc:af709a477764b3f27ab17e93bcffefed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger semaphore mask.  <a href="s_std_8cpp.html#af709a477764b3f27ab17e93bcffefed8">More...</a><br /></td></tr>
+<tr class="separator:af709a477764b3f27ab17e93bcffefed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aea7b35d14cbf9cfadafe8033bb23da64"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -139,7 +165,116 @@ Functions</h2></td></tr>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022, silvio3105 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a9e66fad5e87eb6466a1939cbbc078cff" name="a9e66fad5e87eb6466a1939cbbc078cff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e66fad5e87eb6466a1939cbbc078cff">&#9670;&#160;</a></span>LOG_SEMAPHORE_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_SEMAPHORE_BIT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logger semaphore bit. </p>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00039">39</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af709a477764b3f27ab17e93bcffefed8" name="af709a477764b3f27ab17e93bcffefed8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af709a477764b3f27ab17e93bcffefed8">&#9670;&#160;</a></span>LOG_SEMAPHORE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_SEMAPHORE_MASK&#160;&#160;&#160;0b00000100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logger semaphore mask. </p>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00040">40</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a811d106cee88046b2a07e6a58381b4ed" name="a811d106cee88046b2a07e6a58381b4ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a811d106cee88046b2a07e6a58381b4ed">&#9670;&#160;</a></span>LOG_STATUS_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_STATUS_BIT&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logger status bit. </p>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00035">35</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a73384fca2b8fb844890e822a5789a993" name="a73384fca2b8fb844890e822a5789a993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73384fca2b8fb844890e822a5789a993">&#9670;&#160;</a></span>LOG_STATUS_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_STATUS_MASK&#160;&#160;&#160;0b00000001</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logger status mask. </p>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00036">36</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae10735dbe2a8d8352eea71689928b048" name="ae10735dbe2a8d8352eea71689928b048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae10735dbe2a8d8352eea71689928b048">&#9670;&#160;</a></span>LOG_TYPE_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_TYPE_BIT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logger type bit. </p>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00037">37</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7a730b1ba1e923270a17c6f27c1c4df9" name="a7a730b1ba1e923270a17c6f27c1c4df9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a730b1ba1e923270a17c6f27c1c4df9">&#9670;&#160;</a></span>LOG_TYPE_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG_TYPE_MASK&#160;&#160;&#160;0b00000010</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logger type mask. </p>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00038">38</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a6b25a2a0e04256a7cfe4522fe5bec48b" name="a6b25a2a0e04256a7cfe4522fe5bec48b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b25a2a0e04256a7cfe4522fe5bec48b">&#9670;&#160;</a></span>max2()</h2>
 
@@ -168,7 +303,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00087">87</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00099">99</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -206,7 +341,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00099">99</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00111">111</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -238,7 +373,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00081">81</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00093">93</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -276,7 +411,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00093">93</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00105">105</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -326,7 +461,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00075">75</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00087">87</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
 
 </div>
 </div>
@@ -336,7 +471,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8cpp.html">sStd.cpp</a></li>
-    <li class="footer">Generated on Thu Dec 1 2022 20:13:23 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Dec 10 2022 23:01:47 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

@@ -2,6 +2,7 @@ var s_std_8h =
 [
     [ "sStd::Data< T >", "classs_std_1_1_data.html", "classs_std_1_1_data" ],
     [ "sStd::RingBuffer< T, N >", "classs_std_1_1_ring_buffer.html", "classs_std_1_1_ring_buffer" ],
+    [ "sStd::Logger< N >", "classs_std_1_1_logger.html", "classs_std_1_1_logger" ],
     [ "sStd::scanData", "structs_std_1_1scan_data.html", "structs_std_1_1scan_data" ],
     [ "ABS", "group__s_std.html#ga26e668489fb528456f4bc54ba908d5b4", null ],
     [ "AL", "group__s_std.html#gae56562740b1159ed03061cecec40f609", null ],
@@ -30,7 +31,16 @@ var s_std_8h =
     [ "SSTD_NOK", "group__s_std.html#ga9367edb6ad1db310451eb08bfc6e1755", null ],
     [ "SSTD_OK", "group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6", null ],
     [ "SSTD_SCALE", "group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1", null ],
+    [ "extHandler", "s_std_8h.html#a470039998051a67cae65bf80983d6749", null ],
     [ "rbIdx_t", "s_std_8h.html#ad129ee41f5d7de322f67a9e17ec8e395", null ],
+    [ "logStatus_t", "s_std_8h.html#a1028afce5b5cfeb70b0d6f4c032e6b36", [
+      [ "LOG_OFF", "s_std_8h.html#a1028afce5b5cfeb70b0d6f4c032e6b36a2dec0c995bada9c5dc27b76cadd411cc", null ],
+      [ "LOG_ON", "s_std_8h.html#a1028afce5b5cfeb70b0d6f4c032e6b36a6c9df478b91dcb250a4ee79d41f462b0", null ]
+    ] ],
+    [ "logType_t", "s_std_8h.html#ad62d6075213877604df7b8211eee9328", [
+      [ "LOG_BLOCKING", "s_std_8h.html#ad62d6075213877604df7b8211eee9328abc3e351fb32b4aa6a8340fa71900d9cf", null ],
+      [ "LOG_NON_BLOCKING", "s_std_8h.html#ad62d6075213877604df7b8211eee9328a2a2a9aa7ff6393e69cdd70e8806b10fd", null ]
+    ] ],
     [ "cmp", "s_std_8h.html#a55f555bd8a6ab9f8a251e76c3139cda2", null ],
     [ "count", "s_std_8h.html#ac624304e58ff13924de3ec379a040429", null ],
     [ "len", "s_std_8h.html#aa424e5fd087680908410810c9466acd3", null ],

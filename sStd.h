@@ -189,14 +189,22 @@ This License shall be included in all functional textual files.
 namespace sStd
 {
 	// ENUMATORS
+	/**
+	 * @brief Enumator for logger status.
+	 * 
+	 */
 	typedef enum logStatus_t : uint8_t {
-		LOG_OFF = 0,
-		LOG_ON = 1
+		LOG_OFF = 0, /**< @brief Logger is turned off. Print(f)s will be ignored. */
+		LOG_ON = 1 /**< @brief Logger is turned on. */
 	};
 
+	/**
+	 * @brief Enumator for logger type.
+	 * 
+	 */
 	typedef enum logType_t : uint8_t {
-		LOG_BLOCKING = 0,
-		LOG_NON_BLOCKING = 1
+		LOG_BLOCKING = 0, /**< @brief Blocking logger. Code execution will continue after transfer ends. */
+		LOG_NON_BLOCKING = 1 /**< @brief Non-blocking logger. Transfer will be done in parallel with main code. New print(f)s will wait for semaphore. */
 	};
 
 	// TYPEDEFS
@@ -405,26 +413,109 @@ namespace sStd
 		// PUBLIC STUFF
 		public:
 		// CONSTRUCTOR AND DECONSTRUCTOR DECLARATIONS
+		/**
+		 * @brief Logger constructor.
+		 * 
+		 * @param handler Pointer to external function for handling buffer transfer(printing).
+		 * @param fix Prefix C-string. Has to be NULL terminated.
+		 * @param type Logger type. See \ref logType_t
+		 * @param status Logger initial status. See \ref logStatus_t
+		 * @return No return value.
+		 */
 		Logger(sStd::extHandler handler, const char* fix, sStd::logType_t type = LOG_BLOCKING, sStd::logStatus_t status = LOG_ON);
+
+		/**
+		 * @brief Logger deconstructor.
+		 * 
+		 * @return No return value.
+		 */
 		~Logger(void);
 
 		// METHOD DECLARATIONS
+		/**
+		 * @brief Print constant C-string.
+		 * 
+		 * @param str Pointer to C-string.
+		 * @param len Length of \c str
+		 * @return No return value.
+		 */
 		void print(const char* str, const uint16_t len);
+
+		/**
+		 * @brief Format and print string.
+		 * 
+		 * This method uses variable argument list and \c vsnprintf function for string formating.
+		 * 
+		 * @param str Pointer to C-string.
+		 * @param ... Variable arguments.
+		 * @return No return value.
+		 */
 		void printf(const char* str, ...);
+
+		/**
+		 * @brief Get size of logger's buffer.
+		 * 
+		 * @return Size of logger's buffer.
+		 */
 		inline uint16_t size(void) const;
+
+		/**
+		 * @brief Release logger semaphore.
+		 * 
+		 * This method releases logger semaphore. This method is called after non-blocking transfer has ended(eg. DMA transfer to UART).
+		 * 
+		 * @return No return value.
+		 */
 		inline void release(void);
+
+		/**
+		 * @brief Get logger status.
+		 * 
+		 * @return Logger status. See \ref sStd::logStatus_t
+		 */
+		sStd::logStatus_t status(void) const;
+
+		/**
+		 * @brief Set logger status.
+		 * 
+		 * @param newStatus New logger status. See \ref sStd::logStatus_t
+		 * @return No return value.
+		 */
+		void status(sStd::logStatus_t newStatus);
 
 		// PRIVATE STUFF
 		private:
 		// VARIABLES
+		/**
+		 * @brief Logger configuration.
+		 * 
+		 * Bit 0 = Logger status bit. See \ref sStd::logStatus_t
+		 * 
+		 * Bit 1 = Logger type bit. See \ref sStd::logType_t
+		 * 
+		 * Bit 2 = Logger semaphore bit. \c 0 means semaphore is free. \c 1 means semaphore is taken.
+		 */
 		uint8_t config = 0;
-		uint8_t prefixLen = 0;
-		char buffer[N] = { '\0' };
-		const char* prefix = nullptr;
-		const sStd::extHandler printHandler = nullptr;
+		uint8_t prefixLen = 0; /**< @brief Length of \ref prefix */
+		char buffer[N] = { '\0' }; /**< @brief Logger buffer. */
+		const char* prefix = nullptr; /**< @brief Logger prefix (C-string). Has to be NULL terminated. */
+		const sStd::extHandler printHandler = nullptr; /**< @brief Pointer to external function that handles buffer transfer. */
 
 		// METHOD DECLARATIONS
+		/**
+		 * @brief Handles semaphore and calls \ref printHandler
+		 * 
+		 * @param str Pointer to C-string.
+		 * @param len Length of C-string pointed by \c str
+		 * @return No return value.
+		 */
 		void out(const char* str, const uint16_t len);
+
+		/**
+		 * @brief Waits for released semaphore.
+		 * 
+		 * @return No return value.
+		 */
 		void wait(void);
 	};
 

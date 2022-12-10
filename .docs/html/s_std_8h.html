@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v0.1</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0rc3</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -96,6 +96,7 @@ $(document).ready(function(){initNavTree('s_std_8h.html',''); initResizable(); }
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sStd.h File Reference</div></div>
 </div><!--header-->
@@ -132,6 +133,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_ring_buffer.html">sStd::RingBuffer&lt; T, N &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring buffer class.  <a href="classs_std_1_1_ring_buffer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_logger.html">sStd::Logger&lt; N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classs_std_1_1_logger.html" title="Logger class.">Logger</a> class.  <a href="classs_std_1_1_logger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -229,9 +233,24 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ad129ee41f5d7de322f67a9e17ec8e395"><td class="memItemLeft" align="right" valign="top">typedef uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">sStd::rbIdx_t</a></td></tr>
-<tr class="memdesc:ad129ee41f5d7de322f67a9e17ec8e395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for <a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a> length. <br  />
-  <a href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">More...</a><br /></td></tr>
+<tr class="memdesc:ad129ee41f5d7de322f67a9e17ec8e395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for <a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a> length.  <a href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">More...</a><br /></td></tr>
 <tr class="separator:ad129ee41f5d7de322f67a9e17ec8e395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a470039998051a67cae65bf80983d6749"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a470039998051a67cae65bf80983d6749">sStd::extHandler</a>) (const uint8_t *buffer, const uint16_t len)</td></tr>
+<tr class="memdesc:a470039998051a67cae65bf80983d6749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to external function for sending log strings.  <a href="namespaces_std.html#a470039998051a67cae65bf80983d6749">More...</a><br /></td></tr>
+<tr class="separator:a470039998051a67cae65bf80983d6749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36">sStd::logStatus_t</a> : uint8_t { <a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36a2dec0c995bada9c5dc27b76cadd411cc">sStd::LOG_OFF</a> = 0
+, <a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36a6c9df478b91dcb250a4ee79d41f462b0">sStd::LOG_ON</a> = 1
+ }</td></tr>
+<tr class="memdesc:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumator for logger status.  <a href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36">More...</a><br /></td></tr>
+<tr class="separator:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62d6075213877604df7b8211eee9328"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328">sStd::logType_t</a> : uint8_t { <a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328abc3e351fb32b4aa6a8340fa71900d9cf">sStd::LOG_BLOCKING</a> = 0
+, <a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328a2a2a9aa7ff6393e69cdd70e8806b10fd">sStd::LOG_NON_BLOCKING</a> = 1
+ }</td></tr>
+<tr class="memdesc:ad62d6075213877604df7b8211eee9328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumator for logger type.  <a href="namespaces_std.html#ad62d6075213877604df7b8211eee9328">More...</a><br /></td></tr>
+<tr class="separator:ad62d6075213877604df7b8211eee9328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -290,7 +309,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8h.html">sStd.h</a></li>
-    <li class="footer">Generated on Thu Dec 1 2022 20:13:23 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Dec 10 2022 23:01:47 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

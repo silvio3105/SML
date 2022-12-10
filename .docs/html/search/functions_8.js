@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['scale_0',['scale',['../namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0',1,'sStd']]],
-  ['set_1',['set',['../classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc',1,'sStd::Data']]],
-  ['sscan_2',['sscan',['../namespaces_std.html#a0353f5360c7ff60d201814ac9cbece74',1,'sStd::sscan(char *input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data&lt; char &gt; &amp;output, const uint8_t modify=0)'],['../namespaces_std.html#ab4894083c00235a46a426a88e71838e3',1,'sStd::sscan(char *input, sStd::scanData *data, const uint8_t len, const uint8_t modify=0, const uint8_t sorted=0)']]],
-  ['sumdigits_3',['sumDigits',['../namespaces_std.html#ac0614e49737cc39802f63339efab0551',1,'sStd']]]
+  ['read_0',['read',['../classs_std_1_1_ring_buffer.html#aa11fc627089b67a3f55916a7afb1a9d1',1,'sStd::RingBuffer::read(T &amp;output)'],['../classs_std_1_1_ring_buffer.html#a15a0237ce676c174bb2bb14406fff527',1,'sStd::RingBuffer::read(T *output, rbIdx_t len)']]],
+  ['release_1',['release',['../classs_std_1_1_logger.html#aec7ea7592d3337e24f2bcfb80d879fc5',1,'sStd::Logger']]],
+  ['ringbuffer_2',['RingBuffer',['../classs_std_1_1_ring_buffer.html#a4c19699d2b356426b02dabc6f177cb99',1,'sStd::RingBuffer']]]
 ];
