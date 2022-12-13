@@ -51,6 +51,6 @@ var s_std_8h =
     [ "scale", "s_std_8h.html#ab80208f2b31ea63d59b190a8eee53db0", null ],
     [ "sscan", "s_std_8h.html#a0353f5360c7ff60d201814ac9cbece74", null ],
     [ "sscan", "s_std_8h.html#ab4894083c00235a46a426a88e71838e3", null ],
-    [ "sumDigits", "s_std_8h.html#ac0614e49737cc39802f63339efab0551", null ],
+    [ "sumDigits", "s_std_8h.html#ab14a9e254e2ca6a48a8ad9d16b40e53a", null ],
     [ "tok", "s_std_8h.html#ad6fd9749309696918cc56bd1bcfdb84b", null ]
 ];

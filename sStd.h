@@ -422,7 +422,7 @@ namespace sStd
 		 * @param status Logger initial status. See \ref logStatus_t
 		 * @return No return value.
 		 */
-		Logger(sStd::extHandler handler, const char* fix, sStd::logType_t type = LOG_BLOCKING, sStd::logStatus_t status = LOG_ON);
+		Logger(sStd::extHandler handler, const char* fix = '\0', sStd::logType_t type = LOG_BLOCKING, sStd::logStatus_t status = LOG_ON);
 
 		/**
 		 * @brief Logger deconstructor.
@@ -503,7 +503,7 @@ namespace sStd
 
 		// METHOD DECLARATIONS
 		/**
-		 * @brief Handles semaphore and calls \ref printHandler
+		 * @brief Handle semaphore and calls \ref printHandler
 		 * 
 		 * @param str Pointer to C-string.
 		 * @param len Length of C-string pointed by \c str
@@ -512,7 +512,7 @@ namespace sStd
 		void out(const char* str, const uint16_t len);
 
 		/**
-		 * @brief Waits for released semaphore.
+		 * @brief Wait for released semaphore.
 		 * 
 		 * @return No return value.
 		 */
@@ -595,7 +595,7 @@ namespace sStd
 	 * @param input Input number.
 	 * @return Sum of all digits.
 	 */
-	uint16_t sumDigits(T input);
+	uint8_t sumDigits(T input);
 
 	// STRING MANIPULATION FUNCTIONS DECLARATIONS
 	/**

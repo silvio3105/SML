@@ -24,6 +24,6 @@ var namespaces_std =
     [ "scale", "namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0", null ],
     [ "sscan", "namespaces_std.html#a0353f5360c7ff60d201814ac9cbece74", null ],
     [ "sscan", "namespaces_std.html#ab4894083c00235a46a426a88e71838e3", null ],
-    [ "sumDigits", "namespaces_std.html#ac0614e49737cc39802f63339efab0551", null ],
+    [ "sumDigits", "namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a", null ],
     [ "tok", "namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b", null ]
 ];

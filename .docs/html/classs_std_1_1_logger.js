@@ -1,6 +1,6 @@
 var classs_std_1_1_logger =
 [
-    [ "Logger", "classs_std_1_1_logger.html#a1aeb998ecdbee287a07e1d1ed38b3bd7", null ],
+    [ "Logger", "classs_std_1_1_logger.html#afce4b25f089c10f32d45a3d268ab637a", null ],
     [ "~Logger", "classs_std_1_1_logger.html#ad7eb6e33bc87654e49514d68462595db", null ],
     [ "print", "classs_std_1_1_logger.html#a740ab010c371dac3010c10c72e8bac7c", null ],
     [ "printf", "classs_std_1_1_logger.html#af0de1ec72c247ce3aca6ed787a275ee7", null ],

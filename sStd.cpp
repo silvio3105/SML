@@ -114,9 +114,9 @@ T max3(T in1, T in2, T in3)
 }
 
 template<typename T>
-uint16_t sStd::sumDigits(T input)
+uint8_t sStd::sumDigits(T input)
 {
-	uint16_t sum = 0;
+	uint8_t sum = 0;
 
 	// Remove - sign if needed
 	SSTD_ABS(input);
@@ -446,7 +446,7 @@ sStd::Logger<N>::Logger(sStd::extHandler handler, const char* fix, sStd::logType
 	prefixLen = sStd::len(fix);
 
 	// Set logger type and status
-	cfg = (0 << LOG_SEMAPHORE_BIT) | (type << LOG_TYPE_BIT) || (status << LOG_STATUS_BIT);
+	config = (0 << LOG_SEMAPHORE_BIT) | (type << LOG_TYPE_BIT) || (status << LOG_STATUS_BIT);
 }
 
 template<uint16_t N>

@@ -11,7 +11,7 @@ var searchData=
   ['log_5fstatus_5fmask_8',['LOG_STATUS_MASK',['../s_std_8cpp.html#a73384fca2b8fb844890e822a5789a993',1,'sStd.cpp']]],
   ['log_5ftype_5fbit_9',['LOG_TYPE_BIT',['../s_std_8cpp.html#ae10735dbe2a8d8352eea71689928b048',1,'sStd.cpp']]],
   ['log_5ftype_5fmask_10',['LOG_TYPE_MASK',['../s_std_8cpp.html#a7a730b1ba1e923270a17c6f27c1c4df9',1,'sStd.cpp']]],
-  ['logger_11',['Logger',['../classs_std_1_1_logger.html#a1aeb998ecdbee287a07e1d1ed38b3bd7',1,'sStd::Logger::Logger()'],['../classs_std_1_1_logger.html',1,'sStd::Logger&lt; N &gt;']]],
+  ['logger_11',['Logger',['../classs_std_1_1_logger.html#afce4b25f089c10f32d45a3d268ab637a',1,'sStd::Logger::Logger()'],['../classs_std_1_1_logger.html',1,'sStd::Logger&lt; N &gt;']]],
   ['logstatus_5ft_12',['logStatus_t',['../namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36',1,'sStd']]],
   ['logtype_5ft_13',['logType_t',['../namespaces_std.html#ad62d6075213877604df7b8211eee9328',1,'sStd']]]
 ];

@@ -30,5 +30,5 @@ var searchData=
   ['sstd_5fok_27',['SSTD_OK',['../group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6',1,'sStd.h']]],
   ['sstd_5fscale_28',['SSTD_SCALE',['../group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1',1,'sStd.h']]],
   ['status_29',['status',['../classs_std_1_1_logger.html#a388f3079da3536511781ba88c2b5b03c',1,'sStd::Logger::status(void) const'],['../classs_std_1_1_logger.html#a1776d434961a2de68d7cf2984f36af08',1,'sStd::Logger::status(sStd::logStatus_t newStatus)']]],
-  ['sumdigits_30',['sumDigits',['../namespaces_std.html#ac0614e49737cc39802f63339efab0551',1,'sStd']]]
+  ['sumdigits_30',['sumDigits',['../namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a',1,'sStd']]]
 ];
