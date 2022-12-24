@@ -10,6 +10,7 @@ Library contains:
 - String scan functions
 - Ring buffer
 - Data object
+- Logger
 
 Library documentation is available at `.docs/html/index.html`.
 Example applications are available at `examples` folder. All examples are made with STM HAL framework.

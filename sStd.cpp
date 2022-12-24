@@ -28,103 +28,23 @@ This License shall be included in all functional textual files.
 #include 			<string.h>
 
 
-// ----- CLASSES
-// DATA CLASS
-template<typename T>
-sStd::Data<T>::Data(void)
-{
-	// Set to default values
-	dataAddr = nullptr;
-	length = 0;
-}
 
-template<typename T>
-sStd::Data<T>::~Data(void)
-{
-	// Set to default values
-	dataAddr = nullptr;
-	length = 0;
-}
-
-template<typename T>
-inline T* sStd::Data<T>::get(void) const
-{
-	// Return address of the first byte
-	return dataAddr;
-}
-
-template<typename T>
-void sStd::Data<T>::set(T* newData, uint16_t newLen)
-{
-	// Set new data pointer and length
-	dataAddr = newData;
-	length = newLen;
-}
-
-template<typename T>
-inline uint16_t sStd::Data<T>::len(void) const
-{
-	// Return length of data
-	return length;
-}
+// ----- STATIC FUNCTION DECLARATIONS
+/**
+ * @brief Find separator in C-string.
+ * 
+ * @param input Pointer to input C-string.
+ * @param sep Seperator character.
+ * @param sepCnt Number of separators before end of token.
+ * @param retNull Set to \c 1 to return \c nullptr if \c \0 character is found. Set to \c 0 to return address if \c \0 is found.
+ * @return \c nullptr if no token was found.
+ * @return Address of last found separator.
+ * @return \c nullptr if separator was not found.
+ */
+static char* findToken(char* input, char sep, char sepCnt, const uint8_t retNull);
 
 
 // ----- FUNCTIONS DEFINITIONS
-// MATH FUNCTIONS
-template<typename T>
-T scale(T in, T inMin, T inMax, T outMin, T outMax)
-{
-	return SSTD_SCALE(in, inMin, inMax, outMin, outMax);
-}
-
-template<typename T>
-T min2(T in1, T in2)
-{
-	return SSTD_MIN2(in1, in2);
-}
-
-template<typename T>
-T max2(T in1, T in2)
-{
-	return SSTD_MAX2(in1, in2);
-}
-
-template<typename T>
-T min3(T in1, T in2, T in3)
-{
-	return SSTD_MIN3(in1, in2, in3);
-}
-
-template<typename T>
-T max3(T in1, T in2, T in3)
-{
-	return SSTD_MAX3(in1, in2, in3);
-}
-
-template<typename T>
-uint16_t sStd::sumDigits(T input)
-{
-	uint16_t sum = 0;
-
-	// Remove - sign if needed
-	SSTD_ABS(input);
-
-	// Do while input is not zero
-	do
-	{
-		// Increase sum with digit
-		sum += input % 10;
-
-		// Remove digit from input integer
-		input /= 10;
-	}
-	while (input);
-	
-	// Return sum of all digits
-	return sum;
-}
-
-
 // STRING MANIPULATION FUNCTIONS DEFINITIONS
 char* sStd::tok(char* input, char separator)
 {
@@ -256,174 +176,8 @@ uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const 
 }
 
 
-// RING BUFFER METHOD DEFINITIONS
-template<typename T, sStd::rbIdx_t N>
-sStd::RingBuffer<T, N>::RingBuffer(void)
-{
-	// Reset head and tail poiner
-	head = 0;
-	tail = 0;
-
-	// Reset new data counter
-	newCnt = 0;
-}
-
-template<typename T, sStd::rbIdx_t N>
-sStd::RingBuffer<T, N>::~RingBuffer(void)
-{
-	// Reset head and tail poiner
-	head = 0;
-	tail = 0;
-
-	// Reset new data counter
-	newCnt = 0;
-}
-
-
-template<typename T, sStd::rbIdx_t N>
-inline uint8_t sStd::RingBuffer<T, N>::write(T data)
-{
-	// Write signel data to ring buffer
-	return writeData(data);
-}
-
-template<typename T, sStd::rbIdx_t N>
-uint8_t sStd::RingBuffer<T, N>::write(T* data, sStd::rbIdx_t len)
-{
-	sStd::rbIdx_t i = 0;
-
-	// Limit number of data to write
-	if (len > free()) len = free();
-
-	// Write data to ring buffer
-	for (; i < len; i++) writeData(data[i]);
-
-	// Return OK status if some data were read
-	if (i) return SSTD_OK;
-		else return SSTD_NOK;
-}
-
-template<typename T, sStd::rbIdx_t N>
-uint8_t sStd::RingBuffer<T, N>::read(T& output)
-{
-	// If there is no unread data return NOK status
-	if (!used()) return SSTD_NOK;
-
-	// Store data in tmp variable
-	output = memory[tail];
-
-	// Update tail pointer
-	increaseTail();
-
-	// Return OK status
-	return SSTD_OK;
-}
-
-template<typename T, sStd::rbIdx_t N>
-uint8_t sStd::RingBuffer<T, N>::read(T* output, sStd::rbIdx_t len)
-{
-	sStd::rbIdx_t i = 0;
-
-	// Limit number of data to read
-	if (len > used()) len = used();
-
-	// Read data by data from ring buffer
-	for (; i < len; i++)
-	{
-		// Fetch next data
-		output[i] = memory[tail];
-
-		// Update tail pointer
-		increaseTail();
-	}
-
-	// Return OK status if some data were read
-	if (i) return SSTD_OK;
-		else return SSTD_NOK;
-}
-
-template<typename T, sStd::rbIdx_t N>
-void sStd::RingBuffer<T, N>::flush(void)
-{
-	// Reset head and tail
-	head = 0;
-	tail = 0;
-
-	// Reset new data counter
-	newCnt = 0;
-
-	// Set all bytes to \0 (NULL char)
-	memset(memory, '\0', length);
-}
-
-template<typename T, sStd::rbIdx_t N>
-inline sStd::rbIdx_t sStd::RingBuffer<T, N>::used(void) const
-{
-	// Return number of used data
-	return newCnt;
-}
-
-template<typename T, sStd::rbIdx_t N>
-inline sStd::rbIdx_t sStd::RingBuffer<T, N>::free(void) const
-{
-	// Return number of free data slots in ring buffer
-	return (length - used());
-}
-
-template<typename T, sStd::rbIdx_t N>
-uint8_t sStd::RingBuffer<T, N>::isFull(void) const
-{
-	// Return OK status if ring buffer is full
-	if (!free()) return SSTD_OK;
-		else return SSTD_NOK;
-}
-
-template<typename T, sStd::rbIdx_t N>
-inline sStd::rbIdx_t sStd::RingBuffer<T, N>::len(void) const
-{
-	// Return maximum length of ring buffer
-	return length;
-}
-
-
-template<typename T, sStd::rbIdx_t N>
-uint8_t sStd::RingBuffer<T, N>::writeData(T data)
-{
-	// Return NOK status if no free data slots are available
-	if (!free()) return SSTD_NOK;
-
-	// Write data to head pointer
-	memory[head] = data;
-
-	// Move head pointer
-	head++;
-
-	// Increase new data counter
-	newCnt++;
-	
-    // Reset head pointer
-	if (head == length) head = 0;
-
-	// Return OK status
-	return SSTD_OK; 
-}
-
-template<typename T, sStd::rbIdx_t N>
-void sStd::RingBuffer<T, N>::increaseTail(void)
-{
-	// Move tail pointer
-	tail++;
-
-	// Decrease new data counter
-	newCnt--;
-
-	// Reset tail pointer
-	if (tail == length) tail = 0; 
-}
-
-
-// STATIC FUNCTION DEFINITIONS
-static char* sStd::findToken(char* input, char sep, char sepCnt, uint8_t retNull)
+// ----- STATIC FUNCTION DEFINITIONS
+char* findToken(char* input, char sep, char sepCnt, const uint8_t retNull)
 {
 	// If character is not \0
 	while (*input) 

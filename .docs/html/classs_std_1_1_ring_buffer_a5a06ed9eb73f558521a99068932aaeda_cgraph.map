@@ -1,0 +1,5 @@
+<map id="sStd::RingBuffer::read" name="sStd::RingBuffer::read">
+<area shape="rect" id="node1" title="Read multiple data from ring buffer." alt="" coords="5,31,156,56"/>
+<area shape="rect" id="node2" href="$namespaces_std.html#aa424e5fd087680908410810c9466acd3" title="Find length of input C&#45;string." alt="" coords="244,5,319,31"/>
+<area shape="rect" id="node3" href="$classs_std_1_1_ring_buffer.html#a06ae0da54dbfe0f2a40218e73ed7cff2" title="Fetch number of used data in ring buffer." alt="" coords="204,55,359,80"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scandata_0',['scanData',['../structs_std_1_1scan_data.html',1,'sStd']]]
+  ['ringbuffer_0',['RingBuffer',['../classs_std_1_1_ring_buffer.html',1,'sStd']]]
 ];

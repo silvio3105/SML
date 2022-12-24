@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v0.1</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -96,6 +96,7 @@ $(document).ready(function(){initNavTree('s_std_8h.html',''); initResizable(); }
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">sStd.h File Reference</div></div>
 </div><!--header-->
@@ -104,13 +105,19 @@ $(document).ready(function(){initNavTree('s_std_8h.html',''); initResizable(); }
 <p><a class="el" href="namespaces_std.html" title="Namespace for Simple Standard Library.">sStd</a> header file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sStd.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="s_std_8h__incl.png" border="0" usemap="#as_std_8h" alt=""/></div>
 <map name="as_std_8h" id="as_std_8h">
-<area shape="rect" title="sStd header file." alt="" coords="8,5,68,31"/>
+<area shape="rect" title="sStd header file." alt="" coords="140,5,200,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,71,104"/>
+<area shape="rect" title=" " alt="" coords="95,79,157,104"/>
+<area shape="rect" title=" " alt="" coords="181,79,250,104"/>
+<area shape="rect" title=" " alt="" coords="275,79,340,104"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -135,6 +142,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_logger.html">sStd::Logger&lt; N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classs_std_1_1_logger.html" title="Logger class.">Logger</a> class.  <a href="classs_std_1_1_logger.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -150,6 +160,24 @@ Macros</h2></td></tr>
 <tr class="memitem:gacb36aae88c1a231c5bf190fb972ce3c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6">SSTD_OK</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:gacb36aae88c1a231c5bf190fb972ce3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positive return code.  <a href="group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6">More...</a><br /></td></tr>
 <tr class="separator:gacb36aae88c1a231c5bf190fb972ce3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga811d106cee88046b2a07e6a58381b4ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga811d106cee88046b2a07e6a58381b4ed">LOG_STATUS_BIT</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga811d106cee88046b2a07e6a58381b4ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger status bit.  <a href="group__s_std.html#ga811d106cee88046b2a07e6a58381b4ed">More...</a><br /></td></tr>
+<tr class="separator:ga811d106cee88046b2a07e6a58381b4ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73384fca2b8fb844890e822a5789a993"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga73384fca2b8fb844890e822a5789a993">LOG_STATUS_MASK</a>&#160;&#160;&#160;0b00000001</td></tr>
+<tr class="memdesc:ga73384fca2b8fb844890e822a5789a993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger status mask.  <a href="group__s_std.html#ga73384fca2b8fb844890e822a5789a993">More...</a><br /></td></tr>
+<tr class="separator:ga73384fca2b8fb844890e822a5789a993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae10735dbe2a8d8352eea71689928b048"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gae10735dbe2a8d8352eea71689928b048">LOG_TYPE_BIT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:gae10735dbe2a8d8352eea71689928b048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger type bit.  <a href="group__s_std.html#gae10735dbe2a8d8352eea71689928b048">More...</a><br /></td></tr>
+<tr class="separator:gae10735dbe2a8d8352eea71689928b048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a730b1ba1e923270a17c6f27c1c4df9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga7a730b1ba1e923270a17c6f27c1c4df9">LOG_TYPE_MASK</a>&#160;&#160;&#160;0b00000010</td></tr>
+<tr class="memdesc:ga7a730b1ba1e923270a17c6f27c1c4df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger type mask.  <a href="group__s_std.html#ga7a730b1ba1e923270a17c6f27c1c4df9">More...</a><br /></td></tr>
+<tr class="separator:ga7a730b1ba1e923270a17c6f27c1c4df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e66fad5e87eb6466a1939cbbc078cff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga9e66fad5e87eb6466a1939cbbc078cff">LOG_SEMAPHORE_BIT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:ga9e66fad5e87eb6466a1939cbbc078cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger semaphore bit.  <a href="group__s_std.html#ga9e66fad5e87eb6466a1939cbbc078cff">More...</a><br /></td></tr>
+<tr class="separator:ga9e66fad5e87eb6466a1939cbbc078cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf709a477764b3f27ab17e93bcffefed8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gaf709a477764b3f27ab17e93bcffefed8">LOG_SEMAPHORE_MASK</a>&#160;&#160;&#160;0b00000100</td></tr>
+<tr class="memdesc:gaf709a477764b3f27ab17e93bcffefed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger semaphore mask.  <a href="group__s_std.html#gaf709a477764b3f27ab17e93bcffefed8">More...</a><br /></td></tr>
+<tr class="separator:gaf709a477764b3f27ab17e93bcffefed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae56562740b1159ed03061cecec40f609"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gae56562740b1159ed03061cecec40f609">AL</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga57ac9834bf5603757493d05511b5f75d">SSTD_ARRAY</a></td></tr>
 <tr class="memdesc:gae56562740b1159ed03061cecec40f609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga57ac9834bf5603757493d05511b5f75d">SSTD_ARRAY</a>.  <a href="group__s_std.html#gae56562740b1159ed03061cecec40f609">More...</a><br /></td></tr>
 <tr class="separator:gae56562740b1159ed03061cecec40f609"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,7 +235,7 @@ Macros</h2></td></tr>
 <tr class="memitem:gaf11a14db5cda0033596cd680392e3586"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gaf11a14db5cda0033596cd680392e3586">SSTD_MAX3</a>(_in1,  _in2,  _in3)&#160;&#160;&#160;	(_in1 &gt; _in2) ? (_in1 &gt; _in3 ? _in1 : _in3) : (_in2 &gt; _in3 ? _in2 : _in3)</td></tr>
 <tr class="memdesc:gaf11a14db5cda0033596cd680392e3586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for finding greatest value between 3 input values.  <a href="group__s_std.html#gaf11a14db5cda0033596cd680392e3586">More...</a><br /></td></tr>
 <tr class="separator:gaf11a14db5cda0033596cd680392e3586"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga931e4931a07849ea2f0eca622104ae97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">SSTD_ABS</a>(_in)&#160;&#160;&#160;	if (_in &lt; 0) _in *= -1</td></tr>
+<tr class="memitem:ga931e4931a07849ea2f0eca622104ae97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">SSTD_ABS</a>(_in)&#160;&#160;&#160;	(_in &lt; 0) ? _in * (-1) : _in</td></tr>
 <tr class="memdesc:ga931e4931a07849ea2f0eca622104ae97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get absolute value from input value.  <a href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">More...</a><br /></td></tr>
 <tr class="separator:ga931e4931a07849ea2f0eca622104ae97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3fb65d4f688a631275fc309cbb8a22d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0">SSTD_BIT_SET</a>(_value,  _bit)&#160;&#160;&#160;	_value |= 1 &lt;&lt; _bit</td></tr>
@@ -216,7 +244,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ga96f9e0b433885bb52d50dd2f22cdee98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga96f9e0b433885bb52d50dd2f22cdee98">SSTD_BIT_CLEAR</a>(_value,  _bit)&#160;&#160;&#160;	_value &amp;= ~(1 &lt;&lt; _bit)</td></tr>
 <tr class="memdesc:ga96f9e0b433885bb52d50dd2f22cdee98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <code>_bit</code> of <code>_value</code> to 0.  <a href="group__s_std.html#ga96f9e0b433885bb52d50dd2f22cdee98">More...</a><br /></td></tr>
 <tr class="separator:ga96f9e0b433885bb52d50dd2f22cdee98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57d12218b209269dda4eee6b9320a66d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga57d12218b209269dda4eee6b9320a66d">SSTD_BIT</a>(_value,  _bit)&#160;&#160;&#160;	_value &amp; (1 &lt;&lt; _bit)</td></tr>
+<tr class="memitem:ga57d12218b209269dda4eee6b9320a66d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga57d12218b209269dda4eee6b9320a66d">SSTD_BIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; _bit))</td></tr>
 <tr class="memdesc:ga57d12218b209269dda4eee6b9320a66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch <code>_bit</code> from <code>_value</code>.  <a href="group__s_std.html#ga57d12218b209269dda4eee6b9320a66d">More...</a><br /></td></tr>
 <tr class="separator:ga57d12218b209269dda4eee6b9320a66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab43db495e95faa197bf348c005c5e8d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gab43db495e95faa197bf348c005c5e8d0">SSTD_BBIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; _bit)) &gt;&gt; _bit</td></tr>
@@ -229,9 +257,24 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ad129ee41f5d7de322f67a9e17ec8e395"><td class="memItemLeft" align="right" valign="top">typedef uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">sStd::rbIdx_t</a></td></tr>
-<tr class="memdesc:ad129ee41f5d7de322f67a9e17ec8e395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for <a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a> length. <br  />
-  <a href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">More...</a><br /></td></tr>
+<tr class="memdesc:ad129ee41f5d7de322f67a9e17ec8e395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for <a class="el" href="classs_std_1_1_ring_buffer.html">RingBuffer</a> length.  <a href="namespaces_std.html#ad129ee41f5d7de322f67a9e17ec8e395">More...</a><br /></td></tr>
 <tr class="separator:ad129ee41f5d7de322f67a9e17ec8e395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac67e146f6478ab5b59e4d3979ef3e393"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ac67e146f6478ab5b59e4d3979ef3e393">sStd::logHandler</a>) (const char *buffer, const uint16_t len)</td></tr>
+<tr class="memdesc:ac67e146f6478ab5b59e4d3979ef3e393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to external function for sending log strings.  <a href="namespaces_std.html#ac67e146f6478ab5b59e4d3979ef3e393">More...</a><br /></td></tr>
+<tr class="separator:ac67e146f6478ab5b59e4d3979ef3e393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36">sStd::logStatus_t</a> : uint8_t { <a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36a2dec0c995bada9c5dc27b76cadd411cc">sStd::LOG_OFF</a> = 0
+, <a class="el" href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36a6c9df478b91dcb250a4ee79d41f462b0">sStd::LOG_ON</a> = 1
+ }</td></tr>
+<tr class="memdesc:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumator for logger status.  <a href="namespaces_std.html#a1028afce5b5cfeb70b0d6f4c032e6b36">More...</a><br /></td></tr>
+<tr class="separator:a1028afce5b5cfeb70b0d6f4c032e6b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62d6075213877604df7b8211eee9328"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328">sStd::logType_t</a> : uint8_t { <a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328abc3e351fb32b4aa6a8340fa71900d9cf">sStd::LOG_BLOCKING</a> = 0
+, <a class="el" href="namespaces_std.html#ad62d6075213877604df7b8211eee9328a2a2a9aa7ff6393e69cdd70e8806b10fd">sStd::LOG_NON_BLOCKING</a> = 1
+ }</td></tr>
+<tr class="memdesc:ad62d6075213877604df7b8211eee9328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumator for logger type.  <a href="namespaces_std.html#ad62d6075213877604df7b8211eee9328">More...</a><br /></td></tr>
+<tr class="separator:ad62d6075213877604df7b8211eee9328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -239,26 +282,30 @@ Functions</h2></td></tr>
 <tr class="memitem:ab80208f2b31ea63d59b190a8eee53db0"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0">sStd::scale</a> (T in, T inMin, T inMax, T outMin, T outMax)</td></tr>
 <tr class="memdesc:ab80208f2b31ea63d59b190a8eee53db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale input value to desired output value range.  <a href="namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0">More...</a><br /></td></tr>
 <tr class="separator:ab80208f2b31ea63d59b190a8eee53db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75b5f9021817d48e11ff99b4bb3db4eb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a75b5f9021817d48e11ff99b4bb3db4eb"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a75b5f9021817d48e11ff99b4bb3db4eb">sStd::min2</a> (T in1, T in2)</td></tr>
-<tr class="memdesc:a75b5f9021817d48e11ff99b4bb3db4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find lowest value between 2 input values.  <a href="namespaces_std.html#a75b5f9021817d48e11ff99b4bb3db4eb">More...</a><br /></td></tr>
-<tr class="separator:a75b5f9021817d48e11ff99b4bb3db4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95bdd99f51a6cfc083e4971e504435b5"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a95bdd99f51a6cfc083e4971e504435b5"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a95bdd99f51a6cfc083e4971e504435b5">sStd::max2</a> (T in1, T in2)</td></tr>
-<tr class="memdesc:a95bdd99f51a6cfc083e4971e504435b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find greatest value between 2 input values.  <a href="namespaces_std.html#a95bdd99f51a6cfc083e4971e504435b5">More...</a><br /></td></tr>
-<tr class="separator:a95bdd99f51a6cfc083e4971e504435b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae264470ee63b12d7fcb88db5522bdad6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae264470ee63b12d7fcb88db5522bdad6"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ae264470ee63b12d7fcb88db5522bdad6">sStd::min3</a> (T in1, T in2, T in3)</td></tr>
-<tr class="memdesc:ae264470ee63b12d7fcb88db5522bdad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find lowest value between 3 input values.  <a href="namespaces_std.html#ae264470ee63b12d7fcb88db5522bdad6">More...</a><br /></td></tr>
-<tr class="separator:ae264470ee63b12d7fcb88db5522bdad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeafe84e1ae415e2fecfc94dfd303bc1b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aeafe84e1ae415e2fecfc94dfd303bc1b"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#aeafe84e1ae415e2fecfc94dfd303bc1b">sStd::max3</a> (T in1, T in2, T in3)</td></tr>
-<tr class="memdesc:aeafe84e1ae415e2fecfc94dfd303bc1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find greatest value between 3 input values.  <a href="namespaces_std.html#aeafe84e1ae415e2fecfc94dfd303bc1b">More...</a><br /></td></tr>
-<tr class="separator:aeafe84e1ae415e2fecfc94dfd303bc1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0614e49737cc39802f63339efab0551"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac0614e49737cc39802f63339efab0551"><td class="memTemplItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ac0614e49737cc39802f63339efab0551">sStd::sumDigits</a> (T input)</td></tr>
-<tr class="memdesc:ac0614e49737cc39802f63339efab0551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum all integer digits.  <a href="namespaces_std.html#ac0614e49737cc39802f63339efab0551">More...</a><br /></td></tr>
-<tr class="separator:ac0614e49737cc39802f63339efab0551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad10533f4a420657e89a8ad958a6a1378"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad10533f4a420657e89a8ad958a6a1378"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad10533f4a420657e89a8ad958a6a1378">sStd::min</a> (T in1, T in2)</td></tr>
+<tr class="memdesc:ad10533f4a420657e89a8ad958a6a1378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find lowest value between 2 input values.  <a href="namespaces_std.html#ad10533f4a420657e89a8ad958a6a1378">More...</a><br /></td></tr>
+<tr class="separator:ad10533f4a420657e89a8ad958a6a1378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4fd1265c12a89d2c3730fe638687285"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad4fd1265c12a89d2c3730fe638687285"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad4fd1265c12a89d2c3730fe638687285">sStd::max</a> (T in1, T in2)</td></tr>
+<tr class="memdesc:ad4fd1265c12a89d2c3730fe638687285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find greatest value between 2 input values.  <a href="namespaces_std.html#ad4fd1265c12a89d2c3730fe638687285">More...</a><br /></td></tr>
+<tr class="separator:ad4fd1265c12a89d2c3730fe638687285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee474837d609e2a35ad5ce998c75a63d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aee474837d609e2a35ad5ce998c75a63d"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#aee474837d609e2a35ad5ce998c75a63d">sStd::min</a> (T in1, T in2, T in3)</td></tr>
+<tr class="memdesc:aee474837d609e2a35ad5ce998c75a63d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find lowest value between 3 input values.  <a href="namespaces_std.html#aee474837d609e2a35ad5ce998c75a63d">More...</a><br /></td></tr>
+<tr class="separator:aee474837d609e2a35ad5ce998c75a63d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89af69d373b8475412b6206f6c2bef06"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a89af69d373b8475412b6206f6c2bef06"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a89af69d373b8475412b6206f6c2bef06">sStd::max</a> (T in1, T in2, T in3)</td></tr>
+<tr class="memdesc:a89af69d373b8475412b6206f6c2bef06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find greatest value between 3 input values.  <a href="namespaces_std.html#a89af69d373b8475412b6206f6c2bef06">More...</a><br /></td></tr>
+<tr class="separator:a89af69d373b8475412b6206f6c2bef06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e105be100811c8b849a7008640fbab2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2e105be100811c8b849a7008640fbab2"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a2e105be100811c8b849a7008640fbab2">sStd::abs</a> (T input)</td></tr>
+<tr class="memdesc:a2e105be100811c8b849a7008640fbab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return absolute value.  <a href="namespaces_std.html#a2e105be100811c8b849a7008640fbab2">More...</a><br /></td></tr>
+<tr class="separator:a2e105be100811c8b849a7008640fbab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="memTemplItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a">sStd::sumDigits</a> (T input)</td></tr>
+<tr class="memdesc:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum all integer digits.  <a href="namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a">More...</a><br /></td></tr>
+<tr class="separator:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6fd9749309696918cc56bd1bcfdb84b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b">sStd::tok</a> (char *input, char separator)</td></tr>
 <tr class="memdesc:ad6fd9749309696918cc56bd1bcfdb84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace desired character with NULL character.  <a href="namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b">More...</a><br /></td></tr>
 <tr class="separator:ad6fd9749309696918cc56bd1bcfdb84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,7 +337,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8h.html">sStd.h</a></li>
-    <li class="footer">Generated on Thu Dec 1 2022 20:13:23 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 21:53:26 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

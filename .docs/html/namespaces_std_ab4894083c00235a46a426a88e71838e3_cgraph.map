@@ -1,0 +1,8 @@
+<map id="sStd::sscan" name="sStd::sscan">
+<area shape="rect" id="node1" title="Scan C&#45;string for wanted tokens." alt="" coords="5,56,97,81"/>
+<area shape="rect" id="node2" href="$namespaces_std.html#aa424e5fd087680908410810c9466acd3" title="Find length of input C&#45;string." alt="" coords="154,5,229,31"/>
+<area shape="rect" id="node3" href="$classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705" title="Get length of data." alt="" coords="286,56,395,81"/>
+<area shape="rect" id="node4" href="$namespaces_std.html#a0353f5360c7ff60d201814ac9cbece74" title="Scan C&#45;string for wanted token." alt="" coords="145,107,237,132"/>
+<area shape="rect" id="node5" href="$classs_std_1_1_data.html#a7658e1883e8ebf766947c9c37c4cd044" title="Get address of the data." alt="" coords="285,105,396,131"/>
+<area shape="rect" id="node6" href="$classs_std_1_1_data.html#a9b66cfacddd8cc2fe71ad1eb86ee1cfc" title="Set new data." alt="" coords="285,155,396,180"/>
+</map>

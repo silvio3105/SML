@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v0.1</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -108,6 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a02c1eb37dc61b724b0cf76e3749e2dd3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_data.html#a02c1eb37dc61b724b0cf76e3749e2dd3">Data</a> (void)</td></tr>
 <tr class="memdesc:a02c1eb37dc61b724b0cf76e3749e2dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <code><a class="el" href="classs_std_1_1_data.html" title="Class representing data T with len.">Data</a></code> object.  <a href="classs_std_1_1_data.html#a02c1eb37dc61b724b0cf76e3749e2dd3">More...</a><br /></td></tr>
 <tr class="separator:a02c1eb37dc61b724b0cf76e3749e2dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a940a5dae872dff3e25576a37adff1400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_data.html#a940a5dae872dff3e25576a37adff1400">Data</a> (T *data, uint16_t <a class="el" href="classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705">len</a>)</td></tr>
+<tr class="memdesc:a940a5dae872dff3e25576a37adff1400"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <code><a class="el" href="classs_std_1_1_data.html" title="Class representing data T with len.">Data</a></code> object with data and length.  <a href="classs_std_1_1_data.html#a940a5dae872dff3e25576a37adff1400">More...</a><br /></td></tr>
+<tr class="separator:a940a5dae872dff3e25576a37adff1400"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5149bf4add718204db521be85c17a05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_data.html#ae5149bf4add718204db521be85c17a05">~Data</a> (void)</td></tr>
 <tr class="memdesc:ae5149bf4add718204db521be85c17a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructor for <code><a class="el" href="classs_std_1_1_data.html" title="Class representing data T with len.">Data</a></code> object.  <a href="classs_std_1_1_data.html#ae5149bf4add718204db521be85c17a05">More...</a><br /></td></tr>
 <tr class="separator:ae5149bf4add718204db521be85c17a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,17 +127,26 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
 class sStd::Data&lt; T &gt;</div><p >Class representing data <code>T</code> with <code>len</code>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td><a class="el" href="classs_std_1_1_data.html" title="Class representing data T with len.">Data</a> type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section warning"><dt>Warning</dt><dd>Maximum data length is 2^16! </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00201">201</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00244">244</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a02c1eb37dc61b724b0cf76e3749e2dd3" name="a02c1eb37dc61b724b0cf76e3749e2dd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02c1eb37dc61b724b0cf76e3749e2dd3">&#9670;&#160;</a></span>Data()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c1eb37dc61b724b0cf76e3749e2dd3">&#9670;&#160;</a></span>Data() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; T &gt;::Data </td>
@@ -144,12 +156,76 @@ template&lt;typename T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructor for <code><a class="el" href="classs_std_1_1_data.html" title="Class representing data T with len.">Data</a></code> object. </p>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00034">34</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00253">253</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+
+</div>
+</div>
+<a id="a940a5dae872dff3e25576a37adff1400" name="a940a5dae872dff3e25576a37adff1400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a940a5dae872dff3e25576a37adff1400">&#9670;&#160;</a></span>Data() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; T &gt;::Data </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for <code><a class="el" href="classs_std_1_1_data.html" title="Class representing data T with len.">Data</a></code> object with data and length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Pointer to data set. </td></tr>
+    <tr><td class="paramname">len</td><td>Length of <code>data</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00267">267</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classs_std_1_1_data_a940a5dae872dff3e25576a37adff1400_cgraph.png" border="0" usemap="#aclasss_std_1_1_data_a940a5dae872dff3e25576a37adff1400_cgraph" alt=""/></div>
+<map name="aclasss_std_1_1_data_a940a5dae872dff3e25576a37adff1400_cgraph" id="aclasss_std_1_1_data_a940a5dae872dff3e25576a37adff1400_cgraph">
+<area shape="rect" title="Constructor for Data object with data and length." alt="" coords="5,5,124,31"/>
+<area shape="rect" href="classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705" title="Get length of data." alt="" coords="172,5,281,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -160,6 +236,9 @@ template&lt;typename T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; T &gt;::~<a class="el" href="classs_std_1_1_data.html">Data</a> </td>
@@ -169,12 +248,17 @@ template&lt;typename T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Deconstructor for <code><a class="el" href="classs_std_1_1_data.html" title="Class representing data T with len.">Data</a></code> object. </p>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00042">42</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00278">278</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -208,7 +292,17 @@ template&lt;typename T &gt; </div>
 <p>Get address of the data. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to data. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00050">50</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00291">291</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classs_std_1_1_data_a7658e1883e8ebf766947c9c37c4cd044_icgraph.png" border="0" usemap="#aclasss_std_1_1_data_a7658e1883e8ebf766947c9c37c4cd044_icgraph" alt=""/></div>
+<map name="aclasss_std_1_1_data_a7658e1883e8ebf766947c9c37c4cd044_icgraph" id="aclasss_std_1_1_data_a7658e1883e8ebf766947c9c37c4cd044_icgraph">
+<area shape="rect" title="Get address of the data." alt="" coords="285,5,396,31"/>
+<area shape="rect" href="namespaces_std.html#a0353f5360c7ff60d201814ac9cbece74" title="Scan C&#45;string for wanted token." alt="" coords="145,5,237,31"/>
+<area shape="rect" href="namespaces_std.html#ab4894083c00235a46a426a88e71838e3" title="Scan C&#45;string for wanted tokens." alt="" coords="5,5,97,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -241,13 +335,16 @@ template&lt;typename T &gt; </div>
 <p>Get length of data. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classs_std_1_1_data.html" title="Class representing data T with len.">Data</a>'s length. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00065">65</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00316">316</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classs_std_1_1_data_ae8b0d315ba624f71c0ea30d02a72e705_icgraph.png" border="0" usemap="#aclasss_std_1_1_data_ae8b0d315ba624f71c0ea30d02a72e705_icgraph" alt=""/></div>
 <map name="aclasss_std_1_1_data_ae8b0d315ba624f71c0ea30d02a72e705_icgraph" id="aclasss_std_1_1_data_ae8b0d315ba624f71c0ea30d02a72e705_icgraph">
-<area shape="rect" title="Get length of data." alt="" coords="5,29,115,55"/>
+<area shape="rect" title="Get length of data." alt="" coords="312,31,421,56"/>
+<area shape="rect" href="classs_std_1_1_data.html#a940a5dae872dff3e25576a37adff1400" title="Constructor for Data object with data and length." alt="" coords="145,5,264,31"/>
+<area shape="rect" href="namespaces_std.html#a0353f5360c7ff60d201814ac9cbece74" title="Scan C&#45;string for wanted token." alt="" coords="159,55,251,80"/>
+<area shape="rect" href="namespaces_std.html#ab4894083c00235a46a426a88e71838e3" title="Scan C&#45;string for wanted tokens." alt="" coords="5,55,97,80"/>
 </map>
 </div>
 
@@ -260,6 +357,9 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classs_std_1_1_data.html">sStd::Data</a>&lt; T &gt;::set </td>
@@ -279,6 +379,11 @@ template&lt;typename T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Set new data. </p>
@@ -291,24 +396,22 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8cpp_source.html#l00057">57</a> of file <a class="el" href="s_std_8cpp_source.html">sStd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00304">304</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classs_std_1_1_data_a9b66cfacddd8cc2fe71ad1eb86ee1cfc_icgraph.png" border="0" usemap="#aclasss_std_1_1_data_a9b66cfacddd8cc2fe71ad1eb86ee1cfc_icgraph" alt=""/></div>
 <map name="aclasss_std_1_1_data_a9b66cfacddd8cc2fe71ad1eb86ee1cfc_icgraph" id="aclasss_std_1_1_data_a9b66cfacddd8cc2fe71ad1eb86ee1cfc_icgraph">
-<area shape="rect" title="Set new data." alt="" coords="393,35,504,60"/>
-<area shape="rect" href="namespaces_std.html#a0353f5360c7ff60d201814ac9cbece74" title="Scan C&#45;string for wanted token." alt="" coords="233,5,325,31"/>
-<area shape="rect" href="classs_std_1_1_data.html#ae5149bf4add718204db521be85c17a05" title="Deconstructor for Data object." alt="" coords="212,55,345,95"/>
-<area shape="rect" href="classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705" title="Get length of data." alt="" coords="5,5,164,31"/>
+<area shape="rect" title="Set new data." alt="" coords="285,5,396,31"/>
+<area shape="rect" href="namespaces_std.html#a0353f5360c7ff60d201814ac9cbece74" title="Scan C&#45;string for wanted token." alt="" coords="145,5,237,31"/>
+<area shape="rect" href="namespaces_std.html#ab4894083c00235a46a426a88e71838e3" title="Scan C&#45;string for wanted tokens." alt="" coords="5,5,97,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="s_std_8h_source.html">sStd.h</a></li>
-<li><a class="el" href="s_std_8cpp_source.html">sStd.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -316,7 +419,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaces_std.html">sStd</a></li><li class="navelem"><a class="el" href="classs_std_1_1_data.html">Data</a></li>
-    <li class="footer">Generated on Thu Dec 1 2022 20:13:23 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Dec 24 2022 21:53:26 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
