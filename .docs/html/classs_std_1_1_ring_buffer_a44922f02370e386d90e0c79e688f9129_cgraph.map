@@ -1,0 +1,7 @@
+<map id="sStd::RingBuffer::write" name="sStd::RingBuffer::write">
+<area shape="rect" id="node1" title="Write multiple data to ring buffer." alt="" coords="5,55,159,80"/>
+<area shape="rect" id="node2" href="$classs_std_1_1_ring_buffer.html#a6f95c26642ec6d23b1cb5429732705a0" title="Fetch number of free data in ring buffer." alt="" coords="207,29,355,55"/>
+<area shape="rect" id="node5" href="$namespaces_std.html#aa424e5fd087680908410810c9466acd3" title="Find length of input C&#45;string." alt="" coords="243,79,318,104"/>
+<area shape="rect" id="node3" href="$classs_std_1_1_ring_buffer.html#a235695f1b51e888ce6c4c4eeeafef667" title="Get size of ring buffer." alt="" coords="405,5,555,31"/>
+<area shape="rect" id="node4" href="$classs_std_1_1_ring_buffer.html#a06ae0da54dbfe0f2a40218e73ed7cff2" title="Fetch number of used data in ring buffer." alt="" coords="403,55,557,80"/>
+</map>

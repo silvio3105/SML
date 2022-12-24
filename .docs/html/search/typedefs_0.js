@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exthandler_0',['extHandler',['../namespaces_std.html#a470039998051a67cae65bf80983d6749',1,'sStd']]]
+  ['loghandler_0',['logHandler',['../namespaces_std.html#ac67e146f6478ab5b59e4d3979ef3e393',1,'sStd']]]
 ];

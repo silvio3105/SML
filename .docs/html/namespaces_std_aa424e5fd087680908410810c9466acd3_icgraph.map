@@ -1,9 +1,9 @@
 <map id="sStd::len" name="sStd::len">
 <area shape="rect" id="node1" title="Find length of input C&#45;string." alt="" coords="207,129,281,155"/>
-<area shape="rect" id="node2" href="$classs_std_1_1_logger.html#afce4b25f089c10f32d45a3d268ab637a" title="Logger constructor." alt="" coords="11,5,153,31"/>
+<area shape="rect" id="node2" href="$classs_std_1_1_logger.html#aacbfdb5d9467366f63d76b021823033c" title="Logger constructor." alt="" coords="11,5,153,31"/>
 <area shape="rect" id="node3" href="$classs_std_1_1_logger.html#a740ab010c371dac3010c10c72e8bac7c" title="Print constant C&#45;string." alt="" coords="17,55,147,80"/>
 <area shape="rect" id="node4" href="$classs_std_1_1_logger.html#af0de1ec72c247ce3aca6ed787a275ee7" title="Format and print string." alt="" coords="15,104,149,129"/>
-<area shape="rect" id="node5" href="$classs_std_1_1_ring_buffer.html#a15a0237ce676c174bb2bb14406fff527" title="Read multiple data from ring buffer." alt="" coords="7,153,157,179"/>
+<area shape="rect" id="node5" href="$classs_std_1_1_ring_buffer.html#a5a06ed9eb73f558521a99068932aaeda" title="Read multiple data from ring buffer." alt="" coords="7,153,157,179"/>
 <area shape="rect" id="node6" href="$namespaces_std.html#ab4894083c00235a46a426a88e71838e3" title="Scan C&#45;string for wanted tokens." alt="" coords="36,203,128,228"/>
-<area shape="rect" id="node7" href="$classs_std_1_1_ring_buffer.html#ad2e3337580c7d0704ddb9a21ea157041" title="Write multiple data to ring buffer." alt="" coords="5,252,159,277"/>
+<area shape="rect" id="node7" href="$classs_std_1_1_ring_buffer.html#a44922f02370e386d90e0c79e688f9129" title="Write multiple data to ring buffer." alt="" coords="5,252,159,277"/>
 </map>

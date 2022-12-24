@@ -1,0 +1,6 @@
+<map id="sStd::RingBuffer::isFull" name="sStd::RingBuffer::isFull">
+<area shape="rect" id="node1" title="Is ring buffer full." alt="" coords="5,31,163,56"/>
+<area shape="rect" id="node2" href="$classs_std_1_1_ring_buffer.html#a6f95c26642ec6d23b1cb5429732705a0" title="Fetch number of free data in ring buffer." alt="" coords="211,31,359,56"/>
+<area shape="rect" id="node3" href="$classs_std_1_1_ring_buffer.html#a235695f1b51e888ce6c4c4eeeafef667" title="Get size of ring buffer." alt="" coords="409,5,559,31"/>
+<area shape="rect" id="node4" href="$classs_std_1_1_ring_buffer.html#a06ae0da54dbfe0f2a40218e73ed7cff2" title="Fetch number of used data in ring buffer." alt="" coords="407,55,561,80"/>
+</map>
