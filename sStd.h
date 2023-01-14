@@ -91,7 +91,7 @@ This License shall be included in all functional textual files.
  * @param _outMax Output maximum value.
  */
 #define SSTD_SCALE(_in, _inMin, _inMax, _outMin, _outMax) \
-	(_in - _inMin) * (_outMax - _outMin) / (_inMax - _inMin) + _outMin
+	((_in) - (_inMin)) * ((_outMax) - (_outMin)) / ((_inMax) - (_inMin)) + (_outMin)
 
 /**
  * @brief Code snippet for finding lowest value between 2 input values.
@@ -100,7 +100,7 @@ This License shall be included in all functional textual files.
  * @param _in2 Input value 2.
  */
 #define SSTD_MIN2(_in1, _in2) \
-	(_in1 < _in2) ? _in1 : _in2
+	((_in1) < (_in2)) ? (_in1) : (_in2)
 
 /**
  * @brief Code snippet for finding greatest value between 2 input values.
@@ -109,7 +109,7 @@ This License shall be included in all functional textual files.
  * @param _in2 Input value 2.
  */
 #define SSTD_MAX2(_in1, _in2) \
-	(_in1 > _in2) ? _in1 : _in2
+	((_in1) > (_in2)) ? (_in1) : (_in2)
 
 /**
  * @brief Code snippet for finding lowest value between 3 input values.
@@ -119,7 +119,7 @@ This License shall be included in all functional textual files.
  * @param _in3 Input value 3.
  */
 #define SSTD_MIN3(_in1, _in2, _in3) \
-	(_in1 < _in2) ? (_in1 < _in3 ? _in1 : _in3) : (_in2 < _in3 ? _in2 : _in3)
+	((_in1) < (_in2)) ? ((_in1) < (_in3) ? (_in1) : (_in3)) : ((_in2) < (_in3) ? (_in2) : (_in3))
 
 /**
  * @brief Code snippet for finding greatest value between 3 input values.
@@ -129,7 +129,7 @@ This License shall be included in all functional textual files.
  * @param _in3 Input value 3.
  */
 #define SSTD_MAX3(_in1, _in2, _in3) \
-	(_in1 > _in2) ? (_in1 > _in3 ? _in1 : _in3) : (_in2 > _in3 ? _in2 : _in3)
+	((_in1) > (_in2)) ? ((_in1) > (_in3) ? (_in1) : (_in3)) : ((_in2) > (_in3) ? (_in2) : (_in3))
 
 /**
  * @brief Get absolute value from input value.
@@ -137,7 +137,7 @@ This License shall be included in all functional textual files.
  * @param _in Input value.
  */
 #define SSTD_ABS(_in) \
-	(_in < 0) ? _in * (-1) : _in
+	((_in) < 0) ? (_in) * (-1) : (_in)
 
 
 // BITFIELDS OPERATIONS
@@ -148,7 +148,7 @@ This License shall be included in all functional textual files.
  * @param _bit Bit number of \c _value to change to 1.
  */
 #define SSTD_BIT_SET(_value, _bit) \
-	_value |= 1 << _bit
+	_value |= 1 << (_bit)
 
 /**
  * @brief Set \c _bit of \c _value to 0. 
@@ -157,7 +157,7 @@ This License shall be included in all functional textual files.
  * @param _bit Bit number of \c _value to change to 0. 
  */
 #define SSTD_BIT_CLEAR(_value, _bit) \
-	_value &= ~(1 << _bit)
+	_value &= ~(1 << (_bit))
 
 /**
  * @brief Fetch \c _bit from \c _value
@@ -168,7 +168,7 @@ This License shall be included in all functional textual files.
  * @note Function returns \c 0 for \c _bit = 0 or any positive number for \c _bit = 1.
  */
 #define SSTD_BIT(_value, _bit) \
-	(_value & (1 << _bit))
+	(_value & (1 << (_bit)))
 
 /**
  * @brief Fetch \c _bit from \c _value
@@ -179,7 +179,7 @@ This License shall be included in all functional textual files.
  * @note Function returns \c 0 or \c 1.
  */
 #define SSTD_BBIT(_value, _bit) \
-	(_value & (1 << _bit)) >> _bit
+	(_value & (1 << (_bit))) >> (_bit)
 
 /**
  * @brief Toggle \c _bit in \c _value
@@ -188,7 +188,7 @@ This License shall be included in all functional textual files.
  * @param _bit Bit number of \c _value to toggle.
  */
 #define SSTD_BIT_TOGGLE(_value, _bit) \
-	_value ^= 1 << _bit
+	_value ^= 1 << (_bit)
 
 
 #ifdef __cplusplus
