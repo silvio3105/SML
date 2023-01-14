@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0r2</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -172,37 +172,37 @@ Macros</h2></td></tr>
 <tr class="memitem:ga57ac9834bf5603757493d05511b5f75d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga57ac9834bf5603757493d05511b5f75d">SSTD_ARRAY</a>(_in)&#160;&#160;&#160;	sizeof(_in) / sizeof(_in[0])</td></tr>
 <tr class="memdesc:ga57ac9834bf5603757493d05511b5f75d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for calculating number of members in array.  <a href="group__s_std.html#ga57ac9834bf5603757493d05511b5f75d">More...</a><br /></td></tr>
 <tr class="separator:ga57ac9834bf5603757493d05511b5f75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4f2f7d1d7681ed93214b42659c2585b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1">SSTD_SCALE</a>(_in,  _inMin,  _inMax,  _outMin,  _outMax)&#160;&#160;&#160;	(_in - _inMin) * (_outMax - _outMin) / (_inMax - _inMin) + _outMin</td></tr>
+<tr class="memitem:ga4f2f7d1d7681ed93214b42659c2585b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1">SSTD_SCALE</a>(_in,  _inMin,  _inMax,  _outMin,  _outMax)&#160;&#160;&#160;	((_in) - (_inMin)) * ((_outMax) - (_outMin)) / ((_inMax) - (_inMin)) + (_outMin)</td></tr>
 <tr class="memdesc:ga4f2f7d1d7681ed93214b42659c2585b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for scaling value.  <a href="group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1">More...</a><br /></td></tr>
 <tr class="separator:ga4f2f7d1d7681ed93214b42659c2585b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga497f39384bcbcc2dacb84a48b6c084e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga497f39384bcbcc2dacb84a48b6c084e4">SSTD_MIN2</a>(_in1,  _in2)&#160;&#160;&#160;	(_in1 &lt; _in2) ? _in1 : _in2</td></tr>
+<tr class="memitem:ga497f39384bcbcc2dacb84a48b6c084e4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga497f39384bcbcc2dacb84a48b6c084e4">SSTD_MIN2</a>(_in1,  _in2)&#160;&#160;&#160;	((_in1) &lt; (_in2)) ? (_in1) : (_in2)</td></tr>
 <tr class="memdesc:ga497f39384bcbcc2dacb84a48b6c084e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for finding lowest value between 2 input values.  <a href="group__s_std.html#ga497f39384bcbcc2dacb84a48b6c084e4">More...</a><br /></td></tr>
 <tr class="separator:ga497f39384bcbcc2dacb84a48b6c084e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga400d741f1f122718c342fea3669325b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga400d741f1f122718c342fea3669325b4">SSTD_MAX2</a>(_in1,  _in2)&#160;&#160;&#160;	(_in1 &gt; _in2) ? _in1 : _in2</td></tr>
+<tr class="memitem:ga400d741f1f122718c342fea3669325b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga400d741f1f122718c342fea3669325b4">SSTD_MAX2</a>(_in1,  _in2)&#160;&#160;&#160;	((_in1) &gt; (_in2)) ? (_in1) : (_in2)</td></tr>
 <tr class="memdesc:ga400d741f1f122718c342fea3669325b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for finding greatest value between 2 input values.  <a href="group__s_std.html#ga400d741f1f122718c342fea3669325b4">More...</a><br /></td></tr>
 <tr class="separator:ga400d741f1f122718c342fea3669325b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f1da3a74428488d8f1ba8e5ef293ab1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga3f1da3a74428488d8f1ba8e5ef293ab1">SSTD_MIN3</a>(_in1,  _in2,  _in3)&#160;&#160;&#160;	(_in1 &lt; _in2) ? (_in1 &lt; _in3 ? _in1 : _in3) : (_in2 &lt; _in3 ? _in2 : _in3)</td></tr>
+<tr class="memitem:ga3f1da3a74428488d8f1ba8e5ef293ab1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga3f1da3a74428488d8f1ba8e5ef293ab1">SSTD_MIN3</a>(_in1,  _in2,  _in3)&#160;&#160;&#160;	((_in1) &lt; (_in2)) ? ((_in1) &lt; (_in3) ? (_in1) : (_in3)) : ((_in2) &lt; (_in3) ? (_in2) : (_in3))</td></tr>
 <tr class="memdesc:ga3f1da3a74428488d8f1ba8e5ef293ab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for finding lowest value between 3 input values.  <a href="group__s_std.html#ga3f1da3a74428488d8f1ba8e5ef293ab1">More...</a><br /></td></tr>
 <tr class="separator:ga3f1da3a74428488d8f1ba8e5ef293ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf11a14db5cda0033596cd680392e3586"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gaf11a14db5cda0033596cd680392e3586">SSTD_MAX3</a>(_in1,  _in2,  _in3)&#160;&#160;&#160;	(_in1 &gt; _in2) ? (_in1 &gt; _in3 ? _in1 : _in3) : (_in2 &gt; _in3 ? _in2 : _in3)</td></tr>
+<tr class="memitem:gaf11a14db5cda0033596cd680392e3586"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gaf11a14db5cda0033596cd680392e3586">SSTD_MAX3</a>(_in1,  _in2,  _in3)&#160;&#160;&#160;	((_in1) &gt; (_in2)) ? ((_in1) &gt; (_in3) ? (_in1) : (_in3)) : ((_in2) &gt; (_in3) ? (_in2) : (_in3))</td></tr>
 <tr class="memdesc:gaf11a14db5cda0033596cd680392e3586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for finding greatest value between 3 input values.  <a href="group__s_std.html#gaf11a14db5cda0033596cd680392e3586">More...</a><br /></td></tr>
 <tr class="separator:gaf11a14db5cda0033596cd680392e3586"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga931e4931a07849ea2f0eca622104ae97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">SSTD_ABS</a>(_in)&#160;&#160;&#160;	(_in &lt; 0) ? _in * (-1) : _in</td></tr>
+<tr class="memitem:ga931e4931a07849ea2f0eca622104ae97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">SSTD_ABS</a>(_in)&#160;&#160;&#160;	((_in) &lt; 0) ? (_in) * (-1) : (_in)</td></tr>
 <tr class="memdesc:ga931e4931a07849ea2f0eca622104ae97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get absolute value from input value.  <a href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">More...</a><br /></td></tr>
 <tr class="separator:ga931e4931a07849ea2f0eca622104ae97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3fb65d4f688a631275fc309cbb8a22d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0">SSTD_BIT_SET</a>(_value,  _bit)&#160;&#160;&#160;	_value |= 1 &lt;&lt; _bit</td></tr>
+<tr class="memitem:ga3fb65d4f688a631275fc309cbb8a22d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0">SSTD_BIT_SET</a>(_value,  _bit)&#160;&#160;&#160;	_value |= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:ga3fb65d4f688a631275fc309cbb8a22d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <code>_bit</code> of <code>_value</code> to 1.  <a href="group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0">More...</a><br /></td></tr>
 <tr class="separator:ga3fb65d4f688a631275fc309cbb8a22d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga96f9e0b433885bb52d50dd2f22cdee98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga96f9e0b433885bb52d50dd2f22cdee98">SSTD_BIT_CLEAR</a>(_value,  _bit)&#160;&#160;&#160;	_value &amp;= ~(1 &lt;&lt; _bit)</td></tr>
+<tr class="memitem:ga96f9e0b433885bb52d50dd2f22cdee98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga96f9e0b433885bb52d50dd2f22cdee98">SSTD_BIT_CLEAR</a>(_value,  _bit)&#160;&#160;&#160;	_value &amp;= ~(1 &lt;&lt; (_bit))</td></tr>
 <tr class="memdesc:ga96f9e0b433885bb52d50dd2f22cdee98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <code>_bit</code> of <code>_value</code> to 0.  <a href="group__s_std.html#ga96f9e0b433885bb52d50dd2f22cdee98">More...</a><br /></td></tr>
 <tr class="separator:ga96f9e0b433885bb52d50dd2f22cdee98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57d12218b209269dda4eee6b9320a66d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga57d12218b209269dda4eee6b9320a66d">SSTD_BIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; _bit))</td></tr>
+<tr class="memitem:ga57d12218b209269dda4eee6b9320a66d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga57d12218b209269dda4eee6b9320a66d">SSTD_BIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit)))</td></tr>
 <tr class="memdesc:ga57d12218b209269dda4eee6b9320a66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch <code>_bit</code> from <code>_value</code>.  <a href="group__s_std.html#ga57d12218b209269dda4eee6b9320a66d">More...</a><br /></td></tr>
 <tr class="separator:ga57d12218b209269dda4eee6b9320a66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab43db495e95faa197bf348c005c5e8d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gab43db495e95faa197bf348c005c5e8d0">SSTD_BBIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; _bit)) &gt;&gt; _bit</td></tr>
+<tr class="memitem:gab43db495e95faa197bf348c005c5e8d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gab43db495e95faa197bf348c005c5e8d0">SSTD_BBIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit))) &gt;&gt; (_bit)</td></tr>
 <tr class="memdesc:gab43db495e95faa197bf348c005c5e8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch <code>_bit</code> from <code>_value</code>.  <a href="group__s_std.html#gab43db495e95faa197bf348c005c5e8d0">More...</a><br /></td></tr>
 <tr class="separator:gab43db495e95faa197bf348c005c5e8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; _bit</td></tr>
+<tr class="memitem:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle <code>_bit</code> in <code>_value</code>.  <a href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">More...</a><br /></td></tr>
 <tr class="separator:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -562,7 +562,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">_in</td><td>)</td>
-          <td>&#160;&#160;&#160;	(_in &lt; 0) ? _in * (-1) : _in</td>
+          <td>&#160;&#160;&#160;	((_in) &lt; 0) ? (_in) * (-1) : (_in)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -628,7 +628,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; _bit)) &gt;&gt; _bit</td>
+          <td></td><td>&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit))) &gt;&gt; (_bit)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -668,7 +668,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; _bit))</td>
+          <td></td><td>&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit)))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -708,7 +708,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	_value &amp;= ~(1 &lt;&lt; _bit)</td>
+          <td></td><td>&#160;&#160;&#160;	_value &amp;= ~(1 &lt;&lt; (_bit))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -747,7 +747,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	_value |= 1 &lt;&lt; _bit</td>
+          <td></td><td>&#160;&#160;&#160;	_value |= 1 &lt;&lt; (_bit)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -786,7 +786,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	_value ^= 1 &lt;&lt; _bit</td>
+          <td></td><td>&#160;&#160;&#160;	_value ^= 1 &lt;&lt; (_bit)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -825,7 +825,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_in1 &gt; _in2) ? _in1 : _in2</td>
+          <td></td><td>&#160;&#160;&#160;	((_in1) &gt; (_in2)) ? (_in1) : (_in2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -870,7 +870,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_in1 &gt; _in2) ? (_in1 &gt; _in3 ? _in1 : _in3) : (_in2 &gt; _in3 ? _in2 : _in3)</td>
+          <td></td><td>&#160;&#160;&#160;	((_in1) &gt; (_in2)) ? ((_in1) &gt; (_in3) ? (_in1) : (_in3)) : ((_in2) &gt; (_in3) ? (_in2) : (_in3))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -910,7 +910,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_in1 &lt; _in2) ? _in1 : _in2</td>
+          <td></td><td>&#160;&#160;&#160;	((_in1) &lt; (_in2)) ? (_in1) : (_in2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -955,7 +955,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_in1 &lt; _in2) ? (_in1 &lt; _in3 ? _in1 : _in3) : (_in2 &lt; _in3 ? _in2 : _in3)</td>
+          <td></td><td>&#160;&#160;&#160;	((_in1) &lt; (_in2)) ? ((_in1) &lt; (_in3) ? (_in1) : (_in3)) : ((_in2) &lt; (_in3) ? (_in2) : (_in3))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1049,7 +1049,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_in - _inMin) * (_outMax - _outMin) / (_inMax - _inMin) + _outMin</td>
+          <td></td><td>&#160;&#160;&#160;	((_in) - (_inMin)) * ((_outMax) - (_outMin)) / ((_inMax) - (_inMin)) + (_outMin)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1075,7 +1075,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Dec 24 2022 21:53:26 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Jan 14 2023 23:32:10 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
