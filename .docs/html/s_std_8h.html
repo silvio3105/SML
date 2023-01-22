@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0r2</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0r3</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -217,6 +217,12 @@ Macros</h2></td></tr>
 <tr class="memitem:ga98613edb9fd3e6f21e82efbd19de87ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga98613edb9fd3e6f21e82efbd19de87ad">BTOGGLE</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a></td></tr>
 <tr class="memdesc:ga98613edb9fd3e6f21e82efbd19de87ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a>.  <a href="group__s_std.html#ga98613edb9fd3e6f21e82efbd19de87ad">More...</a><br /></td></tr>
 <tr class="separator:ga98613edb9fd3e6f21e82efbd19de87ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46fc770691242e0e8923ec6cb432deef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga46fc770691242e0e8923ec6cb432deef">DEC2BCD_8</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">SSTD_DEC2BCD_8</a></td></tr>
+<tr class="memdesc:ga46fc770691242e0e8923ec6cb432deef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">SSTD_DEC2BCD_8</a>.  <a href="group__s_std.html#ga46fc770691242e0e8923ec6cb432deef">More...</a><br /></td></tr>
+<tr class="separator:ga46fc770691242e0e8923ec6cb432deef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab49b72f8809f675f550b38f0cf30b0db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gab49b72f8809f675f550b38f0cf30b0db">BCD2DEC_8</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">SSTD_BCD2DEC_8</a></td></tr>
+<tr class="memdesc:gab49b72f8809f675f550b38f0cf30b0db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">SSTD_BCD2DEC_8</a>.  <a href="group__s_std.html#gab49b72f8809f675f550b38f0cf30b0db">More...</a><br /></td></tr>
+<tr class="separator:gab49b72f8809f675f550b38f0cf30b0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga57ac9834bf5603757493d05511b5f75d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga57ac9834bf5603757493d05511b5f75d">SSTD_ARRAY</a>(_in)&#160;&#160;&#160;	sizeof(_in) / sizeof(_in[0])</td></tr>
 <tr class="memdesc:ga57ac9834bf5603757493d05511b5f75d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for calculating number of members in array.  <a href="group__s_std.html#ga57ac9834bf5603757493d05511b5f75d">More...</a><br /></td></tr>
 <tr class="separator:ga57ac9834bf5603757493d05511b5f75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,6 +259,12 @@ Macros</h2></td></tr>
 <tr class="memitem:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle <code>_bit</code> in <code>_value</code>.  <a href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">More...</a><br /></td></tr>
 <tr class="separator:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9aa85b5e2126c7bf5527728b54f80347"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">SSTD_DEC2BCD_8</a>(_in)&#160;&#160;&#160;	((((_in)) / 10) &lt;&lt; 4) + ((_in) % 10)</td></tr>
+<tr class="memdesc:ga9aa85b5e2126c7bf5527728b54f80347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 8-bit decimal value to BCD.  <a href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">More...</a><br /></td></tr>
+<tr class="separator:ga9aa85b5e2126c7bf5527728b54f80347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga566ed9ebd9cb9dbdb23637da877ec55f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">SSTD_BCD2DEC_8</a>(_in)&#160;&#160;&#160;	((((_in)) &gt;&gt; 4) * 10) + ((_in) &amp; 0x0F)</td></tr>
+<tr class="memdesc:ga566ed9ebd9cb9dbdb23637da877ec55f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 8-bit BCD value to decimal.  <a href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">More...</a><br /></td></tr>
+<tr class="separator:ga566ed9ebd9cb9dbdb23637da877ec55f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -306,6 +318,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="memTemplItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a">sStd::sumDigits</a> (T input)</td></tr>
 <tr class="memdesc:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum all integer digits.  <a href="namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a">More...</a><br /></td></tr>
 <tr class="separator:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4239da9e934fb0414a39b2c7c628645"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ac4239da9e934fb0414a39b2c7c628645">sStd::dec2BCD</a> (uint8_t num)</td></tr>
+<tr class="memdesc:ac4239da9e934fb0414a39b2c7c628645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 8-bit decimal value to BCD.  <a href="namespaces_std.html#ac4239da9e934fb0414a39b2c7c628645">More...</a><br /></td></tr>
+<tr class="separator:ac4239da9e934fb0414a39b2c7c628645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0c2f9272f83260e39e6904d0251330b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ac0c2f9272f83260e39e6904d0251330b">sStd::BCD2dec</a> (uint8_t num)</td></tr>
+<tr class="memdesc:ac0c2f9272f83260e39e6904d0251330b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 8-bit BCD value to decimal.  <a href="namespaces_std.html#ac0c2f9272f83260e39e6904d0251330b">More...</a><br /></td></tr>
+<tr class="separator:ac0c2f9272f83260e39e6904d0251330b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6fd9749309696918cc56bd1bcfdb84b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b">sStd::tok</a> (char *input, char separator)</td></tr>
 <tr class="memdesc:ad6fd9749309696918cc56bd1bcfdb84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace desired character with NULL character.  <a href="namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b">More...</a><br /></td></tr>
 <tr class="separator:ad6fd9749309696918cc56bd1bcfdb84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -337,7 +355,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8h.html">sStd.h</a></li>
-    <li class="footer">Generated on Sat Jan 14 2023 23:32:10 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sun Jan 22 2023 01:15:09 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
