@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['flush_0',['flush',['../classs_std_1_1_ring_buffer.html#a1c65bc67c962f8926bf71d01e7544d98',1,'sStd::RingBuffer']]],
-  ['free_1',['free',['../classs_std_1_1_ring_buffer.html#a6f95c26642ec6d23b1cb5429732705a0',1,'sStd::RingBuffer']]]
+  ['data_0',['Data',['../classs_std_1_1_data.html#a02c1eb37dc61b724b0cf76e3749e2dd3',1,'sStd::Data::Data(void)'],['../classs_std_1_1_data.html#a940a5dae872dff3e25576a37adff1400',1,'sStd::Data::Data(T *data, uint16_t len)']]],
+  ['dec2bcd_1',['dec2BCD',['../namespaces_std.html#ac4239da9e934fb0414a39b2c7c628645',1,'sStd']]]
 ];

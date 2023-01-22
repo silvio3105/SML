@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0r2</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0r3</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -169,6 +169,12 @@ Macros</h2></td></tr>
 <tr class="memitem:ga98613edb9fd3e6f21e82efbd19de87ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga98613edb9fd3e6f21e82efbd19de87ad">BTOGGLE</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a></td></tr>
 <tr class="memdesc:ga98613edb9fd3e6f21e82efbd19de87ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a>.  <a href="group__s_std.html#ga98613edb9fd3e6f21e82efbd19de87ad">More...</a><br /></td></tr>
 <tr class="separator:ga98613edb9fd3e6f21e82efbd19de87ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46fc770691242e0e8923ec6cb432deef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga46fc770691242e0e8923ec6cb432deef">DEC2BCD_8</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">SSTD_DEC2BCD_8</a></td></tr>
+<tr class="memdesc:ga46fc770691242e0e8923ec6cb432deef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">SSTD_DEC2BCD_8</a>.  <a href="group__s_std.html#ga46fc770691242e0e8923ec6cb432deef">More...</a><br /></td></tr>
+<tr class="separator:ga46fc770691242e0e8923ec6cb432deef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab49b72f8809f675f550b38f0cf30b0db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#gab49b72f8809f675f550b38f0cf30b0db">BCD2DEC_8</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">SSTD_BCD2DEC_8</a></td></tr>
+<tr class="memdesc:gab49b72f8809f675f550b38f0cf30b0db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">SSTD_BCD2DEC_8</a>.  <a href="group__s_std.html#gab49b72f8809f675f550b38f0cf30b0db">More...</a><br /></td></tr>
+<tr class="separator:gab49b72f8809f675f550b38f0cf30b0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga57ac9834bf5603757493d05511b5f75d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga57ac9834bf5603757493d05511b5f75d">SSTD_ARRAY</a>(_in)&#160;&#160;&#160;	sizeof(_in) / sizeof(_in[0])</td></tr>
 <tr class="memdesc:ga57ac9834bf5603757493d05511b5f75d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for calculating number of members in array.  <a href="group__s_std.html#ga57ac9834bf5603757493d05511b5f75d">More...</a><br /></td></tr>
 <tr class="separator:ga57ac9834bf5603757493d05511b5f75d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -205,6 +211,12 @@ Macros</h2></td></tr>
 <tr class="memitem:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle <code>_bit</code> in <code>_value</code>.  <a href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">More...</a><br /></td></tr>
 <tr class="separator:ga66c5ee8f4471c4afaa7ca29eab7018fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9aa85b5e2126c7bf5527728b54f80347"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">SSTD_DEC2BCD_8</a>(_in)&#160;&#160;&#160;	((((_in)) / 10) &lt;&lt; 4) + ((_in) % 10)</td></tr>
+<tr class="memdesc:ga9aa85b5e2126c7bf5527728b54f80347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 8-bit decimal value to BCD.  <a href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">More...</a><br /></td></tr>
+<tr class="separator:ga9aa85b5e2126c7bf5527728b54f80347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga566ed9ebd9cb9dbdb23637da877ec55f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">SSTD_BCD2DEC_8</a>(_in)&#160;&#160;&#160;	((((_in)) &gt;&gt; 4) * 10) + ((_in) &amp; 0x0F)</td></tr>
+<tr class="memdesc:ga566ed9ebd9cb9dbdb23637da877ec55f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 8-bit BCD value to decimal.  <a href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">More...</a><br /></td></tr>
+<tr class="separator:ga566ed9ebd9cb9dbdb23637da877ec55f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p >Custom library with miscellaneous functions. </p>
@@ -260,6 +272,24 @@ Macros</h2></td></tr>
 <p>Alias for <a class="el" href="group__s_std.html#gab43db495e95faa197bf348c005c5e8d0">SSTD_BBIT</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00069">69</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+
+</div>
+</div>
+<a id="gab49b72f8809f675f550b38f0cf30b0db" name="gab49b72f8809f675f550b38f0cf30b0db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab49b72f8809f675f550b38f0cf30b0db">&#9670;&#160;</a></span>BCD2DEC_8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BCD2DEC_8&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">SSTD_BCD2DEC_8</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias for <a class="el" href="group__s_std.html#ga566ed9ebd9cb9dbdb23637da877ec55f">SSTD_BCD2DEC_8</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00073">73</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -332,6 +362,24 @@ Macros</h2></td></tr>
 <p>Alias for <a class="el" href="group__s_std.html#ga66c5ee8f4471c4afaa7ca29eab7018fe">SSTD_BIT_TOGGLE</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00070">70</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+
+</div>
+</div>
+<a id="ga46fc770691242e0e8923ec6cb432deef" name="ga46fc770691242e0e8923ec6cb432deef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46fc770691242e0e8923ec6cb432deef">&#9670;&#160;</a></span>DEC2BCD_8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEC2BCD_8&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">SSTD_DEC2BCD_8</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias for <a class="el" href="group__s_std.html#ga9aa85b5e2126c7bf5527728b54f80347">SSTD_DEC2BCD_8</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00072">72</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -575,7 +623,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00139">139</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00142">142</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -603,7 +651,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00080">80</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00083">83</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -643,7 +691,36 @@ Macros</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Function returns <code>0</code> or <code>1</code>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00181">181</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00184">184</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+
+</div>
+</div>
+<a id="ga566ed9ebd9cb9dbdb23637da877ec55f" name="ga566ed9ebd9cb9dbdb23637da877ec55f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga566ed9ebd9cb9dbdb23637da877ec55f">&#9670;&#160;</a></span>SSTD_BCD2DEC_8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SSTD_BCD2DEC_8</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_in</td><td>)</td>
+          <td>&#160;&#160;&#160;	((((_in)) &gt;&gt; 4) * 10) + ((_in) &amp; 0x0F)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert 8-bit BCD value to decimal. </p>
+<p >Example: 0x22 in BCD will become 22 in decimal.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_in</td><td>Input 8-bit value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00215">215</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -683,7 +760,7 @@ Macros</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Function returns <code>0</code> for <code>_bit</code> = 0 or any positive number for <code>_bit</code> = 1. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00170">170</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00173">173</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -722,7 +799,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00159">159</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00162">162</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -761,7 +838,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00150">150</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00153">153</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -800,7 +877,36 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00190">190</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00193">193</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+
+</div>
+</div>
+<a id="ga9aa85b5e2126c7bf5527728b54f80347" name="ga9aa85b5e2126c7bf5527728b54f80347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9aa85b5e2126c7bf5527728b54f80347">&#9670;&#160;</a></span>SSTD_DEC2BCD_8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SSTD_DEC2BCD_8</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_in</td><td>)</td>
+          <td>&#160;&#160;&#160;	((((_in)) / 10) &lt;&lt; 4) + ((_in) % 10)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert 8-bit decimal value to BCD. </p>
+<p >Example: 22 in decimal will become 0x22 in hex.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_in</td><td>Input 8-bit value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00205">205</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -839,7 +945,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00111">111</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00114">114</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -885,7 +991,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00131">131</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00134">134</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -924,7 +1030,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00102">102</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00105">105</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -970,7 +1076,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00121">121</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00124">124</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -1066,7 +1172,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00093">93</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="s_std_8h_source.html#l00096">96</a> of file <a class="el" href="s_std_8h_source.html">sStd.h</a>.</p>
 
 </div>
 </div>
@@ -1075,7 +1181,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Jan 14 2023 23:32:10 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sun Jan 22 2023 01:15:09 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['max_0',['max',['../namespaces_std.html#ad4fd1265c12a89d2c3730fe638687285',1,'sStd::max(T in1, T in2)'],['../namespaces_std.html#a89af69d373b8475412b6206f6c2bef06',1,'sStd::max(T in1, T in2, T in3)']]],
-  ['min_1',['min',['../namespaces_std.html#ad10533f4a420657e89a8ad958a6a1378',1,'sStd::min(T in1, T in2)'],['../namespaces_std.html#aee474837d609e2a35ad5ce998c75a63d',1,'sStd::min(T in1, T in2, T in3)']]]
+  ['len_0',['len',['../classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705',1,'sStd::Data::len()'],['../namespaces_std.html#aa424e5fd087680908410810c9466acd3',1,'sStd::len()']]],
+  ['logger_1',['Logger',['../classs_std_1_1_logger.html#aacbfdb5d9467366f63d76b021823033c',1,'sStd::Logger']]]
 ];

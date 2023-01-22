@@ -15,8 +15,10 @@ var namespaces_std =
       [ "LOG_NON_BLOCKING", "namespaces_std.html#ad62d6075213877604df7b8211eee9328a2a2a9aa7ff6393e69cdd70e8806b10fd", null ]
     ] ],
     [ "abs", "namespaces_std.html#a2e105be100811c8b849a7008640fbab2", null ],
+    [ "BCD2dec", "namespaces_std.html#ac0c2f9272f83260e39e6904d0251330b", null ],
     [ "cmp", "namespaces_std.html#a55f555bd8a6ab9f8a251e76c3139cda2", null ],
     [ "count", "namespaces_std.html#ac624304e58ff13924de3ec379a040429", null ],
+    [ "dec2BCD", "namespaces_std.html#ac4239da9e934fb0414a39b2c7c628645", null ],
     [ "len", "namespaces_std.html#aa424e5fd087680908410810c9466acd3", null ],
     [ "max", "namespaces_std.html#ad4fd1265c12a89d2c3730fe638687285", null ],
     [ "max", "namespaces_std.html#a89af69d373b8475412b6206f6c2bef06", null ],
