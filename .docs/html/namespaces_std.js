@@ -20,6 +20,7 @@ var namespaces_std =
     [ "count", "namespaces_std.html#ac624304e58ff13924de3ec379a040429", null ],
     [ "dec2BCD", "namespaces_std.html#ac4239da9e934fb0414a39b2c7c628645", null ],
     [ "len", "namespaces_std.html#aa424e5fd087680908410810c9466acd3", null ],
+    [ "limit", "namespaces_std.html#ac6a6dd47771ed6557a34e47fc299e131", null ],
     [ "max", "namespaces_std.html#ad4fd1265c12a89d2c3730fe638687285", null ],
     [ "max", "namespaces_std.html#a89af69d373b8475412b6206f6c2bef06", null ],
     [ "min", "namespaces_std.html#ad10533f4a420657e89a8ad958a6a1378", null ],
