@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0r3</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0r4</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -202,6 +202,9 @@ Macros</h2></td></tr>
 <tr class="memitem:ga26e668489fb528456f4bc54ba908d5b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga26e668489fb528456f4bc54ba908d5b4">ABS</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">SSTD_ABS</a></td></tr>
 <tr class="memdesc:ga26e668489fb528456f4bc54ba908d5b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">SSTD_ABS</a>.  <a href="group__s_std.html#ga26e668489fb528456f4bc54ba908d5b4">More...</a><br /></td></tr>
 <tr class="separator:ga26e668489fb528456f4bc54ba908d5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5977928b042d0a4b2ce93baa979e5f5c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga5977928b042d0a4b2ce93baa979e5f5c">LIMIT</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga524318df2476ffecdd76f6c9cb698a35">SSTD_LIMIT</a></td></tr>
+<tr class="memdesc:ga5977928b042d0a4b2ce93baa979e5f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga524318df2476ffecdd76f6c9cb698a35">SSTD_LIMIT</a>.  <a href="group__s_std.html#ga5977928b042d0a4b2ce93baa979e5f5c">More...</a><br /></td></tr>
+<tr class="separator:ga5977928b042d0a4b2ce93baa979e5f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga89f2857fcc818f30c6ff70b67900a925"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga89f2857fcc818f30c6ff70b67900a925">BSET</a>&#160;&#160;&#160;<a class="el" href="group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0">SSTD_BIT_SET</a></td></tr>
 <tr class="memdesc:ga89f2857fcc818f30c6ff70b67900a925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0">SSTD_BIT_SET</a>.  <a href="group__s_std.html#ga89f2857fcc818f30c6ff70b67900a925">More...</a><br /></td></tr>
 <tr class="separator:ga89f2857fcc818f30c6ff70b67900a925"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,6 +247,9 @@ Macros</h2></td></tr>
 <tr class="memitem:ga931e4931a07849ea2f0eca622104ae97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">SSTD_ABS</a>(_in)&#160;&#160;&#160;	((_in) &lt; 0) ? (_in) * (-1) : (_in)</td></tr>
 <tr class="memdesc:ga931e4931a07849ea2f0eca622104ae97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get absolute value from input value.  <a href="group__s_std.html#ga931e4931a07849ea2f0eca622104ae97">More...</a><br /></td></tr>
 <tr class="separator:ga931e4931a07849ea2f0eca622104ae97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga524318df2476ffecdd76f6c9cb698a35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga524318df2476ffecdd76f6c9cb698a35">SSTD_LIMIT</a>(_in,  _low,  _high)&#160;&#160;&#160;	(((_in) &lt; (_low)) ? (_low) : (((_in) &gt; (_high)) ? (_high) : (_in)))</td></tr>
+<tr class="memdesc:ga524318df2476ffecdd76f6c9cb698a35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limit/constrain value <code>_in</code> between <code>_low</code> and <code>_high</code>.  <a href="group__s_std.html#ga524318df2476ffecdd76f6c9cb698a35">More...</a><br /></td></tr>
+<tr class="separator:ga524318df2476ffecdd76f6c9cb698a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3fb65d4f688a631275fc309cbb8a22d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0">SSTD_BIT_SET</a>(_value,  _bit)&#160;&#160;&#160;	_value |= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:ga3fb65d4f688a631275fc309cbb8a22d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <code>_bit</code> of <code>_value</code> to 1.  <a href="group__s_std.html#ga3fb65d4f688a631275fc309cbb8a22d0">More...</a><br /></td></tr>
 <tr class="separator:ga3fb65d4f688a631275fc309cbb8a22d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -314,6 +320,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a2e105be100811c8b849a7008640fbab2"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a2e105be100811c8b849a7008640fbab2">sStd::abs</a> (T input)</td></tr>
 <tr class="memdesc:a2e105be100811c8b849a7008640fbab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return absolute value.  <a href="namespaces_std.html#a2e105be100811c8b849a7008640fbab2">More...</a><br /></td></tr>
 <tr class="separator:a2e105be100811c8b849a7008640fbab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6a6dd47771ed6557a34e47fc299e131"><td class="memTemplParams" colspan="2">template&lt;typename Tin , typename Tlh &gt; </td></tr>
+<tr class="memitem:ac6a6dd47771ed6557a34e47fc299e131"><td class="memTemplItemLeft" align="right" valign="top">Tlh&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ac6a6dd47771ed6557a34e47fc299e131">sStd::limit</a> (Tin in, Tlh low, Tlh high)</td></tr>
+<tr class="memdesc:ac6a6dd47771ed6557a34e47fc299e131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limit/constrain value <code>in</code> between <code>low</code> and <code>high</code>.  <a href="namespaces_std.html#ac6a6dd47771ed6557a34e47fc299e131">More...</a><br /></td></tr>
+<tr class="separator:ac6a6dd47771ed6557a34e47fc299e131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="memTemplItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a">sStd::sumDigits</a> (T input)</td></tr>
 <tr class="memdesc:ab14a9e254e2ca6a48a8ad9d16b40e53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum all integer digits.  <a href="namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a">More...</a><br /></td></tr>
@@ -355,7 +365,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8h.html">sStd.h</a></li>
-    <li class="footer">Generated on Sun Jan 22 2023 01:15:09 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Sat Feb 4 2023 01:07:47 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
