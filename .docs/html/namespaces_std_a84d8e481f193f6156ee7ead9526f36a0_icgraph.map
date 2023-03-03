@@ -1,0 +1,4 @@
+<map id="sStd::isNum" name="sStd::isNum">
+<area shape="rect" id="node1" title="Check if character is number." alt="" coords="156,5,251,31"/>
+<area shape="rect" id="node2" href="$namespaces_std.html#a866285a48335b9b4671094b137ab539d" title="Convert C&#45;string to decimal value." alt="" coords="5,5,108,31"/>
+</map>

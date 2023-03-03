@@ -1,0 +1,5 @@
+<map id="sStd::str2Dec" name="sStd::str2Dec">
+<area shape="rect" id="node1" title="Convert C&#45;string to decimal value." alt="" coords="5,31,108,56"/>
+<area shape="rect" id="node2" href="$namespaces_std.html#a61b40bd16e3498bb04f9d9b1f06b3d7e" title="Convert character to number." alt="" coords="156,5,272,31"/>
+<area shape="rect" id="node3" href="$namespaces_std.html#a84d8e481f193f6156ee7ead9526f36a0" title="Check if character is number." alt="" coords="167,55,261,80"/>
+</map>

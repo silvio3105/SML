@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['scale_0',['SCALE',['../group__s_std.html#ga0cbea62f1ce2043dd08108e65ed8de1d',1,'sStd.h']]],
-  ['scale_1',['scale',['../namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0',1,'sStd']]],
+  ['scale_0',['scale',['../namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0',1,'sStd']]],
+  ['scale_1',['SCALE',['../group__s_std.html#ga0cbea62f1ce2043dd08108e65ed8de1d',1,'sStd.h']]],
   ['scandata_2',['scanData',['../structs_std_1_1scan_data.html',1,'sStd']]],
   ['sepbegin_3',['sepBegin',['../structs_std_1_1scan_data.html#a56da836a08469771f68818e2c9a46e14',1,'sStd::scanData']]],
   ['sepcntbegin_4',['sepCntBegin',['../structs_std_1_1scan_data.html#a2b4eac73060dc34a411a1f6cae56e880',1,'sStd::scanData']]],
@@ -33,5 +33,6 @@ var searchData=
   ['sstd_5fok_30',['SSTD_OK',['../group__s_std.html#gacb36aae88c1a231c5bf190fb972ce3c6',1,'sStd.h']]],
   ['sstd_5fscale_31',['SSTD_SCALE',['../group__s_std.html#ga4f2f7d1d7681ed93214b42659c2585b1',1,'sStd.h']]],
   ['status_32',['status',['../classs_std_1_1_logger.html#a388f3079da3536511781ba88c2b5b03c',1,'sStd::Logger::status(void) const'],['../classs_std_1_1_logger.html#ace52b279455a0230861e474a6187c373',1,'sStd::Logger::status(const sStd::logStatus_t newStatus)']]],
-  ['sumdigits_33',['sumDigits',['../namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a',1,'sStd']]]
+  ['str2dec_33',['str2Dec',['../namespaces_std.html#a866285a48335b9b4671094b137ab539d',1,'sStd']]],
+  ['sumdigits_34',['sumDigits',['../namespaces_std.html#ab14a9e254e2ca6a48a8ad9d16b40e53a',1,'sStd']]]
 ];
