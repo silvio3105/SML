@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.0r4</span>
+   <div id="projectname">Simple Standard Library<span id="projectnumber">&#160;v1.1r1</span>
    </div>
    <div id="projectbrief">Simple Standard Library with miscellaneous functions written in C++.</div>
   </td>
@@ -141,6 +141,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring buffer class.  <a href="classs_std_1_1_ring_buffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs_std_1_1scan_data.html">sStd::scanData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct for input info for <a class="el" href="namespaces_std.html#a0353f5360c7ff60d201814ac9cbece74">sscan</a> function.  <a href="structs_std_1_1scan_data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classs_std_1_1_logger.html">sStd::Logger&lt; N &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classs_std_1_1_logger.html" title="Logger class.">Logger</a> class.  <a href="classs_std_1_1_logger.html#details">More...</a><br /></td></tr>
@@ -296,6 +297,24 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a84d8e481f193f6156ee7ead9526f36a0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a84d8e481f193f6156ee7ead9526f36a0">sStd::isNum</a> (const char ch)</td></tr>
+<tr class="memdesc:a84d8e481f193f6156ee7ead9526f36a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if character is number.  <a href="namespaces_std.html#a84d8e481f193f6156ee7ead9526f36a0">More...</a><br /></td></tr>
+<tr class="separator:a84d8e481f193f6156ee7ead9526f36a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b40bd16e3498bb04f9d9b1f06b3d7e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a61b40bd16e3498bb04f9d9b1f06b3d7e">sStd::char2Num</a> (const char ch)</td></tr>
+<tr class="memdesc:a61b40bd16e3498bb04f9d9b1f06b3d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert character to number.  <a href="namespaces_std.html#a61b40bd16e3498bb04f9d9b1f06b3d7e">More...</a><br /></td></tr>
+<tr class="separator:a61b40bd16e3498bb04f9d9b1f06b3d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b54092264e37cdd064c728b76569f36"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a3b54092264e37cdd064c728b76569f36">sStd::isMin</a> (uint8_t in)</td></tr>
+<tr class="memdesc:a3b54092264e37cdd064c728b76569f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value for minutes.  <a href="namespaces_std.html#a3b54092264e37cdd064c728b76569f36">More...</a><br /></td></tr>
+<tr class="separator:a3b54092264e37cdd064c728b76569f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0bd26e628ad8f0d9f0ed95ad8fc9ff"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#acf0bd26e628ad8f0d9f0ed95ad8fc9ff">sStd::isSecond</a> (uint8_t in)</td></tr>
+<tr class="memdesc:acf0bd26e628ad8f0d9f0ed95ad8fc9ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value for seconds.  <a href="namespaces_std.html#acf0bd26e628ad8f0d9f0ed95ad8fc9ff">More...</a><br /></td></tr>
+<tr class="separator:acf0bd26e628ad8f0d9f0ed95ad8fc9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08ac8c5ed6db4fee479260724deaa14d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a08ac8c5ed6db4fee479260724deaa14d">sStd::isHour</a> (uint8_t in, uint8_t format=0)</td></tr>
+<tr class="memdesc:a08ac8c5ed6db4fee479260724deaa14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value for hours.  <a href="namespaces_std.html#a08ac8c5ed6db4fee479260724deaa14d">More...</a><br /></td></tr>
+<tr class="separator:a08ac8c5ed6db4fee479260724deaa14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70d5edb8cf5e448186cb1cd67eed6fa1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a70d5edb8cf5e448186cb1cd67eed6fa1">sStd::validateDate</a> (uint8_t day, uint8_t month, uint16_t year)</td></tr>
+<tr class="memdesc:a70d5edb8cf5e448186cb1cd67eed6fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input date.  <a href="namespaces_std.html#a70d5edb8cf5e448186cb1cd67eed6fa1">More...</a><br /></td></tr>
+<tr class="separator:a70d5edb8cf5e448186cb1cd67eed6fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab80208f2b31ea63d59b190a8eee53db0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab80208f2b31ea63d59b190a8eee53db0"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0">sStd::scale</a> (T in, T inMin, T inMax, T outMin, T outMax)</td></tr>
 <tr class="memdesc:ab80208f2b31ea63d59b190a8eee53db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale input value to desired output value range.  <a href="namespaces_std.html#ab80208f2b31ea63d59b190a8eee53db0">More...</a><br /></td></tr>
@@ -334,6 +353,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ac0c2f9272f83260e39e6904d0251330b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ac0c2f9272f83260e39e6904d0251330b">sStd::BCD2dec</a> (uint8_t num)</td></tr>
 <tr class="memdesc:ac0c2f9272f83260e39e6904d0251330b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 8-bit BCD value to decimal.  <a href="namespaces_std.html#ac0c2f9272f83260e39e6904d0251330b">More...</a><br /></td></tr>
 <tr class="separator:ac0c2f9272f83260e39e6904d0251330b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866285a48335b9b4671094b137ab539d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a866285a48335b9b4671094b137ab539d"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaces_std.html#a866285a48335b9b4671094b137ab539d">sStd::str2Dec</a> (const char *str, const char endChar='\0')</td></tr>
+<tr class="memdesc:a866285a48335b9b4671094b137ab539d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert C-string to decimal value.  <a href="namespaces_std.html#a866285a48335b9b4671094b137ab539d">More...</a><br /></td></tr>
+<tr class="separator:a866285a48335b9b4671094b137ab539d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6fd9749309696918cc56bd1bcfdb84b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b">sStd::tok</a> (char *input, char separator)</td></tr>
 <tr class="memdesc:ad6fd9749309696918cc56bd1bcfdb84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace desired character with NULL character.  <a href="namespaces_std.html#ad6fd9749309696918cc56bd1bcfdb84b">More...</a><br /></td></tr>
 <tr class="separator:ad6fd9749309696918cc56bd1bcfdb84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -365,7 +388,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="s_std_8h.html">sStd.h</a></li>
-    <li class="footer">Generated on Sat Feb 4 2023 01:07:47 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+    <li class="footer">Generated on Fri Mar 3 2023 21:50:44 for Simple Standard Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>
 </body>
