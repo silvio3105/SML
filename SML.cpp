@@ -46,18 +46,18 @@ static char* findToken(char* input, char sep, char sepCnt, const uint8_t retNull
 
 // ----- FUNCTIONS DEFINITIONS
 // CONVERSION FUNCTIONS
-uint8_t sStd::dec2BCD(uint8_t num)
+uint8_t SML::dec2BCD(uint8_t num)
 {
     return SSTD_DEC2BCD_8(num);
 }
 
-uint8_t sStd::BCD2dec(uint8_t num)
+uint8_t SML::BCD2dec(uint8_t num)
 {
 	return SSTD_BCD2DEC_8(num);
 }
 
 // STRING MANIPULATION FUNCTIONS DEFINITIONS
-char* sStd::tok(char* input, char separator)
+char* SML::tok(char* input, char separator)
 {
 	// Move pointer until separator is found or end of C-string is reached
 	while (*input && *input != separator) input++;
@@ -76,7 +76,7 @@ char* sStd::tok(char* input, char separator)
 		else return input;
 }
 
-uint16_t sStd::len(const char* input, const char endChar)
+uint16_t SML::len(const char* input, const char endChar)
 {
 	// Copy string address to local variable
 	const char* tmp = input;
@@ -88,7 +88,7 @@ uint16_t sStd::len(const char* input, const char endChar)
 	return tmp - input;
 }
 
-uint16_t sStd::count(const char* input, const char character, const char endChar)
+uint16_t SML::count(const char* input, const char character, const char endChar)
 {
 	uint16_t count = 0;
 
@@ -106,7 +106,7 @@ uint16_t sStd::count(const char* input, const char character, const char endChar
 	return count;
 }
 
-uint8_t sStd::cmp(const char* input1, const char* input2, char endChar)
+uint8_t SML::cmp(const char* input1, const char* input2, char endChar)
 {
 	// While both characters are not equal to endChar
 	while (*input1 != endChar)
@@ -128,21 +128,21 @@ uint8_t sStd::cmp(const char* input1, const char* input2, char endChar)
 
 
 // MISC FUNCTIONS
-uint8_t sStd::isNum(const char ch)
+uint8_t SML::isNum(const char ch)
 {
 	if (ch >= '0' && ch <= '9') return SSTD_OK;
 
 	return (SSTD_NOK);
 }
 
-uint8_t sStd::isMin(uint8_t in)
+uint8_t SML::isMin(uint8_t in)
 {
 	if (in < 0 || in > 59) return SSTD_NOK;
 
 	return SSTD_OK; 
 }
 
-uint8_t sStd::isHour(uint8_t in, uint8_t format)
+uint8_t SML::isHour(uint8_t in, uint8_t format)
 {
 	if (!format && in >= 0 && in < 24) return SSTD_OK;
 	else if (format && in > 0 && in < 13) return SSTD_OK;
@@ -150,7 +150,7 @@ uint8_t sStd::isHour(uint8_t in, uint8_t format)
 	return SSTD_NOK;
 }
 
-uint8_t sStd::validateDate(uint8_t day, uint8_t month, uint16_t year)
+uint8_t SML::validateDate(uint8_t day, uint8_t month, uint16_t year)
 {
 	// Validate year
 	if (year < 0 || year > 2100) return SSTD_NOK;
@@ -204,7 +204,7 @@ uint8_t sStd::validateDate(uint8_t day, uint8_t month, uint16_t year)
 
 
 // STRING SCAN FUNCTIONS DEFINITIONS
-uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, sStd::Data<char>& output, const uint8_t modify)
+uint8_t SML::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd, uint8_t sepCntEnd, SML::Data<char>& output, const uint8_t modify)
 {
 	// If first character is NULL
 	if (!*input)
@@ -245,7 +245,7 @@ uint8_t sStd::sscan(char* input, char sepBegin, uint8_t sepCntBegin, char sepEnd
 	return SSTD_NOK;
 }
 
-uint8_t sStd::sscan(char* input, sStd::scanData* data, const uint8_t len, const uint8_t modify, const uint8_t sorted)
+uint8_t SML::sscan(char* input, SML::scanData* data, const uint8_t len, const uint8_t modify, const uint8_t sorted)
 {
 	uint8_t total = 0;
 

@@ -235,7 +235,7 @@ This License shall be included in all functional textual files.
  * @brief Namespace for Simple Standard Library.
  * 
  */
-namespace sStd
+namespace SML
 {
 	// ENUMATORS
 	/**
