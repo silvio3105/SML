@@ -1,19 +1,21 @@
 {
     "configurations": [
         {
-            "name": "GCC-ARM",
+            "name": "GCC_ARM",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
             "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
+            ],
+			"compilerArgs": [
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-arm",
-            "compilerPath": "${ARM-GCC}\\arm-none-eabi-gcc.exe"
+            "compilerPath": "${env:ARM-GCC}/arm-none-eabi-gcc.exe",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true
+            }
         }
     ],
     "version": 4

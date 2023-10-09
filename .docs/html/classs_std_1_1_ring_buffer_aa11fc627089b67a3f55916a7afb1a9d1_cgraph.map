@@ -1,4 +1,0 @@
-<map id="sStd::RingBuffer::read" name="sStd::RingBuffer::read">
-<area shape="rect" id="node1" title="Read signle data from ring buffer." alt="" coords="5,5,156,31"/>
-<area shape="rect" id="node2" href="$classs_std_1_1_ring_buffer.html#a06ae0da54dbfe0f2a40218e73ed7cff2" title="Fetch number of used data in ring buffer." alt="" coords="204,5,359,31"/>
-</map>

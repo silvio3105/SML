@@ -1,14 +1,14 @@
 /**
- * @file sStd.h
+ * @file SML.hpp
  * @author silvio3105 (www.github.com/silvio3105)
- * @brief sStd header file.
+ * @brief SML header file.
  * 
- * @copyright Copyright (c) 2022, silvio3105
+ * @copyright Copyright (c) 2023, silvio3105
  * 
  */
 
 /*
-Copyright (c) 2022, silvio3105 (www.github.com/silvio3105)
+Copyright (c) 2023, silvio3105 (www.github.com/silvio3105)
 
 Access and use of this Project and its contents are granted free of charge to any Person.
 The Person is allowed to copy, modify and use The Project and its contents only for non-commercial use.
@@ -22,8 +22,8 @@ THE AUTHOR IS NOT RESPONSIBLE FOR DAMAGE OF ANY KIND OR LIABILITY CAUSED BY USIN
 This License shall be included in all functional textual files.
 */
 
-#ifndef SSTD_H_
-#define SSTD_H_
+#ifndef _SML_H_
+#define _SML_H_
 
 // ----- INCLUDE FILES
 #include            <stdint.h>
@@ -32,7 +32,7 @@ This License shall be included in all functional textual files.
 #include			<string.h>
 
 
-/** \addtogroup sStd
+/** \addtogroup SML
  * 
  * Custom library with miscellaneous functions. 
  * @{
@@ -1225,6 +1225,6 @@ namespace sStd
 
 /** @}*/
 
-#endif // SSTD_H_
+#endif // _SML_H_
 
 // END WITH NEW LINE

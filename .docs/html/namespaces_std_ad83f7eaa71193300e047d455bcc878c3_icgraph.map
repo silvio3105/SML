@@ -1,6 +1,0 @@
-<map id="sStd::len" name="sStd::len">
-<area shape="rect" id="node1" title="Find length of input C&#45;string." alt="" coords="212,55,287,80"/>
-<area shape="rect" id="node2" href="$classs_std_1_1_data.html#ae8b0d315ba624f71c0ea30d02a72e705" title="Get length of data." alt="" coords="5,5,164,31"/>
-<area shape="rect" id="node3" href="$classs_std_1_1_ring_buffer.html#a15a0237ce676c174bb2bb14406fff527" title="Read multiple data from ring buffer." alt="" coords="9,55,160,80"/>
-<area shape="rect" id="node4" href="$classs_std_1_1_ring_buffer.html#ad2e3337580c7d0704ddb9a21ea157041" title="Write multiple data to ring buffer." alt="" coords="8,104,161,129"/>
-</map>
