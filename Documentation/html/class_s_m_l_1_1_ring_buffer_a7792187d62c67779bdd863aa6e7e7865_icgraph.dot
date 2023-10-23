@@ -11,7 +11,7 @@ digraph "SML::RingBuffer::used"
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="SML::RingBuffer::isFull",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#ac679b8aa1852ced2cf5d89dcb403a28e",tooltip="Is ring buffer full."];
   Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="SML::RingBuffer::write",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#a793be30715e4858340ec1630dfb442fa",tooltip="Write multiple data to ring buffer."];
+  Node4 [id="Node000004",label="SML::RingBuffer::write",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#a4de204bd440cb344d65e9b1e5e8a904f",tooltip="Write multiple data to ring buffer."];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="SML::RingBuffer::read",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#aa98eee795fa27ea74732701e98da8089",tooltip="Read signle data from ring buffer."];
   Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];

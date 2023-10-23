@@ -9,6 +9,6 @@ var class_s_m_l_1_1_ring_buffer =
     [ "read", "class_s_m_l_1_1_ring_buffer.html#ace2ae238e8465f6353a795252e864f97", null ],
     [ "size", "class_s_m_l_1_1_ring_buffer.html#aeeee0cd4f7f9d60948b22863bb5a160a", null ],
     [ "used", "class_s_m_l_1_1_ring_buffer.html#a7792187d62c67779bdd863aa6e7e7865", null ],
-    [ "write", "class_s_m_l_1_1_ring_buffer.html#a793be30715e4858340ec1630dfb442fa", null ],
-    [ "write", "class_s_m_l_1_1_ring_buffer.html#af3828d65eac89574dad240c89b62574d", null ]
+    [ "write", "class_s_m_l_1_1_ring_buffer.html#a4de204bd440cb344d65e9b1e5e8a904f", null ],
+    [ "write", "class_s_m_l_1_1_ring_buffer.html#a1077cf97b6ed6478685895779dde3c36", null ]
 ];

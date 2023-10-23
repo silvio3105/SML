@@ -20,5 +20,5 @@ digraph "SML::len"
   Node1 -> Node7 [id="edge7_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node7 [id="Node000007",label="SML::RingBuffer::read",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#ace2ae238e8465f6353a795252e864f97",tooltip="Read multiple data from ring buffer."];
   Node1 -> Node8 [id="edge8_Node000001_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node8 [id="Node000008",label="SML::RingBuffer::write",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#a793be30715e4858340ec1630dfb442fa",tooltip="Write multiple data to ring buffer."];
+  Node8 [id="Node000008",label="SML::RingBuffer::write",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#a4de204bd440cb344d65e9b1e5e8a904f",tooltip="Write multiple data to ring buffer."];
 }
