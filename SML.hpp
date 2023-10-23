@@ -139,6 +139,7 @@ This License shall be included in all functional textual files.
 
 #ifdef __cplusplus
 
+
 // ----- NAMESPACES
 /**
  * @brief Namespace for Simple Miscellaneous Library.
@@ -146,6 +147,100 @@ This License shall be included in all functional textual files.
  */
 namespace SML
 {
+	// DATA CLASS
+	/**
+	 * @brief Class representing data \c T with \c len
+	 * 
+	 * @tparam T Data type.
+	 * 
+	 * @warning Maximum data length is 2^16 - 1!
+	 */
+	template<typename T>
+	class Data 
+	{
+		// PUBLIC STUFF
+		public:
+		// CONSTRUCTORS & DECONSTRUCTORS
+		/**
+		 * @brief Constructor for \c Data object.
+		 * 
+		 * @return No return value.
+		 */
+		Data(void)
+		{
+			// Set to default values
+			dataAddr = nullptr;
+			length = 0;			
+		}
+
+		/**
+		 * @brief Constructor for \c Data object with data and length.
+		 * 
+		 * @param data Pointer to data set.
+		 * @param len Length of \c data
+		 * @return No return value.
+		 */
+		Data(T* data, uint16_t len)
+		{
+			dataAddr = data;
+			length = len;
+		}
+
+		/**
+		 * @brief Deconstructor for \c Data object.
+		 * 
+		 * @return No return value.
+		 */
+		~Data(void)
+		{
+			// Set to default values
+			dataAddr = nullptr;
+			length = 0;			
+		}
+
+		// METHOD DECLARATIONS
+		/**
+		 * @brief Get address of the data.
+		 * 
+		 * @return Pointer to data.
+		 */
+		inline T* get(void) const
+		{
+			// Return data address
+			return dataAddr;
+		}
+
+		/**
+		 * @brief Set new data.
+		 * 
+		 * @param newData Pointer to new data.
+		 * @param newLen Length of new data.
+		 * @return No return value.
+		 */
+		inline void set(T* newData, uint16_t newLen)
+		{
+			// Set new data pointer and length
+			dataAddr = newData;
+			length = newLen;
+		}
+
+		/**
+		 * @brief Get data length.
+		 * 
+		 * @return Data length.
+		 */
+		inline uint16_t len(void) const
+		{
+			// Return data length
+			return length;
+		}
+
+		// PRIVATE STUFF
+		private:
+		T* dataAddr; /**< Pointer to data. */
+		uint16_t length; /**< Length of \ref dataAddr. */
+	};
+
 	// ENUMS
 	/**
 	 * @brief Enum class with generic return statuses.
@@ -290,633 +385,6 @@ namespace SML
 		uint8_t startSeparatorCnt; /**< Number of \ref startSeparator before wanted parameter. */		
 		SML::Data<char> output; /**< \c char type output data. */
 	};
-
-
-	// CLASSES
-	/**
-	 * @brief Class representing data \c T with \c len
-	 * 
-	 * @tparam T Data type.
-	 * 
-	 * @warning Maximum data length is 2^16 - 1!
-	 */
-	template<typename T>
-	class Data 
-	{
-		// PUBLIC STUFF
-		public:
-		// CONSTRUCTORS & DECONSTRUCTORS
-		/**
-		 * @brief Constructor for \c Data object.
-		 * 
-		 * @return No return value.
-		 */
-		Data(void)
-		{
-			// Set to default values
-			dataAddr = nullptr;
-			length = 0;			
-		}
-
-		/**
-		 * @brief Constructor for \c Data object with data and length.
-		 * 
-		 * @param data Pointer to data set.
-		 * @param len Length of \c data
-		 * @return No return value.
-		 */
-		Data(T* data, uint16_t len)
-		{
-			dataAddr = data;
-			length = len;
-		}
-
-		/**
-		 * @brief Deconstructor for \c Data object.
-		 * 
-		 * @return No return value.
-		 */
-		~Data(void)
-		{
-			// Set to default values
-			dataAddr = nullptr;
-			length = 0;			
-		}
-
-		// METHOD DECLARATIONS
-		/**
-		 * @brief Get address of the data.
-		 * 
-		 * @return Pointer to data.
-		 */
-		inline T* get(void) const
-		{
-			// Return data address
-			return dataAddr;
-		}
-
-		/**
-		 * @brief Set new data.
-		 * 
-		 * @param newData Pointer to new data.
-		 * @param newLen Length of new data.
-		 * @return No return value.
-		 */
-		inline void set(T* newData, uint16_t newLen)
-		{
-			// Set new data pointer and length
-			dataAddr = newData;
-			length = newLen;
-		}
-
-		/**
-		 * @brief Get data length.
-		 * 
-		 * @return Data length.
-		 */
-		inline uint16_t len(void) const
-		{
-			// Return data length
-			return length;
-		}
-
-		// PRIVATE STUFF
-		private:
-		T* dataAddr; /**< Pointer to data. */
-		uint16_t length; /**< Length of \ref dataAddr. */
-	};
-
-	/**
-	 * @brief Ring buffer class.
-	 * 
-	 * @tparam T Type of ring buffer data, eg., \c uint32_t
-	 * @tparam N Number of \c T members in ring buffer.
-	 */
-	template<typename T, uint16_t N>
-	class RingBuffer
-	{
-		// PUBLIC STUFF
-		public:
-		// CONSTRUCTORS & DECONSTRUCTORS
-		/**
-		 * @brief Ring buffer constructor.
-		 * 
-		 * @return No return value.
-		 */
-		RingBuffer(void)
-		{
-			// Reset head and tail poiner
-			head = 0;
-			tail = 0;
-
-			// Reset new data counter
-			newCnt = 0;			
-		}
-
-		/**
-		 * @brief Ring buffer deconstructor.
-		 * 
-		 * @return No return value.
-		 */
-		~RingBuffer(void)
-		{
-			// Reset head and tail poiner
-			head = 0;
-			tail = 0;
-
-			// Reset new data counter
-			newCnt = 0;			
-		}
-
-		// METHOD DECLARATIONS
-		/**
-		 * @brief Write single \c T type data to ring buffer.
-		 * 
-		 * @param data Data of \c T type.
-		 * @return See \ref writeData
-		 */
-		inline SML::Return_t write(T data)
-		{
-			// Write signel data to ring buffer
-			return writeData(data);			
-		}
-
-		/**
-		 * @brief Write multiple data to ring buffer.
-		 * 
-		 * @param data Pointer to data of \c T type.
-		 * @param len Length of \c data
-		 * @return \c SML::Return_t::NOK if data is not written.
-		 * @return \c SML::Return_t::OK if data is written.
-		 */
-		SML::Return_t write(T* data, uint16_t len)
-		{
-			uint16_t i = 0;
-
-			// Limit number of data to write
-			if (len > free())
-			{
-				len = free();
-			}
-
-			// Write data to ring buffer
-			for (; i < len; i++)
-			{
-				writeData(data[i]);
-			}
-
-			// Return OK status if some data is written
-			if (i)
-			{
-				return SML::Return_t::OK;
-			}
-			else
-			{
-				return SML::Return_t::NOK;
-			}		
-		}
-
-		/**
-		 * @brief Read signle data from ring buffer.
-		 * 
-		 * @param output Reference for output of \c T type.
-		 * @return \c SML::Return_t::NOK if no data were read.
-		 * @return \c SML::Return_t::OK if data were read.
-		 */
-		SML::Return_t read(T& output)
-		{
-			// If there is no unread data return NOK status
-			if (!used())
-			{
-				return SML::Return_t::NOK;
-			}
-
-			// Store data in tmp variable
-			output = memory[tail];
-
-			// Update tail index
-			increaseTail();
-
-			// Return OK status
-			return SML::Return_t::OK;			
-		}
-
-		/**
-		 * @brief Read multiple data from ring buffer.
-		 * 
-		 * @param output Pointer to array for output data of \c T type. 
-		 * @param len Length of \c output array.
-		 * @return \c SML::Return_t::NOK if no data were read.
-		 * @return \c SML::Return_t::OK if some data were read.
-		 */
-		SML::Return_t read(T* output, uint16_t len)
-		{
-			// If there is no data to read
-			if (!used())
-			{
-				return SML::Return_t::NOK;
-			}
-
-			// Limit number of data to read
-			if (len > used())
-			{
-				len = used();
-			}
-
-			// Read data from buffer
-			for (uint16_t i = 0; i < len; i++)
-			{
-				// Fetch next data
-				output[i] = memory[tail];
-
-				// Update tail index
-				increaseTail();
-			}
-
-			return SML::Return_t::OK;		
-		}
-
-		/**
-		 * @brief Flush all data from ring buffer.
-		 * 
-		 * @return No return value.
-		 */
-		void flush(void)
-		{
-			// Reset head and tail
-			head = 0;
-			tail = 0;
-
-			// Reset new data counter
-			newCnt = 0;
-
-			// Set all bytes to \0 (NULL char)
-			memset(memory, '\0', size() * sizeof(T));			
-		}
-
-		/**
-		 * @brief Fetch number of used data in ring buffer.
-		 * 
-		 * @return Number of used data.
-		 */
-		inline uint16_t used(void) const
-		{
-			// Return number of used data
-			return newCnt;			
-		}
-
-		/**
-		 * @brief Fetch number of free data in ring buffer.
-		 * 
-		 * @return Number of free data.
-		 */
-		inline uint16_t free(void) const
-		{
-			// Return number of free data slots in ring buffer
-			return (size() - used());			
-		}
-
-		/**
-		 * @brief Is ring buffer full.
-		 * 
-		 * @return \c SML::Return_t::NOK if ring buffer is not full.
-		 * @return \c SML::Return_t::OK if ring buffer is full.
-		 */
-		inline SML::Return_t isFull(void) const
-		{
-			// Return OK status if ring buffer is full
-			if (!free())
-			{
-				return SML::Return_t::OK;
-			}
-			else
-			{
-				return SML::Return_t::NOK;
-			}			
-		}
-
-		/**
-		 * @brief Get ring buffer size.
-		 * 
-		 * @return Size of ring buffer.
-		 */
-		inline constexpr uint16_t size(void) const
-		{
-			// Return ring buffer size
-			return size;	
-		}
-
-
-		// PRIVATE STUFF
-		private:
-		// VARIABLES
-		T data[N]; /**< @brief Array of \c T type where ring buffer data will be stored. */
-		const uint16_t size = N; /**< @brief Size of \ref data array. */
-		uint16_t head = 0; /**< @brief Head data index. */
-		uint16_t tail = 0; /**< @brief Tail data index. */
-		uint16_t newCnt = 0; /**< @brief New data counter. */
-
-		// METHOD DECLARATIONS
-		/**
-		 * @brief Write single \c T type data to ring buffer.
-		 * 
-		 * @param data \c T type data.
-		 * @return \c SML::Return_t::NOK if data is not written.
-		 * @return \c SML::Return_t::OK if data is written.
-		 */
-		SML::Return_t writeData(T data)
-		{
-			// Return NOK status if no free data slots are available
-			if (!free())
-			{
-				return SML::Return_t::NOK;
-			}
-
-			// Write data to head pointer
-			data[head] = data;
-
-			// Move head pointer
-			head++;
-
-			// Increase new data counter
-			newCnt++;
-			
-			// Reset head pointer
-			if (head == size())
-			{
-				head = 0;
-			}
-
-			// Return OK status
-			return SML::Return_t::OK; 		
-		}
-
-		/**
-		 * @brief Increase tail pointer.
-		 * 
-		 * @return No return value.
-		 */
-		void increaseTail(void)
-		{
-			// Move tail pointer
-			tail++;
-
-			// Decrease new data counter
-			newCnt--;
-
-			// Reset tail pointer
-			if (tail == size())
-			{
-				tail = 0;
-			}			
-		}
-	};	
-	
-	/**
-	 * @brief Logger class.
-	 * 
-	 * @tparam N Buffer size in bytes.
-	 */
-	template<uint16_t N>
-	class Logger
-	{
-		// PUBLIC STUFF
-		public:
-		// CONSTRUCTOR AND DECONSTRUCTOR DECLARATIONS
-		/**
-		 * @brief Logger constructor.
-		 * 
-		 * @param handler Pointer to external function for handling buffer transfer(printing).
-		 * @param fix Prefix C-string. Has to be NULL terminated.
-		 * @param type Logger process type. See \ref SML::Process_t
-		 * @param status Logger initial status. See \ref SML::Status_t
-		 * @param waitExtHandler Pointer to external function for handling wait state.
-		 * @return No return value.
-		 */
-		Logger(SML::log_handler_f handler, const char* fix = "", const SML::Process_t type = SML::Process_t::Blocking, const SML::Status_t status = SML::Status_t::On, SML::ext_handler_f waitExtHandler = nullptr)
-		{
-			// Set external handlers
-			printHandler = handler;
-			waitHandler = waitExtHandler;
-
-			// Set prefix C-string and its length
-			prefix = fix;
-			prefixLen = SML::len(fix);
-
-			// Set logger type and status
-			config = (0 << semaphoreBit) | (type << typeBit) | (status << statusBit);
-		}
-		
-		/**
-		 * @brief Logger deconstructor.
-		 * 
-		 * @return No return value.
-		 */
-		~Logger(void)
-		{
-			// Reset logger stuff to default values
-			buffer[0] = '\0';
-			printHandler = nullptr;
-			config = 0;
-			prefix = nullptr;
-			prefixLen = 0;			
-		}
-
-		// METHOD DECLARATIONS
-		/**
-		 * @brief Print constant C-string.
-		 * 
-		 * @param str Pointer to C-string.
-		 * @param len Length of \c str
-		 * @return No return value.
-		 */
-		void print(const char* str, const uint16_t len) const
-		{
-			// Abort if logger is turned off
-			if (!SSTD_BIT(config, statusBit))
-			{
-				return;
-			}
-
-			// Output prefix if exists
-			if (prefixLen)
-			{
-				out(prefix, prefixLen);
-			}
-
-			// Pass C-string to external handler
-			out(str, len);	
-		}
-
-		/**
-		 * @brief Print constant C-string.
-		 * 
-		 * @param str Pointer to C-string. Has to be NULL terminated.
-		 * @return No return value.
-		 */
-		inline void print(const char* str) const
-		{
-			print(str, SML::len(str));		
-		}
-
-		/**
-		 * @brief Format and print string.
-		 * 
-		 * This method uses variable argument list and \c vsnprintf function for string formating.
-		 * 
-		 * @param str Pointer to C-string.
-		 * @param ... Variable arguments.
-		 * @return No return value.
-		 */
-		void printf(const char* str, ...)
-		{
-			// Abort if logger is turned off
-			if (!SSTD_BIT(config, statusBit))
-			{
-				return;
-			}
-
-			// Format input C-string with variable arguments
-			va_list args;
-			va_start(args, str);	
-			uint16_t len = vsnprintf(buffer, sizeof(buffer), str, args);
-			va_end(args);
-
-			// Output prefix
-			if (prefixLen)
-			{
-				out(prefix, prefixLen);
-			}
-
-			// Pass formated C-string to external handler
-			out(buffer, len);	
-		}
-
-		/**
-		 * @brief Get size of logger's buffer.
-		 * 
-		 * @return Size of logger's buffer.
-		 */
-		inline uint16_t size(void) const
-		{
-			// Return length of logger buffer
-			return sizeof(buffer);
-		}
-
-		/**
-		 * @brief Release logger semaphore.
-		 * 
-		 * This method releases logger semaphore. This method is called after non-blocking transfer has ended(eg. DMA transfer to UART).
-		 * 
-		 * @return No return value.
-		 */
-		inline void release(void)
-		{
-			// Release logger semaphore
-			SSTD_BIT_CLEAR(config, semaphoreBit);			
-		}
-
-		/**
-		 * @brief Get logger status.
-		 * 
-		 * @return Logger status. See \ref SML::Status_t
-		 */
-		SML::Status_t status(void) const
-		{
-			// Return LOG_ON if status bit is 1(logger is turned on), otherwise return LOG_OFF
-			if (SSTD_BIT(config, statusBit))
-			{
-				return SML::Status_t::ON;
-			}
-			else
-			{
-				return SML::Status_t::Off; 
-			}		
-		}
-
-		/**
-		 * @brief Set logger status.
-		 * 
-		 * @param newStatus New logger status. See \ref SML::Status_t
-		 * @return No return value.
-		 */
-		void status(const SML::Status_t newStatus)
-		{
-			// Set or clear status bit
-			if (newStatus == SML::Status_t::On)
-			{
-				SSTD_BIT_SET(config, LOG_STATUS_BIT);
-			}
-			else
-			{
-				SSTD_BIT_CLEAR(config, LOG_STATUS_BIT);	
-			}		
-		}
-
-		// PRIVATE STUFF
-		private: 
-		constexpr uint8_t statusBit = 0; /**< @brief Logger status bit. */
-		constexpr uint8_t statusMask = 1 << statusBit; /**< @brief Logger status mask. */
-		constexpr uint8_t typeBit = 1; /**< @brief Logger type bit. */
-		constexpr uint8_t typeMask = 1 << typeBit; /**< @brief Logger type mask. */
-		constexpr uint8_t semaphoreBit = 2; /**< @brief Logger semaphore bit. */
-		constexpr uint8_t semaphoreMask = 1 << semaphoreBit; /**< @brief Logger semaphore mask. */
-
-		// VARIABLES
-		/**
-		 * @brief Logger configuration.
-		 * 
-		 * Bit 0 = Logger status bit. See \ref SML::Status_t
-		 * 
-		 * Bit 1 = Logger type bit. See \ref SML::Process_t
-		 * 
-		 * Bit 2 = Logger semaphore bit. \c 0 means semaphore is free. \c 1 means semaphore is taken.
-		 */
-		uint8_t config = 0;
-		uint8_t prefixLen = 0; /**< @brief Length of \ref prefix */
-		char buffer[N] = { '\0' }; /**< @brief Logger buffer. */
-		const char* prefix; /**< @brief Logger prefix (C-string). Has to be NULL terminated. */
-		SML::log_handler_f printHandler = nullptr; /**< @brief Pointer to external function that handles buffer transfer. */
-		SML::ext_handler_f waitHandler = nullptr; /**< @brief Pointer to generic function for handling wait state. */
-
-		// METHOD DECLARATIONS
-		/**
-		 * @brief Handle semaphore and calls \ref printHandler
-		 * 
-		 * @param str Pointer to C-string.
-		 * @param len Length of C-string pointed by \c str
-		 * @return No return value.
-		 */
-		void out(const char* str, const uint16_t len)
-		{
-			// If logger is non blocking type
-			if (SSTD_BIT(config, typeBit))
-			{
-				// Wait for semaphore
-				wait();
-
-				// Set status bit
-				SSTD_BIT_SET(config, semaphoreBit);
-			}
-
-			// Pass C-string to external output function
-			printHandler(str, len);			
-		}
-
-		/**
-		 * @brief Wait for released semaphore.
-		 * 
-		 * @return No return value.
-		 */
-		inline void wait(void)
-		{
-			// Wait for external stuff to release logger's semaphore
-			while (SSTD_BIT(config, semaphoreBit))
-			{
-				if (waitHandler) waitHandler();
-			}		
-		}
-	};		
 
 
 	// FUNCTION DEFNITIONS
@@ -1592,6 +1060,540 @@ namespace SML
 
 		return total;		
 	}
+
+
+	// CLASSES
+	/**
+	 * @brief Ring buffer class.
+	 * 
+	 * @tparam T Type of ring buffer data, eg., \c uint32_t
+	 * @tparam N Number of \c T members in ring buffer.
+	 */
+	template<typename T, uint16_t N>
+	class RingBuffer
+	{
+		// PUBLIC STUFF
+		public:
+		// CONSTRUCTORS & DECONSTRUCTORS
+		/**
+		 * @brief Ring buffer constructor.
+		 * 
+		 * @return No return value.
+		 */
+		RingBuffer(void)
+		{
+			// Reset head and tail poiner
+			head = 0;
+			tail = 0;
+
+			// Reset new data counter
+			newCnt = 0;			
+		}
+
+		/**
+		 * @brief Ring buffer deconstructor.
+		 * 
+		 * @return No return value.
+		 */
+		~RingBuffer(void)
+		{
+			// Reset head and tail poiner
+			head = 0;
+			tail = 0;
+
+			// Reset new data counter
+			newCnt = 0;			
+		}
+
+		// METHOD DECLARATIONS
+		/**
+		 * @brief Write single \c T type data to ring buffer.
+		 * 
+		 * @param input Data of \c T type to write.
+		 * @return See \ref writeData
+		 */
+		inline SML::Return_t write(T input)
+		{
+			// Write signel data to ring buffer
+			return writeData(input);			
+		}
+
+		/**
+		 * @brief Write multiple data to ring buffer.
+		 * 
+		 * @param input Pointer to data array of \c T type to write.
+		 * @param len Length of \c data
+		 * @return \c SML::Return_t::NOK if data is not written.
+		 * @return \c SML::Return_t::OK if data is written.
+		 */
+		SML::Return_t write(T* input, uint16_t len)
+		{
+			uint16_t i = 0;
+
+			// Limit number of data to write
+			if (len > free())
+			{
+				len = free();
+			}
+
+			// Write data to ring buffer
+			for (; i < len; i++)
+			{
+				writeData(input[i]);
+			}
+
+			// Return OK status if some data is written
+			if (i)
+			{
+				return SML::Return_t::OK;
+			}
+			else
+			{
+				return SML::Return_t::NOK;
+			}		
+		}
+
+		/**
+		 * @brief Read signle data from ring buffer.
+		 * 
+		 * @param output Reference for output of \c T type.
+		 * @return \c SML::Return_t::NOK if no data were read.
+		 * @return \c SML::Return_t::OK if data were read.
+		 */
+		SML::Return_t read(T& output)
+		{
+			// If there is no unread data return NOK status
+			if (!used())
+			{
+				return SML::Return_t::NOK;
+			}
+
+			// Store data in tmp variable
+			output = data[tail];
+
+			// Update tail index
+			increaseTail();
+
+			// Return OK status
+			return SML::Return_t::OK;			
+		}
+
+		/**
+		 * @brief Read multiple data from ring buffer.
+		 * 
+		 * @param output Pointer to array for output data of \c T type. 
+		 * @param len Length of \c output array.
+		 * @return \c SML::Return_t::NOK if no data were read.
+		 * @return \c SML::Return_t::OK if some data were read.
+		 */
+		SML::Return_t read(T* output, uint16_t len)
+		{
+			// If there is no data to read
+			if (!used())
+			{
+				return SML::Return_t::NOK;
+			}
+
+			// Limit number of data to read
+			if (len > used())
+			{
+				len = used();
+			}
+
+			// Read data from buffer
+			for (uint16_t i = 0; i < len; i++)
+			{
+				// Fetch next data
+				output[i] = data[tail];
+
+				// Update tail index
+				increaseTail();
+			}
+
+			return SML::Return_t::OK;		
+		}
+
+		/**
+		 * @brief Flush all data from ring buffer.
+		 * 
+		 * @return No return value.
+		 */
+		void flush(void)
+		{
+			// Reset head and tail
+			head = 0;
+			tail = 0;
+
+			// Reset new data counter
+			newCnt = 0;
+
+			// Set all bytes to \0 (NULL char)
+			memset(data, '\0', size() * sizeof(T));			
+		}
+
+		/**
+		 * @brief Fetch number of used data in ring buffer.
+		 * 
+		 * @return Number of used data.
+		 */
+		inline uint16_t used(void) const
+		{
+			// Return number of used data
+			return newCnt;			
+		}
+
+		/**
+		 * @brief Fetch number of free data in ring buffer.
+		 * 
+		 * @return Number of free data.
+		 */
+		inline uint16_t free(void) const
+		{
+			// Return number of free data slots in ring buffer
+			return (size() - used());			
+		}
+
+		/**
+		 * @brief Is ring buffer full.
+		 * 
+		 * @return \c SML::Return_t::NOK if ring buffer is not full.
+		 * @return \c SML::Return_t::OK if ring buffer is full.
+		 */
+		inline SML::Return_t isFull(void) const
+		{
+			// Return OK status if ring buffer is full
+			if (!free())
+			{
+				return SML::Return_t::OK;
+			}
+			else
+			{
+				return SML::Return_t::NOK;
+			}			
+		}
+
+		/**
+		 * @brief Get ring buffer size.
+		 * 
+		 * @return Size of ring buffer.
+		 */
+		inline constexpr uint16_t size(void) const
+		{
+			// Return ring buffer size
+			return maxSize;	
+		}
+
+
+		// PRIVATE STUFF
+		private:
+		// VARIABLES
+		T data[N]; /**< @brief Array of \c T type where ring buffer data will be stored. */
+		const uint16_t maxSize = N; /**< @brief Size of \ref data array. */
+		uint16_t head = 0; /**< @brief Head data index. */
+		uint16_t tail = 0; /**< @brief Tail data index. */
+		uint16_t newCnt = 0; /**< @brief New data counter. */
+
+		// METHOD DECLARATIONS
+		/**
+		 * @brief Write single \c T type data to ring buffer.
+		 * 
+		 * @param input Data of \c T type to write.
+		 * @return \c SML::Return_t::NOK if data is not written.
+		 * @return \c SML::Return_t::OK if data is written.
+		 */
+		SML::Return_t writeData(T input)
+		{
+			// Return NOK status if no free data slots are available
+			if (!free())
+			{
+				return SML::Return_t::NOK;
+			}
+
+			// Write data to head pointer
+			data[head] = input;
+
+			// Move head pointer
+			head++;
+
+			// Increase new data counter
+			newCnt++;
+			
+			// Reset head pointer
+			if (head == size())
+			{
+				head = 0;
+			}
+
+			// Return OK status
+			return SML::Return_t::OK; 		
+		}
+
+		/**
+		 * @brief Increase tail pointer.
+		 * 
+		 * @return No return value.
+		 */
+		void increaseTail(void)
+		{
+			// Move tail pointer
+			tail++;
+
+			// Decrease new data counter
+			newCnt--;
+
+			// Reset tail pointer
+			if (tail == size())
+			{
+				tail = 0;
+			}			
+		}
+	};	
+	
+	/**
+	 * @brief Logger class.
+	 * 
+	 * @tparam N Buffer size in bytes.
+	 */
+	template<uint16_t N>
+	class Logger
+	{
+		// PUBLIC STUFF
+		public:
+		// CONSTRUCTOR AND DECONSTRUCTOR DECLARATIONS
+		/**
+		 * @brief Logger constructor.
+		 * 
+		 * @param handler Pointer to external function for handling buffer transfer(printing).
+		 * @param fix Prefix C-string. Has to be NULL terminated.
+		 * @param type Logger process type. See \ref SML::Process_t
+		 * @param status Logger initial status. See \ref SML::Status_t
+		 * @param waitExtHandler Pointer to external function for handling wait state.
+		 * @return No return value.
+		 */
+		Logger(SML::log_handler_f handler, const char* fix = "", const SML::Process_t type = SML::Process_t::Blocking, const SML::Status_t status = SML::Status_t::On, SML::ext_handler_f waitExtHandler = nullptr)
+		{
+			// Set external handlers
+			printHandler = handler;
+			waitHandler = waitExtHandler;
+
+			// Set prefix C-string and its length
+			prefix = fix;
+			prefixLen = SML::len(fix);
+
+			// Set logger type and status
+			config = (0 << semaphoreBit) | ((uint8_t)type << typeBit) | ((uint8_t)status << statusBit);
+		}
+		
+		/**
+		 * @brief Logger deconstructor.
+		 * 
+		 * @return No return value.
+		 */
+		~Logger(void)
+		{
+			// Reset logger stuff to default values
+			buffer[0] = '\0';
+			printHandler = nullptr;
+			config = 0;
+			prefix = nullptr;
+			prefixLen = 0;			
+		}
+
+		// METHOD DECLARATIONS
+		/**
+		 * @brief Print constant C-string.
+		 * 
+		 * @param str Pointer to C-string.
+		 * @param len Length of \c str
+		 * @return No return value.
+		 */
+		void print(const char* str, const uint16_t len) const
+		{
+			// Abort if logger is turned off
+			if (!__SML_BIT(config, statusBit))
+			{
+				return;
+			}
+
+			// Output prefix if exists
+			if (prefixLen)
+			{
+				out(prefix, prefixLen);
+			}
+
+			// Pass C-string to external handler
+			out(str, len);	
+		}
+
+		/**
+		 * @brief Print constant C-string.
+		 * 
+		 * @param str Pointer to C-string. Has to be NULL terminated.
+		 * @return No return value.
+		 */
+		inline void print(const char* str) const
+		{
+			print(str, SML::len(str));		
+		}
+
+		/**
+		 * @brief Format and print string.
+		 * 
+		 * This method uses variable argument list and \c vsnprintf function for string formating.
+		 * 
+		 * @param str Pointer to C-string.
+		 * @param ... Variable arguments.
+		 * @return No return value.
+		 */
+		void printf(const char* str, ...)
+		{
+			// Abort if logger is turned off
+			if (!__SML_BIT(config, statusBit))
+			{
+				return;
+			}
+
+			// Format input C-string with variable arguments
+			va_list args;
+			va_start(args, str);	
+			uint16_t len = vsnprintf(buffer, sizeof(buffer), str, args);
+			va_end(args);
+
+			// Output prefix
+			if (prefixLen)
+			{
+				out(prefix, prefixLen);
+			}
+
+			// Pass formated C-string to external handler
+			out(buffer, len);	
+		}
+
+		/**
+		 * @brief Get size of logger's buffer.
+		 * 
+		 * @return Size of logger's buffer.
+		 */
+		inline uint16_t size(void) const
+		{
+			// Return length of logger buffer
+			return sizeof(buffer);
+		}
+
+		/**
+		 * @brief Release logger semaphore.
+		 * 
+		 * This method releases logger semaphore. This method is called after non-blocking transfer has ended(eg. DMA transfer to UART).
+		 * 
+		 * @return No return value.
+		 */
+		inline void release(void)
+		{
+			// Release logger semaphore
+			__SML_BIT_CLEAR(config, semaphoreBit);			
+		}
+
+		/**
+		 * @brief Get logger status.
+		 * 
+		 * @return Logger status. See \ref SML::Status_t
+		 */
+		SML::Status_t status(void) const
+		{
+			// Return LOG_ON if status bit is 1(logger is turned on), otherwise return LOG_OFF
+			if (__SML_BIT(config, statusBit))
+			{
+				return SML::Status_t::On;
+			}
+			else
+			{
+				return SML::Status_t::Off; 
+			}		
+		}
+
+		/**
+		 * @brief Set logger status.
+		 * 
+		 * @param newStatus New logger status. See \ref SML::Status_t
+		 * @return No return value.
+		 */
+		void status(const SML::Status_t newStatus)
+		{
+			// Set or clear status bit
+			if (newStatus == SML::Status_t::On)
+			{
+				__SML_BIT_SET(config, statusBit);
+			}
+			else
+			{
+				__SML_BIT_CLEAR(config, statusBit);	
+			}		
+		}
+
+		// PRIVATE STUFF
+		private: 
+		static constexpr uint8_t statusBit = 0; /**< @brief Logger status bit. */
+		static constexpr uint8_t statusMask = 1 << statusBit; /**< @brief Logger status mask. */
+		static constexpr uint8_t typeBit = 1; /**< @brief Logger type bit. */
+		static constexpr uint8_t typeMask = 1 << typeBit; /**< @brief Logger type mask. */
+		static constexpr uint8_t semaphoreBit = 2; /**< @brief Logger semaphore bit. */
+		static constexpr uint8_t semaphoreMask = 1 << semaphoreBit; /**< @brief Logger semaphore mask. */
+
+		// VARIABLES
+		/**
+		 * @brief Logger configuration.
+		 * 
+		 * Bit 0 = Logger status bit. See \ref SML::Status_t
+		 * 
+		 * Bit 1 = Logger type bit. See \ref SML::Process_t
+		 * 
+		 * Bit 2 = Logger semaphore bit. \c 0 means semaphore is free. \c 1 means semaphore is taken.
+		 */
+		uint8_t config = 0;
+		uint8_t prefixLen = 0; /**< @brief Length of \ref prefix */
+		char buffer[N] = { '\0' }; /**< @brief Logger buffer. */
+		const char* prefix; /**< @brief Logger prefix (C-string). Has to be NULL terminated. */
+		SML::log_handler_f printHandler = nullptr; /**< @brief Pointer to external function that handles buffer transfer. */
+		SML::ext_handler_f waitHandler = nullptr; /**< @brief Pointer to generic function for handling wait state. */
+
+		// METHOD DECLARATIONS
+		/**
+		 * @brief Handle semaphore and calls \ref printHandler
+		 * 
+		 * @param str Pointer to C-string.
+		 * @param len Length of C-string pointed by \c str
+		 * @return No return value.
+		 */
+		void out(const char* str, const uint16_t len)
+		{
+			// If logger is non blocking type
+			if (__SML_BIT(config, typeBit))
+			{
+				// Wait for semaphore
+				wait();
+
+				// Set status bit
+				__SML_BIT_SET(config, semaphoreBit);
+			}
+
+			// Pass C-string to external output function
+			printHandler(str, len);			
+		}
+
+		/**
+		 * @brief Wait for released semaphore.
+		 * 
+		 * @return No return value.
+		 */
+		inline void wait(void)
+		{
+			// Wait for external stuff to release logger's semaphore
+			while (__SML_BIT(config, semaphoreBit))
+			{
+				if (waitHandler) waitHandler();
+			}		
+		}
+	};	
 };
 
 #endif // __cplusplus
