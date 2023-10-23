@@ -7,7 +7,8 @@ Library contains:
 - Bit manipulation functions
 - Math functions
 - String manipulation functions
-- String scan functions
+- Conversion functions
+- Generic parser
 - Ring buffer
 - Data object
 - Logger
