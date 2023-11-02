@@ -37,7 +37,19 @@ This License shall be included in all functional textual files.
  * @{
 */
 
-// ----- MACRO FUNCTIONS
+// ----- DEFINES
+#define SML_VERSION				"v1.0rc1" /**< @brief Library version. */
+#ifndef SML_COPY_TIMEOUT
+#define SML_COPY_TIMEOUT		3200 /**< @brief Timeout in ms for non-blocking copy operations. */
+#endif // SML_COPY_TIMEOUT
+
+#ifndef SML_LOGGER_TIMEOUT
+#define SML_LOGGER_TIMEOUT		3200 /**< @brief Timeout in ms for non-blocking logger operations. */
+#endif // SML_LOGGER_TIMEOUT
+
+
+// ----- DEFINES
+// MACRO SNIPPETS
 /**
  * @brief Snippet for creating static print handler.
  *
@@ -54,8 +66,10 @@ This License shall be included in all functional textual files.
 #define SML_COPY_HANDLER(_name) \
 	static SML::Return_t _name(const void* source, void* destination, const uint16_t len)
 
+
+// MACRO FUNCTIONS
 /**
- * @brief Code snippet for calculating number of members in array.
+ * @brief Calculate number of members in array.
  * 
  * @param _in Input array.
  */
@@ -151,9 +165,6 @@ This License shall be included in all functional textual files.
 
 
 #ifdef __cplusplus
-
-#ifndef SML_IMPELENTATION
-
 
 // ----- NAMESPACES
 /**
@@ -368,17 +379,34 @@ namespace SML
 		Leap /**< @brief Enum value for leap year type. */
 	};
 
+	/**
+	 * @brief Enum class with semaphore statuses.
+	 * 
+	 */
+	enum class Semaphore_t : uint8_t
+	{
+		Free = 0, /**< @brief Enum value for free semaphore. */
+		Taken /**< @brief Enum value for taken semaphore. */
+	};
+
 
 	// TYPEDEFS
 	/**
-	 * @brief Pointer to generic external handler function.
+	 * @brief Definition for generic function without return.
 	 * 
 	 * @return No return value.
 	 */
 	typedef void (*ext_handler_f)(void);
 
 	/**
-	 * @brief Pointer to external function for printing strings.
+	 * @brief Definition for generic function that returns \c uint32_t 
+	 * 
+	 * @return \c uint32_t value.
+	 */
+	typedef uint32_t (*ext_handler_u32_f)(void);
+
+	/**
+	 * @brief Definition for function for printing strings.
 	 * 
 	 * @param buffer Pointer to string to send.
 	 * @param len Length of \c buffer
@@ -387,7 +415,7 @@ namespace SML
 	typedef void (*print_handler_f)(const char* buffer, const uint16_t len);
 
 	/**
-	 * @brief Pointer to external function for handling copy operation.
+	 * @brief Definition for function for handling copy operation.
 	 * 
 	 * @param source Pointer to address to copy from.
 	 * @param destination Pointer to address to copy to.
@@ -412,6 +440,31 @@ namespace SML
 		SML::Data<char> output; /**< \c char type output data. */
 	};
 
+
+	// FUNCTION DECLARATIONS
+	void fill(void* address, const uint8_t value, uint16_t len);
+	void copy(const void* source, void* destination, uint16_t len);
+	void swapEndian(void* output, const void* input, const uint8_t len);
+	inline constexpr SML::Answer_t isDigit(const char ch);
+	inline constexpr uint8_t char2Num(const char ch);
+	inline constexpr SML::Answer_t isMinute(const uint8_t in);
+	inline constexpr SML::Answer_t isSecond(const uint8_t in);
+	constexpr SML::Answer_t isHour(const uint8_t in, const SML::TimeFomrat_t format = SML::TimeFomrat_t::Time24H);
+	inline constexpr SML::Year_t getYearType(const uint16_t year);
+	SML::Answer_t isDateValid(const uint8_t day, const uint8_t month, const uint16_t year);
+	constexpr inline float abs(float in);
+	inline constexpr uint8_t dec2BCD(const uint8_t in);
+	inline constexpr uint8_t bcd2Dec(const uint8_t in);
+	char* tok(char* input, const char separator);
+	uint16_t len(const char* input, const char endChar = '\0');
+	uint16_t count(const char* input, const char character, const char endChar = '\0');
+	SML::Return_t cmp(const char* input1, const char* input2, char endChar = '\0');
+	char* findToken(const char* input, const char sep, char sepCnt, const SML::Answer_t retNull);	
+	SML::Return_t parse(char* input, char startSeparator, uint8_t startSeparatorCnt, char endSeparator, uint8_t endSeparatorCnt, SML::Data<char>& output, const SML::Answer_t modify = SML::Answer_t::No);
+	uint8_t parse(char* input, SML::parser_t* list, const uint8_t len, const SML::Answer_t modify = SML::Answer_t::No, const SML::Answer_t sorted = SML::Answer_t::No);
+
+
+	#ifdef SML_IMPLEMENTATION
 
 	// FUNCTION DEFNITIONS
 	/**
@@ -538,7 +591,7 @@ namespace SML
 	 * @return \c SML::Answer_t::No if input value \c in is not not hour.
 	 * @return \c SML::Answer_t::Yes if input value \c in is hour.
 	 */
-	constexpr SML::Answer_t isHour(const uint8_t in, const SML::TimeFomrat_t format = SML::TimeFomrat_t::Time24H)
+	constexpr SML::Answer_t isHour(const uint8_t in, const SML::TimeFomrat_t format)
 	{
 		if (format == SML::TimeFomrat_t::Time24H && in >= 0 && in < 24)
 		{
@@ -790,7 +843,7 @@ namespace SML
 	 * @param in Input 8-bit value.
 	 * @return Value \c num in BCD.
 	 */
-	constexpr uint8_t dec2BCD(const uint8_t in)
+	inline constexpr uint8_t dec2BCD(const uint8_t in)
 	{
 		return ((in / 10) << 4) + (in % 10);
 
@@ -804,7 +857,7 @@ namespace SML
 	 * @param in Input 8-bit value.
 	 * @return Value \c num in decimal.
 	 */
-	constexpr uint8_t BCD2dec(const uint8_t in)
+	inline constexpr uint8_t bcd2Dec(const uint8_t in)
 	{
 		return ((in >> 4) * 10) + (in & 0x0F);
 	}
@@ -818,7 +871,7 @@ namespace SML
 	 * @return C-string number converted to decimal.
 	 */
 	template<typename T>
-	T str2Dec(const char* str, const char endChar = '\0')
+	T str2Dec(const char* str, const char endChar)
 	{
 		T value = 0;
 		uint8_t idx = 0;
@@ -897,7 +950,7 @@ namespace SML
 	 * @param endChar Character where function should stop. This parameter is optional.
 	 * @return Length of C-string.
 	 */
-	uint16_t len(const char* input, const char endChar = '\0')
+	uint16_t len(const char* input, const char endChar)
 	{
 		// Copy string address to local variable
 		const char* tmp = input;
@@ -917,7 +970,7 @@ namespace SML
 	 * @param endChar Character where function should stop. This parameter is optional.
 	 * @return Number of \c character in \c input
 	 */
-	uint16_t count(const char* input, const char character, const char endChar = '\0')
+	uint16_t count(const char* input, const char character, const char endChar)
 	{
 		uint16_t count = 0;
 
@@ -944,7 +997,7 @@ namespace SML
 	 * @return \c SML::Return_t::Nok if strings are not equal.
 	 * @return \c SML::Return_t::Ok if strings are equal. 
 	 */
-	SML::Return_t cmp(const char* input1, const char* input2, char endChar = '\0')
+	SML::Return_t cmp(const char* input1, const char* input2, char endChar)
 	{
 		// While both characters are not equal to endChar
 		while (*input1 != endChar)
@@ -1044,7 +1097,7 @@ namespace SML
 	 * @note C-string has to be NULL terminated.
 	 * @note Function scans from left to right.
 	 */
-	SML::Return_t parse(char* input, char startSeparator, uint8_t startSeparatorCnt, char endSeparator, uint8_t endSeparatorCnt, SML::Data<char>& output, const SML::Answer_t modify = SML::Answer_t::No)
+	SML::Return_t parse(char* input, char startSeparator, uint8_t startSeparatorCnt, char endSeparator, uint8_t endSeparatorCnt, SML::Data<char>& output, const SML::Answer_t modify)
 	{
 		// If first character is NULL
 		if (!(*input))
@@ -1120,7 +1173,7 @@ namespace SML
 	 * @note C-string has to be NULL terminated.
 	 * @note Function scans from left to right.
 	 */
-	uint8_t parse(char* input, SML::parser_t* list, const uint8_t len, const SML::Answer_t modify = SML::Answer_t::No, const SML::Answer_t sorted = SML::Answer_t::No)
+	uint8_t parse(char* input, SML::parser_t* list, const uint8_t len, const SML::Answer_t modify, const SML::Answer_t sorted)
 	{
 		uint8_t total = 0;
 
@@ -1142,6 +1195,8 @@ namespace SML
 
 		return total;		
 	}
+
+	#endif // SML_IMPLEMENTATION
 
 
 	// CLASSES
@@ -1229,8 +1284,8 @@ namespace SML
 			// Store data in tmp variable
 			output = data[tail];
 
-			// Update tail
-			increase(tail, SML::Answer_t::No);
+			// Move tail
+			move(tail, SML::Answer_t::No);
 
 			// Return OK status
 			return 1;			
@@ -1263,8 +1318,8 @@ namespace SML
 				// Fetch next data
 				output[i] = data[tail];
 
-				// Update tail index
-				increase(tail, SML::Answer_t::No);
+				// Move tail
+				move(tail, SML::Answer_t::No);
 			}
 
 			return len;		
@@ -1364,17 +1419,17 @@ namespace SML
 			data[head] = input;
 
 			// Move head
-			increase(head, SML::Answer_t::Yes);
+			move(head, SML::Answer_t::Yes);
 		}
 
 		/**
-		 * @brief Increase pointer.
+		 * @brief move \c pointer by one data member.
 		 * 
 		 * @param pointer Reference to pointer to increase.
 		 * @param overflow Check for overflow. See \ref SML::Answer_t
 		 * @return No return value.
 		 */
-		void increase(uint16_t& pointer, SML::Answer_t overflow)
+		void move(uint16_t& pointer, SML::Answer_t overflow)
 		{
 			// Move tail pointer
 			pointer++;
@@ -1388,7 +1443,7 @@ namespace SML
 			// Move tail if overflow if detected
 			if (overflow == SML::Answer_t::Yes && pointer == tail)
 			{
-				increase(tail, SML::Answer_t::No);
+				move(tail, SML::Answer_t::No);
 			}						
 		}
 	};	
@@ -1396,47 +1451,66 @@ namespace SML
 	/**
 	 * @brief Logger class.
 	 * 
-	 * Wrapper for logging process. Process can be blocking or non-blocking. User can easly switch from blocking to non-blocking process or switch from classic UART to Segger's RTT via external handler.
+	 * Wrapper for logging process. Process can be blocking or non-blocking. User can easly switch from blocking to non-blocking process or switch from classic UART to Segger's RTT or custom trace log in non-inited SRAM via external handler.
 	 * 
 	 * In case of non-blocking process, user must "mark" print process done with \ref done method. 
 	 * 
-	 * @tparam N Buffer size in bytes.
+	 * @tparam N Buffer size in bytes for formatted prints.
 	 */
 	template<uint16_t N>
 	class Logger
 	{
-		// PUBLIC STUFF
 		public:
 		// CONSTRUCTOR AND DECONSTRUCTOR DECLARATIONS
 		/**
-		 * @brief Logger constructor.
+		 * @brief Logger constructor for blocking logging process.
 		 * 
 		 * @param handler Pointer to external function for handling buffer transfer(printing).
 		 * @param fix Prefix C-string. Has to be NULL terminated.
-		 * @param type Logger process type. See \ref SML::Process_t
-		 * @param status Logger initial status. See \ref SML::State_t
-		 * @param waitExtHandler Pointer to external function for handling wait state.
+		 * @param initedState Logger initial state. See \ref SML::State_t
+		 * @param mspInit Pointer to external function for MSP init.
+		 * @param mspDeinit Pointer to external function for MSP deinit.
 		 * @return No return value.
 		 */
-		Logger(SML::print_handler_f handler, const char* fix = "", const SML::Process_t type = SML::Process_t::Blocking, const SML::State_t status = SML::State_t::On, SML::ext_handler_f waitExtHandler = nullptr, SML::ext_handler_f mspInit = nullptr, SML::ext_handler_f mspDeinit = nullptr)
+		Logger(SML::print_handler_f handler, const char* fix = "", SML::State_t initedState = SML::State_t::On, SML::ext_handler_f mspInit = nullptr, SML::ext_handler_f mspDeinit = nullptr)
 		{
-			// Set external handlers
 			printHandler = handler;
-			waitHandler = waitExtHandler;
 			mspDeinitHandler = mspDeinit;
-
-			// Set prefix C-string and its length
 			prefix = fix;
 			prefixLen = SML::len(fix);
-
-			// Set logger type and status
-			config = (0 << semaphoreBit) | ((uint8_t)type << typeBit) | ((uint8_t)status << statusBit);
+			state = initedState;
+			semaphore = SML::Semaphore_t::Free;
 
 			// Call MSP init if needed
 			if (mspInit)
 			{
 				mspInit();
 			}
+		}
+
+		/**
+		 * @brief Logger constructor for non-blocking logger process.
+		 * 
+		 * @param handler Pointer to external function for handling buffer transfer(printing).
+		 * @param waitExtHandler Pointer to external function for handling wait states.
+		 * @param fix Prefix C-string. Has to be NULL terminated.
+		 * @param tickExtHandler Pointer to external function for getting tick.
+		 * @param initedState Logger initial state. See \ref SML::State_t
+		 * @param mspInit Pointer to external function for MSP init.
+		 * @param mspDeinit Pointer to external function for MSP deinit.
+		 * @return No return value.
+		 */
+		Logger(SML::print_handler_f handler, SML::ext_handler_f waitExtHandler, const char* fix = "", SML::ext_handler_u32_f tickExtHandler = nullptr, SML::State_t initedState = SML::State_t::On, SML::ext_handler_f mspInit = nullptr, SML::ext_handler_f mspDeinit = nullptr) : Logger(handler, fix, initedState, mspInit, mspDeinit)
+		{
+			// Save handlers for non-blocking process
+			waitHandler = waitExtHandler;
+			tickHandler = tickExtHandler;
+		
+			// Call MSP init if needed
+			if (mspInit)
+			{
+				mspInit();
+			}		
 		}
 		
 		/**
@@ -1446,20 +1520,13 @@ namespace SML
 		 */
 		~Logger(void)
 		{
-			// Reset logger stuff to default values
-			buffer[0] = '\0';
-			printHandler = nullptr;
-			config = 0;
-			prefix = nullptr;
-			prefixLen = 0;
-			
 			// Call MSP deinit if needed
 			if (mspDeinitHandler)
 			{
 				mspDeinitHandler();
 			}	
 
-			mspDeinitHandler = nullptr;
+			fill(this, 0, sizeof(Logger<N>));
 		}
 
 		// METHOD DEFINITIONS
@@ -1468,35 +1535,41 @@ namespace SML
 		 * 
 		 * @param str Pointer to C-string.
 		 * @param len Length of \c str
-		 * @return No return value.
+		 * @return \c SML::Return_t::Timeout if process timeouted.
+		 * @return \c SML::Return_t::Nok if logger is turned off.
+		 * @return \c SML::Return_t::Ok on success.
 		 */
-		void print(const char* str, const uint16_t len)
+		SML::Return_t print(const char* str, const uint16_t len)
 		{
 			// Abort if logger is turned off
-			if (!__SML_BIT_POWER(config, statusBit))
+			if (getState() == SML::State_t::Off)
 			{
-				return;
+				return SML::Return_t::Nok;
 			}
 
 			// Output prefix if exists
 			if (prefixLen)
 			{
-				out(prefix, prefixLen);
+				if (out(prefix, prefixLen) != SML::Return_t::Ok)
+				{
+					return SML::Return_t::Timeout;
+				}
 			}
 
-			// Pass C-string to external handler
-			out(str, len);	
+			return out(str, len);
 		}
 
 		/**
 		 * @brief Print constant C-string.
 		 * 
 		 * @param str Pointer to C-string. Has to be NULL terminated.
-		 * @return No return value.
+		 * @return \c SML::Return_t::Timeout if process timeouted.
+		 * @return \c SML::Return_t::Nok if logger is turned off.
+		 * @return \c SML::Return_t::Ok on success.
 		 */
-		inline void print(const char* str)
+		inline SML::Return_t print(const char* str)
 		{
-			print(str, SML::len(str));		
+			return print(str, SML::len(str));		
 		}
 
 		/**
@@ -1506,14 +1579,16 @@ namespace SML
 		 * 
 		 * @param str Pointer to C-string.
 		 * @param ... Variable arguments.
-		 * @return No return value.
+		 * @return \c SML::Return_t::Timeout if process timeouted.
+		 * @return \c SML::Return_t::Nok if logger is turned off.
+		 * @return \c SML::Return_t::Ok on success.
 		 */
-		void printf(const char* str, ...)
+		SML::Return_t printf(const char* str, ...)
 		{
 			// Abort if logger is turned off
-			if (!__SML_BIT_POWER(config, statusBit))
+			if (getState() == SML::State_t::Off)
 			{
-				return;
+				return SML::Return_t::Nok;
 			}
 
 			// Format input C-string with variable arguments
@@ -1525,15 +1600,17 @@ namespace SML
 			// Output prefix
 			if (prefixLen)
 			{
-				out(prefix, prefixLen);
+				if (out(prefix, prefixLen) != SML::Return_t::Ok)
+				{
+					return SML::Return_t::Timeout;
+				}
 			}
 
-			// Pass formated C-string to external handler
-			out(buffer, len);	
+			return out(buffer, len);	
 		}
 
 		/**
-		 * @brief Get size of logger's buffer.
+		 * @brief Get size of logger's buffer for \ref printf method.
 		 * 
 		 * @return Size of logger's buffer.
 		 */
@@ -1544,81 +1621,64 @@ namespace SML
 		}
 
 		/**
-		 * @brief Mark print process finished.
+		 * @brief Get logger state.
 		 * 
-		 * This method releases logger semaphore. This method is called after non-blocking transfer has ended(eg. DMA transfer to UART).
+		 * @return \c SML::State_t::Off if logger is turned off.
+		 * @return \c SML::State_t::On if logger is turned on.
+		 */
+		inline SML::State_t getState(void) const
+		{
+			return state;	
+		}
+
+		/**
+		 * @brief Set logger state.
 		 * 
+		 * @param newState New logger status. See \ref SML::State_t
 		 * @return No return value.
+		 */
+		inline void setState(const SML::State_t newState)
+		{
+			state = newState;		
+		}
+
+		/**
+		 * @brief Release logger's semaphore in non-bloking process.
+		 *
+		 * @return No return value. 
 		 */
 		inline void done(void)
 		{
-			// Release logger semaphore
-			__SML_BIT_CLEAR(config, semaphoreBit);			
+			semaphore = SML::Semaphore_t::Free;
 		}
 
 		/**
-		 * @brief Get logger status.
+		 * @brief Check if logger is ready for new print.
 		 * 
-		 * @return Logger status. See \ref SML::State_t
+		 * @return \c SML::Answer_t::No if logger is not ready.
+		 * @return \c SML::Answer_t::Yes if logger is ready.
 		 */
-		SML::State_t status(void) const
+		SML::Answer_t isReady(void)
 		{
-			// Return LOG_ON if status bit is 1(logger is turned on), otherwise return LOG_OFF
-			if (__SML_BIT_POWER(config, statusBit))
+			if (semaphore == SML::Semaphore_t::Free)
 			{
-				return SML::State_t::On;
+				return SML::Answer_t::Yes;
 			}
-			else
-			{
-				return SML::State_t::Off; 
-			}		
+
+			return SML::Answer_t::No;
 		}
 
-		/**
-		 * @brief Set logger status.
-		 * 
-		 * @param newStatus New logger status. See \ref SML::State_t
-		 * @return No return value.
-		 */
-		void status(const SML::State_t newStatus)
-		{
-			// Set or clear status bit
-			if (newStatus == SML::State_t::On)
-			{
-				__SML_BIT_SET(config, statusBit);
-			}
-			else
-			{
-				__SML_BIT_CLEAR(config, statusBit);	
-			}		
-		}
-
-		// PRIVATE STUFF
 		private: 
-		static constexpr uint8_t statusBit = 0; /**< @brief Logger status bit. */
-		static constexpr uint8_t statusMask = 1 << statusBit; /**< @brief Logger status mask. */
-		static constexpr uint8_t typeBit = 1; /**< @brief Logger type bit. */
-		static constexpr uint8_t typeMask = 1 << typeBit; /**< @brief Logger type mask. */
-		static constexpr uint8_t semaphoreBit = 2; /**< @brief Logger semaphore bit. */
-		static constexpr uint8_t semaphoreMask = 1 << semaphoreBit; /**< @brief Logger semaphore mask. */
-
 		// VARIABLES
-		/**
-		 * @brief Logger configuration.
-		 * 
-		 * Bit 0 = Logger status bit. See \ref SML::State_t
-		 * 
-		 * Bit 1 = Logger type bit. See \ref SML::Process_t
-		 * 
-		 * Bit 2 = Logger semaphore bit. \c 0 means semaphore is free. \c 1 means semaphore is taken.
-		 */
-		uint8_t config = 0;
+		char buffer[N] = { '\0' }; /**< @brief Buffer for \ref printf method. */
 		uint8_t prefixLen = 0; /**< @brief Length of \ref prefix */
-		char buffer[N] = { '\0' }; /**< @brief Logger buffer. */
+		SML::State_t state = SML::State_t::On; /**< @brief Logger state. */
+		SML::Semaphore_t semaphore = SML::Semaphore_t::Free; /**< @brief Logger process semaphore. */
 		const char* prefix; /**< @brief Logger prefix (C-string). Has to be NULL terminated. */
 		SML::print_handler_f printHandler = nullptr; /**< @brief Pointer to external function that handles buffer transfer. */
-		SML::ext_handler_f waitHandler = nullptr; /**< @brief Pointer to function for handling wait state. */
 		SML::ext_handler_f mspDeinitHandler = nullptr; /**< @brief Pointer to function for MSP deinit. */
+		SML::ext_handler_f waitHandler = nullptr; /**< @brief Pointer to external function for handling wait states. */
+		SML::ext_handler_u32_f tickHandler = nullptr; /**< @brief Pointer to external function for getting tick. */
 
 		// METHOD DEFINITIONS
 		/**
@@ -1626,36 +1686,63 @@ namespace SML
 		 * 
 		 * @param str Pointer to C-string.
 		 * @param len Length of C-string pointed by \c str
-		 * @return No return value.
+		 * @return \c SML::Return_t::Timeout process timeouted.
+		 * @return \c SML::Return_t::Ok on success. 
 		 */
-		void out(const char* str, const uint16_t len)
+		SML::Return_t out(const char* str, const uint16_t len)
 		{
-			// If logger is non blocking type
-			if (__SML_BIT_POWER(config, typeBit))
+			// If print process is non-blocking
+			if (waitHandler)
 			{
-				// Wait for semaphore
-				wait();
-
-				// Set status bit
-				__SML_BIT_SET(config, semaphoreBit);
+				if (wait() != SML::Return_t::Ok)
+				{
+					return SML::Return_t::Timeout;
+				}
+				
+				semaphore = SML::Semaphore_t::Taken;
 			}
 
-			// Pass C-string to external output function
-			printHandler(str, len);			
+			// Print string
+			printHandler(str, len);
+			return SML::Return_t::Ok;	
 		}
 
 		/**
-		 * @brief Wait for released semaphore.
+		 * @brief Wait for free semaphore.
 		 * 
-		 * @return No return value.
+		 * @return \c SML::Return_t::Timeout wait timeouted.
+		 * @return \c SML::Return_t::Ok on success. 
 		 */
-		inline void wait(void)
+		SML::Return_t wait(void)
 		{
-			// Wait for external stuff to release logger's semaphore
-			while (__SML_BIT_POWER(config, semaphoreBit))
+			// If tick source is provided
+			if (tickHandler)
 			{
-				if (waitHandler) waitHandler();
-			}		
+				// Get current tick
+				uint32_t tick = tickHandler();
+
+				// Call wait handler if logger is not ready
+				while (isReady() == SML::Answer_t::No)
+				{
+					// Check for timeout
+					if (tickHandler() - tick > SML_LOGGER_TIMEOUT)
+					{
+						return SML::Return_t::Timeout;
+					}
+
+					waitHandler();
+				}
+			}
+			else // Tick source is not provided
+			{
+				// Call wait handler if logger is not ready
+				while (isReady() == SML::Answer_t::No)
+				{
+					waitHandler();
+				}
+			}
+
+			return SML::Return_t::Ok;
 		}
 	};	
 
@@ -1664,32 +1751,41 @@ namespace SML
 	 * 
 	 * Wrapper for copy blocking or non-blocking process. User can easly switch from blocking copy process(eg., with standard \c memcpy function) to non-blocking process(eg., DMA copy process).
 	 * 
-	 * In case of non-blocking process, user must "mark" copy process done with \ref done method. 
+	 * In case of non-blocking process, user must release process semaphore with \ref Copier::done method. 
 	 */
 	class Copier
 	{
-		// PUBLIC STUFF
 		public:
-		// CONSTRUCTOR AND DECONSTRUCTOR DECLARATIONS
-
+		// CONSTRUCTOR AND DECONSTRUCTOR DEFINITIONS
 		/**
-		 * @brief Copier object constructor.
+		 * @brief Copier constructor for blocking copy process.
 		 * 
 		 * @param extHandler Pointer to external function for handling copy operations.
-		 * @param processType Copy process type. See \ref SML::Process_t
-		 * @param waitExtHandler Pointer to external handler for wait states.
-		 * @param mspInit Pointer to external function for MSP init.
-		 * @param mspDeinit Pointer to external function for MSP deinit.
 		 * @return No return value.
 		 */
-		Copier(SML::copy_handler_f extHandler, SML::Process_t processType = SML::Process_t::Blocking, SML::ext_handler_f waitExtHandler = nullptr, SML::ext_handler_f mspInit = nullptr, SML::ext_handler_f mspDeinit = nullptr)
+		Copier(SML::copy_handler_f extHandler)
 		{
 			copyHandler = extHandler;
-			config = 0 | ((uint8_t)processType << typeBit);
-			mspDeinitHandler = mspDeinit;
-			waitHandler = waitExtHandler;
+		}
 
-			// Call MSP init function
+		/**
+		 * @brief Copier constructor for non-blocking copy process.
+		 * 
+		 * @param extHandler Pointer to external function for handling copy operations.
+		 * @param waitExtHandler Pointer to external function for handling wait states.
+		 * @param tickExtHandler Pointer to external function for getting tick. Not required.
+		 * @param mspInit Pointer to external function for MSP init. Not required.
+		 * @param mspDeinit Pointer to external function for MSP deinit. Not required.
+		 * @return No return value.
+		 */
+		Copier(SML::copy_handler_f extHandler, SML::ext_handler_f waitExtHandler, SML::ext_handler_u32_f tickExtHandler = nullptr, SML::ext_handler_f mspInit = nullptr, SML::ext_handler_f mspDeinit = nullptr) : Copier(extHandler)
+		{
+			waitHandler = waitExtHandler;
+			tickHandler = tickExtHandler;
+			mspDeinitHandler = mspDeinit;
+
+
+			// Call MSP init if needed
 			if (mspInit)
 			{
 				mspInit();
@@ -1703,141 +1799,127 @@ namespace SML
 		 */
 		~Copier(void)
 		{
-			// Reset stuff
-			copyHandler = nullptr;
-			waitHandler = nullptr;
-			config = 0;
-
-			// Call MSP deinit
+			// Call MSP deinit if needed
 			if (mspDeinitHandler)
 			{
 				mspDeinitHandler();
 			}
 
-			mspDeinitHandler = nullptr;
+			fill(this, 0, sizeof(SML::Copier));
 		}
 
 		// METHOD DEFINITIONS
 		/**
-		 * @brief Get copier semaphore status.
-		 * 
-		 * @return \c SML::Answer_t::No if copier is not ready for next operation.
-		 * @return \c SML::Answer_t::Yes if copier is ready for next operation.
-		 */
-		inline SML::Answer_t isReady(void) const
-		{
-			if (__SML_BIT_GET(config, semaphoreBit))
-			{
-				return SML::Answer_t::No;
-			}
-
-			return SML::Answer_t::Yes;
-		}
-
-		/**
-		 * @brief Copy \c len bytes from \c source to \c destionation.
+		 * @brief Copy \c len bytes from \c source to \c destionation
 		 * 
 		 * @param source Pointer to address to copy from.
 		 * @param destination Pointer to address to copy to.
 		 * @param len Number of bytes to copy from \c source to \c destionation
+		 * @return \c SML::Return_t::Timeout if copy timeouted.
 		 * @return \c SML::Return_t::Nok if copy failed.
 		 * @return \c SML::Return_t:Ok if copy is successful.
 		 */
 		SML::Return_t copy(const void* source, void* destination, const uint16_t len)
 		{
-			// Wait if copier is not ready
-			if (getProcessType() == SML::Process_t::NonBlocking)
+			// If copy process is non-blocking
+			if (waitHandler)
 			{
-				while (isReady() == SML::Answer_t::No)
-				{
-					if (waitHandler)
-					{
-						waitHandler();
-					}
-				}
+				// Wait for semaphore to be released
+				if (wait() != SML::Return_t::Ok) return SML::Return_t::Timeout;
+
+				// Take semaphore and block new copy processes
+				takeSemaphore();
 			}
 
-			// Call copy handler and set 
-			if (copyHandler)
-			{
-				if (copyHandler(source, destination, len) == SML::Return_t::Ok)
-				{
-					// Take semaphore if needed
-					if (getProcessType() == SML::Process_t::NonBlocking)
-					{
-						takeSemaphore();
-					}
-
-					return SML::Return_t::Ok;
-				}
-			}
-
-			return SML::Return_t::Nok;
+			// Call copy handler and return its status
+			return copyHandler(source, destination, len);
 		}
 
 		/**
-		 * @brief Mark copy operation done if non-blocking process is used for copying.
+		 * @brief Check if copier is ready.
+		 * 
+		 * @return \c SML::Answer_t::No if copier is not ready.
+		 * @return \c SML::Answer_t::Yes if copier is ready.
+		 */
+		SML::Answer_t isReady(void) const
+		{
+			if (semaphore == SML::Semaphore_t::Free)
+			{
+				return SML::Answer_t::Yes;
+			}
+
+			return SML::Answer_t::No;
+		}
+
+		/**
+		 * @brief Release copier semaphore.
 		 * 
 		 * @return No return value.
 		 */
 		inline void done(void)
 		{
-			__SML_BIT_CLEAR(config, semaphoreBit);
-		}	
+			semaphore = SML::Semaphore_t::Free;
+		}
 
-
-		// PRIVATE STUFF
 		private:
-		static constexpr uint8_t typeBit = 0; /**< @brief Copier process type bit. */
-		static constexpr uint8_t semaphoreBit = 1; /**< @brief Copier semaphore bit. */
-
 		// VARIABLES
 		SML::copy_handler_f copyHandler = nullptr; /**< @brief Pointer to external function for handling copy operation. */
-		SML::ext_handler_f mspDeinitHandler = nullptr; /**< @brief Pointer to external handler for MSP deinit. */
-		SML::ext_handler_f waitHandler = nullptr; /**< @brief Pointer to external handler for wait operation. */
-
-		/**
-		 * @brief Copier configuration and status variable.
-		 * 
-		 * Bit 0: Copier process type. See \ref SML::Process_t
-		 * 
-		 * Bit 1: Copier semaphore bit. \c 0 means copier is free to use.
-		 */
-		uint8_t config = 0 | ((uint8_t)SML::Process_t::Blocking << typeBit);
+		SML::ext_handler_f waitHandler = nullptr; /**< @brief Pointer to external function for handling wait states. */
+		SML::ext_handler_u32_f tickHandler = nullptr; /**< @brief Pointer to external function for getting tick. */
+		SML::ext_handler_f mspDeinitHandler = nullptr; /**< @brief Pointer to external function for MSP deinit. */
+		SML::Semaphore_t semaphore = SML::Semaphore_t::Free; /**< @brief Copy process semaphore. */
 
 		// METHOD DEFINITIONS
 		/**
-		 * @brief Get copier process type.
-		 * 
-		 * @return \c SML::Process_t::NonBlocking if copier process is non-blocking.
-		 * @return \c SML::Process_t::Blocking if copier process is blocking.
-		 */
-		inline SML::Process_t getProcessType(void) const
-		{
-			if (__SML_BIT_GET(config, typeBit))
-			{
-				return SML::Process_t::NonBlocking;
-			}
-
-			return SML::Process_t::Blocking;
-		}
-
-		/**
-		 * @brief Take copier's semaphore 
+		 * @brief Take semaphore for copy process.
 		 * 
 		 * @return No return value.
 		 */
 		inline void takeSemaphore(void)
 		{
-			__SML_BIT_SET(config, semaphoreBit);
+			semaphore = SML::Semaphore_t::Taken;
+		}
+
+		/**
+		 * @brief Wait for copier to be ready for new process.
+		 * 
+		 * @return \c SML::Return_t::Timeout if process timeouted.
+		 * @return \c SML::Return_t::Ok on success. 
+		 */
+		SML::Return_t wait(void) const
+		{
+			// If tick source is provided
+			if (tickHandler)
+			{
+				// Get current tick
+				uint32_t tick = tickHandler();
+
+				// Call wait handler until semaphore is released
+				while (isReady() == SML::Answer_t::No)
+				{
+					// Check for timeout
+					if (tickHandler() - tick > SML_COPY_TIMEOUT)
+					{
+						return SML::Return_t::Timeout;
+					}
+
+					waitHandler();
+				}
+
+			}
+			else // Tick handler is not provided
+			{
+				// Call wait handler until semaphore is released
+				while (isReady() == SML::Answer_t::No)
+				{
+					waitHandler();
+				}
+			}
+
+			return SML::Return_t::Ok;
 		}
 	};
 };
-
-#else // SML_IMPELENTATION
-
-
-#endif // SML_IMPELENTATION
 
 
 #endif // __cplusplus
