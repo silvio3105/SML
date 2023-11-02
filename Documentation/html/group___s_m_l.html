@@ -106,8 +106,23 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:gac8143c8be6cc8fb74c87784e66b271fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#gac8143c8be6cc8fb74c87784e66b271fc">SML_VERSION</a>&#160;&#160;&#160;&quot;v1.0rc1&quot;</td></tr>
+<tr class="memdesc:gac8143c8be6cc8fb74c87784e66b271fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library version.  <br /></td></tr>
+<tr class="separator:gac8143c8be6cc8fb74c87784e66b271fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07a0de8e0df3cd8288f85218bb952c4e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga07a0de8e0df3cd8288f85218bb952c4e">SML_COPY_TIMEOUT</a>&#160;&#160;&#160;3200</td></tr>
+<tr class="memdesc:ga07a0de8e0df3cd8288f85218bb952c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout in ms for non-blocking copy operations.  <br /></td></tr>
+<tr class="separator:ga07a0de8e0df3cd8288f85218bb952c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa00613af7ca3fdd265467fd26969d480"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#gaa00613af7ca3fdd265467fd26969d480">SML_LOGGER_TIMEOUT</a>&#160;&#160;&#160;3200</td></tr>
+<tr class="memdesc:gaa00613af7ca3fdd265467fd26969d480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout in ms for non-blocking logger operations.  <br /></td></tr>
+<tr class="separator:gaa00613af7ca3fdd265467fd26969d480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga994864e5ac22f9230c4ccea279365428"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga994864e5ac22f9230c4ccea279365428">SML_PRINT_HANDLER</a>(_name)&#160;&#160;&#160;	static void _name(const char* buffer, const uint16_t len)</td></tr>
+<tr class="memdesc:ga994864e5ac22f9230c4ccea279365428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Snippet for creating static print handler.  <br /></td></tr>
+<tr class="separator:ga994864e5ac22f9230c4ccea279365428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12b893a503f865e4a9a2aab9d1d0a3d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga12b893a503f865e4a9a2aab9d1d0a3d6">SML_COPY_HANDLER</a>(_name)&#160;&#160;&#160;	static <a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a> _name(const void* source, void* destination, const uint16_t len)</td></tr>
+<tr class="memdesc:ga12b893a503f865e4a9a2aab9d1d0a3d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Snippet for creating static copy handler.  <br /></td></tr>
+<tr class="separator:ga12b893a503f865e4a9a2aab9d1d0a3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga23eab197c507f96db9082c365f35f7ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga23eab197c507f96db9082c365f35f7ff">__SML_ARRAY_LEN</a>(_in)&#160;&#160;&#160;	(sizeof(_in) / sizeof(_in[0]))</td></tr>
-<tr class="memdesc:ga23eab197c507f96db9082c365f35f7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code snippet for calculating number of members in array.  <br /></td></tr>
+<tr class="memdesc:ga23eab197c507f96db9082c365f35f7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate number of members in array.  <br /></td></tr>
 <tr class="separator:ga23eab197c507f96db9082c365f35f7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad7515fc9b42f4f0eb75ef426669a9070"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#gad7515fc9b42f4f0eb75ef426669a9070">__SML_BIT_SET</a>(_value,  _bit)&#160;&#160;&#160;	_value |= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:gad7515fc9b42f4f0eb75ef426669a9070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <code>_bit</code> of <code>_value</code> to 1.  <br /></td></tr>
@@ -118,12 +133,12 @@ Macros</h2></td></tr>
 <tr class="memitem:ga9edf538dce04851aa27918f0051c81e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga9edf538dce04851aa27918f0051c81e6">__SML_BIT_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:ga9edf538dce04851aa27918f0051c81e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle <code>_bit</code> in <code>_value</code>.  <br /></td></tr>
 <tr class="separator:ga9edf538dce04851aa27918f0051c81e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga17a4808f659664510db97c9a232fae51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga17a4808f659664510db97c9a232fae51">__SML_BIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit)))</td></tr>
-<tr class="memdesc:ga17a4808f659664510db97c9a232fae51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch <code>_bit</code> from <code>_value</code>.  <br /></td></tr>
-<tr class="separator:ga17a4808f659664510db97c9a232fae51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga218c274347c6d3f26853d8fca68e7f5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga218c274347c6d3f26853d8fca68e7f5f">__SML_BBIT</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit))) &gt;&gt; (_bit)</td></tr>
-<tr class="memdesc:ga218c274347c6d3f26853d8fca68e7f5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch <code>_bit</code> from <code>_value</code>.  <br /></td></tr>
-<tr class="separator:ga218c274347c6d3f26853d8fca68e7f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e27f464f72c24566d033e63bef24f18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga4e27f464f72c24566d033e63bef24f18">__SML_BIT_POWER</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit)))</td></tr>
+<tr class="memdesc:ga4e27f464f72c24566d033e63bef24f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch bit <code>_bit</code> power in <code>_value</code>.  <br /></td></tr>
+<tr class="separator:ga4e27f464f72c24566d033e63bef24f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8175e11fd1830342c576b4026debe58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#gaf8175e11fd1830342c576b4026debe58">__SML_BIT_GET</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit))) &gt;&gt; (_bit)</td></tr>
+<tr class="memdesc:gaf8175e11fd1830342c576b4026debe58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetch <code>_bit</code> from <code>_value</code>.  <br /></td></tr>
+<tr class="separator:gaf8175e11fd1830342c576b4026debe58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8d25a325884a3fe3fd47a4355cea5b24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___s_m_l.html#ga8d25a325884a3fe3fd47a4355cea5b24">__SML_S_2_MS</a>(_in)&#160;&#160;&#160;	(_in * 1000)</td></tr>
 <tr class="memdesc:ga8d25a325884a3fe3fd47a4355cea5b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert seconds to miliseconds.  <br /></td></tr>
 <tr class="separator:ga8d25a325884a3fe3fd47a4355cea5b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +174,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Code snippet for calculating number of members in array. </p>
+<p>Calculate number of members in array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_in</td><td>Input array. </td></tr>
@@ -167,87 +182,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00047">47</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ga218c274347c6d3f26853d8fca68e7f5f" name="ga218c274347c6d3f26853d8fca68e7f5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga218c274347c6d3f26853d8fca68e7f5f">&#9670;&#160;</a></span>__SML_BBIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define __SML_BBIT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">_value, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">_bit&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit))) &gt;&gt; (_bit)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fetch <code>_bit</code> from <code>_value</code>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">_value</td><td>Input value. </td></tr>
-    <tr><td class="paramname">_bit</td><td>Bit number of <code>_value</code> to fetch.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Function returns <code>0</code> or <code>1</code>. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00096">96</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ga17a4808f659664510db97c9a232fae51" name="ga17a4808f659664510db97c9a232fae51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga17a4808f659664510db97c9a232fae51">&#9670;&#160;</a></span>__SML_BIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define __SML_BIT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">_value, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">_bit&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fetch <code>_bit</code> from <code>_value</code>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">_value</td><td>Input value. </td></tr>
-    <tr><td class="paramname">_bit</td><td>Bit number of <code>_value</code> to fetch.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Function returns <code>0</code> for <code>_bit</code> = 0 or any positive number for <code>_bit</code> = 1. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00085">85</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00076">76</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +221,86 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00065">65</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00094">94</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+
+</div>
+</div>
+<a id="gaf8175e11fd1830342c576b4026debe58" name="gaf8175e11fd1830342c576b4026debe58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf8175e11fd1830342c576b4026debe58">&#9670;&#160;</a></span>__SML_BIT_GET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __SML_BIT_GET</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_bit&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit))) &gt;&gt; (_bit)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fetch <code>_bit</code> from <code>_value</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_value</td><td>Input value. </td></tr>
+    <tr><td class="paramname">_bit</td><td>Bit number of <code>_value</code> to fetch.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Function returns <code>0</code> or <code>1</code>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00123">123</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga4e27f464f72c24566d033e63bef24f18" name="ga4e27f464f72c24566d033e63bef24f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4e27f464f72c24566d033e63bef24f18">&#9670;&#160;</a></span>__SML_BIT_POWER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __SML_BIT_POWER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_bit&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fetch bit <code>_bit</code> power in <code>_value</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_value</td><td>Input value. </td></tr>
+    <tr><td class="paramname">_bit</td><td>Bit number in <code>_value</code> to fetch. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00112">112</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -325,7 +339,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00056">56</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00085">85</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +378,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00074">74</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00103">103</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -392,7 +406,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00128">128</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00155">155</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +434,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00136">136</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00163">163</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -448,7 +462,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00120">120</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00147">147</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -476,7 +490,7 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00112">112</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00139">139</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -504,7 +518,117 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00104">104</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00131">131</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga12b893a503f865e4a9a2aab9d1d0a3d6" name="ga12b893a503f865e4a9a2aab9d1d0a3d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12b893a503f865e4a9a2aab9d1d0a3d6">&#9670;&#160;</a></span>SML_COPY_HANDLER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SML_COPY_HANDLER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_name</td><td>)</td>
+          <td>&#160;&#160;&#160;	static <a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a> _name(const void* source, void* destination, const uint16_t len)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Snippet for creating static copy handler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_name</td><td>Handler name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00066">66</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga07a0de8e0df3cd8288f85218bb952c4e" name="ga07a0de8e0df3cd8288f85218bb952c4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga07a0de8e0df3cd8288f85218bb952c4e">&#9670;&#160;</a></span>SML_COPY_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SML_COPY_TIMEOUT&#160;&#160;&#160;3200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Timeout in ms for non-blocking copy operations. </p>
+
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00043">43</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+
+</div>
+</div>
+<a id="gaa00613af7ca3fdd265467fd26969d480" name="gaa00613af7ca3fdd265467fd26969d480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa00613af7ca3fdd265467fd26969d480">&#9670;&#160;</a></span>SML_LOGGER_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SML_LOGGER_TIMEOUT&#160;&#160;&#160;3200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Timeout in ms for non-blocking logger operations. </p>
+
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00047">47</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ga994864e5ac22f9230c4ccea279365428" name="ga994864e5ac22f9230c4ccea279365428"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga994864e5ac22f9230c4ccea279365428">&#9670;&#160;</a></span>SML_PRINT_HANDLER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SML_PRINT_HANDLER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">_name</td><td>)</td>
+          <td>&#160;&#160;&#160;	static void _name(const char* buffer, const uint16_t len)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Snippet for creating static print handler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_name</td><td>Handler name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00058">58</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+
+</div>
+</div>
+<a id="gac8143c8be6cc8fb74c87784e66b271fc" name="gac8143c8be6cc8fb74c87784e66b271fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac8143c8be6cc8fb74c87784e66b271fc">&#9670;&#160;</a></span>SML_VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SML_VERSION&#160;&#160;&#160;&quot;v1.0rc1&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Library version. </p>
+
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l00041">41</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['leap_0',['Leap',['../namespace_s_m_l.html#affce2ad0a7abe78bf0a9928e62b02fb1ad0bf83bf5396b08b6435d781c969c228',1,'SML']]]
+  ['free_0',['Free',['../namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2ab24ce0cd392a5b0b8dedc66c25213594',1,'SML']]]
 ];

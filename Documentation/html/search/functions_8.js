@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['max_0',['max',['../namespace_s_m_l.html#a27b3b6b84d3ee1110fc277248c1fa32b',1,'SML::max(T in1, T in2)'],['../namespace_s_m_l.html#aaa5ae489ee5a48b7e191ecf014bb2299',1,'SML::max(T in1, T in2, T in3)']]],
-  ['min_1',['min',['../namespace_s_m_l.html#a9e7430b165f157bbd180ce90fa44ad3a',1,'SML::min(T in1, T in2)'],['../namespace_s_m_l.html#ad9f5e145b4d9bff08e231f274685707b',1,'SML::min(T in1, T in2, T in3)']]]
+  ['set_0',['set',['../class_s_m_l_1_1_data.html#a420da23b631eaeef0b4f8019faf0e65e',1,'SML::Data']]],
+  ['setstate_1',['setState',['../class_s_m_l_1_1_logger.html#a59d4b20e8206ae7697ab57c8878b1b3f',1,'SML::Logger']]],
+  ['size_2',['size',['../class_s_m_l_1_1_ring_buffer.html#aeeee0cd4f7f9d60948b22863bb5a160a',1,'SML::RingBuffer::size()'],['../class_s_m_l_1_1_logger.html#a0c6ec58c69090cd52e1cccec0d39cfc9',1,'SML::Logger::size()']]]
 ];

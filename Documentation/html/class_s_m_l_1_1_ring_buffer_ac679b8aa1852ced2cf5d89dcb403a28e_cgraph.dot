@@ -12,4 +12,5 @@ digraph "SML::RingBuffer::isFull"
   Node3 [id="Node000003",label="SML::RingBuffer::size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#aeeee0cd4f7f9d60948b22863bb5a160a",tooltip="Get ring buffer size."];
   Node2 -> Node4 [id="edge3_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="SML::RingBuffer::used",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#a7792187d62c67779bdd863aa6e7e7865",tooltip="Fetch number of used data in ring buffer."];
+  Node4 -> Node3 [id="edge4_Node000004_Node000003",color="steelblue1",style="solid",tooltip=" "];
 }
