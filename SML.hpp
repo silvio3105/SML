@@ -47,9 +47,6 @@ This License shall be included in all functional textual files.
 #define SML_LOGGER_TIMEOUT		3200 /**< @brief Timeout in ms for non-blocking logger operations. */
 #endif // SML_LOGGER_TIMEOUT
 
-
-// ----- DEFINES
-// MACRO SNIPPETS
 /**
  * @brief Snippet for creating static print handler.
  *
@@ -165,6 +162,16 @@ This License shall be included in all functional textual files.
 
 
 #ifdef __cplusplus
+
+// ----- EXTERNS
+#ifdef DEBUG_SML_COPY
+extern DEBUG_SML_COPY;
+#endif // DEBUG_SML_COPY
+
+#ifdef DEBUG_SML_RB
+extern DEBUG_SML_RB;
+#endif // DEBUG_SML_RB
+
 
 // ----- NAMESPACES
 /**
@@ -299,8 +306,8 @@ namespace SML
 	 */
 	enum class Answer_t : uint8_t
 	{
-		No = 0,
-		Yes
+		No = 0, /**< @brief Enum value for negative answer. */
+		Yes /**< @brief Enum value for positive answer. */
 	};
 
 	/**
@@ -1027,7 +1034,6 @@ namespace SML
 	 * @param retNull Set to \c SML::Answer_t::Yes to return \c nullptr if \c \0 character is found. Set to \c SML::Answer_t::No to return address if \c \0 is found.
 	 * @return \c nullptr if no token was found.
 	 * @return Address of last found separator.
-	 * @return \c nullptr if separator was not found.
 	 */
 	char* findToken(const char* input, const char sep, char sepCnt, const SML::Answer_t retNull)
 	{
