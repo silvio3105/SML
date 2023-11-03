@@ -129,7 +129,7 @@ Public Member Functions</h2></td></tr>
 <p>Wrapper for copy blocking or non-blocking process. User can easly switch from blocking copy process(eg., with standard <code>memcpy</code> function) to non-blocking process(eg., DMA copy process).</p>
 <p>In case of non-blocking process, user must release process semaphore with <a class="el" href="class_s_m_l_1_1_copier.html#a2d369bd575ae1cbb101f0e5d36bdf622">Copier::done</a> method. </p>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01756">1756</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01762">1762</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab34f43ff9504500254d7bb226d955d1c" name="ab34f43ff9504500254d7bb226d955d1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab34f43ff9504500254d7bb226d955d1c">&#9670;&#160;</a></span>Copier() <span class="overload">[1/2]</span></h2>
@@ -164,7 +164,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01766">1766</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01772">1772</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -233,7 +233,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01781">1781</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01787">1787</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -264,7 +264,7 @@ Public Member Functions</h2></td></tr>
 <p><a class="el" href="class_s_m_l_1_1_copier.html" title="Copier class.">Copier</a> object deconstructor. </p>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01800">1800</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01806">1806</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -329,7 +329,7 @@ Here is the call graph for this function:</div>
 <dd>
 <code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf" title="Enum class with generic return statuses.">SML::Return_t</a>:Ok</code> if copy is successful. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01822">1822</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01828">1828</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -365,7 +365,7 @@ Here is the call graph for this function:</div>
 <p>Release copier semaphore. </p>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01859">1859</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01865">1865</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -394,11 +394,11 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Check if copier is ready. </p>
-<dl class="section return"><dt>Returns</dt><dd><code>SML::Answer_t::No</code> if copier is not ready. </dd>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418dabafd7322c6e97d25b6299b5d6fe8920b" title="Enum value for negative answer.">SML::Answer_t::No</a></code> if copier is not ready. </dd>
 <dd>
-<code>SML::Answer_t::Yes</code> if copier is ready. </dd></dl>
+<code><a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418da93cba07454f06a4a960172bbd6e2a435" title="Enum value for positive answer.">SML::Answer_t::Yes</a></code> if copier is ready. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01844">1844</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01850">1850</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
