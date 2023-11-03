@@ -11,7 +11,7 @@ digraph "SML::parse"
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node3 [id="Node000003",label="SML::Data::len",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_data.html#ac11027a7f6d8b4a5ce57770574d51777",tooltip="Get data length."];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="SML::parse",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_s_m_l.html#a23adc13cfc39e1cfba88ea88dc3b7b7b",tooltip="Scan C-string for wanted token."];
+  Node4 [id="Node000004",label="SML::parse",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_s_m_l.html#a23adc13cfc39e1cfba88ea88dc3b7b7b",tooltip="Generic C-string parser."];
   Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
   Node5 [id="Node000005",label="SML::findToken",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_s_m_l.html#a7bf796379e074a7a1f9c02d86bc0610e",tooltip="Find token in C-string."];
   Node4 -> Node6 [id="edge5_Node000004_Node000006",color="steelblue1",style="solid",tooltip=" "];

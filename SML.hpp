@@ -435,7 +435,7 @@ namespace SML
 
 	// STRUCTS
 	/**
-	 * @brief Struct for input info for \ref sscan function.
+	 * @brief Struct for input info for \ref SML::parse function.
 	 * 
 	 */
 	struct parser_t
@@ -1067,9 +1067,9 @@ namespace SML
 		return (char*)input;
 	}
 
-	// STRING SCAN FUNCTIONS DECLARATIONS
+	// STRING PARSE FUNCTIONS DEFINITIONS
 	/**
-	 * @brief Scan C-string for wanted token. 
+	 * @brief Generic C-string parser. 
 	 * 
 	 * This function is replacment for scanf function. C-string format must be known to use this function.
 	 * Function returns \c SML::Return_t::Ok and result even if \c \0 is encountered during searching for token's end.
@@ -1101,7 +1101,7 @@ namespace SML
 	 * 
 	 * @warning \c sepCntBegin and \c sepCntEnd start from 0!
 	 * @note C-string has to be NULL terminated.
-	 * @note Function scans from left to right.
+	 * @note Function parses from left to right.
 	 */
 	SML::Return_t parse(char* input, char startSeparator, uint8_t startSeparatorCnt, char endSeparator, uint8_t endSeparatorCnt, SML::Data<char>& output, const SML::Answer_t modify)
 	{
@@ -1171,13 +1171,13 @@ namespace SML
 	 * @param list Pointer to parser list.
 	 * @param len Length of \c list
 	 * @param modify Set to \c SML::Answer_t::Yes to replace found separator with \c \0 char.
-	 * @param sorted Set to \c SML::Answer_t::Yes if \c input list is sorted(from left to right). Function will continue where it stopped during scan for previous entry in \c input list.
+	 * @param sorted Set to \c SML::Answer_t::Yes if \c input list is sorted(from left to right). Function will continue where it stopped during parse for previous entry in \c input list.
 	 * @return Number of parsed data.
 	 * 
 	 * @warning \c modify can be used only when \c data list is \c sorted
 	 * @note If \c data list is sorted, set param \c sorted to \c SML::Answer_t::Yes to make parsing faster.  
 	 * @note C-string has to be NULL terminated.
-	 * @note Function scans from left to right.
+	 * @note Function parses from left to right.
 	 */
 	uint8_t parse(char* input, SML::parser_t* list, const uint8_t len, const SML::Answer_t modify, const SML::Answer_t sorted)
 	{
@@ -1186,7 +1186,7 @@ namespace SML
 		// Loop through input list
 		for (uint8_t i = 0; i < len; i++)
 		{
-			// Call single sscan function.
+			// Call single parse function.
 			if (parse(input, sorted == SML::Answer_t::Yes ? '\0' : list[i].startSeparator, list[i].startSeparatorCnt, list[i].endSeparator, list[i].endSeparatorCnt, list[i].output, modify) == SML::Return_t::Ok)
 			{
 				total++;
