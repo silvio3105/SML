@@ -7,7 +7,10 @@ digraph "SML::Logger::print"
   rankdir="LR";
   Node1 [id="Node000001",label="SML::Logger::print",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Print constant C-string."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="SML::Logger::print",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_logger.html#a3aa7789d198491623fb3c0de003ab791",tooltip="Print constant C-string."];
-  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="SML::Logger::getState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_logger.html#a43728d0a017a1f370a1415e2eefb0a4c",tooltip="Get logger state."];
+  Node2 [id="Node000002",label="SML::len",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_s_m_l.html#a2f1fe38b0f0a4e8e04a1b8cbe83fc0e9",tooltip="Find length of input C-string."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="SML::Logger::print",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_logger.html#a3aa7789d198491623fb3c0de003ab791",tooltip="Print constant C-string."];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="SML::Logger::getState",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_logger.html#a43728d0a017a1f370a1415e2eefb0a4c",tooltip="Get logger state."];
+  Node3 -> Node2 [id="edge4_Node000003_Node000002",color="steelblue1",style="solid",tooltip=" "];
 }

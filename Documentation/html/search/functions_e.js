@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write_0',['write',['../class_s_m_l_1_1_ring_buffer.html#a1077cf97b6ed6478685895779dde3c36',1,'SML::RingBuffer::write(T input)'],['../class_s_m_l_1_1_ring_buffer.html#a4de204bd440cb344d65e9b1e5e8a904f',1,'SML::RingBuffer::write(T *input, uint16_t len)']]]
+  ['write_0',['write',['../class_s_m_l_1_1_ring_buffer.html#a9e1aabc10ec28a864a8fb910f4614dc8',1,'SML::RingBuffer::write(T input)'],['../class_s_m_l_1_1_ring_buffer.html#ab32ba78b2246f7523f345e17f2493c96',1,'SML::RingBuffer::write(T *input, uint16_t len)']]]
 ];
