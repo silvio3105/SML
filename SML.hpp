@@ -162,7 +162,89 @@ This License shall be included in all functional textual files.
 	(__SML_MIN_2_S(__SML_H_2_MIN(_in)))
 
 
+// ----- DEBUG STUFF
+#if defined(DEBUG) && defined(DEBUG_HANDLER) && !defined(DEBUG_LEVEL)
+/**
+ * @brief Debug level.
+ * 
+ * All levels above selected are also included.
+ * 
+ * Debug levels: 
+ * 0 = Verbose
+ * 1 = Info
+ * 2 = Warnings
+ * 3 = Errors
+ */
+#define DEBUG_LEVEL 			0
+#warning "[SML] Debug level not selected! Forced to level 0(verbose)."
+#endif // DEBUG && DEBUG_HANDLER
+
+
+// C++ STUFF
 #ifdef __cplusplus
+
+// Define debug functions for SML copy
+#if defined(DEBUG_SML_COPY) && defined(DEBUG) && defined(DEBUG_HANDLER)
+	void DEBUG_HANDLER(const char* str, ...);
+
+	#if DEBUG_LEVEL <= 3
+		#define __SML_COPY_ERROR_LOG DEBUG_HANDLER
+	#else
+		#define __SML_COPY_ERROR_LOG(...)
+	#endif
+	#if DEBUG_LEVEL <= 2
+		#define __SML_COPY_WARNING_LOG DEBUG_HANDLER
+	#else
+		#define __SML_COPY_WARNING_LOG(...)
+	#endif
+	#if DEBUG_LEVEL <= 1
+		#define __SML_COPY_INFO_LOG DEBUG_HANDLER
+	#else
+		#define __SML_COPY_INFO_LOG(...)
+	#endif
+	#if DEBUG_LEVEL == 0
+		#define __SML_COPY_VERBOSE_LOG DEBUG_HANDLER
+	#else
+		#define __SML_COPY_VERBOSE_LOG(...)
+	#endif
+#else 
+	#define __SML_COPY_ERROR_LOG(...)
+	#define __SML_COPY_WARNING_LOG(...)
+	#define __SML_COPY_INFO_LOG(...)
+	#define __SML_COPY_VERBOSE_LOG(...)
+#endif
+
+// Define debug functions for SML ring buffer
+#if defined(DEBUG_SML_RC) && defined(DEBUG) && defined(DEBUG_HANDLER)
+	void DEBUG_HANDLER(const char* str, ...);
+
+	#if DEBUG_LEVEL <= 3
+		#define __SML_RC_ERROR_LOG DEBUG_HANDLER
+	#else
+		#define __SML_RC_ERROR_LOG(...)
+	#endif
+	#if DEBUG_LEVEL <= 2
+		#define __SML_RC_WARNING_LOG DEBUG_HANDLER
+	#else
+		#define __SML_RC_WARNING_LOG(...)
+	#endif
+	#if DEBUG_LEVEL <= 1
+		#define __SML_RC_INFO_LOG DEBUG_HANDLER
+	#else
+		#define __SML_RC_INFO_LOG(...)
+	#endif
+	#if DEBUG_LEVEL == 0
+		#define __SML_RC_VERBOSE_LOG DEBUG_HANDLER
+	#else
+		#define __SML_RC_VERBOSE_LOG(...)
+	#endif
+#else 
+	#define __SML_RB_ERROR_LOG(...)
+	#define __SML_RB_WARNING_LOG(...)
+	#define __SML_RB_INFO_LOG(...)
+	#define __SML_RB_VERBOSE_LOG(...)
+#endif
+
 
 // ----- DEBUG STUFF
 #if defined(DEBUG) && defined(DEBUG_HANDLER)
@@ -170,43 +252,23 @@ This License shall be included in all functional textual files.
 /**
  * @brief Code snippet for creating handler for printing debug log.
  * 
- * @param _loggerObject Name of logger object which will be used for printing.
+ * @param _name Name of the logger object to use for printing.
  */
-#define SML_DEBUG_HANDLER(_loggerObject) \
+#define __SML_DEBUG_HANDLER(_name) \
 	void DEBUG_HANDLER(const char* str, ...) \
 	{ \
 		va_list args; \
 		va_start(args, str); \
-		_loggerObject.printf(str, args); \
+		_name.printf(str, args); \
 		va_end(args); \
 	}
-
-// Log function declaration
-void DEBUG_HANDLER(const char* str, ...);
-
-#ifdef DEBUG_SML_RB
-#define DEBUG_RB_LOG		DEBUG_HANDLER
 #else
-#define DEBUG_RB_LOG(...)
-#endif // DEBUG_SML_RB
-
-#ifdef DEBUG_SML_COPY
-#define DEBUG_COPY_LOG		DEBUG_HANDLER	
-#else
-#define DEBUG_COPY_LOG(...)
-#endif // DEBUG_SML_RB
-
-#else // DEBUG && DEBUG_HANDLER
-
 /**
  * @brief Code snippet for creating handler for printing debug log.
  * 
- * @param _loggerObject Name of logger object which will be used for printing.
+ * @param _name Name of the logger object to use for printing.
  */
-#define SML_DEBUG_HANDLER(_loggerObject)
-#define DEBUG_RB_LOG(...)
-#define DEBUG_COPY_LOG(...)
-
+#define __SML_DEBUG_HANDLER(_loggerObject)
 #endif // DEBUG && DEBUG_HANDLER
 
 
@@ -1483,7 +1545,7 @@ namespace SML
 			// Move tail if overflow is detected
 			if (overflow == SML::Answer_t::Yes && pointer == tail)
 			{
-				DEBUG_RB_LOG("Ring buffer %08X overflow\n", this);
+				__SML_RB_WARNING_LOG("Ring buffer %08X overflow\n", this);
 				move(tail, SML::Answer_t::No);
 			}						
 		}
@@ -1946,7 +2008,7 @@ namespace SML
 					// Check for timeout
 					if (tickHandler() - tick > SML_COPY_TIMEOUT)
 					{
-						DEBUG_COPY_LOG("Copier 0x%08X timeouted\n", this);
+						__SML_COPY_WARNING_LOG("Copier 0x%08X timeouted\n", this);
 						return SML::Return_t::Timeout;
 					}
 
