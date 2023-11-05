@@ -219,24 +219,24 @@ This License shall be included in all functional textual files.
 	void DEBUG_HANDLER(const char* str, ...);
 
 	#if DEBUG_LEVEL <= 3
-		#define __SML_RC_ERROR_LOG DEBUG_HANDLER
+		#define __SML_RB_ERROR_LOG DEBUG_HANDLER
 	#else
-		#define __SML_RC_ERROR_LOG(...)
+		#define __SML_RB_ERROR_LOG(...)
 	#endif
 	#if DEBUG_LEVEL <= 2
-		#define __SML_RC_WARNING_LOG DEBUG_HANDLER
+		#define __SML_RB_WARNING_LOG DEBUG_HANDLER
 	#else
-		#define __SML_RC_WARNING_LOG(...)
+		#define __SML_RB_WARNING_LOG(...)
 	#endif
 	#if DEBUG_LEVEL <= 1
-		#define __SML_RC_INFO_LOG DEBUG_HANDLER
+		#define __SML_RB_INFO_LOG DEBUG_HANDLER
 	#else
-		#define __SML_RC_INFO_LOG(...)
+		#define __SML_RB_INFO_LOG(...)
 	#endif
 	#if DEBUG_LEVEL == 0
-		#define __SML_RC_VERBOSE_LOG DEBUG_HANDLER
+		#define __SML_RB_VERBOSE_LOG DEBUG_HANDLER
 	#else
-		#define __SML_RC_VERBOSE_LOG(...)
+		#define __SML_RB_VERBOSE_LOG(...)
 	#endif
 #else 
 	#define __SML_RB_ERROR_LOG(...)
