@@ -39,6 +39,7 @@ This License shall be included in all functional textual files.
 
 // ----- DEFINES
 #define SML_VERSION				"v1.0rc1" /**< @brief Library version. */
+
 #ifndef SML_COPY_TIMEOUT
 #define SML_COPY_TIMEOUT		3200 /**< @brief Timeout in ms for non-blocking copy operations. */
 #endif // SML_COPY_TIMEOUT
@@ -163,14 +164,50 @@ This License shall be included in all functional textual files.
 
 #ifdef __cplusplus
 
-// ----- EXTERNS
-#ifdef DEBUG_SML_COPY
-extern DEBUG_SML_COPY;
-#endif // DEBUG_SML_COPY
+// ----- DEBUG STUFF
+#if defined(DEBUG) && defined(DEBUG_HANDLER)
+
+/**
+ * @brief Code snippet for creating handler for printing debug log.
+ * 
+ * @param _loggerObject Name of logger object which will be used for printing.
+ */
+#define SML_DEBUG_HANDLER(_loggerObject) \
+	void DEBUG_HANDLER(const char* str, ...) \
+	{ \
+		va_list args; \
+		va_start(args, str); \
+		_loggerObject.printf(str, args); \
+		va_end(args); \
+	}
+
+// Log function declaration
+void DEBUG_HANDLER(const char* str, ...);
 
 #ifdef DEBUG_SML_RB
-extern DEBUG_SML_RB;
+#define DEBUG_RB_LOG		DEBUG_HANDLER
+#else
+#define DEBUG_RB_LOG(...)
 #endif // DEBUG_SML_RB
+
+#ifdef DEBUG_SML_COPY
+#define DEBUG_COPY_LOG		DEBUG_HANDLER	
+#else
+#define DEBUG_COPY_LOG(...)
+#endif // DEBUG_SML_RB
+
+#else // DEBUG && DEBUG_HANDLER
+
+/**
+ * @brief Code snippet for creating handler for printing debug log.
+ * 
+ * @param _loggerObject Name of logger object which will be used for printing.
+ */
+#define SML_DEBUG_HANDLER(_loggerObject)
+#define DEBUG_RB_LOG(...)
+#define DEBUG_COPY_LOG(...)
+
+#endif // DEBUG && DEBUG_HANDLER
 
 
 // ----- NAMESPACES
@@ -182,7 +219,7 @@ namespace SML
 {
 	// DATA CLASS
 	/**
-	 * @brief Class representing data \c T with \c len
+	 * @brief Class representing data of \c T type with \c len size.
 	 * 
 	 * @tparam T Data type.
 	 * 
@@ -191,7 +228,6 @@ namespace SML
 	template<typename T>
 	class Data 
 	{
-		// PUBLIC STUFF
 		public:
 		// CONSTRUCTORS & DECONSTRUCTORS
 		/**
@@ -268,7 +304,7 @@ namespace SML
 			return length;
 		}
 
-		// PRIVATE STUFF
+
 		private:
 		T* dataAddr; /**< Pointer to data. */
 		uint16_t length; /**< Length of \ref dataAddr. */
@@ -478,7 +514,7 @@ namespace SML
 	 * @brief Fill \c len bytes from \c address with \c value
 	 * 
 	 * @param address Pointer to start address to fill with \c value
-	 * @param value Value to fill.
+	 * @param value Value to fill with.
 	 * @param len Lenght in bytes to fill.
 	 * @return No return value.
 	 */
@@ -1215,7 +1251,6 @@ namespace SML
 	template<typename T, uint16_t N>
 	class RingBuffer
 	{
-		// PUBLIC STUFF
 		public:
 		// CONSTRUCTORS & DECONSTRUCTORS
 		/**
@@ -1404,7 +1439,6 @@ namespace SML
 		}
 
 
-		// PRIVATE STUFF
 		private:
 		// VARIABLES
 		T data[N]; /**< @brief Array of \c T type where ring buffer data will be stored. */
@@ -1446,9 +1480,10 @@ namespace SML
 				pointer = 0;
 			}
 
-			// Move tail if overflow if detected
+			// Move tail if overflow is detected
 			if (overflow == SML::Answer_t::Yes && pointer == tail)
 			{
+				DEBUG_RB_LOG("Ring buffer %08X overflow\n", this);
 				move(tail, SML::Answer_t::No);
 			}						
 		}
@@ -1674,6 +1709,7 @@ namespace SML
 			return SML::Answer_t::No;
 		}
 
+
 		private: 
 		// VARIABLES
 		char buffer[N] = { '\0' }; /**< @brief Buffer for \ref printf method. */
@@ -1831,7 +1867,10 @@ namespace SML
 			if (waitHandler)
 			{
 				// Wait for semaphore to be released
-				if (wait() != SML::Return_t::Ok) return SML::Return_t::Timeout;
+				if (wait() != SML::Return_t::Ok)
+				{
+					return SML::Return_t::Timeout;
+				}
 
 				// Take semaphore and block new copy processes
 				takeSemaphore();
@@ -1866,6 +1905,7 @@ namespace SML
 		{
 			semaphore = SML::Semaphore_t::Free;
 		}
+
 
 		private:
 		// VARIABLES
@@ -1906,12 +1946,12 @@ namespace SML
 					// Check for timeout
 					if (tickHandler() - tick > SML_COPY_TIMEOUT)
 					{
+						DEBUG_COPY_LOG("Copier 0x%08X timeouted\n", this);
 						return SML::Return_t::Timeout;
 					}
 
 					waitHandler();
 				}
-
 			}
 			else // Tick handler is not provided
 			{
