@@ -6,6 +6,11 @@
                 "${workspaceFolder}/**"
             ],
             "defines": [
+				"DEBUG",
+				"DEBUG_HANDLER=log",
+				"DEBUG_LEVEL=0",
+				"DEBUG_SML_RC",
+				"DEBUG_SML_COPY"
             ],
 			"compilerArgs": [
             ],
