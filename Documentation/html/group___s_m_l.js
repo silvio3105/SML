@@ -7,6 +7,7 @@ var group___s_m_l =
     [ "__SML_BIT_POWER", "group___s_m_l.html#ga4e27f464f72c24566d033e63bef24f18", null ],
     [ "__SML_BIT_SET", "group___s_m_l.html#gad7515fc9b42f4f0eb75ef426669a9070", null ],
     [ "__SML_BIT_TOGGLE", "group___s_m_l.html#ga9edf538dce04851aa27918f0051c81e6", null ],
+    [ "__SML_DEBUG_HANDLER", "group___s_m_l.html#gacca09173a2d2990657606cb5fce7bc73", null ],
     [ "__SML_H_2_MIN", "group___s_m_l.html#ga58bc9ddd080dbaf2270126a66da6034a", null ],
     [ "__SML_H_2_S", "group___s_m_l.html#ga886b363eab26b52c0dbac8062d6b467f", null ],
     [ "__SML_MIN_2_MS", "group___s_m_l.html#gada477b2c0812028c65d859bf51112705", null ],
