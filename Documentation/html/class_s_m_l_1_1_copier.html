@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Miscellaneous Library<span id="projectnumber">&#160;v1.2rc1</span>
+   <div id="projectname">Simple Miscellaneous Library<span id="projectnumber">&#160;v1.0</span>
    </div>
    <div id="projectbrief">Simple Miscellaneous Library provides miscellaneous functions.</div>
   </td>
@@ -114,22 +114,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af134dceaedf162fda7b531e7b5aed361"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_copier.html#af134dceaedf162fda7b531e7b5aed361">~Copier</a> (void)</td></tr>
 <tr class="memdesc:af134dceaedf162fda7b531e7b5aed361"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_s_m_l_1_1_copier.html" title="Copier class.">Copier</a> object deconstructor.  <br /></td></tr>
 <tr class="separator:af134dceaedf162fda7b531e7b5aed361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf4bec54cc463f9b344d5d0718b7531c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_copier.html#acf4bec54cc463f9b344d5d0718b7531c">copy</a> (const void *source, void *destination, const uint16_t <a class="el" href="namespace_s_m_l.html#a2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
+<tr class="memitem:acf4bec54cc463f9b344d5d0718b7531c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_copier.html#acf4bec54cc463f9b344d5d0718b7531c">copy</a> (const void *source, void *destination, const uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
 <tr class="memdesc:acf4bec54cc463f9b344d5d0718b7531c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy <code>len</code> bytes from <code>source</code> to <code>destionation</code>.  <br /></td></tr>
 <tr class="separator:acf4bec54cc463f9b344d5d0718b7531c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a403d63af94b828bcd8abdfb401dc8395"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_copier.html#a403d63af94b828bcd8abdfb401dc8395">isReady</a> (void) const</td></tr>
 <tr class="memdesc:a403d63af94b828bcd8abdfb401dc8395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if copier is ready.  <br /></td></tr>
 <tr class="separator:a403d63af94b828bcd8abdfb401dc8395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d369bd575ae1cbb101f0e5d36bdf622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_copier.html#a2d369bd575ae1cbb101f0e5d36bdf622">done</a> (void)</td></tr>
-<tr class="memdesc:a2d369bd575ae1cbb101f0e5d36bdf622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Release copier semaphore.  <br /></td></tr>
+<tr class="memdesc:a2d369bd575ae1cbb101f0e5d36bdf622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Release copier process semaphore.  <br /></td></tr>
 <tr class="separator:a2d369bd575ae1cbb101f0e5d36bdf622"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_s_m_l_1_1_copier.html" title="Copier class.">Copier</a> class. </p>
-<p>Wrapper for copy blocking or non-blocking process. User can easly switch from blocking copy process(eg., with standard <code>memcpy</code> function) to non-blocking process(eg., DMA copy process).</p>
+<p>Wrapper for blocking or non-blocking copy process. User can easly switch from blocking copy process(eg., with standard <code>memcpy</code> function) to non-blocking process(eg., DMA copy process).</p>
 <p>In case of non-blocking process, user must release process semaphore with <a class="el" href="class_s_m_l_1_1_copier.html#a2d369bd575ae1cbb101f0e5d36bdf622">Copier::done</a> method. </p>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01860">1860</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01955">1955</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab34f43ff9504500254d7bb226d955d1c" name="ab34f43ff9504500254d7bb226d955d1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab34f43ff9504500254d7bb226d955d1c">&#9670;&#160;</a></span>Copier() <span class="overload">[1/2]</span></h2>
@@ -158,13 +158,13 @@ Public Member Functions</h2></td></tr>
 <p><a class="el" href="class_s_m_l_1_1_copier.html" title="Copier class.">Copier</a> constructor for blocking copy process. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">extHandler</td><td>Pointer to external function for handling copy operations. </td></tr>
+    <tr><td class="paramname">extHandler</td><td>Pointer to external function for handling copy operation. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01870">1870</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01965">1965</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -223,8 +223,8 @@ Public Member Functions</h2></td></tr>
 <p><a class="el" href="class_s_m_l_1_1_copier.html" title="Copier class.">Copier</a> constructor for non-blocking copy process. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">extHandler</td><td>Pointer to external function for handling copy operations. </td></tr>
-    <tr><td class="paramname">waitExtHandler</td><td>Pointer to external function for handling wait states. </td></tr>
+    <tr><td class="paramname">extHandler</td><td>Pointer to external function for handling copy operation. </td></tr>
+    <tr><td class="paramname">waitExtHandler</td><td>Pointer to external function for handling wait state. </td></tr>
     <tr><td class="paramname">tickExtHandler</td><td>Pointer to external function for getting tick. Not required. </td></tr>
     <tr><td class="paramname">mspInit</td><td>Pointer to external function for MSP init. Not required. </td></tr>
     <tr><td class="paramname">mspDeinit</td><td>Pointer to external function for MSP deinit. Not required. </td></tr>
@@ -233,7 +233,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01885">1885</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01980">1980</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -264,7 +264,7 @@ Public Member Functions</h2></td></tr>
 <p><a class="el" href="class_s_m_l_1_1_copier.html" title="Copier class.">Copier</a> object deconstructor. </p>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01904">1904</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01999">1999</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -327,9 +327,9 @@ Here is the call graph for this function:</div>
 <dd>
 <code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecfaf658d06049352dbb95f0424f6dbea8c1" title="Enum value for not OK return status.">SML::Return_t::Nok</a></code> if copy failed. </dd>
 <dd>
-<code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf" title="Enum class with generic return statuses.">SML::Return_t</a>:Ok</code> if copy is successful. </dd></dl>
+<code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecfaa60852f204ed8028c1c58808b746d115" title="Enum value for OK return status.">SML::Return_t::Ok</a></code> if copy is successful. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01926">1926</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l02021">2021</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -362,10 +362,10 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Release copier semaphore. </p>
+<p>Release copier process semaphore. </p>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01966">1966</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l02061">2061</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -398,7 +398,7 @@ Here is the call graph for this function:</div>
 <dd>
 <code><a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418da93cba07454f06a4a960172bbd6e2a435" title="Enum value for positive answer.">SML::Answer_t::Yes</a></code> if copier is ready. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01951">1951</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l02046">2046</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -411,7 +411,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_s_m_l.html">SML</a></li><li class="navelem"><a class="el" href="class_s_m_l_1_1_copier.html">Copier</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Tue Nov 14 2023 01:04:05 for Simple Miscellaneous Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

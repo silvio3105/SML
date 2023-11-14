@@ -23,7 +23,7 @@ digraph "SML::len"
   Node1 -> Node9 [id="edge8_Node000001_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node9 [id="Node000009",label="SML::Logger::Logger",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_logger.html#a12ca7e230acc4a01f9873961080572b8",tooltip="Logger constructor for blocking logging process."];
   Node1 -> Node10 [id="edge9_Node000001_Node000010",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node10 [id="Node000010",label="SML::parse",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_s_m_l.html#a92ee8a34e035ff57986283ffbdcd72cb",tooltip="Parse C-string for multiple data."];
+  Node10 [id="Node000010",label="SML::parse",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_s_m_l.html#a92ee8a34e035ff57986283ffbdcd72cb",tooltip="Parse C-string for multiple strings."];
   Node1 -> Node11 [id="edge10_Node000001_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node11 [id="Node000011",label="SML::Logger::print",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_logger.html#ab0bbeade6df5b83fbc72f3f9b24d54a6",tooltip="Print constant C-string."];
   Node1 -> Node12 [id="edge11_Node000001_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
@@ -32,9 +32,9 @@ digraph "SML::len"
   Node1 -> Node13 [id="edge13_Node000001_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node13 [id="Node000013",label="SML::Logger::printf",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_logger.html#a096fbb5778d0dcdcaaa18440b509e6a8",tooltip="Format and print string."];
   Node1 -> Node14 [id="edge14_Node000001_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="SML::RingBuffer::read",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#ab964453444370d29c6fb7516c09403bf",tooltip="Read multiple data from ring buffer."];
+  Node14 [id="Node000014",label="SML::RingBuffer::read",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#ab964453444370d29c6fb7516c09403bf",tooltip="Read multiple data slots from ring buffer."];
   Node1 -> Node15 [id="edge15_Node000001_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node15 [id="Node000015",label="SML::swapEndian",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_s_m_l.html#ab2632666755c050d1c43be8edbe49566",tooltip="Swap endian."];
   Node1 -> Node16 [id="edge16_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node16 [id="Node000016",label="SML::RingBuffer::write",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#ab32ba78b2246f7523f345e17f2493c96",tooltip="Write multiple data to ring buffer."];
+  Node16 [id="Node000016",label="SML::RingBuffer::write",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#ab32ba78b2246f7523f345e17f2493c96",tooltip="Write multiple T type data to ring buffer."];
 }

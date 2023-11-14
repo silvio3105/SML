@@ -5,11 +5,11 @@ digraph "SML::RingBuffer::read"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node1 [id="Node000001",label="SML::RingBuffer::read",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Read multiple data from ring buffer."];
+  Node1 [id="Node000001",label="SML::RingBuffer::read",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Read multiple data slots from ring buffer."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="SML::len",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespace_s_m_l.html#a2f1fe38b0f0a4e8e04a1b8cbe83fc0e9",tooltip="Find length of input C-string."];
+  Node2 [id="Node000002",label="SML::len",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9",tooltip="Find length of input C-string."];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="SML::RingBuffer::used",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#a7792187d62c67779bdd863aa6e7e7865",tooltip="Fetch number of used data in ring buffer."];
+  Node3 [id="Node000003",label="SML::RingBuffer::used",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#a7792187d62c67779bdd863aa6e7e7865",tooltip="Fetch number of used data slots in ring buffer."];
   Node3 -> Node4 [id="edge3_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="SML::RingBuffer::size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#aeeee0cd4f7f9d60948b22863bb5a160a",tooltip="Get ring buffer size."];
+  Node4 [id="Node000004",label="SML::RingBuffer::size",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_s_m_l_1_1_ring_buffer.html#aeeee0cd4f7f9d60948b22863bb5a160a",tooltip="Get ring buffer size in data slots."];
 }

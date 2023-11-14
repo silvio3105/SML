@@ -6,6 +6,7 @@
                 "${workspaceFolder}/**"
             ],
             "defines": [
+				"SML_IMPLEMENTATION",
 				"DEBUG",
 				"DEBUG_HANDLER=log",
 				"DEBUG_LEVEL=0",

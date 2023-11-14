@@ -31,14 +31,21 @@ This License shall be included in all functional textual files.
 #include			<stdarg.h>
 
 
-/** \addtogroup SML
+/** @addtogroup SML
  * 
  * Custom library with miscellaneous functions. 
  * @{
 */
 
+
+/** @addtogroup Defines
+ * 
+ * Library configuration and information.
+ * @{
+ */
+
 // ----- DEFINES
-#define SML_VERSION				"v1.0rc1" /**< @brief Library version. */
+#define SML_VERSION				"v1.0" /**< @brief Library version. */
 
 #ifndef SML_COPY_TIMEOUT
 #define SML_COPY_TIMEOUT		3200 /**< @brief Timeout in ms for non-blocking copy operations. */
@@ -48,12 +55,22 @@ This License shall be included in all functional textual files.
 #define SML_LOGGER_TIMEOUT		3200 /**< @brief Timeout in ms for non-blocking logger operations. */
 #endif // SML_LOGGER_TIMEOUT
 
+/** @} */
+
+/**
+ * @addtogroup Snippets
+ * 
+ * Library snippets for handlers.
+ * @{
+ */
+
+
 /**
  * @brief Snippet for creating static print handler.
  *
  * @param _name Handler name. 
  */
-#define SML_PRINT_HANDLER(_name) \
+#define __SML_PRINT_HANDLER(_name) \
 	static void _name(const char* buffer, const uint16_t len)
 
 /**
@@ -61,33 +78,77 @@ This License shall be included in all functional textual files.
  * 
  * @param _name Handler name.
  */
-#define SML_COPY_HANDLER(_name) \
+#define __SML_COPY_HANDLER(_name) \
 	static SML::Return_t _name(const void* source, void* destination, const uint16_t len)
+
+#if defined(DEBUG) && defined(DEBUG_HANDLER)
+
+/**
+ * @brief Code snippet for creating handler for printing debug log.
+ * 
+ * @param _name Name of the logger object to use for printing.
+ */
+#define __SML_DEBUG_HANDLER(_name) \
+	void DEBUG_HANDLER(const char* str, ...) \
+	{ \
+		va_list args; \
+		va_start(args, str); \
+		_name.printf(str, args); \
+		va_end(args); \
+	}
+#else
+/**
+ * @brief Code snippet for creating handler for printing debug log.
+ * 
+ * @param _name Name of the logger object to use for printing.
+ */
+#define __SML_DEBUG_HANDLER(_name)
+#endif // DEBUG && DEBUG_HANDLER
+
+/** @} */
 
 
 // MACRO FUNCTIONS
+
 /**
- * @brief Calculate number of members in array.
+ * @addtogroup Math 
+ * 
+ * Useful math functions.
+ * @{
+ */
+
+/**
+ * @brief Get number of members in \c _in array.
  * 
  * @param _in Input array.
  */
 #define __SML_ARRAY_LEN(_in) \
 	(sizeof(_in) / sizeof(_in[0]))
 
+/** @} */
+
+
 /**
- * @brief Set \c _bit of \c _value to 1.
+ * @addtogroup Bit_operation
+ * 
+ * Function-like macros for bit operations.
+ * @{ 
+ */
+
+/**
+ * @brief Set \c _bit in \c _value to 1.
  * 
  * @param _value Input value.
- * @param _bit Bit number of \c _value to change to 1.
+ * @param _bit Bit number in \c _value to change to 1.
  */
 #define __SML_BIT_SET(_value, _bit) \
 	_value |= 1 << (_bit)
 
 /**
- * @brief Set \c _bit of \c _value to 0. 
+ * @brief Set \c _bit in \c _value to 0. 
  * 
  * @param _value Input value.
- * @param _bit Bit number of \c _value to change to 0. 
+ * @param _bit Bit number in \c _value to change to 0. 
  */
 #define __SML_BIT_CLEAR(_value, _bit) \
 	_value &= ~(1 << (_bit))
@@ -96,33 +157,44 @@ This License shall be included in all functional textual files.
  * @brief Toggle \c _bit in \c _value
  * 
  * @param _value Input value.
- * @param _bit Bit number of \c _value to toggle.
+ * @param _bit Bit number in \c _value to toggle.
  */
 #define __SML_BIT_TOGGLE(_value, _bit) \
 	_value ^= 1 << (_bit)
 
 /**
- * @brief Fetch bit \c _bit power in \c _value
+ * @brief Get bit \c _bit power in \c _value
  * 
  * @param _value Input value.
- * @param _bit Bit number in \c _value to fetch.
+ * @param _bit Bit number in \c _value to get.
  */
 #define __SML_BIT_POWER(_value, _bit) \
 	(_value & (1 << (_bit)))
 
 /**
- * @brief Fetch \c _bit from \c _value
+ * @brief Get \c _bit from \c _value
  * 
  * @param _value Input value.
- * @param _bit Bit number of \c _value to fetch.
+ * @param _bit Bit number of \c _value to get.
  * 
  * @note Function returns \c 0 or \c 1.
  */
 #define __SML_BIT_GET(_value, _bit) \
 	(_value & (1 << (_bit))) >> (_bit)
 
+/** @} */
+
+
+
 /**
- * @brief Convert seconds to miliseconds
+ * @addtogroup Conversion 
+ * 
+ * Function-like macros for converting from one unit to another.
+ * @{
+ */
+
+/**
+ * @brief Convert \c _in seconds to miliseconds
  * 
  * @param _in Input value in seconds.
  */
@@ -130,7 +202,7 @@ This License shall be included in all functional textual files.
 	(_in * 1000)
 
 /**
- * @brief Convert minutes to seconds.
+ * @brief Convert \c _in minutes to seconds.
  * 
  * @param _in Input value in minutes.
  */
@@ -138,7 +210,7 @@ This License shall be included in all functional textual files.
 	(_in * 60)
 
 /**
- * @brief Convert minutes to miliseconds.
+ * @brief Convert \c _in minutes to miliseconds.
  * 
  * @param _in Input value in minutes.
  */
@@ -146,7 +218,7 @@ This License shall be included in all functional textual files.
 	(__SML_S_2_MS(__SML_MIN_2_S(_in)))
 	
 /**
- * @brief Convert hours to minutes.
+ * @brief Convert \c _in hours to minutes.
  * 
  * @param _in Input value in hours.
  */
@@ -154,12 +226,14 @@ This License shall be included in all functional textual files.
 	(_in * 60)
 
 /**
- * @brief Convert hours to seconds.
+ * @brief Convert \c _in hours to seconds.
  * 
  * @param _in Input value in hours.
  */
 #define __SML_H_2_S(_in) \
 	(__SML_MIN_2_S(__SML_H_2_MIN(_in)))
+
+/** @} */
 
 
 // ----- DEBUG STUFF
@@ -208,10 +282,15 @@ This License shall be included in all functional textual files.
 		#define __SML_COPY_VERBOSE_LOG(...)
 	#endif
 #else 
+	/// @{
+	/**
+	 * @private
+	*/
 	#define __SML_COPY_ERROR_LOG(...)
 	#define __SML_COPY_WARNING_LOG(...)
 	#define __SML_COPY_INFO_LOG(...)
 	#define __SML_COPY_VERBOSE_LOG(...)
+	/// @}
 #endif
 
 // Define debug functions for SML ring buffer
@@ -239,37 +318,16 @@ This License shall be included in all functional textual files.
 		#define __SML_RB_VERBOSE_LOG(...)
 	#endif
 #else 
+	/// @{
+	/**
+	 * @private
+	*/
 	#define __SML_RB_ERROR_LOG(...)
 	#define __SML_RB_WARNING_LOG(...)
 	#define __SML_RB_INFO_LOG(...)
 	#define __SML_RB_VERBOSE_LOG(...)
+	/// @}
 #endif
-
-
-// ----- DEBUG STUFF
-#if defined(DEBUG) && defined(DEBUG_HANDLER)
-
-/**
- * @brief Code snippet for creating handler for printing debug log.
- * 
- * @param _name Name of the logger object to use for printing.
- */
-#define __SML_DEBUG_HANDLER(_name) \
-	void DEBUG_HANDLER(const char* str, ...) \
-	{ \
-		va_list args; \
-		va_start(args, str); \
-		_name.printf(str, args); \
-		va_end(args); \
-	}
-#else
-/**
- * @brief Code snippet for creating handler for printing debug log.
- * 
- * @param _name Name of the logger object to use for printing.
- */
-#define __SML_DEBUG_HANDLER(_loggerObject)
-#endif // DEBUG && DEBUG_HANDLER
 
 
 // ----- NAMESPACES
@@ -345,7 +403,7 @@ namespace SML
 		 * @brief Set new data.
 		 * 
 		 * @param newData Pointer to new data.
-		 * @param newLen Length of new data.
+		 * @param newLen Length of \c newData.
 		 * @return No return value.
 		 */
 		inline void set(T* newData, uint16_t newLen)
@@ -389,13 +447,13 @@ namespace SML
 	};
 
 	/**
-	 * @brief Enum class with generic binary statuses.
+	 * @brief Enum class with generic digital states.
 	 * 
 	 */
 	enum class State_t : uint8_t
 	{
-		Off = 0, /**< @brief Enum value for off status. */
-		On = 1 /**< @brief Enum value for on status. */
+		Off = 0, /**< @brief Enum value for off state. */
+		On = 1 /**< @brief Enum value for on state. */
 	};
 
 	/**
@@ -426,14 +484,14 @@ namespace SML
 	enum class Process_t : uint8_t
 	{
 		Blocking = 0, /**< @brief Enum value for blocking process. */
-		NonBlocking = 1 /**< @brief Enum value for non blocking process. */
+		NonBlocking = 1 /**< @brief Enum value for non-blocking process. */
 	};
 
 	/**
 	 * @brief Enum class with time formats.
 	 * 
 	 */
-	enum class TimeFomrat_t : uint8_t
+	enum class TimeFormat_t : uint8_t
 	{
 		Time24H = 0, /**< @brief Enum value for 24h time format. */
 		TimeAMPM /**< @brief Enum value for 12 hour AM-PM format. */
@@ -504,7 +562,7 @@ namespace SML
 	typedef void (*ext_handler_f)(void);
 
 	/**
-	 * @brief Definition for generic function that returns \c uint32_t 
+	 * @brief Definition for generic function which returns \c uint32_t 
 	 * 
 	 * @return \c uint32_t value.
 	 */
@@ -526,7 +584,7 @@ namespace SML
 	 * @param destination Pointer to address to copy to.
 	 * @param len Number of bytes to copy from \c source to \c destionation
 	 * @return \c SML::Return_t::Nok if copy failed.
-	 * @return \c SML::Return_t:Ok if copy is successful.
+	 * @return \c SML::Return_t::Ok if copy is successful.
 	 */
 	typedef SML::Return_t (*copy_handler_f)(const void* source, void* destination, const uint16_t len);
 
@@ -535,13 +593,14 @@ namespace SML
 	/**
 	 * @brief Struct for input info for \ref SML::parse function.
 	 * 
+	 * @ingroup String
 	 */
 	struct parser_t
 	{
 		char endSeparator; /**< End separator character. */
-		uint8_t endSeparatorCnt; /**< Number of \ref endSeparator after \ref startSeparator is found. */
+		uint8_t endSeparatorCnt; /**< Number of \ref endSeparator chars after \ref startSeparator is found. */
 		char startSeparator; /**< Separator character before wanted parameter. */
-		uint8_t startSeparatorCnt; /**< Number of \ref startSeparator before wanted parameter. */		
+		uint8_t startSeparatorCnt; /**< Number of \ref startSeparator chars before wanted parameter. */		
 		SML::Data<char> output; /**< \c char type output data. */
 	};
 
@@ -554,7 +613,7 @@ namespace SML
 	inline constexpr uint8_t char2Num(const char ch);
 	inline constexpr SML::Answer_t isMinute(const uint8_t in);
 	inline constexpr SML::Answer_t isSecond(const uint8_t in);
-	constexpr SML::Answer_t isHour(const uint8_t in, const SML::TimeFomrat_t format = SML::TimeFomrat_t::Time24H);
+	constexpr SML::Answer_t isHour(const uint8_t in, const SML::TimeFormat_t format = SML::TimeFormat_t::Time24H);
 	inline constexpr SML::Year_t getYearType(const uint16_t year);
 	SML::Answer_t isDateValid(const uint8_t day, const uint8_t month, const uint16_t year);
 	constexpr inline float abs(float in);
@@ -616,7 +675,9 @@ namespace SML
 	 * @param output Pointer to output variable.
 	 * @param input Pointer to input variable.
 	 * @param len Length of \c input variable in bytes.
-	 * @return No return value. 
+	 * @return No return value.
+	 * 
+	 * @ingroup Conversion
 	 */
 	void swapEndian(void* output, const void* input, const uint8_t len)
 	{
@@ -692,17 +753,17 @@ namespace SML
 	 * @brief Validate input value for hours.
 	 * 
 	 * @param in Input value.
-	 * @param format Hour format. See \ref SML::TimeFomrat_t
+	 * @param format Hour format. See \ref SML::TimeFormat_t
 	 * @return \c SML::Answer_t::No if input value \c in is not not hour.
 	 * @return \c SML::Answer_t::Yes if input value \c in is hour.
 	 */
-	constexpr SML::Answer_t isHour(const uint8_t in, const SML::TimeFomrat_t format)
+	constexpr SML::Answer_t isHour(const uint8_t in, const SML::TimeFormat_t format)
 	{
-		if (format == SML::TimeFomrat_t::Time24H && in >= 0 && in < 24)
+		if (format == SML::TimeFormat_t::Time24H && in >= 0 && in < 24)
 		{
 			return SML::Answer_t::Yes;
 		}
-		else if (format == SML::TimeFomrat_t::TimeAMPM && in > 0 && in < 13)
+		else if (format == SML::TimeFormat_t::TimeAMPM && in > 0 && in < 13)
 		{
 			return SML::Answer_t::Yes;
 		}
@@ -802,6 +863,8 @@ namespace SML
 	 * @param outMin Output minimum value.
 	 * @param outMax Output maximum value.
 	 * @return \c in value scaled to fit range defined with \c outMin and \c outMax
+	 * 
+	 * @ingroup Math
 	 */	
 	template<typename T>
 	constexpr T scale(T in, T inMin, T inMax, T outMin, T outMax)
@@ -816,6 +879,8 @@ namespace SML
 	 * @param in1 Input value 1.
 	 * @param in2 Input value 2.
 	 * @return Lowest value between \c in1 and \c in2
+	 * 
+	 * @ingroup Math
 	 */
 	template<typename T>
 	constexpr inline T min(T in1, T in2)
@@ -830,6 +895,8 @@ namespace SML
 	 * @param in1 Input value 1.
 	 * @param in2 Input value 2.
 	 * @return Greatest value between \c in1 and \c in2
+	 * 
+	 * @ingroup Math
 	 */	
 	template<typename T>
 	constexpr inline T max(T in1, T in2)
@@ -845,6 +912,8 @@ namespace SML
 	 * @param in2 Input value 2.
 	 * @param in3 Input value 3.
 	 * @return Lowest value between \c in1 \c in2 and \c in3
+	 * 
+	 * @ingroup Math
 	 */	
 	template<typename T>		
 	constexpr T min(T in1, T in2, T in3)
@@ -860,6 +929,8 @@ namespace SML
 	 * @param in2 Input value 2.
 	 * @param in3 Input value 3.
 	 * @return Greatest value between \c in1 \c in2 and \c in3
+	 * 
+	 * @ingroup Math
 	 */	
 	template<typename T>	
 	constexpr T max(T in1, T in2, T in3)
@@ -873,6 +944,8 @@ namespace SML
 	 * @tparam T Data type.
 	 * @param in Input value.
 	 * @return Absolute value from \c in value.
+	 * 
+	 * @ingroup Math
 	 */
 	template<typename T>
 	constexpr inline T abs(T in)
@@ -885,6 +958,8 @@ namespace SML
 	 * 
 	 * @param in Input float value.
 	 * @return Absolute value from \c in value.
+	 * 
+	 * @ingroup Math
 	 */
 	constexpr inline float abs(float in)
 	{
@@ -902,6 +977,8 @@ namespace SML
 	 * @return \c min value if \c in is smaller than \c min
 	 * @return \c max value if \c in is greater than \c max
 	 * @return Return limited value.
+	 * 
+	 * @ingroup Math
 	 */
 	template<typename T>
 	constexpr inline T limit(T in, T low, T high)
@@ -916,6 +993,8 @@ namespace SML
 	 * 
 	 * @param input Input number.
 	 * @return Sum of all digits.
+	 * 
+	 * @ingroup Math
 	 */
 	template<typename T>
 	uint8_t sumDigits(T input)
@@ -946,7 +1025,9 @@ namespace SML
 	 * Example: 22 in decimal will become 0x22 in hex.
 	 * 
 	 * @param in Input 8-bit value.
-	 * @return Value \c num in BCD.
+	 * @return Value \c in in BCD.
+	 * 
+	 * @ingroup Conversion
 	 */
 	inline constexpr uint8_t dec2BCD(const uint8_t in)
 	{
@@ -960,12 +1041,22 @@ namespace SML
 	 * Example: 0x22 in BCD will become 22 in decimal.
 	 * 
 	 * @param in Input 8-bit value.
-	 * @return Value \c num in decimal.
+	 * @return Value \c in in decimal.
+	 * 
+	 * @ingroup Conversion
 	 */
 	inline constexpr uint8_t bcd2Dec(const uint8_t in)
 	{
 		return ((in >> 4) * 10) + (in & 0x0F);
 	}
+
+
+	/**
+	 * @addtogroup String 
+	 * 
+	 * String functions.
+	 * @{
+	 */
 
 	/**
 	 * @brief Convert C-string to decimal value.
@@ -1100,7 +1191,7 @@ namespace SML
 	 * @param input2 Pointer to second C-string.
 	 * @param endChar Character where function should stop. This parameter is optional.
 	 * @return \c SML::Return_t::Nok if strings are not equal.
-	 * @return \c SML::Return_t::Ok if strings are equal. 
+	 * @return \c SML::Return_t::Ok if strings are equal.
 	 */
 	SML::Return_t cmp(const char* input1, const char* input2, char endChar)
 	{
@@ -1179,11 +1270,11 @@ namespace SML
 	 * Example #2:
 	 * C-string \c test1,test2-test3-test4.test5,test6 and call \c parse(string,'-',1,',',0,output) -> output C-string will be \c test4.test5 length will be 11.
 	 * \c 1 because there is \c 1 \c - before wanted token, dash between \c test2 and \c test3
-	 * \c 0 because there is \c 0 \c , after \c sepBegin
+	 * \c 0 because there is \c 0 \c , after \c startSeparator
 	 * 
 	 * Example #3:
 	 * C-string \c test1,test2,test3-test4.test5,test6 and call \c parse(string,'\0',0,',',1,output) -> output C-string will be \c test1,test2 length will be 11.
-	 * \c \0 as begin separator indicates that wanted token starts from begining. In that case, \c sepCntBegin parameter makes no effect.
+	 * \c \0 as begin separator indicates that wanted token starts from begining. In that case, \c startSeparatorCnt parameter makes no effect.
 	 * 
 	 * See example code for more info.
 	 * 
@@ -1192,12 +1283,12 @@ namespace SML
 	 * @param startSeparatorCnt Number of separators before wanted token.
 	 * @param endSeparator Character used as separator after wanted token.
 	 * @param endSeparatorCnt Number of separators after wanted token is found.
-	 * @param output Reference to char output data. 
+	 * @param output Reference to char output \ref SML::Data 
 	 * @param modify Set to \c SML::Answer_t::Yes to replace found separator with \c \0 char.
 	 * @return \c SML::Return_t::Nok if no token was found.
 	 * @return \c SML::Return_t::Ok if token was found.
 	 * 
-	 * @warning \c sepCntBegin and \c sepCntEnd start from 0!
+	 * @warning \c startSeparatorCnt and \c endSeparatorCnt start from 0!
 	 * @note C-string has to be NULL terminated.
 	 * @note Function parses from left to right.
 	 */
@@ -1258,10 +1349,10 @@ namespace SML
 	}
 
 	/**
-	 * @brief Parse C-string for multiple data.
+	 * @brief Parse C-string for multiple strings.
 	 * 
-	 * This function works same as \ref parse
-	 * Only difference is this function parse multiple data.
+	 * This function works same as \ref SML::parse
+	 * Only difference is this function parse for multiple strings.
 	 * If output result is \c nullptr then wanted part was not found.
 	 * See example code for more info.
 	 * 
@@ -1270,10 +1361,10 @@ namespace SML
 	 * @param len Length of \c list
 	 * @param modify Set to \c SML::Answer_t::Yes to replace found separator with \c \0 char.
 	 * @param sorted Set to \c SML::Answer_t::Yes if \c input list is sorted(from left to right). Function will continue where it stopped during parse for previous entry in \c input list.
-	 * @return Number of parsed data.
+	 * @return Number of parsed strings.
 	 * 
-	 * @warning \c modify can be used only when \c data list is \c sorted
-	 * @note If \c data list is sorted, set param \c sorted to \c SML::Answer_t::Yes to make parsing faster.  
+	 * @warning \c modify can be used only when \c list is \c sorted
+	 * @note If \c list is sorted, set param \c sorted to \c SML::Answer_t::Yes to make parsing faster.  
 	 * @note C-string has to be NULL terminated.
 	 * @note Function parses from left to right.
 	 */
@@ -1299,6 +1390,8 @@ namespace SML
 
 		return total;		
 	}
+
+	/** @} */
 
 	#endif // SML_IMPLEMENTATION
 
@@ -1355,7 +1448,7 @@ namespace SML
 		}
 
 		/**
-		 * @brief Write multiple data to ring buffer.
+		 * @brief Write multiple \c T type data to ring buffer.
 		 * 
 		 * @param input Pointer to data array of \c T type to write.
 		 * @param len Length of \c data
@@ -1371,10 +1464,10 @@ namespace SML
 		}
 
 		/**
-		 * @brief Read signle data from ring buffer.
+		 * @brief Read signle data slot from ring buffer.
 		 * 
-		 * @param output Reference for output of \c T type.
-		 * @return Number of read bytes.
+		 * @param output Reference to output of \c T type.
+		 * @return Number of read data slots.
 		 */
 		uint16_t read(T& output)
 		{
@@ -1395,11 +1488,11 @@ namespace SML
 		}
 
 		/**
-		 * @brief Read multiple data from ring buffer.
+		 * @brief Read multiple data slots from ring buffer.
 		 * 
 		 * @param output Pointer to array for output data of \c T type. 
-		 * @param len Length of \c output array.
-		 * @return Number of read bytes.
+		 * @param len Length of \c output array in data slots.
+		 * @return Number of read data slots.
 		 */
 		uint16_t read(T* output, uint16_t len)
 		{
@@ -1444,7 +1537,7 @@ namespace SML
 		}
 
 		/**
-		 * @brief Fetch number of used data in ring buffer.
+		 * @brief Fetch number of used data slots in ring buffer.
 		 * 
 		 * @return Number of used data.
 		 */
@@ -1462,7 +1555,7 @@ namespace SML
 		/**
 		 * @brief Fetch number of free data in ring buffer.
 		 * 
-		 * @return Number of free data.
+		 * @return Number of free data slots.
 		 */
 		inline uint16_t free(void) const
 		{
@@ -1471,7 +1564,7 @@ namespace SML
 		}
 
 		/**
-		 * @brief Is ring buffer full.
+		 * @brief Check is ring buffer full.
 		 * 
 		 * @return \c SML::Return_t::Nok if ring buffer is not full.
 		 * @return \c SML::Return_t::Ok if ring buffer is full.
@@ -1490,9 +1583,9 @@ namespace SML
 		}
 
 		/**
-		 * @brief Get ring buffer size.
+		 * @brief Get ring buffer size in data slots.
 		 * 
-		 * @return Size of ring buffer.
+		 * @return Size of ring buffer in data slots.
 		 */
 		inline constexpr uint16_t size(void) const
 		{
@@ -1556,7 +1649,7 @@ namespace SML
 	 * 
 	 * Wrapper for logging process. Process can be blocking or non-blocking. User can easly switch from blocking to non-blocking process or switch from classic UART to Segger's RTT or custom trace log in non-inited SRAM via external handler.
 	 * 
-	 * In case of non-blocking process, user must "mark" print process done with \ref done method. 
+	 * In case of non-blocking process, user must release process semaphore process with \ref done method. 
 	 * 
 	 * @tparam N Buffer size in bytes for formatted prints.
 	 */
@@ -1570,9 +1663,9 @@ namespace SML
 		 * 
 		 * @param handler Pointer to external function for handling buffer transfer(printing).
 		 * @param fix Prefix C-string. Has to be NULL terminated.
-		 * @param initedState Logger initial state. See \ref SML::State_t
-		 * @param mspInit Pointer to external function for MSP init.
-		 * @param mspDeinit Pointer to external function for MSP deinit.
+		 * @param initedState Logger initial state. See \ref SML::State_t. Not required.
+		 * @param mspInit Pointer to external function for MSP init. Not required.
+		 * @param mspDeinit Pointer to external function for MSP deinit. Not required.
 		 * @return No return value.
 		 */
 		Logger(SML::print_handler_f handler, const char* fix = "", SML::State_t initedState = SML::State_t::On, SML::ext_handler_f mspInit = nullptr, SML::ext_handler_f mspDeinit = nullptr)
@@ -1596,11 +1689,11 @@ namespace SML
 		 * 
 		 * @param handler Pointer to external function for handling buffer transfer(printing).
 		 * @param waitExtHandler Pointer to external function for handling wait states.
-		 * @param fix Prefix C-string. Has to be NULL terminated.
-		 * @param tickExtHandler Pointer to external function for getting tick.
-		 * @param initedState Logger initial state. See \ref SML::State_t
-		 * @param mspInit Pointer to external function for MSP init.
-		 * @param mspDeinit Pointer to external function for MSP deinit.
+		 * @param fix Prefix C-string. Has to be NULL terminated. Not required.
+		 * @param tickExtHandler Pointer to external function for getting tick. Not required.
+		 * @param initedState Logger initial state. See \ref SML::State_t. Not required.
+		 * @param mspInit Pointer to external function for MSP init. Not required.
+		 * @param mspDeinit Pointer to external function for MSP deinit. Not required.
 		 * @return No return value.
 		 */
 		Logger(SML::print_handler_f handler, SML::ext_handler_f waitExtHandler, const char* fix = "", SML::ext_handler_u32_f tickExtHandler = nullptr, SML::State_t initedState = SML::State_t::On, SML::ext_handler_f mspInit = nullptr, SML::ext_handler_f mspDeinit = nullptr) : Logger(handler, fix, initedState, mspInit, mspDeinit)
@@ -1636,7 +1729,7 @@ namespace SML
 		/**
 		 * @brief Print constant C-string.
 		 * 
-		 * @param str Pointer to C-string.
+		 * @param str Pointer to C-string. Has to be NULL terminated.
 		 * @param len Length of \c str
 		 * @return \c SML::Return_t::Timeout if process timeouted.
 		 * @return \c SML::Return_t::Nok if logger is turned off.
@@ -1680,11 +1773,13 @@ namespace SML
 		 * 
 		 * This method uses variable argument list and \c vsnprintf function for string formating.
 		 * 
-		 * @param str Pointer to C-string.
+		 * @param str Pointer to C-string. Has to be NULL terminated.
 		 * @param ... Variable arguments.
 		 * @return \c SML::Return_t::Timeout if process timeouted.
 		 * @return \c SML::Return_t::Nok if logger is turned off.
 		 * @return \c SML::Return_t::Ok on success.
+		 * 
+		 * @warning Maximum length of formatted \c str has to be less than \c N
 		 */
 		SML::Return_t printf(const char* str, ...)
 		{
@@ -1853,7 +1948,7 @@ namespace SML
 	/**
 	 * @brief Copier class.
 	 * 
-	 * Wrapper for copy blocking or non-blocking process. User can easly switch from blocking copy process(eg., with standard \c memcpy function) to non-blocking process(eg., DMA copy process).
+	 * Wrapper for blocking or non-blocking copy process. User can easly switch from blocking copy process(eg., with standard \c memcpy function) to non-blocking process(eg., DMA copy process).
 	 * 
 	 * In case of non-blocking process, user must release process semaphore with \ref Copier::done method. 
 	 */
@@ -1864,7 +1959,7 @@ namespace SML
 		/**
 		 * @brief Copier constructor for blocking copy process.
 		 * 
-		 * @param extHandler Pointer to external function for handling copy operations.
+		 * @param extHandler Pointer to external function for handling copy operation.
 		 * @return No return value.
 		 */
 		Copier(SML::copy_handler_f extHandler)
@@ -1875,8 +1970,8 @@ namespace SML
 		/**
 		 * @brief Copier constructor for non-blocking copy process.
 		 * 
-		 * @param extHandler Pointer to external function for handling copy operations.
-		 * @param waitExtHandler Pointer to external function for handling wait states.
+		 * @param extHandler Pointer to external function for handling copy operation.
+		 * @param waitExtHandler Pointer to external function for handling wait state.
 		 * @param tickExtHandler Pointer to external function for getting tick. Not required.
 		 * @param mspInit Pointer to external function for MSP init. Not required.
 		 * @param mspDeinit Pointer to external function for MSP deinit. Not required.
@@ -1921,7 +2016,7 @@ namespace SML
 		 * @param len Number of bytes to copy from \c source to \c destionation
 		 * @return \c SML::Return_t::Timeout if copy timeouted.
 		 * @return \c SML::Return_t::Nok if copy failed.
-		 * @return \c SML::Return_t:Ok if copy is successful.
+		 * @return \c SML::Return_t::Ok if copy is successful.
 		 */
 		SML::Return_t copy(const void* source, void* destination, const uint16_t len)
 		{
@@ -1959,7 +2054,7 @@ namespace SML
 		}
 
 		/**
-		 * @brief Release copier semaphore.
+		 * @brief Release copier process semaphore.
 		 * 
 		 * @return No return value.
 		 */

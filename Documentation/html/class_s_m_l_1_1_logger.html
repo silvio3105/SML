@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Simple Miscellaneous Library<span id="projectnumber">&#160;v1.2rc1</span>
+   <div id="projectname">Simple Miscellaneous Library<span id="projectnumber">&#160;v1.0</span>
    </div>
    <div id="projectbrief">Simple Miscellaneous Library provides miscellaneous functions.</div>
   </td>
@@ -114,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a81516b3d635394e30855c30b84b1a9d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_logger.html#a81516b3d635394e30855c30b84b1a9d7">~Logger</a> (void)</td></tr>
 <tr class="memdesc:a81516b3d635394e30855c30b84b1a9d7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_s_m_l_1_1_logger.html" title="Logger class.">Logger</a> deconstructor.  <br /></td></tr>
 <tr class="separator:a81516b3d635394e30855c30b84b1a9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aa7789d198491623fb3c0de003ab791"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_logger.html#a3aa7789d198491623fb3c0de003ab791">print</a> (const char *str, const uint16_t <a class="el" href="namespace_s_m_l.html#a2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
+<tr class="memitem:a3aa7789d198491623fb3c0de003ab791"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_logger.html#a3aa7789d198491623fb3c0de003ab791">print</a> (const char *str, const uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
 <tr class="memdesc:a3aa7789d198491623fb3c0de003ab791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print constant C-string.  <br /></td></tr>
 <tr class="separator:a3aa7789d198491623fb3c0de003ab791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0bbeade6df5b83fbc72f3f9b24d54a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_m_l_1_1_logger.html#ab0bbeade6df5b83fbc72f3f9b24d54a6">print</a> (const char *str)</td></tr>
@@ -143,7 +143,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><div class="compoundTemplParams">template&lt;uint16_t N&gt;<br />
 class SML::Logger&lt; N &gt;</div><p><a class="el" href="class_s_m_l_1_1_logger.html" title="Logger class.">Logger</a> class. </p>
 <p>Wrapper for logging process. Process can be blocking or non-blocking. User can easly switch from blocking to non-blocking process or switch from classic UART to Segger's RTT or custom trace log in non-inited SRAM via external handler.</p>
-<p>In case of non-blocking process, user must "mark" print process done with <a class="el" href="class_s_m_l_1_1_logger.html#a34982094e2cb598683a62aa8b7a98231">done</a> method.</p>
+<p>In case of non-blocking process, user must release process semaphore process with <a class="el" href="class_s_m_l_1_1_logger.html#a34982094e2cb598683a62aa8b7a98231">done</a> method.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">N</td><td>Buffer size in bytes for formatted prints. </td></tr>
@@ -151,7 +151,7 @@ class SML::Logger&lt; N &gt;</div><p><a class="el" href="class_s_m_l_1_1_logger.
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01564">1564</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01657">1657</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a12ca7e230acc4a01f9873961080572b8" name="a12ca7e230acc4a01f9873961080572b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12ca7e230acc4a01f9873961080572b8">&#9670;&#160;</a></span>Logger() <span class="overload">[1/2]</span></h2>
@@ -212,15 +212,15 @@ template&lt;uint16_t N&gt; </div>
   <table class="params">
     <tr><td class="paramname">handler</td><td>Pointer to external function for handling buffer transfer(printing). </td></tr>
     <tr><td class="paramname">fix</td><td>Prefix C-string. Has to be NULL terminated. </td></tr>
-    <tr><td class="paramname">initedState</td><td><a class="el" href="class_s_m_l_1_1_logger.html" title="Logger class.">Logger</a> initial state. See <a class="el" href="namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742">SML::State_t</a> </td></tr>
-    <tr><td class="paramname">mspInit</td><td>Pointer to external function for MSP init. </td></tr>
-    <tr><td class="paramname">mspDeinit</td><td>Pointer to external function for MSP deinit. </td></tr>
+    <tr><td class="paramname">initedState</td><td><a class="el" href="class_s_m_l_1_1_logger.html" title="Logger class.">Logger</a> initial state. See <a class="el" href="namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742">SML::State_t</a>. Not required. </td></tr>
+    <tr><td class="paramname">mspInit</td><td>Pointer to external function for MSP init. Not required. </td></tr>
+    <tr><td class="paramname">mspDeinit</td><td>Pointer to external function for MSP deinit. Not required. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01578">1578</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01671">1671</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -300,17 +300,17 @@ template&lt;uint16_t N&gt; </div>
   <table class="params">
     <tr><td class="paramname">handler</td><td>Pointer to external function for handling buffer transfer(printing). </td></tr>
     <tr><td class="paramname">waitExtHandler</td><td>Pointer to external function for handling wait states. </td></tr>
-    <tr><td class="paramname">fix</td><td>Prefix C-string. Has to be NULL terminated. </td></tr>
-    <tr><td class="paramname">tickExtHandler</td><td>Pointer to external function for getting tick. </td></tr>
-    <tr><td class="paramname">initedState</td><td><a class="el" href="class_s_m_l_1_1_logger.html" title="Logger class.">Logger</a> initial state. See <a class="el" href="namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742">SML::State_t</a> </td></tr>
-    <tr><td class="paramname">mspInit</td><td>Pointer to external function for MSP init. </td></tr>
-    <tr><td class="paramname">mspDeinit</td><td>Pointer to external function for MSP deinit. </td></tr>
+    <tr><td class="paramname">fix</td><td>Prefix C-string. Has to be NULL terminated. Not required. </td></tr>
+    <tr><td class="paramname">tickExtHandler</td><td>Pointer to external function for getting tick. Not required. </td></tr>
+    <tr><td class="paramname">initedState</td><td><a class="el" href="class_s_m_l_1_1_logger.html" title="Logger class.">Logger</a> initial state. See <a class="el" href="namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742">SML::State_t</a>. Not required. </td></tr>
+    <tr><td class="paramname">mspInit</td><td>Pointer to external function for MSP init. Not required. </td></tr>
+    <tr><td class="paramname">mspDeinit</td><td>Pointer to external function for MSP deinit. Not required. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01606">1606</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01699">1699</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -343,7 +343,7 @@ template&lt;uint16_t N&gt; </div>
 <p><a class="el" href="class_s_m_l_1_1_logger.html" title="Logger class.">Logger</a> deconstructor. </p>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01624">1624</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01717">1717</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -382,7 +382,7 @@ template&lt;uint16_t N&gt; </div>
 <p>Release logger's semaphore in non-bloking process. </p>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01753">1753</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01848">1848</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -413,11 +413,11 @@ template&lt;uint16_t N&gt; </div>
 </div><div class="memdoc">
 
 <p>Get logger state. </p>
-<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742ad15305d7a4e34e02489c74a5ef542f36" title="Enum value for off status.">SML::State_t::Off</a></code> if logger is turned off. </dd>
+<dl class="section return"><dt>Returns</dt><dd><code><a class="el" href="namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742ad15305d7a4e34e02489c74a5ef542f36" title="Enum value for off state.">SML::State_t::Off</a></code> if logger is turned off. </dd>
 <dd>
-<code><a class="el" href="namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742a521c36a31c2762741cf0f8890cbe05e3" title="Enum value for on status.">SML::State_t::On</a></code> if logger is turned on. </dd></dl>
+<code><a class="el" href="namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742a521c36a31c2762741cf0f8890cbe05e3" title="Enum value for on state.">SML::State_t::On</a></code> if logger is turned on. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01732">1732</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01827">1827</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -457,7 +457,7 @@ template&lt;uint16_t N&gt; </div>
 <dd>
 <code><a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418da93cba07454f06a4a960172bbd6e2a435" title="Enum value for positive answer.">SML::Answer_t::Yes</a></code> if logger is ready. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01764">1764</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01859">1859</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -500,7 +500,7 @@ template&lt;uint16_t N&gt; </div>
 <dd>
 <code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecfaa60852f204ed8028c1c58808b746d115" title="Enum value for OK return status.">SML::Return_t::Ok</a></code> on success. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01673">1673</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01766">1766</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -548,7 +548,7 @@ template&lt;uint16_t N&gt; </div>
 <p>Print constant C-string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>Pointer to C-string. </td></tr>
+    <tr><td class="paramname">str</td><td>Pointer to C-string. Has to be NULL terminated. </td></tr>
     <tr><td class="paramname">len</td><td>Length of <code>str</code> </td></tr>
   </table>
   </dd>
@@ -559,7 +559,7 @@ template&lt;uint16_t N&gt; </div>
 <dd>
 <code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecfaa60852f204ed8028c1c58808b746d115" title="Enum value for OK return status.">SML::Return_t::Ok</a></code> on success. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01645">1645</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01738">1738</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -613,7 +613,7 @@ template&lt;uint16_t N&gt; </div>
 <p>This method uses variable argument list and <code>vsnprintf</code> function for string formating.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>Pointer to C-string. </td></tr>
+    <tr><td class="paramname">str</td><td>Pointer to C-string. Has to be NULL terminated. </td></tr>
     <tr><td class="paramname">...</td><td>Variable arguments. </td></tr>
   </table>
   </dd>
@@ -622,9 +622,10 @@ template&lt;uint16_t N&gt; </div>
 <dd>
 <code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecfaf658d06049352dbb95f0424f6dbea8c1" title="Enum value for not OK return status.">SML::Return_t::Nok</a></code> if logger is turned off. </dd>
 <dd>
-<code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecfaa60852f204ed8028c1c58808b746d115" title="Enum value for OK return status.">SML::Return_t::Ok</a></code> on success. </dd></dl>
+<code><a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecfaa60852f204ed8028c1c58808b746d115" title="Enum value for OK return status.">SML::Return_t::Ok</a></code> on success.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Maximum length of formatted <code>str</code> has to be less than <code>N</code> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01689">1689</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01784">1784</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -668,7 +669,7 @@ template&lt;uint16_t N&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01743">1743</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01838">1838</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -701,7 +702,7 @@ template&lt;uint16_t N&gt; </div>
 <p>Get size of logger's buffer for <a class="el" href="class_s_m_l_1_1_logger.html#a096fbb5778d0dcdcaaa18440b509e6a8">printf</a> method. </p>
 <dl class="section return"><dt>Returns</dt><dd>Size of logger's buffer. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01720">1720</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_s_m_l_8hpp_source.html#l01815">1815</a> of file <a class="el" href="_s_m_l_8hpp_source.html">SML.hpp</a>.</p>
 
 </div>
 </div>
@@ -714,7 +715,7 @@ template&lt;uint16_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_s_m_l.html">SML</a></li><li class="navelem"><a class="el" href="class_s_m_l_1_1_logger.html">Logger</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Tue Nov 14 2023 01:04:05 for Simple Miscellaneous Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>
