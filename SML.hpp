@@ -700,6 +700,161 @@ namespace SML
 	uint8_t parse(char* input, SML::parser_t* list, const uint8_t len, const SML::Answer_t modify = SML::Answer_t::No, const SML::Answer_t sorted = SML::Answer_t::No);
 
 
+	// TEMPLATE FUNCTION DEFINITIONS
+	/**
+	 * @brief Scale input value to desired output value range.
+	 * 
+	 * @tparam T Data type.
+	 * @param in Input value.
+	 * @param inMin Input minimum value.
+	 * @param inMax Input maximum value.
+	 * @param outMin Output minimum value.
+	 * @param outMax Output maximum value.
+	 * @return \c in value scaled to fit range defined with \c outMin and \c outMax
+	 * 
+	 * @ingroup Math
+	 */	
+	template<typename T>
+	constexpr T scale(T in, T inMin, T inMax, T outMin, T outMax)
+	{
+		return (in - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;		
+	}
+
+	/**
+	 * @brief Find lowest value between 2 input values.
+	 * 
+	 * @tparam T Data type.
+	 * @param in1 Input value 1.
+	 * @param in2 Input value 2.
+	 * @return Lowest value between \c in1 and \c in2
+	 * 
+	 * @ingroup Math
+	 */
+	template<typename T>
+	constexpr inline T min(T in1, T in2)
+	{
+		return (in1 < in2) ? in1 : in2;
+	}
+
+	/**
+	 * @brief Find greatest value between 2 input values.
+	 * 
+	 * @tparam T Data type.
+	 * @param in1 Input value 1.
+	 * @param in2 Input value 2.
+	 * @return Greatest value between \c in1 and \c in2
+	 * 
+	 * @ingroup Math
+	 */	
+	template<typename T>
+	constexpr inline T max(T in1, T in2)
+	{
+		return (in1 > in2) ? in1 : in2;
+	}
+
+	/**
+	 * @brief Find lowest value between 3 input values.
+	 * 
+	 * @tparam T Data type.
+	 * @param in1 Input value 1.
+	 * @param in2 Input value 2.
+	 * @param in3 Input value 3.
+	 * @return Lowest value between \c in1 \c in2 and \c in3
+	 * 
+	 * @ingroup Math
+	 */	
+	template<typename T>		
+	constexpr T min(T in1, T in2, T in3)
+	{
+		return (in1 < in2) ? (in1 < in3 ? in1 : in3) : (in2 < in3 ? in2 : in3);
+	}
+
+	/**
+	 * @brief Find greatest value between 3 input values.
+	 * 
+	 * @tparam T Data type.
+	 * @param in1 Input value 1.
+	 * @param in2 Input value 2.
+	 * @param in3 Input value 3.
+	 * @return Greatest value between \c in1 \c in2 and \c in3
+	 * 
+	 * @ingroup Math
+	 */	
+	template<typename T>	
+	constexpr T max(T in1, T in2, T in3)
+	{
+		return (in1 > in2) ? (in1 > in3 ? in1 : in3) : (in2 > in3 ? in2 : in3);
+	}
+
+	/**
+	 * @brief Return absolute value.
+	 * 
+	 * @tparam T Data type.
+	 * @param in Input value.
+	 * @return Absolute value from \c in value.
+	 * 
+	 * @ingroup Math
+	 */
+	template<typename T>
+	constexpr inline T abs(T in)
+	{
+		return (in < 0) ? in * (-1) : in;
+	}
+
+	/**
+	 * @brief Limit/constrain value \c in between \c low and \c high
+	 * 
+	 * @tparam T Data type.
+	 * @param in Input value.
+	 * @param low Low limit value.
+	 * @param high High limit value.
+	 * @return \c in value if it is between \c low and \c high
+	 * @return \c min value if \c in is smaller than \c min
+	 * @return \c max value if \c in is greater than \c max
+	 * @return Return limited value.
+	 * 
+	 * @ingroup Math
+	 */
+	template<typename T>
+	constexpr inline T limit(T in, T low, T high)
+	{
+		return ((in < low) ? low : ((in > high) ? high : in));
+	}
+
+	/**
+	 * @brief Sum all integer digits.
+	 * 
+	 * Example: Number 123456 will result with 21(1 + 2 + 3 + 4 + 5 + 6).
+	 * 
+	 * @param input Input number.
+	 * @return Sum of all digits.
+	 * 
+	 * @ingroup Math
+	 */
+	template<typename T>
+	uint8_t sumDigits(T input)
+	{
+		uint8_t sum = 0;
+
+		// Remove - sign if needed
+		input = abs<T>(input);
+
+		// Do while input is not zero
+		do
+		{
+			// Increase sum with digit
+			sum += input % 10;
+
+			// Remove digit from input integer
+			input /= 10;
+		}
+		while (input);
+		
+		// Return sum of all digits
+		return sum;		
+	}
+
+
 	#ifdef SML_IMPLEMENTATION
 
 	// FUNCTION DEFNITIONS
@@ -936,105 +1091,6 @@ namespace SML
 		return SML::Answer_t::Yes;		
 	}
 
-	/**
-	 * @brief Scale input value to desired output value range.
-	 * 
-	 * @tparam T Data type.
-	 * @param in Input value.
-	 * @param inMin Input minimum value.
-	 * @param inMax Input maximum value.
-	 * @param outMin Output minimum value.
-	 * @param outMax Output maximum value.
-	 * @return \c in value scaled to fit range defined with \c outMin and \c outMax
-	 * 
-	 * @ingroup Math
-	 */	
-	template<typename T>
-	constexpr T scale(T in, T inMin, T inMax, T outMin, T outMax)
-	{
-		return (in - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;		
-	}
-
-	/**
-	 * @brief Find lowest value between 2 input values.
-	 * 
-	 * @tparam T Data type.
-	 * @param in1 Input value 1.
-	 * @param in2 Input value 2.
-	 * @return Lowest value between \c in1 and \c in2
-	 * 
-	 * @ingroup Math
-	 */
-	template<typename T>
-	constexpr inline T min(T in1, T in2)
-	{
-		return (in1 < in2) ? in1 : in2;
-	}
-
-	/**
-	 * @brief Find greatest value between 2 input values.
-	 * 
-	 * @tparam T Data type.
-	 * @param in1 Input value 1.
-	 * @param in2 Input value 2.
-	 * @return Greatest value between \c in1 and \c in2
-	 * 
-	 * @ingroup Math
-	 */	
-	template<typename T>
-	constexpr inline T max(T in1, T in2)
-	{
-		return (in1 > in2) ? in1 : in2;
-	}
-
-	/**
-	 * @brief Find lowest value between 3 input values.
-	 * 
-	 * @tparam T Data type.
-	 * @param in1 Input value 1.
-	 * @param in2 Input value 2.
-	 * @param in3 Input value 3.
-	 * @return Lowest value between \c in1 \c in2 and \c in3
-	 * 
-	 * @ingroup Math
-	 */	
-	template<typename T>		
-	constexpr T min(T in1, T in2, T in3)
-	{
-		return (in1 < in2) ? (in1 < in3 ? in1 : in3) : (in2 < in3 ? in2 : in3);
-	}
-
-	/**
-	 * @brief Find greatest value between 3 input values.
-	 * 
-	 * @tparam T Data type.
-	 * @param in1 Input value 1.
-	 * @param in2 Input value 2.
-	 * @param in3 Input value 3.
-	 * @return Greatest value between \c in1 \c in2 and \c in3
-	 * 
-	 * @ingroup Math
-	 */	
-	template<typename T>	
-	constexpr T max(T in1, T in2, T in3)
-	{
-		return (in1 > in2) ? (in1 > in3 ? in1 : in3) : (in2 > in3 ? in2 : in3);
-	}
-
-	/**
-	 * @brief Return absolute value.
-	 * 
-	 * @tparam T Data type.
-	 * @param in Input value.
-	 * @return Absolute value from \c in value.
-	 * 
-	 * @ingroup Math
-	 */
-	template<typename T>
-	constexpr inline T abs(T in)
-	{
-		return (in < 0) ? in * (-1) : in;
-	}
 
 	/**
 	 * @brief Return float absolute value.
@@ -1047,59 +1103,6 @@ namespace SML
 	constexpr inline float abs(float in)
 	{
 		return (in < 0) ? in * (-1.00f) : in;
-	}
-
-	/**
-	 * @brief Limit/constrain value \c in between \c low and \c high
-	 * 
-	 * @tparam T Data type.
-	 * @param in Input value.
-	 * @param low Low limit value.
-	 * @param high High limit value.
-	 * @return \c in value if it is between \c low and \c high
-	 * @return \c min value if \c in is smaller than \c min
-	 * @return \c max value if \c in is greater than \c max
-	 * @return Return limited value.
-	 * 
-	 * @ingroup Math
-	 */
-	template<typename T>
-	constexpr inline T limit(T in, T low, T high)
-	{
-		return ((in < low) ? low : ((in > high) ? high : in));
-	}
-
-	/**
-	 * @brief Sum all integer digits.
-	 * 
-	 * Example: Number 123456 will result with 21(1 + 2 + 3 + 4 + 5 + 6).
-	 * 
-	 * @param input Input number.
-	 * @return Sum of all digits.
-	 * 
-	 * @ingroup Math
-	 */
-	template<typename T>
-	uint8_t sumDigits(T input)
-	{
-		uint8_t sum = 0;
-
-		// Remove - sign if needed
-		input = abs<T>(input);
-
-		// Do while input is not zero
-		do
-		{
-			// Increase sum with digit
-			sum += input % 10;
-
-			// Remove digit from input integer
-			input /= 10;
-		}
-		while (input);
-		
-		// Return sum of all digits
-		return sum;		
 	}
 
 	/**
