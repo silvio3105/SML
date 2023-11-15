@@ -129,7 +129,7 @@ This License shall be included in all functional textual files.
 
 
 /**
- * @addtogroup Bit_operation
+ * @addtogroup Bit_Operation
  * 
  * Function-like macros for bit operations.
  * @{ 
@@ -181,6 +181,42 @@ This License shall be included in all functional textual files.
  */
 #define __SML_BIT_GET(_value, _bit) \
 	(_value & (1 << (_bit))) >> (_bit)
+
+/**
+ * @brief Set bit \c _mask in \c _value
+ * 
+ * @param _value Value to modify.
+ * @param _mask Mask to set.
+ */
+#define __SML_MASK_SET(_value, _mask) \
+	_value |= (_mask)
+
+/**
+ * @brief Toggle bit \c _mask in \c _value
+ * 
+ * @param _value Value to modify.
+ * @param _mask Mask to toggle.
+ */
+#define __SML_MASK_TOGGLE(_value, _mask) \
+	_value ^= (_mask)
+
+/**
+ * @brief Clear bit \c _mask in \c _value
+ * 
+ * @param _value Value to modify.
+ * @param _mask Mask to clear.
+ */
+#define __SML_MASK_CLEAR(_value, _mask) \
+	_value &= ~((_mask))
+
+/**
+ * @brief Get bit \c _mask from \c _value
+ * 
+ * @param _value Input value.
+ * @param _mask Mask to get.
+ */
+#define __SML_MASK_GET(_value, _mask) \
+	_value &= (_mask)
 
 /** @} */
 
@@ -338,6 +374,14 @@ This License shall be included in all functional textual files.
 namespace SML
 {
 	// DATA CLASS
+
+	/**
+	 * @addtogroup Data_Operations 
+	 * @ingroup SML
+	 * 
+	 * @{
+	 */
+
 	/**
 	 * @brief Class representing data of \c T type with \c len size.
 	 * 
@@ -430,6 +474,9 @@ namespace SML
 		uint16_t length; /**< Length of \ref dataAddr. */
 	};
 
+	/** @} */
+
+
 	// ENUMS
 	/**
 	 * @brief Enum class with generic return statuses.
@@ -488,6 +535,25 @@ namespace SML
 	};
 
 	/**
+	 * @brief Enum class with semaphore statuses.
+	 * 
+	 */
+	enum class Semaphore_t : uint8_t
+	{
+		Free = 0, /**< @brief Enum value for free semaphore. */
+		Taken /**< @brief Enum value for taken semaphore. */
+	};	
+
+
+	/**
+	 * @addtogroup Time_Date 
+	 * @ingroup SML
+	 * 
+	 * Stuff related to time and date.
+	 * @{
+	 */
+
+	/**
 	 * @brief Enum class with time formats.
 	 * 
 	 */
@@ -542,18 +608,17 @@ namespace SML
 		Leap /**< @brief Enum value for leap year type. */
 	};
 
-	/**
-	 * @brief Enum class with semaphore statuses.
-	 * 
-	 */
-	enum class Semaphore_t : uint8_t
-	{
-		Free = 0, /**< @brief Enum value for free semaphore. */
-		Taken /**< @brief Enum value for taken semaphore. */
-	};
+	/** @} */
 
 
 	// TYPEDEFS
+	/**
+	 * @addtogroup Types 
+	 * @ingroup SML
+	 * 
+	 * @{
+	 */
+
 	/**
 	 * @brief Definition for generic function without return.
 	 * 
@@ -588,6 +653,8 @@ namespace SML
 	 */
 	typedef SML::Return_t (*copy_handler_f)(const void* source, void* destination, const uint16_t len);
 
+	/** @} */
+
 
 	// STRUCTS
 	/**
@@ -619,11 +686,16 @@ namespace SML
 	constexpr inline float abs(float in);
 	inline constexpr uint8_t dec2BCD(const uint8_t in);
 	inline constexpr uint8_t bcd2Dec(const uint8_t in);
+	inline constexpr SML::Answer_t isUppercase(const char ch);
+	inline constexpr SML::Answer_t isLowercase(const char ch);
+	constexpr char toUppercase(char ch);
+	constexpr char toLowercase(char ch);	
+	void toUppercase(char* input, const char endChar = '\0');
+	void toLowercase(char* input, const char endChar = '\0');	
 	char* tok(char* input, const char separator);
 	uint16_t len(const char* input, const char endChar = '\0');
 	uint16_t count(const char* input, const char character, const char endChar = '\0');
 	SML::Return_t cmp(const char* input1, const char* input2, char endChar = '\0');
-	char* findToken(const char* input, const char sep, char sepCnt, const SML::Answer_t retNull);	
 	SML::Return_t parse(char* input, char startSeparator, uint8_t startSeparatorCnt, char endSeparator, uint8_t endSeparatorCnt, SML::Data<char>& output, const SML::Answer_t modify = SML::Answer_t::No);
 	uint8_t parse(char* input, SML::parser_t* list, const uint8_t len, const SML::Answer_t modify = SML::Answer_t::No, const SML::Answer_t sorted = SML::Answer_t::No);
 
@@ -638,9 +710,16 @@ namespace SML
 	 * @param value Value to fill with.
 	 * @param len Lenght in bytes to fill.
 	 * @return No return value.
+	 * 
+	 * @ingroup Data_Operations
 	 */
 	void fill(void* address, const uint8_t value, uint16_t len)
 	{
+		if (!len)
+		{
+			return;
+		}
+
 		len--;
 
 		while (len--) 
@@ -656,9 +735,16 @@ namespace SML
 	 * @param destination Pointer to address to copy to.
 	 * @param len Number of bytes to copy from \c source to \c destionation
 	 * @return No return value.
+	 * 
+	 * @ingroup Data_Operations
 	 */
 	void copy(const void* source, void* destination, uint16_t len)
 	{
+		if (!len)
+		{
+			return;
+		}
+
 		len--;
 
 		while (len--)
@@ -706,24 +792,13 @@ namespace SML
 	}
 
 	/**
-	 * @brief Convert character to number.
-	 * 
-	 * @param ch Input character.
-	 * @return Character converted to number.
-	 * 
-	 * @warning Function does not checks if input character is number. Use \ref isDigit function to check if character is number.
-	 */
-	inline constexpr uint8_t char2Num(const char ch)
-	{
-		return (ch - '0');
-	}
-
-	/**
 	 * @brief Validate input value as minute.
 	 * 
 	 * @param in Input value.
 	 * @return \c SML::Answer_t::No if value \c in is not minute.
 	 * @return \c SML::Answer_t::Yes if value \c in is minute.
+	 * 
+	 * @ingroup Time_Date
 	 */
 	inline constexpr SML::Answer_t isMinute(const uint8_t in)
 	{
@@ -743,6 +818,8 @@ namespace SML
 	 * @return \c SML::Answer_t::Yes if value \c in is second.
 	 * 
 	 * @note Leap second is not supported.
+	 * 
+	 * @ingroup Time_Date
 	 */
 	inline constexpr SML::Answer_t isSecond(const uint8_t in)
 	{
@@ -753,9 +830,11 @@ namespace SML
 	 * @brief Validate input value for hours.
 	 * 
 	 * @param in Input value.
-	 * @param format Hour format. See \ref SML::TimeFormat_t
+	 * @param format Hour format. Not required.
 	 * @return \c SML::Answer_t::No if input value \c in is not not hour.
 	 * @return \c SML::Answer_t::Yes if input value \c in is hour.
+	 * 
+	 * @ingroup Time_Date
 	 */
 	constexpr SML::Answer_t isHour(const uint8_t in, const SML::TimeFormat_t format)
 	{
@@ -777,6 +856,8 @@ namespace SML
 	 * @param year Input year.
 	 * @return \c SML::Year_t::Normal for non-leap year.
 	 * @return \c SML::Year_t::Leap for leap year.
+	 * 
+	 * @ingroup Time_Date
 	 */
 	inline constexpr SML::Year_t getYearType(const uint16_t year)
 	{
@@ -796,6 +877,8 @@ namespace SML
 	 * @param year Input year.
 	 * @return \c SML::Answer_t::No if date is not valid.
 	 * @return \c SML::Answer_t::Yes if date is valid.
+	 * 
+	 * @ingroup Time_Date
 	 */
 	SML::Answer_t isDateValid(const uint8_t day, const uint8_t month, const uint16_t year)
 	{
@@ -1053,21 +1136,137 @@ namespace SML
 
 	/**
 	 * @addtogroup String 
+	 * @ingroup SML
 	 * 
 	 * String functions.
 	 * @{
 	 */
 
 	/**
+	 * @brief Check is \c ch uppercase letter.
+	 * 
+	 * @param ch Input character.
+	 * @return \c SML::Answer_t::No if \c ch is not uppercase letter or letter at all.
+	 * @return \c SML::Answer_t::Yes if \c ch is uppercase letter.
+	 */
+	inline constexpr SML::Answer_t isUppercase(const char ch)
+	{
+		if (ch > 64 && ch < 91)
+		{
+			return SML::Answer_t::Yes;
+		}
+
+		return SML::Answer_t::No;
+	}
+
+	/**
+	 * @brief Check is \c ch lowercase letter.
+	 * 
+	 * @param ch Input character.
+	 * @return \c SML::Answer_t::No if \c ch is not lowercase letter or letter at all.
+	 * @return \c SML::Answer_t::Yes if \c ch is lowercase letter.
+	 */
+	inline constexpr SML::Answer_t isLowercase(const char ch)
+	{
+		if (ch > 96 && ch < 123)
+		{
+			return SML::Answer_t::Yes;
+		}
+
+		return SML::Answer_t::No;
+	}
+
+	/**
+	 * @brief Convert lowercase letter to uppercase letter.
+	 * 
+	 * @param ch Input character.
+	 * @return \c ch as uppercase letter.
+	 */
+	constexpr char toUppercase(char ch)
+	{
+		if (isLowercase(ch) == SML::Answer_t::Yes)
+		{
+			ch -= 32;
+		}
+
+		return ch;
+	}
+
+	/**
+	 * @brief Convert uppercase letter to lowercase letter.
+	 * 
+	 * @param ch Input character.
+	 * @return \c ch as lowercase letter.
+	 */	
+	constexpr char toLowercase(char ch)
+	{
+		if (isUppercase(ch) == SML::Answer_t::Yes)
+		{
+			ch += 32;
+		}
+
+		return ch;
+	}
+
+	/**
+	 * @brief Convert C-string to uppercase.
+	 * 
+	 * @param input Pointer to C-string.
+	 * @param endChar Character where function will stop. Not required.
+	 * @return No return value.
+	 */
+	void toUppercase(char* input, const char endChar)
+	{
+		uint16_t idx = 0;
+
+		while (input[idx] == endChar)
+		{
+			input[idx] = toUppercase(input[idx]);
+			idx++;
+		}
+	}
+
+	/**
+	 * @brief Convert C-string to lowercase.
+	 * 
+	 * @param input Pointer to C-string.
+	 * @param endChar Character where function will stop. Not required.
+	 * @return No return value.
+	 */
+	void toLowercase(char* input, const char endChar)
+	{
+		uint16_t idx = 0;
+
+		while (input[idx] == endChar)
+		{
+			input[idx] = toLowercase(input[idx]);
+			idx++;
+		}
+	}	
+
+	/**
+	 * @brief Convert character to number.
+	 * 
+	 * @param ch Input character.
+	 * @return Character converted to number.
+	 * 
+	 * @warning Function does not checks if input character is number. Use \ref isDigit function to check if character is number.
+	 */
+	inline constexpr uint8_t char2Num(const char ch)
+	{
+		return (ch - '0');
+	}	
+
+	/**
 	 * @brief Convert C-string to decimal value.
 	 * 
 	 * @tparam T Output data type, eg., \c uint8_t
 	 * @param str Pointer to C-string.
-	 * @param endChar End character of \c str string.
+	 * @param endChar End character of \c str string. Not required.
 	 * @return C-string number converted to decimal.
 	 */
 	template<typename T>
-	T str2Dec(const char* str, const char endChar)
+	T str2Dec(const char* str, const char endChar = '\0')
 	{
 		T value = 0;
 		uint8_t idx = 0;
@@ -1143,7 +1342,7 @@ namespace SML
 	 * @brief Find length of input C-string.
 	 * 
 	 * @param input Pointer to C-string.
-	 * @param endChar Character where function should stop. This parameter is optional.
+	 * @param endChar Character where function should stop. Not required.
 	 * @return Length of C-string.
 	 */
 	uint16_t len(const char* input, const char endChar)
@@ -1163,7 +1362,7 @@ namespace SML
 	 * 
 	 * @param input Pointer to C-string.
 	 * @param character Character to count.
-	 * @param endChar Character where function should stop. This parameter is optional.
+	 * @param endChar Character where function should stop. Not required.
 	 * @return Number of \c character in \c input
 	 */
 	uint16_t count(const char* input, const char character, const char endChar)
@@ -1189,7 +1388,7 @@ namespace SML
 	 * 
 	 * @param input1 Pointer to first C-string.
 	 * @param input2 Pointer to second C-string.
-	 * @param endChar Character where function should stop. This parameter is optional.
+	 * @param endChar Character where function should stop. Not required.
 	 * @return \c SML::Return_t::Nok if strings are not equal.
 	 * @return \c SML::Return_t::Ok if strings are equal.
 	 */
@@ -1284,7 +1483,7 @@ namespace SML
 	 * @param endSeparator Character used as separator after wanted token.
 	 * @param endSeparatorCnt Number of separators after wanted token is found.
 	 * @param output Reference to char output \ref SML::Data 
-	 * @param modify Set to \c SML::Answer_t::Yes to replace found separator with \c \0 char.
+	 * @param modify Set to \c SML::Answer_t::Yes to replace found separator with \c \0 char. Not required.
 	 * @return \c SML::Return_t::Nok if no token was found.
 	 * @return \c SML::Return_t::Ok if token was found.
 	 * 
@@ -1359,8 +1558,8 @@ namespace SML
 	 * @param input Pointer to first character in C-string.
 	 * @param list Pointer to parser list.
 	 * @param len Length of \c list
-	 * @param modify Set to \c SML::Answer_t::Yes to replace found separator with \c \0 char.
-	 * @param sorted Set to \c SML::Answer_t::Yes if \c input list is sorted(from left to right). Function will continue where it stopped during parse for previous entry in \c input list.
+	 * @param modify Set to \c SML::Answer_t::Yes to replace found separator with \c \0 char. Not required.
+	 * @param sorted Set to \c SML::Answer_t::Yes if \c input list is sorted(from left to right). Function will continue where it stopped during parse for previous entry in \c input list. Not required.
 	 * @return Number of parsed strings.
 	 * 
 	 * @warning \c modify can be used only when \c list is \c sorted
@@ -1399,6 +1598,7 @@ namespace SML
 	// CLASSES
 	/**
 	 * @brief Ring buffer class.
+	 * @ingroup Data_Operations
 	 * 
 	 * @tparam T Type of ring buffer data, eg., \c uint32_t
 	 * @tparam N Number of \c T members in ring buffer.
@@ -1621,7 +1821,7 @@ namespace SML
 		 * @brief move \c pointer by one data member.
 		 * 
 		 * @param pointer Reference to pointer to increase.
-		 * @param overflow Check for overflow. See \ref SML::Answer_t
+		 * @param overflow Check for overflow.
 		 * @return No return value.
 		 */
 		void move(uint16_t& pointer, SML::Answer_t overflow)
@@ -1663,7 +1863,7 @@ namespace SML
 		 * 
 		 * @param handler Pointer to external function for handling buffer transfer(printing).
 		 * @param fix Prefix C-string. Has to be NULL terminated.
-		 * @param initedState Logger initial state. See \ref SML::State_t. Not required.
+		 * @param initedState Logger initial state. Not required.
 		 * @param mspInit Pointer to external function for MSP init. Not required.
 		 * @param mspDeinit Pointer to external function for MSP deinit. Not required.
 		 * @return No return value.
@@ -1691,7 +1891,7 @@ namespace SML
 		 * @param waitExtHandler Pointer to external function for handling wait states.
 		 * @param fix Prefix C-string. Has to be NULL terminated. Not required.
 		 * @param tickExtHandler Pointer to external function for getting tick. Not required.
-		 * @param initedState Logger initial state. See \ref SML::State_t. Not required.
+		 * @param initedState Logger initial state. Not required.
 		 * @param mspInit Pointer to external function for MSP init. Not required.
 		 * @param mspDeinit Pointer to external function for MSP deinit. Not required.
 		 * @return No return value.
@@ -1832,7 +2032,7 @@ namespace SML
 		/**
 		 * @brief Set logger state.
 		 * 
-		 * @param newState New logger status. See \ref SML::State_t
+		 * @param newState New logger status.
 		 * @return No return value.
 		 */
 		inline void setState(const SML::State_t newState)
@@ -1947,6 +2147,7 @@ namespace SML
 
 	/**
 	 * @brief Copier class.
+	 * @ingroup Data_Operations
 	 * 
 	 * Wrapper for blocking or non-blocking copy process. User can easly switch from blocking copy process(eg., with standard \c memcpy function) to non-blocking process(eg., DMA copy process).
 	 * 
