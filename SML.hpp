@@ -1219,7 +1219,7 @@ namespace SML
 	{
 		uint16_t idx = 0;
 
-		while (input[idx] == endChar)
+		while (input[idx] != endChar)
 		{
 			input[idx] = toUppercase(input[idx]);
 			idx++;
@@ -1237,7 +1237,7 @@ namespace SML
 	{
 		uint16_t idx = 0;
 
-		while (input[idx] == endChar)
+		while (input[idx] != endChar)
 		{
 			input[idx] = toLowercase(input[idx]);
 			idx++;
