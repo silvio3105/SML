@@ -1,0 +1,14 @@
+<map id="SML::parse" name="SML::parse">
+<area shape="rect" id="Node000001" title="Parse C&#45;string for multiple strings." alt="" coords="5,56,94,82"/>
+<area shape="rect" id="Node000002" href="$group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9" title="Find length of input C&#45;string." alt="" coords="149,5,223,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,53,134,34,136,39,87,58"/>
+<area shape="rect" id="Node000003" href="$class_s_m_l_1_1_data.html#ac11027a7f6d8b4a5ce57770574d51777" title="Get data length." alt="" coords="279,56,387,82"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,66,263,66,263,72,94,72"/>
+<area shape="rect" id="Node000004" href="$group___string.html#ga23adc13cfc39e1cfba88ea88dc3b7b7b" title="Generic C&#45;string parser." alt="" coords="142,107,230,132"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="87,80,136,98,134,103,85,85"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="225,104,278,85,280,90,226,109"/>
+<area shape="rect" id="Node000005" href="$class_s_m_l_1_1_data.html#afdf0f9ea88797b22630bbdc0af3ce69f" title="Get address of the data." alt="" coords="278,105,387,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="230,116,262,116,262,121,230,122"/>
+<area shape="rect" id="Node000006" href="$class_s_m_l_1_1_data.html#a420da23b631eaeef0b4f8019faf0e65e" title="Set new data." alt="" coords="278,155,387,180"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="229,130,277,147,276,152,227,136"/>
+</map>

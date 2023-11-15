@@ -1,0 +1,5 @@
+<map id="SML::char2Num" name="SML::char2Num">
+<area shape="rect" id="Node000001" title="Convert character to number." alt="" coords="155,5,270,31"/>
+<area shape="rect" id="Node000002" href="$group___string.html#ga418e8d4462113cf5d9eb228c081a4135" title="Convert C&#45;string to decimal value." alt="" coords="5,5,107,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,21,107,21,107,16,139,16"/>
+</map>

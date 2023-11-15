@@ -15,7 +15,7 @@ var searchData=
   ['startseparator_12',['startSeparator',['../struct_s_m_l_1_1parser__t.html#a36c42b53cb1da7c41af108fc1a3a39d8',1,'SML::parser_t']]],
   ['startseparatorcnt_13',['startSeparatorCnt',['../struct_s_m_l_1_1parser__t.html#ac64a009418e49749afe89ec6f78aacc1',1,'SML::parser_t']]],
   ['state_5ft_14',['State_t',['../namespace_s_m_l.html#a1add9bcf4656ca91a64f32ffdd753742',1,'SML']]],
-  ['str2dec_15',['str2Dec',['../group___string.html#ga418e8d4462113cf5d9eb228c081a4135',1,'SML']]],
+  ['str2dec_15',['str2Dec',['../group___string.html#ga7d14ecb2ce908202365276c11a96720b',1,'SML']]],
   ['string_16',['String',['../group___string.html',1,'']]],
   ['sumdigits_17',['sumDigits',['../group___math.html#ga3bc7dd06be9fb9ebf69413ad469be244',1,'SML']]],
   ['swapendian_18',['swapEndian',['../group___conversion.html#gab2632666755c050d1c43be8edbe49566',1,'SML']]]

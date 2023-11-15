@@ -111,6 +111,15 @@ $(document).ready(function(){initNavTree('_s_m_l_8hpp.html',''); initResizable()
 Include dependency graph for SML.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_s_m_l_8hpp__incl.png" border="0" usemap="#a_s_m_l_8hpp" alt=""/></div>
+<map name="a_s_m_l_8hpp" id="a_s_m_l_8hpp">
+<area shape="rect" title="SML header file." alt="" coords="88,5,161,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,70,105"/>
+<area shape="poly" title=" " alt="" coords="111,34,65,71,62,67,108,29"/>
+<area shape="rect" title=" " alt="" coords="94,79,154,105"/>
+<area shape="poly" title=" " alt="" coords="127,31,127,63,122,63,122,31"/>
+<area shape="rect" title=" " alt="" coords="178,79,246,105"/>
+<area shape="poly" title=" " alt="" coords="141,29,187,67,184,71,137,34"/>
+</map>
 </div>
 </div>
 <p><a href="_s_m_l_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -162,21 +171,33 @@ Macros</h2></td></tr>
 <tr class="memitem:ga23eab197c507f96db9082c365f35f7ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___math.html#ga23eab197c507f96db9082c365f35f7ff">__SML_ARRAY_LEN</a>(_in)&#160;&#160;&#160;	(sizeof(_in) / sizeof(_in[0]))</td></tr>
 <tr class="memdesc:ga23eab197c507f96db9082c365f35f7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get number of members in <code>_in</code> array.  <br /></td></tr>
 <tr class="separator:ga23eab197c507f96db9082c365f35f7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad7515fc9b42f4f0eb75ef426669a9070"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit__operation.html#gad7515fc9b42f4f0eb75ef426669a9070">__SML_BIT_SET</a>(_value,  _bit)&#160;&#160;&#160;	_value |= 1 &lt;&lt; (_bit)</td></tr>
+<tr class="memitem:gad7515fc9b42f4f0eb75ef426669a9070"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#gad7515fc9b42f4f0eb75ef426669a9070">__SML_BIT_SET</a>(_value,  _bit)&#160;&#160;&#160;	_value |= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:gad7515fc9b42f4f0eb75ef426669a9070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <code>_bit</code> in <code>_value</code> to 1.  <br /></td></tr>
 <tr class="separator:gad7515fc9b42f4f0eb75ef426669a9070"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga834497e274889361fab16962541b8cb9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit__operation.html#ga834497e274889361fab16962541b8cb9">__SML_BIT_CLEAR</a>(_value,  _bit)&#160;&#160;&#160;	_value &amp;= ~(1 &lt;&lt; (_bit))</td></tr>
+<tr class="memitem:ga834497e274889361fab16962541b8cb9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#ga834497e274889361fab16962541b8cb9">__SML_BIT_CLEAR</a>(_value,  _bit)&#160;&#160;&#160;	_value &amp;= ~(1 &lt;&lt; (_bit))</td></tr>
 <tr class="memdesc:ga834497e274889361fab16962541b8cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set <code>_bit</code> in <code>_value</code> to 0.  <br /></td></tr>
 <tr class="separator:ga834497e274889361fab16962541b8cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9edf538dce04851aa27918f0051c81e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit__operation.html#ga9edf538dce04851aa27918f0051c81e6">__SML_BIT_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; (_bit)</td></tr>
+<tr class="memitem:ga9edf538dce04851aa27918f0051c81e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#ga9edf538dce04851aa27918f0051c81e6">__SML_BIT_TOGGLE</a>(_value,  _bit)&#160;&#160;&#160;	_value ^= 1 &lt;&lt; (_bit)</td></tr>
 <tr class="memdesc:ga9edf538dce04851aa27918f0051c81e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle <code>_bit</code> in <code>_value</code>.  <br /></td></tr>
 <tr class="separator:ga9edf538dce04851aa27918f0051c81e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4e27f464f72c24566d033e63bef24f18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit__operation.html#ga4e27f464f72c24566d033e63bef24f18">__SML_BIT_POWER</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit)))</td></tr>
+<tr class="memitem:ga4e27f464f72c24566d033e63bef24f18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#ga4e27f464f72c24566d033e63bef24f18">__SML_BIT_POWER</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit)))</td></tr>
 <tr class="memdesc:ga4e27f464f72c24566d033e63bef24f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get bit <code>_bit</code> power in <code>_value</code>.  <br /></td></tr>
 <tr class="separator:ga4e27f464f72c24566d033e63bef24f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf8175e11fd1830342c576b4026debe58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit__operation.html#gaf8175e11fd1830342c576b4026debe58">__SML_BIT_GET</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit))) &gt;&gt; (_bit)</td></tr>
+<tr class="memitem:gaf8175e11fd1830342c576b4026debe58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#gaf8175e11fd1830342c576b4026debe58">__SML_BIT_GET</a>(_value,  _bit)&#160;&#160;&#160;	(_value &amp; (1 &lt;&lt; (_bit))) &gt;&gt; (_bit)</td></tr>
 <tr class="memdesc:gaf8175e11fd1830342c576b4026debe58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <code>_bit</code> from <code>_value</code>.  <br /></td></tr>
 <tr class="separator:gaf8175e11fd1830342c576b4026debe58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f75c821b36596cbc402b40fca2b397a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#ga5f75c821b36596cbc402b40fca2b397a">__SML_MASK_SET</a>(_value,  _mask)&#160;&#160;&#160;	_value |= (_mask)</td></tr>
+<tr class="memdesc:ga5f75c821b36596cbc402b40fca2b397a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set bit <code>_mask</code> in <code>_value</code>.  <br /></td></tr>
+<tr class="separator:ga5f75c821b36596cbc402b40fca2b397a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d058958dea54f24559af004b4283f8a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#ga4d058958dea54f24559af004b4283f8a">__SML_MASK_TOGGLE</a>(_value,  _mask)&#160;&#160;&#160;	_value ^= (_mask)</td></tr>
+<tr class="memdesc:ga4d058958dea54f24559af004b4283f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle bit <code>_mask</code> in <code>_value</code>.  <br /></td></tr>
+<tr class="separator:ga4d058958dea54f24559af004b4283f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8bca866dc676a6ce426c62a2bbf89200"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#ga8bca866dc676a6ce426c62a2bbf89200">__SML_MASK_CLEAR</a>(_value,  _mask)&#160;&#160;&#160;	_value &amp;= ~((_mask))</td></tr>
+<tr class="memdesc:ga8bca866dc676a6ce426c62a2bbf89200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear bit <code>_mask</code> in <code>_value</code>.  <br /></td></tr>
+<tr class="separator:ga8bca866dc676a6ce426c62a2bbf89200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a3bcb274ace13b231a3e0292677acdc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___bit___operation.html#ga4a3bcb274ace13b231a3e0292677acdc">__SML_MASK_GET</a>(_value,  _mask)&#160;&#160;&#160;	_value &amp;= (_mask)</td></tr>
+<tr class="memdesc:ga4a3bcb274ace13b231a3e0292677acdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get bit <code>_mask</code> from <code>_value</code>.  <br /></td></tr>
+<tr class="separator:ga4a3bcb274ace13b231a3e0292677acdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8d25a325884a3fe3fd47a4355cea5b24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#ga8d25a325884a3fe3fd47a4355cea5b24">__SML_S_2_MS</a>(_in)&#160;&#160;&#160;	(_in * 1000)</td></tr>
 <tr class="memdesc:ga8d25a325884a3fe3fd47a4355cea5b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <code>_in</code> seconds to miliseconds.  <br /></td></tr>
 <tr class="separator:ga8d25a325884a3fe3fd47a4355cea5b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,37 +213,21 @@ Macros</h2></td></tr>
 <tr class="memitem:ga886b363eab26b52c0dbac8062d6b467f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#ga886b363eab26b52c0dbac8062d6b467f">__SML_H_2_S</a>(_in)&#160;&#160;&#160;	(<a class="el" href="group___conversion.html#gac5503c3cb02f981a16884c7c10de864c">__SML_MIN_2_S</a>(<a class="el" href="group___conversion.html#ga58bc9ddd080dbaf2270126a66da6034a">__SML_H_2_MIN</a>(_in)))</td></tr>
 <tr class="memdesc:ga886b363eab26b52c0dbac8062d6b467f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <code>_in</code> hours to seconds.  <br /></td></tr>
 <tr class="separator:ga886b363eab26b52c0dbac8062d6b467f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d892c4244022b171baa48077c52f2fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#ga5d892c4244022b171baa48077c52f2fa">__SML_COPY_ERROR_LOG</a>(...)</td></tr>
-<tr class="separator:ga5d892c4244022b171baa48077c52f2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab2d5984e1c1d5740576b7af20fcf7c79"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#gab2d5984e1c1d5740576b7af20fcf7c79">__SML_COPY_WARNING_LOG</a>(...)</td></tr>
-<tr class="separator:gab2d5984e1c1d5740576b7af20fcf7c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga392a3bf5d29986727b532f54f74fd53e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#ga392a3bf5d29986727b532f54f74fd53e">__SML_COPY_INFO_LOG</a>(...)</td></tr>
-<tr class="separator:ga392a3bf5d29986727b532f54f74fd53e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad2307902ff42fa907217e664e6245adc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#gad2307902ff42fa907217e664e6245adc">__SML_COPY_VERBOSE_LOG</a>(...)</td></tr>
-<tr class="separator:gad2307902ff42fa907217e664e6245adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0ec12b9adc40f8def2cd975a2099ef16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#ga0ec12b9adc40f8def2cd975a2099ef16">__SML_RB_ERROR_LOG</a>(...)</td></tr>
-<tr class="separator:ga0ec12b9adc40f8def2cd975a2099ef16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga47082a5eb9dc2f33043167741314bb9e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#ga47082a5eb9dc2f33043167741314bb9e">__SML_RB_WARNING_LOG</a>(...)</td></tr>
-<tr class="separator:ga47082a5eb9dc2f33043167741314bb9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ed7c73b1da694371f974dc0394f9eda"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#ga6ed7c73b1da694371f974dc0394f9eda">__SML_RB_INFO_LOG</a>(...)</td></tr>
-<tr class="separator:ga6ed7c73b1da694371f974dc0394f9eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1caac12cacdea7a39364aae19cf6cc30"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#ga1caac12cacdea7a39364aae19cf6cc30">__SML_RB_VERBOSE_LOG</a>(...)</td></tr>
-<tr class="separator:ga1caac12cacdea7a39364aae19cf6cc30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a3030e4e03891da3b193a2a705d9d7d7d"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a3030e4e03891da3b193a2a705d9d7d7d">SML::ext_handler_f</a>) (void)</td></tr>
-<tr class="memdesc:a3030e4e03891da3b193a2a705d9d7d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for generic function without return.  <br /></td></tr>
-<tr class="separator:a3030e4e03891da3b193a2a705d9d7d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a210dead033ad5166c02e417136a8233b"><td class="memItemLeft" align="right" valign="top">typedef uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a210dead033ad5166c02e417136a8233b">SML::ext_handler_u32_f</a>) (void)</td></tr>
-<tr class="memdesc:a210dead033ad5166c02e417136a8233b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for generic function which returns <code>uint32_t</code>.  <br /></td></tr>
-<tr class="separator:a210dead033ad5166c02e417136a8233b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe9873e072755d58aa32b3a571c9d0c3"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#afe9873e072755d58aa32b3a571c9d0c3">SML::print_handler_f</a>) (const char *buffer, const uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
-<tr class="memdesc:afe9873e072755d58aa32b3a571c9d0c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for function for printing strings.  <br /></td></tr>
-<tr class="separator:afe9873e072755d58aa32b3a571c9d0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ccd4d9da465c3b482ea27b646509bbf"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a3ccd4d9da465c3b482ea27b646509bbf">SML::copy_handler_f</a>) (const void *source, void *destination, const uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
-<tr class="memdesc:a3ccd4d9da465c3b482ea27b646509bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for function for handling copy operation.  <br /></td></tr>
-<tr class="separator:a3ccd4d9da465c3b482ea27b646509bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3030e4e03891da3b193a2a705d9d7d7d"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___types.html#ga3030e4e03891da3b193a2a705d9d7d7d">SML::ext_handler_f</a>) (void)</td></tr>
+<tr class="memdesc:ga3030e4e03891da3b193a2a705d9d7d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for generic function without return.  <br /></td></tr>
+<tr class="separator:ga3030e4e03891da3b193a2a705d9d7d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga210dead033ad5166c02e417136a8233b"><td class="memItemLeft" align="right" valign="top">typedef uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___types.html#ga210dead033ad5166c02e417136a8233b">SML::ext_handler_u32_f</a>) (void)</td></tr>
+<tr class="memdesc:ga210dead033ad5166c02e417136a8233b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for generic function which returns <code>uint32_t</code>.  <br /></td></tr>
+<tr class="separator:ga210dead033ad5166c02e417136a8233b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe9873e072755d58aa32b3a571c9d0c3"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___types.html#gafe9873e072755d58aa32b3a571c9d0c3">SML::print_handler_f</a>) (const char *buffer, const uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
+<tr class="memdesc:gafe9873e072755d58aa32b3a571c9d0c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for function for printing strings.  <br /></td></tr>
+<tr class="separator:gafe9873e072755d58aa32b3a571c9d0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ccd4d9da465c3b482ea27b646509bbf"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="namespace_s_m_l.html#a25a66979c5f8dde6c00c570593af0ecf">SML::Return_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___types.html#ga3ccd4d9da465c3b482ea27b646509bbf">SML::copy_handler_f</a>) (const void *source, void *destination, const uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
+<tr class="memdesc:ga3ccd4d9da465c3b482ea27b646509bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition for function for handling copy operation.  <br /></td></tr>
+<tr class="separator:ga3ccd4d9da465c3b482ea27b646509bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -259,12 +264,17 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a9d3fb15bcc94bfeb31f2a3195fe19b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with process types.  <a href="namespace_s_m_l.html#a9d3fb15bcc94bfeb31f2a3195fe19b6d">More...</a><br /></td></tr>
 <tr class="separator:a9d3fb15bcc94bfeb31f2a3195fe19b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affdd198f319c0ac57d7f5e2e1da2bc8e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#affdd198f319c0ac57d7f5e2e1da2bc8e">SML::TimeFormat_t</a> : uint8_t { <a class="el" href="namespace_s_m_l.html#affdd198f319c0ac57d7f5e2e1da2bc8ea85f03ef02f4a9d649de9d071967c95bd">SML::Time24H</a> = 0
-, <a class="el" href="namespace_s_m_l.html#affdd198f319c0ac57d7f5e2e1da2bc8ea2700f3346652edc24137d6993b5361aa">SML::TimeAMPM</a>
+<tr class="memitem:a748b8d11884c9d352b088aac94d03bf2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2">SML::Semaphore_t</a> : uint8_t { <a class="el" href="namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2ab24ce0cd392a5b0b8dedc66c25213594">SML::Free</a> = 0
+, <a class="el" href="namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2ab5fd62647318e67746a6859e88913280">SML::Taken</a>
  }</td></tr>
-<tr class="memdesc:affdd198f319c0ac57d7f5e2e1da2bc8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with time formats.  <a href="namespace_s_m_l.html#affdd198f319c0ac57d7f5e2e1da2bc8e">More...</a><br /></td></tr>
-<tr class="separator:affdd198f319c0ac57d7f5e2e1da2bc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfab8ca0f3df83177713c630801cf139"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#adfab8ca0f3df83177713c630801cf139">SML::Day_t</a> : uint8_t { <br />
+<tr class="memdesc:a748b8d11884c9d352b088aac94d03bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with semaphore statuses.  <a href="namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2">More...</a><br /></td></tr>
+<tr class="separator:a748b8d11884c9d352b088aac94d03bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffdd198f319c0ac57d7f5e2e1da2bc8e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#gaffdd198f319c0ac57d7f5e2e1da2bc8e">SML::TimeFormat_t</a> : uint8_t { <a class="el" href="group___time___date.html#ggaffdd198f319c0ac57d7f5e2e1da2bc8ea85f03ef02f4a9d649de9d071967c95bd">SML::TimeFormat_t::Time24H</a> = 0
+, <a class="el" href="group___time___date.html#ggaffdd198f319c0ac57d7f5e2e1da2bc8ea2700f3346652edc24137d6993b5361aa">SML::TimeFormat_t::TimeAMPM</a>
+ }</td></tr>
+<tr class="memdesc:gaffdd198f319c0ac57d7f5e2e1da2bc8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with time formats.  <a href="group___time___date.html#gaffdd198f319c0ac57d7f5e2e1da2bc8e">More...</a><br /></td></tr>
+<tr class="separator:gaffdd198f319c0ac57d7f5e2e1da2bc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadfab8ca0f3df83177713c630801cf139"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#gadfab8ca0f3df83177713c630801cf139">SML::Day_t</a> : uint8_t { <br />
 &#160;&#160;<b>Monday</b> = 1
 , <b>Tuesday</b> = 2
 , <b>Wednesday</b> = 3
@@ -275,9 +285,9 @@ Enumerations</h2></td></tr>
 , <b>Sunday</b> = 7
 <br />
  }</td></tr>
-<tr class="memdesc:adfab8ca0f3df83177713c630801cf139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with days.  <a href="namespace_s_m_l.html#adfab8ca0f3df83177713c630801cf139">More...</a><br /></td></tr>
-<tr class="separator:adfab8ca0f3df83177713c630801cf139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52141558af3f62577ffba7839744afec"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a52141558af3f62577ffba7839744afec">SML::Month_t</a> : uint8_t { <br />
+<tr class="memdesc:gadfab8ca0f3df83177713c630801cf139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with days.  <a href="group___time___date.html#gadfab8ca0f3df83177713c630801cf139">More...</a><br /></td></tr>
+<tr class="separator:gadfab8ca0f3df83177713c630801cf139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52141558af3f62577ffba7839744afec"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#ga52141558af3f62577ffba7839744afec">SML::Month_t</a> : uint8_t { <br />
 &#160;&#160;<b>January</b> = 1
 , <b>February</b> = 2
 , <b>March</b> = 3
@@ -294,51 +304,46 @@ Enumerations</h2></td></tr>
 , <b>December</b> = 12
 <br />
  }</td></tr>
-<tr class="memdesc:a52141558af3f62577ffba7839744afec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with months.  <a href="namespace_s_m_l.html#a52141558af3f62577ffba7839744afec">More...</a><br /></td></tr>
-<tr class="separator:a52141558af3f62577ffba7839744afec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affce2ad0a7abe78bf0a9928e62b02fb1"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#affce2ad0a7abe78bf0a9928e62b02fb1">SML::Year_t</a> : uint8_t { <a class="el" href="namespace_s_m_l.html#affce2ad0a7abe78bf0a9928e62b02fb1a960b44c579bc2f6818d2daaf9e4c16f0">SML::Normal</a> = 0
-, <a class="el" href="namespace_s_m_l.html#affce2ad0a7abe78bf0a9928e62b02fb1ad0bf83bf5396b08b6435d781c969c228">SML::Leap</a>
+<tr class="memdesc:ga52141558af3f62577ffba7839744afec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with months.  <a href="group___time___date.html#ga52141558af3f62577ffba7839744afec">More...</a><br /></td></tr>
+<tr class="separator:ga52141558af3f62577ffba7839744afec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffce2ad0a7abe78bf0a9928e62b02fb1"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#gaffce2ad0a7abe78bf0a9928e62b02fb1">SML::Year_t</a> : uint8_t { <a class="el" href="group___time___date.html#ggaffce2ad0a7abe78bf0a9928e62b02fb1a960b44c579bc2f6818d2daaf9e4c16f0">SML::Year_t::Normal</a> = 0
+, <a class="el" href="group___time___date.html#ggaffce2ad0a7abe78bf0a9928e62b02fb1ad0bf83bf5396b08b6435d781c969c228">SML::Year_t::Leap</a>
  }</td></tr>
-<tr class="memdesc:affce2ad0a7abe78bf0a9928e62b02fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with year types.  <a href="namespace_s_m_l.html#affce2ad0a7abe78bf0a9928e62b02fb1">More...</a><br /></td></tr>
-<tr class="separator:affce2ad0a7abe78bf0a9928e62b02fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a748b8d11884c9d352b088aac94d03bf2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2">SML::Semaphore_t</a> : uint8_t { <a class="el" href="namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2ab24ce0cd392a5b0b8dedc66c25213594">SML::Free</a> = 0
-, <a class="el" href="namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2ab5fd62647318e67746a6859e88913280">SML::Taken</a>
- }</td></tr>
-<tr class="memdesc:a748b8d11884c9d352b088aac94d03bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with semaphore statuses.  <a href="namespace_s_m_l.html#a748b8d11884c9d352b088aac94d03bf2">More...</a><br /></td></tr>
-<tr class="separator:a748b8d11884c9d352b088aac94d03bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:gaffce2ad0a7abe78bf0a9928e62b02fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum class with year types.  <a href="group___time___date.html#gaffce2ad0a7abe78bf0a9928e62b02fb1">More...</a><br /></td></tr>
+<tr class="separator:gaffce2ad0a7abe78bf0a9928e62b02fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3561fba48e92dde5432b6bde26762707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a3561fba48e92dde5432b6bde26762707">SML::fill</a> (void *address, const uint8_t value, uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
-<tr class="memdesc:a3561fba48e92dde5432b6bde26762707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill <code>len</code> bytes from <code>address</code> with <code>value</code>.  <br /></td></tr>
-<tr class="separator:a3561fba48e92dde5432b6bde26762707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81027697f6ff2af43f7f0b6710d4376b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a81027697f6ff2af43f7f0b6710d4376b">SML::copy</a> (const void *source, void *destination, uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
-<tr class="memdesc:a81027697f6ff2af43f7f0b6710d4376b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy <code>len</code> bytes from <code>source</code> to <code>destination</code>.  <br /></td></tr>
-<tr class="separator:a81027697f6ff2af43f7f0b6710d4376b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3561fba48e92dde5432b6bde26762707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data___operations.html#ga3561fba48e92dde5432b6bde26762707">SML::fill</a> (void *address, const uint8_t value, uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
+<tr class="memdesc:ga3561fba48e92dde5432b6bde26762707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill <code>len</code> bytes from <code>address</code> with <code>value</code>.  <br /></td></tr>
+<tr class="separator:ga3561fba48e92dde5432b6bde26762707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga81027697f6ff2af43f7f0b6710d4376b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___data___operations.html#ga81027697f6ff2af43f7f0b6710d4376b">SML::copy</a> (const void *source, void *destination, uint16_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
+<tr class="memdesc:ga81027697f6ff2af43f7f0b6710d4376b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy <code>len</code> bytes from <code>source</code> to <code>destination</code>.  <br /></td></tr>
+<tr class="separator:ga81027697f6ff2af43f7f0b6710d4376b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab2632666755c050d1c43be8edbe49566"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#gab2632666755c050d1c43be8edbe49566">SML::swapEndian</a> (void *output, const void *input, const uint8_t <a class="el" href="group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9">len</a>)</td></tr>
 <tr class="memdesc:gab2632666755c050d1c43be8edbe49566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap endian.  <br /></td></tr>
 <tr class="separator:gab2632666755c050d1c43be8edbe49566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8ceb83d360a98426d47e11ca96cd2ba"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#ac8ceb83d360a98426d47e11ca96cd2ba">SML::isDigit</a> (const char ch)</td></tr>
 <tr class="memdesc:ac8ceb83d360a98426d47e11ca96cd2ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if character is digit.  <br /></td></tr>
 <tr class="separator:ac8ceb83d360a98426d47e11ca96cd2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19239b179d7579c312c6f973229411d1"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a19239b179d7579c312c6f973229411d1">SML::char2Num</a> (const char ch)</td></tr>
-<tr class="memdesc:a19239b179d7579c312c6f973229411d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert character to number.  <br /></td></tr>
-<tr class="separator:a19239b179d7579c312c6f973229411d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3a2924d3389ef959c6fbe92b0a64e02"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#ac3a2924d3389ef959c6fbe92b0a64e02">SML::isMinute</a> (const uint8_t in)</td></tr>
-<tr class="memdesc:ac3a2924d3389ef959c6fbe92b0a64e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value as minute.  <br /></td></tr>
-<tr class="separator:ac3a2924d3389ef959c6fbe92b0a64e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46140995f57b4b43148cbdc3d969513c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a46140995f57b4b43148cbdc3d969513c">SML::isSecond</a> (const uint8_t in)</td></tr>
-<tr class="memdesc:a46140995f57b4b43148cbdc3d969513c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value as second.  <br /></td></tr>
-<tr class="separator:a46140995f57b4b43148cbdc3d969513c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb67922fd9db53e7ee6548fc8e729f2d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#afb67922fd9db53e7ee6548fc8e729f2d">SML::isHour</a> (const uint8_t in, const <a class="el" href="namespace_s_m_l.html#affdd198f319c0ac57d7f5e2e1da2bc8e">SML::TimeFormat_t</a> format)</td></tr>
-<tr class="memdesc:afb67922fd9db53e7ee6548fc8e729f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value for hours.  <br /></td></tr>
-<tr class="separator:afb67922fd9db53e7ee6548fc8e729f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fb4acf29a720f2e669c58f6d1597027"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#affce2ad0a7abe78bf0a9928e62b02fb1">SML::Year_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a1fb4acf29a720f2e669c58f6d1597027">SML::getYearType</a> (const uint16_t year)</td></tr>
-<tr class="memdesc:a1fb4acf29a720f2e669c58f6d1597027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get year type.  <br /></td></tr>
-<tr class="separator:a1fb4acf29a720f2e669c58f6d1597027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2357ec1eaccfe9d85cf981f16a4e5e4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_s_m_l.html#a2357ec1eaccfe9d85cf981f16a4e5e4e">SML::isDateValid</a> (const uint8_t day, const uint8_t month, const uint16_t year)</td></tr>
-<tr class="memdesc:a2357ec1eaccfe9d85cf981f16a4e5e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate date.  <br /></td></tr>
-<tr class="separator:a2357ec1eaccfe9d85cf981f16a4e5e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19239b179d7579c312c6f973229411d1"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___string.html#ga19239b179d7579c312c6f973229411d1">SML::char2Num</a> (const char ch)</td></tr>
+<tr class="memdesc:ga19239b179d7579c312c6f973229411d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert character to number.  <br /></td></tr>
+<tr class="separator:ga19239b179d7579c312c6f973229411d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3a2924d3389ef959c6fbe92b0a64e02"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#gac3a2924d3389ef959c6fbe92b0a64e02">SML::isMinute</a> (const uint8_t in)</td></tr>
+<tr class="memdesc:gac3a2924d3389ef959c6fbe92b0a64e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value as minute.  <br /></td></tr>
+<tr class="separator:gac3a2924d3389ef959c6fbe92b0a64e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46140995f57b4b43148cbdc3d969513c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#ga46140995f57b4b43148cbdc3d969513c">SML::isSecond</a> (const uint8_t in)</td></tr>
+<tr class="memdesc:ga46140995f57b4b43148cbdc3d969513c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value as second.  <br /></td></tr>
+<tr class="separator:ga46140995f57b4b43148cbdc3d969513c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb67922fd9db53e7ee6548fc8e729f2d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#gafb67922fd9db53e7ee6548fc8e729f2d">SML::isHour</a> (const uint8_t in, const <a class="el" href="group___time___date.html#gaffdd198f319c0ac57d7f5e2e1da2bc8e">SML::TimeFormat_t</a> format)</td></tr>
+<tr class="memdesc:gafb67922fd9db53e7ee6548fc8e729f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate input value for hours.  <br /></td></tr>
+<tr class="separator:gafb67922fd9db53e7ee6548fc8e729f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1fb4acf29a720f2e669c58f6d1597027"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="group___time___date.html#gaffce2ad0a7abe78bf0a9928e62b02fb1">SML::Year_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#ga1fb4acf29a720f2e669c58f6d1597027">SML::getYearType</a> (const uint16_t year)</td></tr>
+<tr class="memdesc:ga1fb4acf29a720f2e669c58f6d1597027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get year type.  <br /></td></tr>
+<tr class="separator:ga1fb4acf29a720f2e669c58f6d1597027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2357ec1eaccfe9d85cf981f16a4e5e4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___time___date.html#ga2357ec1eaccfe9d85cf981f16a4e5e4e">SML::isDateValid</a> (const uint8_t day, const uint8_t month, const uint16_t year)</td></tr>
+<tr class="memdesc:ga2357ec1eaccfe9d85cf981f16a4e5e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate date.  <br /></td></tr>
+<tr class="separator:ga2357ec1eaccfe9d85cf981f16a4e5e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabc21474970224575407d8e99855d4418"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___math.html#gabc21474970224575407d8e99855d4418">SML::abs</a> (float in)</td></tr>
 <tr class="memdesc:gabc21474970224575407d8e99855d4418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return float absolute value.  <br /></td></tr>
 <tr class="separator:gabc21474970224575407d8e99855d4418"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -348,6 +353,24 @@ Functions</h2></td></tr>
 <tr class="memitem:gadf1ab3ec6e7e683b93cdb2b46de8f2eb"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___conversion.html#gadf1ab3ec6e7e683b93cdb2b46de8f2eb">SML::bcd2Dec</a> (const uint8_t in)</td></tr>
 <tr class="memdesc:gadf1ab3ec6e7e683b93cdb2b46de8f2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 8-bit BCD value to decimal.  <br /></td></tr>
 <tr class="separator:gadf1ab3ec6e7e683b93cdb2b46de8f2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0073c9c69823794a634b7ab4c3895f01"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___string.html#ga0073c9c69823794a634b7ab4c3895f01">SML::isUppercase</a> (const char ch)</td></tr>
+<tr class="memdesc:ga0073c9c69823794a634b7ab4c3895f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check is <code>ch</code> uppercase letter.  <br /></td></tr>
+<tr class="separator:ga0073c9c69823794a634b7ab4c3895f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8020a612bf83f53c9e06f6c1bd001900"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespace_s_m_l.html#a9a5efc2840a3685f8689ad80a81f418d">SML::Answer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___string.html#ga8020a612bf83f53c9e06f6c1bd001900">SML::isLowercase</a> (const char ch)</td></tr>
+<tr class="memdesc:ga8020a612bf83f53c9e06f6c1bd001900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check is <code>ch</code> lowercase letter.  <br /></td></tr>
+<tr class="separator:ga8020a612bf83f53c9e06f6c1bd001900"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0cdfbb62f16c558cc14f7c101efc0d78"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___string.html#ga0cdfbb62f16c558cc14f7c101efc0d78">SML::toUppercase</a> (char ch)</td></tr>
+<tr class="memdesc:ga0cdfbb62f16c558cc14f7c101efc0d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert lowercase letter to uppercase letter.  <br /></td></tr>
+<tr class="separator:ga0cdfbb62f16c558cc14f7c101efc0d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68a228e9cdc305e39b212c1bb68c4c54"><td class="memItemLeft" align="right" valign="top">constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___string.html#ga68a228e9cdc305e39b212c1bb68c4c54">SML::toLowercase</a> (char ch)</td></tr>
+<tr class="memdesc:ga68a228e9cdc305e39b212c1bb68c4c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert uppercase letter to lowercase letter.  <br /></td></tr>
+<tr class="separator:ga68a228e9cdc305e39b212c1bb68c4c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac78c264114e72d47f485192f646b598"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___string.html#gaac78c264114e72d47f485192f646b598">SML::toUppercase</a> (char *input, const char endChar)</td></tr>
+<tr class="memdesc:gaac78c264114e72d47f485192f646b598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert C-string to uppercase.  <br /></td></tr>
+<tr class="separator:gaac78c264114e72d47f485192f646b598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac06450f0de1d667bc5a1b45f0767e129"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___string.html#gac06450f0de1d667bc5a1b45f0767e129">SML::toLowercase</a> (char *input, const char endChar)</td></tr>
+<tr class="memdesc:gac06450f0de1d667bc5a1b45f0767e129"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert C-string to lowercase.  <br /></td></tr>
+<tr class="separator:gac06450f0de1d667bc5a1b45f0767e129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga70357a66d9a26aac4d71030c8208e5b4"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___string.html#ga70357a66d9a26aac4d71030c8208e5b4">SML::tok</a> (char *input, const char separator)</td></tr>
 <tr class="memdesc:ga70357a66d9a26aac4d71030c8208e5b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace desired character with NULL character.  <br /></td></tr>
 <tr class="separator:ga70357a66d9a26aac4d71030c8208e5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -398,10 +421,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3bc7dd06be9fb9ebf69413ad469be244"><td class="memTemplItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___math.html#ga3bc7dd06be9fb9ebf69413ad469be244">SML::sumDigits</a> (T input)</td></tr>
 <tr class="memdesc:ga3bc7dd06be9fb9ebf69413ad469be244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum all integer digits.  <br /></td></tr>
 <tr class="separator:ga3bc7dd06be9fb9ebf69413ad469be244"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga418e8d4462113cf5d9eb228c081a4135"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga418e8d4462113cf5d9eb228c081a4135"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___string.html#ga418e8d4462113cf5d9eb228c081a4135">SML::str2Dec</a> (const char *str, const char endChar)</td></tr>
-<tr class="memdesc:ga418e8d4462113cf5d9eb228c081a4135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert C-string to decimal value.  <br /></td></tr>
-<tr class="separator:ga418e8d4462113cf5d9eb228c081a4135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d14ecb2ce908202365276c11a96720b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga7d14ecb2ce908202365276c11a96720b"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___string.html#ga7d14ecb2ce908202365276c11a96720b">SML::str2Dec</a> (const char *str, const char endChar='\0')</td></tr>
+<tr class="memdesc:ga7d14ecb2ce908202365276c11a96720b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert C-string to decimal value.  <br /></td></tr>
+<tr class="separator:ga7d14ecb2ce908202365276c11a96720b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespace_s_m_l.html" title="Namespace for Simple Miscellaneous Library.">SML</a> header file. </p>
@@ -415,7 +438,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_s_m_l_8hpp.html">SML.hpp</a></li>
-    <li class="footer">Generated on Tue Nov 14 2023 01:04:05 for Simple Miscellaneous Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Wed Nov 15 2023 23:06:57 for Simple Miscellaneous Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

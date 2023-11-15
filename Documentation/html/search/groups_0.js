@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bit_5foperation_0',['Bit_operation',['../group___bit__operation.html',1,'']]]
+  ['bit_5foperation_0',['Bit_Operation',['../group___bit___operation.html',1,'']]]
 ];

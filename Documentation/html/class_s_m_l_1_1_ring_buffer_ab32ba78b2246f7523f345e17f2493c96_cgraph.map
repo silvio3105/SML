@@ -1,0 +1,5 @@
+<map id="SML::RingBuffer::write" name="SML::RingBuffer::write">
+<area shape="rect" id="Node000001" title="Write multiple T type data to ring buffer." alt="" coords="5,5,158,31"/>
+<area shape="rect" id="Node000002" href="$group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9" title="Find length of input C&#45;string." alt="" coords="206,5,279,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,16,190,16,190,21,158,21"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="SML::Logger::print" name="SML::Logger::print">
+<area shape="rect" id="Node000001" title="Print constant C&#45;string." alt="" coords="5,29,134,55"/>
+<area shape="rect" id="Node000002" href="$group___string.html#ga2f1fe38b0f0a4e8e04a1b8cbe83fc0e9" title="Find length of input C&#45;string." alt="" coords="398,5,471,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,35,382,19,382,24,134,41"/>
+<area shape="rect" id="Node000003" href="$class_s_m_l_1_1_logger.html#a3aa7789d198491623fb3c0de003ab791" title="Print constant C&#45;string." alt="" coords="182,55,310,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,49,166,53,166,59,134,54"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="297,51,382,29,383,34,299,57"/>
+<area shape="rect" id="Node000004" href="$class_s_m_l_1_1_logger.html#a43728d0a017a1f370a1415e2eefb0a4c" title="Get logger state." alt="" coords="358,55,510,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="311,65,342,65,342,70,311,70"/>
+</map>

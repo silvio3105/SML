@@ -1,0 +1,9 @@
+<map id="SML::parse" name="SML::parse">
+<area shape="rect" id="Node000001" title="Generic C&#45;string parser." alt="" coords="5,55,94,80"/>
+<area shape="rect" id="Node000002" href="$class_s_m_l_1_1_data.html#afdf0f9ea88797b22630bbdc0af3ce69f" title="Get address of the data." alt="" coords="142,5,251,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,51,140,34,142,39,91,57"/>
+<area shape="rect" id="Node000003" href="$class_s_m_l_1_1_data.html#ac11027a7f6d8b4a5ce57770574d51777" title="Get data length." alt="" coords="142,55,251,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,65,126,65,126,70,94,70"/>
+<area shape="rect" id="Node000004" href="$class_s_m_l_1_1_data.html#a420da23b631eaeef0b4f8019faf0e65e" title="Set new data." alt="" coords="142,104,251,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="91,78,142,96,140,101,89,84"/>
+</map>

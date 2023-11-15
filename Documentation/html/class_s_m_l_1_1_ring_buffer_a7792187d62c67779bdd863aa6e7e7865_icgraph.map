@@ -1,0 +1,11 @@
+<map id="SML::RingBuffer::used" name="SML::RingBuffer::used">
+<area shape="rect" id="Node000001" title="Fetch number of used data slots in ring buffer." alt="" coords="408,55,561,80"/>
+<area shape="rect" id="Node000002" href="$class_s_m_l_1_1_ring_buffer.html#a3d8f661a274b92e1f3a08e1a8ea301f6" title="Fetch number of free data in ring buffer." alt="" coords="211,5,359,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,53,339,34,341,29,415,48"/>
+<area shape="rect" id="Node000004" href="$class_s_m_l_1_1_ring_buffer.html#a326a41cb66d5c1ed86d5aac6be9d04cb" title="Read signle data slot from ring buffer." alt="" coords="210,55,360,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="393,70,361,70,361,65,393,65"/>
+<area shape="rect" id="Node000005" href="$class_s_m_l_1_1_ring_buffer.html#ab964453444370d29c6fb7516c09403bf" title="Read multiple data slots from ring buffer." alt="" coords="210,104,360,130"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="415,87,341,106,339,101,414,82"/>
+<area shape="rect" id="Node000003" href="$class_s_m_l_1_1_ring_buffer.html#ac679b8aa1852ced2cf5d89dcb403a28e" title="Check is ring buffer full." alt="" coords="5,5,162,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,21,162,21,162,16,196,16"/>
+</map>
