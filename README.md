@@ -4,16 +4,50 @@
 This is my custom library with miscellaneous functions. It is written in C++. All functions are part of `SML` namespace.
 Library contains:
 
-- Bit manipulation functions
+- Bit functions
 - Math functions
-- String manipulation functions
+- String functions
 - Conversion functions
 - Generic parser
 - Ring buffer
 - Data object
 - Logger
+- Copier
+- Time and Date functions
+- Various enum classes, including return statuses
+
+
+# How to use
+
+This is header-only library and defines and delcarations are separated with `SML_IMPLEMENTATION` macro.
+Only one translation unit must have defined `SML_IMPLEMENTATION` before `#include "SML.hpp"`.
+
+Example:
+
+`Main.cpp`
+```cpp
+#define SML_IMPLEMENTATION
+#include "SML.hpp"
+
+// Code here
+
+```
+
+`Other.cpp`
+```cpp
+#include "SML.hpp"
+
+// Code here
+
+```
+
+# Documentation
 
 Library documentation is available at `Documentation/html/index.html`.
+
+
+# Examples
+
 Example applications are available at `Examples` folder. All examples are made with STM HAL framework.
 
 # License
