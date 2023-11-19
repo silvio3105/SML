@@ -96,17 +96,37 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizab
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> This is my custom library with miscellaneous functions. It is written in C++. All functions are part of <code><a class="el" href="namespace_s_m_l.html" title="Namespace for Simple Miscellaneous Library.">SML</a></code> namespace. Library contains:</p>
 <ul>
-<li>Bit manipulation functions</li>
+<li>Bit functions</li>
 <li>Math functions</li>
-<li>String manipulation functions</li>
+<li>String functions</li>
 <li>Conversion functions</li>
 <li>Generic parser</li>
 <li>Ring buffer</li>
 <li>Data object</li>
 <li>Logger</li>
+<li>Copier</li>
+<li>Time and Date functions</li>
+<li>Various enum classes, including return statuses</li>
 </ul>
-<p>Library documentation is available at <code>Documentation/html/index.html</code>. Example applications are available at <code>Examples</code> folder. All examples are made with STM HAL framework.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
+How to use</h1>
+<p>This is header-only library and defines and delcarations are separated with <code>SML_IMPLEMENTATION</code> macro. Only one translation unit must have defined <code>SML_IMPLEMENTATION</code> before <code>#include "SML.hpp"</code>.</p>
+<p>Example:</p>
+<p><code>Main.cpp</code> </p><div class="fragment"><div class="line"><span class="preprocessor">#define SML_IMPLEMENTATION</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_s_m_l_8hpp.html">SML.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Code here</span></div>
+<div class="ttc" id="a_s_m_l_8hpp_html"><div class="ttname"><a href="_s_m_l_8hpp.html">SML.hpp</a></div><div class="ttdoc">SML header file.</div></div>
+</div><!-- fragment --><p><code>Other.cpp</code> </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_s_m_l_8hpp.html">SML.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Code here</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
+Documentation</h1>
+<p>Library documentation is available at <code>Documentation/html/index.html</code>.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Examples</h1>
+<p>Example applications are available at <code>Examples</code> folder. All examples are made with STM HAL framework.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
 License</h1>
 <p>Copyright (c) 2023, silvio3105 (www.github.com/silvio3105)</p>
 <p>Access and use of this Project and its contents are granted free of charge to any Person. The Person is allowed to copy, modify and use The Project and its contents only for non-commercial use. Commercial use of this Project and its contents is prohibited. Modifying this License and/or sublicensing is prohibited.</p>
@@ -120,7 +140,7 @@ License</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Nov 15 2023 23:06:57 for Simple Miscellaneous Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Generated on Sun Nov 19 2023 19:47:15 for Simple Miscellaneous Library by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

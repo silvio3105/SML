@@ -26,7 +26,10 @@ var NAVTREE =
 [
   [ "Simple Miscellaneous Library", "index.html", [
     [ "Simple Miscellaneous Library", "md__r_e_a_d_m_e.html", [
-      [ "License", "md__r_e_a_d_m_e.html#autotoc_md1", null ]
+      [ "How to use", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Examples", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "License", "md__r_e_a_d_m_e.html#autotoc_md4", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
