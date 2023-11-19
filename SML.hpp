@@ -272,99 +272,8 @@ This License shall be included in all functional textual files.
 /** @} */
 
 
-// ----- DEBUG STUFF
-#if defined(DEBUG) && defined(DEBUG_HANDLER) && !defined(DEBUG_LEVEL)
-/**
- * @brief Debug level.
- * 
- * All levels above selected are also included.
- * 
- * Debug levels: 
- * 0 = Verbose
- * 1 = Info
- * 2 = Warnings
- * 3 = Errors
- */
-#define DEBUG_LEVEL 			0
-#warning "[SML] Debug level not selected! Forced to level 0(verbose)."
-#endif // DEBUG && DEBUG_HANDLER
-
-
 // C++ STUFF
 #ifdef __cplusplus
-
-// Define debug functions for SML copy
-#if defined(DEBUG_SML_COPY) && defined(DEBUG) && defined(DEBUG_HANDLER)
-	void DEBUG_HANDLER(const char* str, ...);
-
-	#if DEBUG_LEVEL <= 3
-		#define __SML_COPY_ERROR_LOG DEBUG_HANDLER
-	#else
-		#define __SML_COPY_ERROR_LOG(...)
-	#endif
-	#if DEBUG_LEVEL <= 2
-		#define __SML_COPY_WARNING_LOG DEBUG_HANDLER
-	#else
-		#define __SML_COPY_WARNING_LOG(...)
-	#endif
-	#if DEBUG_LEVEL <= 1
-		#define __SML_COPY_INFO_LOG DEBUG_HANDLER
-	#else
-		#define __SML_COPY_INFO_LOG(...)
-	#endif
-	#if DEBUG_LEVEL == 0
-		#define __SML_COPY_VERBOSE_LOG DEBUG_HANDLER
-	#else
-		#define __SML_COPY_VERBOSE_LOG(...)
-	#endif
-#else 
-	/// @{
-	/**
-	 * @private
-	*/
-	#define __SML_COPY_ERROR_LOG(...)
-	#define __SML_COPY_WARNING_LOG(...)
-	#define __SML_COPY_INFO_LOG(...)
-	#define __SML_COPY_VERBOSE_LOG(...)
-	/// @}
-#endif
-
-// Define debug functions for SML ring buffer
-#if defined(DEBUG_SML_RC) && defined(DEBUG) && defined(DEBUG_HANDLER)
-	void DEBUG_HANDLER(const char* str, ...);
-
-	#if DEBUG_LEVEL <= 3
-		#define __SML_RB_ERROR_LOG DEBUG_HANDLER
-	#else
-		#define __SML_RB_ERROR_LOG(...)
-	#endif
-	#if DEBUG_LEVEL <= 2
-		#define __SML_RB_WARNING_LOG DEBUG_HANDLER
-	#else
-		#define __SML_RB_WARNING_LOG(...)
-	#endif
-	#if DEBUG_LEVEL <= 1
-		#define __SML_RB_INFO_LOG DEBUG_HANDLER
-	#else
-		#define __SML_RB_INFO_LOG(...)
-	#endif
-	#if DEBUG_LEVEL == 0
-		#define __SML_RB_VERBOSE_LOG DEBUG_HANDLER
-	#else
-		#define __SML_RB_VERBOSE_LOG(...)
-	#endif
-#else 
-	/// @{
-	/**
-	 * @private
-	*/
-	#define __SML_RB_ERROR_LOG(...)
-	#define __SML_RB_WARNING_LOG(...)
-	#define __SML_RB_INFO_LOG(...)
-	#define __SML_RB_VERBOSE_LOG(...)
-	/// @}
-#endif
-
 
 // ----- NAMESPACES
 /**
@@ -1841,7 +1750,6 @@ namespace SML
 			// Move tail if overflow is detected
 			if (overflow == SML::Answer_t::Yes && pointer == tail)
 			{
-				__SML_RB_WARNING_LOG("Ring buffer %08X overflow\n", this);
 				move(tail, SML::Answer_t::No);
 			}						
 		}
@@ -2307,7 +2215,6 @@ namespace SML
 					// Check for timeout
 					if (tickHandler() - tick > SML_COPY_TIMEOUT)
 					{
-						__SML_COPY_WARNING_LOG("Copier 0x%08X timeouted\n", this);
 						return SML::Return_t::Timeout;
 					}
 
